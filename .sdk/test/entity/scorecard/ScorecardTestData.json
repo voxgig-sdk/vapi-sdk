@@ -1,0 +1,76 @@
+{
+  "existing": {
+    "scorecard": {
+      "SCORECARD00": {
+        "assistantIds": [],
+        "createdAt": "s51",
+        "description": "s52",
+        "id": "SCORECARD00",
+        "metrics": [],
+        "name": "s55",
+        "orgId": "s56",
+        "updatedAt": "s57"
+      },
+      "SCORECARD01": {
+        "assistantIds": [],
+        "createdAt": "sa1",
+        "description": "sa2",
+        "id": "SCORECARD01",
+        "metrics": [],
+        "name": "sa5",
+        "orgId": "sa6",
+        "updatedAt": "sa7"
+      },
+      "SCORECARD02": {
+        "assistantIds": [],
+        "createdAt": "sf1",
+        "description": "sf2",
+        "id": "SCORECARD02",
+        "metrics": [],
+        "name": "sf5",
+        "orgId": "sf6",
+        "updatedAt": "sf7"
+      }
+    }
+  },
+  "new": {
+    "scorecard": {
+      "scorecard_ref01": {
+        "assistantIds": [],
+        "createdAt": "s141",
+        "description": "s142",
+        "metrics": [],
+        "name": "s145",
+        "orgId": "s146",
+        "updatedAt": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /observability/scorecard": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /observability/scorecard": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /observability/scorecard/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /observability/scorecard/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /observability/scorecard/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

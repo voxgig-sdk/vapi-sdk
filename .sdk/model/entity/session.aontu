@@ -1,0 +1,634 @@
+# Entity: session
+
+main: kit: entity: session: {
+
+  alias: field: {}
+
+  fields: {
+    artifact: {
+      h: "Artifact"
+      n: "artifact"
+      r: false
+      sh: "These are the artifacts that were extracted from the session messages."
+      t: "`$ANY`"
+      union: {
+        branches: 5
+        count: 13
+        depth: 19
+      }
+    }
+    assistant: {
+      h: "Assistant"
+      n: "assistant"
+      r: false
+      sh: "This is the assistant configuration for this session."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 19650
+        depth: 53
+      }
+    }
+    assistantId: {
+      h: "Assistant Id"
+      n: "assistantId"
+      r: false
+      sh: "This is the ID of the assistant associated with this session."
+      t: "`$STRING`"
+    }
+    assistantOverrides: {
+      h: "Assistant Overrides"
+      n: "assistantOverrides"
+      r: false
+      sh: "These are the overrides for the assistant configuration."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 5356
+        depth: 37
+      }
+    }
+    cost: {
+      h: "Cost"
+      n: "cost"
+      r: false
+      sh: "This is the cost of the session in USD."
+      t: "`$NUMBER`"
+    }
+    costs: {
+      h: "Costs"
+      n: "costs"
+      r: false
+      sh: "These are the costs of individual components of the session in USD."
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 1
+      }
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "This is the ISO 8601 timestamp indicating when the session was created."
+      t: "`$STRING`"
+    }
+    customer: {
+      h: "Customer"
+      n: "customer"
+      r: false
+      sh: "This is the customer information associated with this session."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 8908
+        depth: 41
+      }
+    }
+    customerId: {
+      h: "Customer Id"
+      n: "customerId"
+      r: false
+      sh: "This is the customerId of the customer associated with this session."
+      t: "`$STRING`"
+    }
+    expirationSeconds: {
+      h: "Expiration Seconds"
+      n: "expirationSeconds"
+      r: false
+      sh: "Session expiration time in seconds."
+      t: "`$NUMBER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "This is the unique identifier for the session."
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: false
+      sh: "This is an array of chat messages in the session."
+      t: "`$ARRAY`"
+      union: {
+        branches: 5
+        count: 1
+        depth: 1
+      }
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "This is a user-defined name for the session."
+      t: "`$STRING`"
+    }
+    orgId: {
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      sh: "This is the unique identifier for the organization that owns this session."
+      t: "`$STRING`"
+    }
+    phoneNumber: {
+      h: "Phone Number"
+      n: "phoneNumber"
+      r: false
+      sh: "This is the phone number configuration for this session."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 30
+        depth: 26
+      }
+    }
+    phoneNumberId: {
+      h: "Phone Number Id"
+      n: "phoneNumberId"
+      r: false
+      sh: "This is the ID of the phone number associated with this session."
+      t: "`$STRING`"
+    }
+    squad: {
+      h: "Squad"
+      n: "squad"
+      r: false
+      sh: "This is the squad configuration for this session."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 12463
+        depth: 49
+      }
+    }
+    squadId: {
+      h: "Squad Id"
+      n: "squadId"
+      r: false
+      sh: "This is the squad ID associated with this session."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "This is the current status of the session."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "This is the ISO 8601 timestamp indicating when the session was last updated."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "session"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /session"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/session"
+          s: [
+            {
+              lit: "session"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /session"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "assistant_id"
+                or: "assistant_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "assistant-1,assistant-2,assistant-3"
+                k: "query"
+                n: "assistant_id_any"
+                or: "assistant_id_any"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "assistant_override"
+                or: "assistant_override"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "+1234567890,+0987654321"
+                k: "query"
+                n: "customer_number_any"
+                or: "customer_number_any"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "email"
+                or: "email"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: null
+                k: "query"
+                n: "extension"
+                or: "extension"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "external_id"
+                or: "external_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id_any"
+                or: "id_any"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "number"
+                or: "number"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "number_e164_check_enabled"
+                or: "number_e164_check_enabled"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "phone_number_id"
+                or: "phone_number_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "phone_number_id_any"
+                or: "phone_number_id_any"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "sip_uri"
+                or: "sip_uri"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "squad_id"
+                or: "squad_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "squad_override"
+                or: "squad_override"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "workflow_id"
+                or: "workflow_id"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/session"
+          q: {
+            exist: [
+              "assistant_id"
+              "assistant_id_any"
+              "assistant_override"
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "customer_number_any"
+              "email"
+              "extension"
+              "external_id"
+              "id"
+              "id_any"
+              "limit"
+              "name"
+              "number"
+              "number_e164_check_enabled"
+              "page"
+              "phone_number_id"
+              "phone_number_id_any"
+              "sip_uri"
+              "sort_by"
+              "sort_order"
+              "squad_id"
+              "squad_override"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+              "workflow_id"
+            ]
+          }
+          s: [
+            {
+              lit: "session"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /session/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/session/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "session"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /session/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/session/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "session"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /session/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/session/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "session"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

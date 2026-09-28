@@ -1,0 +1,64 @@
+# BasicKnowledgeBaseV2FileFlow
+
+main: kit: flow: BasicKnowledgeBaseV2FileFlow:
+{
+  entity: "knowledge_base_v2_file",
+  kind: "basic",
+  name: "BasicKnowledgeBaseV2FileFlow",
+  step: [
+    {
+      i: {
+        ref: "knowledge_base_v2_file_ref01"
+      }
+
+      m: {
+        knowledge_base_id: "knowledge_base01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "knowledge_base_v2_file_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "knowledge_base_v2_file_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "knowledge_base_v2_file01",
+        knowledge_base_id: "knowledge_base01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "knowledge_base_v2_file_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicKnowledgeBaseV2FileFlow"
+}

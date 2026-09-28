@@ -1,0 +1,85 @@
+# BasicSimulationRunItemFlow
+
+main: kit: flow: BasicSimulationRunItemFlow:
+{
+  entity: "simulation_run_item",
+  kind: "basic",
+  name: "BasicSimulationRunItemFlow",
+  step: [
+    {
+      i: {
+        ref: "simulation_run_item_ref01"
+      }
+
+      m: {
+        item_id: "item01",
+        run_id: "run01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        run_id: "run01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "simulation_run_item_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        run_id: "run01"
+      }
+
+      i: {
+        ref: "simulation_run_item_ref01",
+        srcdatavar: "simulation_run_item_ref01_data",
+        suffix: "_up0",
+        textfield: "callId"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-simulation_run_item_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "simulation_run_item_ref01",
+        srcdatavar: "simulation_run_item_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "simulation_run_item01",
+        run_id: "run01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-simulation_run_item_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSimulationRunItemFlow"
+}

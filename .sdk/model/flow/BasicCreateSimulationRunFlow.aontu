@@ -1,0 +1,18 @@
+# BasicCreateSimulationRunFlow
+
+main: kit: flow: BasicCreateSimulationRunFlow:
+{
+  entity: "create_simulation_run",
+  kind: "basic",
+  name: "BasicCreateSimulationRunFlow",
+  step: [
+    {
+      i: {
+        ref: "create_simulation_run_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCreateSimulationRunFlow"
+}

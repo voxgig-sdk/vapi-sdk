@@ -1,0 +1,94 @@
+{
+  "existing": {
+    "simulation": {
+      "SIMULATION00": {
+        "assistantId": "s64",
+        "createdAt": "s65",
+        "id": "SIMULATION00",
+        "name": "s67",
+        "orgId": "s68",
+        "path": "s69",
+        "personalityId": "s6a",
+        "scenarioId": "s6b",
+        "squadId": "s6c",
+        "updatedAt": "s6d"
+      },
+      "SIMULATION01": {
+        "assistantId": "sc8",
+        "createdAt": "sc9",
+        "id": "SIMULATION01",
+        "name": "scb",
+        "orgId": "scc",
+        "path": "scd",
+        "personalityId": "sce",
+        "scenarioId": "scf",
+        "squadId": "sd0",
+        "updatedAt": "sd1"
+      },
+      "SIMULATION02": {
+        "assistantId": "s12c",
+        "createdAt": "s12d",
+        "id": "SIMULATION02",
+        "name": "s12f",
+        "orgId": "s130",
+        "path": "s131",
+        "personalityId": "s132",
+        "scenarioId": "s133",
+        "squadId": "s134",
+        "updatedAt": "s135"
+      }
+    }
+  },
+  "new": {
+    "simulation": {
+      "simulation_ref01": {
+        "assistantId": "s190",
+        "createdAt": "s191",
+        "name": "s193",
+        "orgId": "s194",
+        "path": "s195",
+        "personalityId": "s196",
+        "scenarioId": "s197",
+        "squadId": "s198",
+        "updatedAt": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /eval/simulation": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /eval/simulation/scenario/generate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/simulation": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/simulation/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/simulation/concurrency": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /eval/simulation/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /eval/simulation/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

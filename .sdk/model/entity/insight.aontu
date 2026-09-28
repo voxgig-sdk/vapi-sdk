@@ -1,0 +1,442 @@
+# Entity: insight
+
+main: kit: entity: insight: {
+
+  alias: field: {}
+
+  fields: {
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the Insight was created."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "This is the unique identifier for the Insight."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "This is the name of the Insight."
+      t: "`$STRING`"
+    }
+    orgId: {
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      sh: "This is the unique identifier for the org that this Insight belongs to."
+      t: "`$STRING`"
+    }
+    systemKey: {
+      h: "System Key"
+      n: "systemKey"
+      r: false
+      sh: "Stable server-owned identifier for system-created insights."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "This is the type of the Insight."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the Insight was last updated."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "insight"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /reporting/insight/{id}/run"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/reporting/insight/{id}/run"
+          q: {
+            "$action": "run"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "insight"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /reporting/insight"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/reporting/insight"
+          s: [
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "insight"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /reporting/insight/preview"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/reporting/insight/preview"
+          q: {
+            "$action": "preview"
+          }
+          s: [
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "insight"
+            }
+            {
+              lit: "preview"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /reporting/insight"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/reporting/insight"
+          q: {
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "limit"
+              "page"
+              "sort_by"
+              "sort_order"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          s: [
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "insight"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /reporting/insight/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/reporting/insight/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "insight"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /reporting/insight/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/reporting/insight/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "insight"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /reporting/insight/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/reporting/insight/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "reporting"
+            }
+            {
+              lit: "insight"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

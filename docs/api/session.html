@@ -1,0 +1,1249 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Session | Vapi API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Vapi API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/vapi-sdk">voxgig-sdk/vapi-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Vapi API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/analytics.html">Analytics</a>
+<a href="../api/assistant.html">Assistant</a>
+<a href="../api/board.html">Board</a>
+<a href="../api/call.html">Call</a>
+<a href="../api/campaign.html">Campaign</a>
+<a href="../api/chat.html">Chat</a>
+<a href="../api/create_simulation_run.html">CreateSimulationRun</a>
+<a href="../api/eval.html">Eval</a>
+<a href="../api/file.html">File</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/knowledge_base.html">KnowledgeBase</a>
+<a href="../api/knowledge_base_v2_file.html">KnowledgeBaseV2File</a>
+<a href="../api/personality.html">Personality</a>
+<a href="../api/phone_number.html">PhoneNumber</a>
+<a href="../api/provider.html">Provider</a>
+<a href="../api/scenario.html">Scenario</a>
+<a href="../api/scorecard.html">Scorecard</a>
+<a aria-current="page" href="../api/session.html">Session</a><div class="nav-sections"><a class="nav-section" href="#post-session">POST /session</a>
+<a class="nav-section" href="#get-session">GET /session</a>
+<a class="nav-section" href="#get-sessionid">GET /session/{id}</a>
+<a class="nav-section" href="#delete-sessionid">DELETE /session/{id}</a>
+<a class="nav-section" href="#patch-sessionid">PATCH /session/{id}</a></div>
+<a href="../api/simulation.html">Simulation</a>
+<a href="../api/simulation_run.html">SimulationRun</a>
+<a href="../api/simulation_run_item.html">SimulationRunItem</a>
+<a href="../api/simulation_suite.html">SimulationSuite</a>
+<a href="../api/squad.html">Squad</a>
+<a href="../api/structured_output.html">StructuredOutput</a>
+<a href="../api/tool.html">Tool</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="session">Session</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-session"><code>/session</code></a></td>
+<td><code>create</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-session"><code>/session</code></a></td>
+<td><code>list</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-sessionid"><code>/session/{id}</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-sessionid"><code>/session/{id}</code></a></td>
+<td><code>remove</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-sessionid"><code>/session/{id}</code></a></td>
+<td><code>update</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">sessions, err := client.Session(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(sessions)
+session, err := client.Session(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(session)
+created, err := client.Session(nil).Create(map[string]any{&quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;orgId&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.Session(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;artifact&quot;: &quot;example&quot;, &quot;assistant&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.Session(nil).Remove(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local sessions, err = client:Session():list()
+local session, err = client:Session():load({ id = &quot;example_id&quot; })
+local created, err = client:Session():create({ createdAt = &quot;example&quot;, id = &quot;example&quot;, orgId = &quot;example&quot;, updatedAt = &quot;example&quot; })
+local updated, err = client:Session():update({ id = &quot;example_id&quot;, artifact = &quot;example&quot;, assistant = &quot;example&quot; })
+local removed, err = client:Session():remove({ id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$sessions = $client-&gt;Session()-&gt;list();
+$session = $client-&gt;Session()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;Session()-&gt;create([&quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;orgId&quot; =&gt; &quot;example&quot;, &quot;updatedAt&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;Session()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;artifact&quot; =&gt; &quot;example&quot;, &quot;assistant&quot; =&gt; &quot;example&quot;]);
+$client-&gt;Session()-&gt;remove([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">sessions = client.Session().list()
+session = client.Session().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.Session().create({ &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;orgId&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot; })
+updated = client.Session().update({&quot;id&quot;: &quot;example_id&quot;, &quot;artifact&quot;: &quot;example&quot;, &quot;assistant&quot;: &quot;example&quot;})
+client.Session().remove({&quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">sessions = client.Session.list()
+session = client.Session.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.Session.create({ &quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;orgId&quot; =&gt; &quot;example&quot;, &quot;updatedAt&quot; =&gt; &quot;example&quot; })
+updated = client.Session.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;artifact&quot; =&gt; &quot;example&quot;, &quot;assistant&quot; =&gt; &quot;example&quot; })
+client.Session.remove({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const sessions = await client.Session().list()
+const session = await client.Session().load({ id: &quot;example_id&quot; })
+const created = await client.Session().create({ createdAt: &quot;example&quot;, id: &quot;example&quot;, orgId: &quot;example&quot;, updatedAt: &quot;example&quot; })
+const updated = await client.Session().update({ id: &quot;example_id&quot;, artifact: &quot;example&quot;, assistant: &quot;example&quot; })
+await client.Session().remove({ id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artifact</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>These are the artifacts that were extracted from the session messages.</td>
+</tr>
+<tr>
+<td><code>assistant</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the assistant configuration for this session.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the assistant associated with this session.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant configuration.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the session in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the session in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was created.</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the customer information associated with this session.</td>
+</tr>
+<tr>
+<td><code>customerId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the customerId of the customer associated with this session.</td>
+</tr>
+<tr>
+<td><code>expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the session.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>This is an array of chat messages in the session.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is a user-defined name for the session.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the organization that owns this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the phone number configuration for this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the phone number associated with this session.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the squad configuration for this session.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID associated with this session.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the current status of the session.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-session" class="operation" data-method="post"><code>POST</code> /session</h3>
+<p>Operation ID: <code>SessionController_create</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant configuration for this session. Use this when creating a new assistant configuration. If assistantId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the assistant associated with this session. Use this when referencing an existing assistant.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant configuration. Use this to provide variable values and other overrides when using assistantId. Variable substitution will be applied to the assistant's messages and other text-based fields.</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the customer information associated with this session.</td>
+</tr>
+<tr>
+<td><code>customerId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the customerId of the customer associated with this session.</td>
+</tr>
+<tr>
+<td><code>expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of chat messages in the session.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is a user-defined name for the session. Maximum length is 40 characters.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the phone number configuration for this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the phone number associated with this session.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad configuration for this session. Use this when creating a new squad configuration. If squadId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID associated with this session. Use this when referencing an existing squad.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: active, completed</code></td>
+<td>No</td>
+<td>This is the current status of the session. Can be either 'active' or 'completed'.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="201" class="status" data-status="2xx">201</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artifact</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the artifacts that were extracted from the session messages. They are only available after the session has completed. The artifact plan from the assistant or active assistant of squad is used to generate the artifact. Currently the only supported fields of assistant artifact plan are: - structuredOutputIds</td>
+</tr>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant configuration for this session. Use this when creating a new assistant configuration. If assistantId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the assistant associated with this session. Use this when referencing an existing assistant.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant configuration. Use this to provide variable values and other overrides when using assistantId. Variable substitution will be applied to the assistant's messages and other text-based fields.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the session in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array of object or object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the session in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was created.</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the customer information associated with this session.</td>
+</tr>
+<tr>
+<td><code>customerId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the customerId of the customer associated with this session.</td>
+</tr>
+<tr>
+<td><code>expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the session.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of chat messages in the session.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is a user-defined name for the session. Maximum length is 40 characters.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the organization that owns this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the phone number configuration for this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the phone number associated with this session.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad configuration for this session. Use this when creating a new squad configuration. If squadId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID associated with this session. Use this when referencing an existing squad.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: active, completed</code></td>
+<td>No</td>
+<td>This is the current status of the session. Can be either 'active' or 'completed'.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-session" class="operation" data-method="get"><code>GET</code> /session</h3>
+<p>Operation ID: <code>SessionController_findAllPaginated</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>query</code> | <code>string</code> | No | This is the unique identifier for the session to filter by. |
+| <code>name</code> | <code>query</code> | <code>string</code> | No | This is the name of the session to filter by. |
+| <code>assistantId</code> | <code>query</code> | <code>string</code> | No | This is the ID of the assistant to filter sessions by. |
+| <code>assistantIdAny</code> | <code>query</code> | <code>string</code> | No | Filter by multiple assistant IDs. Provide as comma-separated values. |
+| <code>squadId</code> | <code>query</code> | <code>string</code> | No | This is the ID of the squad to filter sessions by. |
+| <code>workflowId</code> | <code>query</code> | <code>string</code> | No | This is the ID of the workflow to filter sessions by. |
+| <code>numberE164CheckEnabled</code> | <code>query</code> | <code>boolean</code> | No | This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled) |
+| <code>extension</code> | <code>query</code> | <code>string</code> | No | This is the extension that will be dialed after the call is answered. |
+| <code>assistantOverrides</code> | <code>query</code> | <code>any</code> | No | These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls. |
+| <code>squadOverrides</code> | <code>query</code> | <code>any</code> | No | These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based. |
+| <code>number</code> | <code>query</code> | <code>string</code> | No | This is the number of the customer. |
+| <code>sipUri</code> | <code>query</code> | <code>string</code> | No | This is the SIP URI of the customer. |
+| <code>name</code> | <code>query</code> | <code>string</code> | No | This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>. |
+| <code>email</code> | <code>query</code> | <code>string</code> | No | This is the email of the customer. |
+| <code>externalId</code> | <code>query</code> | <code>string</code> | No | This is the external ID of the customer. |
+| <code>customerNumberAny</code> | <code>query</code> | <code>string</code> | No | Filter by any of the specified customer phone numbers (comma-separated). |
+| <code>idAny</code> | <code>query</code> | <code>string</code> | No | Filter by multiple session IDs. Provide as comma-separated values. |
+| <code>phoneNumberId</code> | <code>query</code> | <code>string</code> | No | This will return sessions with the specified phoneNumberId. |
+| <code>phoneNumberIdAny</code> | <code>query</code> | <code>array of string</code> | No | This will return sessions with any of the specified phoneNumberIds. |
+| <code>page</code> | <code>query</code> | <code>number</code> | No | This is the page number to return. Defaults to 1. |
+| <code>sortOrder</code> | <code>query</code> | <code>enum: ASC, DESC</code> | No | This is the sort order for pagination. Defaults to 'DESC'. |
+| <code>sortBy</code> | <code>query</code> | <code>enum: createdAt, duration, cost</code> | No | This is the column to sort by. Defaults to 'createdAt'. |
+| <code>limit</code> | <code>query</code> | <code>number</code> | No | This is the maximum number of items to return. Defaults to 100. |
+| <code>createdAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than the specified value. |
+| <code>createdAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than the specified value. |
+| <code>createdAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than or equal to the specified value. |
+| <code>createdAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than or equal to the specified value. |
+| <code>updatedAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than the specified value. |
+| <code>updatedAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than the specified value. |
+| <code>updatedAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than or equal to the specified value. |
+| <code>updatedAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than or equal to the specified value. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtGe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtLe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.currentPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.hasNextPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsBeyondRetention</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsPerPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.nextCursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Opaque cursor for the next page under keyset pagination (PRO-3163). Pass it back as the <code>cursor</code> query param to fetch the next page without an OFFSET scan. Present only when a further page likely exists.</td>
+</tr>
+<tr>
+<td><code>metadata.sortOrder</code></td>
+<td><code>enum: ASC, DESC</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalItems</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalPages</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].artifact</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the artifacts that were extracted from the session messages. They are only available after the session has completed. The artifact plan from the assistant or active assistant of squad is used to generate the artifact. Currently the only supported fields of assistant artifact plan are: - structuredOutputIds</td>
+</tr>
+<tr>
+<td><code>results[].assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant configuration for this session. Use this when creating a new assistant configuration. If assistantId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>results[].assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the assistant associated with this session. Use this when referencing an existing assistant.</td>
+</tr>
+<tr>
+<td><code>results[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant configuration. Use this to provide variable values and other overrides when using assistantId. Variable substitution will be applied to the assistant's messages and other text-based fields.</td>
+</tr>
+<tr>
+<td><code>results[].cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the session in USD.</td>
+</tr>
+<tr>
+<td><code>results[].costs</code></td>
+<td><code>array of object or object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the session in USD.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was created.</td>
+</tr>
+<tr>
+<td><code>results[].customer</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the customer information associated with this session.</td>
+</tr>
+<tr>
+<td><code>results[].customerId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the customerId of the customer associated with this session.</td>
+</tr>
+<tr>
+<td><code>results[].expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the session.</td>
+</tr>
+<tr>
+<td><code>results[].messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of chat messages in the session.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is a user-defined name for the session. Maximum length is 40 characters.</td>
+</tr>
+<tr>
+<td><code>results[].orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the organization that owns this session.</td>
+</tr>
+<tr>
+<td><code>results[].phoneNumber</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the phone number configuration for this session.</td>
+</tr>
+<tr>
+<td><code>results[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the phone number associated with this session.</td>
+</tr>
+<tr>
+<td><code>results[].squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad configuration for this session. Use this when creating a new squad configuration. If squadId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>results[].squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID associated with this session. Use this when referencing an existing squad.</td>
+</tr>
+<tr>
+<td><code>results[].status</code></td>
+<td><code>enum: active, completed</code></td>
+<td>No</td>
+<td>This is the current status of the session. Can be either 'active' or 'completed'.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-sessionid" class="operation" data-method="get"><code>GET</code> /session/{id}</h3>
+<p>Operation ID: <code>SessionController_findOne</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-1" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artifact</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the artifacts that were extracted from the session messages. They are only available after the session has completed. The artifact plan from the assistant or active assistant of squad is used to generate the artifact. Currently the only supported fields of assistant artifact plan are: - structuredOutputIds</td>
+</tr>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant configuration for this session. Use this when creating a new assistant configuration. If assistantId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the assistant associated with this session. Use this when referencing an existing assistant.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant configuration. Use this to provide variable values and other overrides when using assistantId. Variable substitution will be applied to the assistant's messages and other text-based fields.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the session in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array of object or object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the session in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was created.</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the customer information associated with this session.</td>
+</tr>
+<tr>
+<td><code>customerId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the customerId of the customer associated with this session.</td>
+</tr>
+<tr>
+<td><code>expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the session.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of chat messages in the session.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is a user-defined name for the session. Maximum length is 40 characters.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the organization that owns this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the phone number configuration for this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the phone number associated with this session.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad configuration for this session. Use this when creating a new squad configuration. If squadId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID associated with this session. Use this when referencing an existing squad.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: active, completed</code></td>
+<td>No</td>
+<td>This is the current status of the session. Can be either 'active' or 'completed'.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-sessionid" class="operation" data-method="delete"><code>DELETE</code> /session/{id}</h3>
+<p>Operation ID: <code>SessionController_remove</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-2" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artifact</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the artifacts that were extracted from the session messages. They are only available after the session has completed. The artifact plan from the assistant or active assistant of squad is used to generate the artifact. Currently the only supported fields of assistant artifact plan are: - structuredOutputIds</td>
+</tr>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant configuration for this session. Use this when creating a new assistant configuration. If assistantId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the assistant associated with this session. Use this when referencing an existing assistant.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant configuration. Use this to provide variable values and other overrides when using assistantId. Variable substitution will be applied to the assistant's messages and other text-based fields.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the session in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array of object or object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the session in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was created.</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the customer information associated with this session.</td>
+</tr>
+<tr>
+<td><code>customerId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the customerId of the customer associated with this session.</td>
+</tr>
+<tr>
+<td><code>expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the session.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of chat messages in the session.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is a user-defined name for the session. Maximum length is 40 characters.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the organization that owns this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the phone number configuration for this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the phone number associated with this session.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad configuration for this session. Use this when creating a new squad configuration. If squadId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID associated with this session. Use this when referencing an existing squad.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: active, completed</code></td>
+<td>No</td>
+<td>This is the current status of the session. Can be either 'active' or 'completed'.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="patch-sessionid" class="operation" data-method="patch"><code>PATCH</code> /session/{id}</h3>
+<p>Operation ID: <code>SessionController_update</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is the updated array of chat messages.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the new name for the session. Maximum length is 40 characters.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: active, completed</code></td>
+<td>No</td>
+<td>This is the new status for the session.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-3" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artifact</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the artifacts that were extracted from the session messages. They are only available after the session has completed. The artifact plan from the assistant or active assistant of squad is used to generate the artifact. Currently the only supported fields of assistant artifact plan are: - structuredOutputIds</td>
+</tr>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant configuration for this session. Use this when creating a new assistant configuration. If assistantId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the assistant associated with this session. Use this when referencing an existing assistant.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant configuration. Use this to provide variable values and other overrides when using assistantId. Variable substitution will be applied to the assistant's messages and other text-based fields.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the session in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array of object or object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the session in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was created.</td>
+</tr>
+<tr>
+<td><code>customer</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the customer information associated with this session.</td>
+</tr>
+<tr>
+<td><code>customerId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the customerId of the customer associated with this session.</td>
+</tr>
+<tr>
+<td><code>expirationSeconds</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Session expiration time in seconds. Defaults to 24 hours (86400 seconds) if not set.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the session.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of chat messages in the session.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is a user-defined name for the session. Maximum length is 40 characters.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the organization that owns this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the phone number configuration for this session.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the phone number associated with this session.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad configuration for this session. Use this when creating a new squad configuration. If squadId is provided, this will be ignored.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID associated with this session. Use this when referencing an existing squad.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: active, completed</code></td>
+<td>No</td>
+<td>This is the current status of the session. Can be either 'active' or 'completed'.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 timestamp indicating when the session was last updated.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

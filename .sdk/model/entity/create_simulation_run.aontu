@@ -1,0 +1,99 @@
+# Entity: create_simulation_run
+
+main: kit: entity: create_simulation_run: {
+
+  alias: field: {}
+
+  fields: {
+    iterations: {
+      h: "Iterations"
+      n: "iterations"
+      r: false
+      sh: "Number of times to run each simulation (default: 1)"
+      t: "`$NUMBER`"
+    }
+    simulations: {
+      h: "Simulations"
+      n: "simulations"
+      r: true
+      sh: "Array of simulations and/or suites to run"
+      t: "`$ARRAY`"
+      union: {
+        branches: 23
+        count: 23009
+        depth: 60
+      }
+    }
+    target: {
+      h: "Target"
+      n: "target"
+      r: true
+      sh: "Target to test against"
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 19861
+        depth: 59
+      }
+    }
+    transport: {
+      h: "Transport"
+      n: "transport"
+      r: false
+      sh: "Transport configuration for the simulation runs"
+      t: "`$ANY`"
+    }
+  }
+
+  name: "create_simulation_run"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /eval/simulation/run"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "user_agent"
+                or: "user_agent"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/eval/simulation/run"
+          q: {
+            exist: [
+              "user_agent"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "simulation"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

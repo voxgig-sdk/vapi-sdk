@@ -1,0 +1,610 @@
+# Entity: simulation_run_item
+
+main: kit: entity: simulation_run_item: {
+
+  alias: field: {}
+
+  fields: {
+    callId: {
+      fo: "uuid"
+      h: "Call Id"
+      n: "callId"
+      r: false
+      sh: "This is the ID of the target Vapi call (the assistant being tested)."
+      t: "`$STRING`"
+    }
+    canceledAt: {
+      fo: "date-time"
+      h: "Canceled At"
+      n: "canceledAt"
+      r: false
+      sh: "This is the ISO 8601 date-time string of when the run was canceled."
+      t: "`$STRING`"
+    }
+    completedAt: {
+      fo: "date-time"
+      h: "Completed At"
+      n: "completedAt"
+      r: false
+      sh: "This is the ISO 8601 date-time string of when the run completed."
+      t: "`$STRING`"
+    }
+    configurations: {
+      h: "Configurations"
+      n: "configurations"
+      r: false
+      sh: "This is the configuration for how this simulation run executes."
+      t: "`$ANY`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the run item was created."
+      t: "`$STRING`"
+    }
+    failedAt: {
+      fo: "date-time"
+      h: "Failed At"
+      n: "failedAt"
+      r: false
+      sh: "This is the ISO 8601 date-time string of when the run failed."
+      t: "`$STRING`"
+    }
+    failureReason: {
+      h: "Failure Reason"
+      n: "failureReason"
+      r: false
+      sh: "This is the reason for failure."
+      t: "`$STRING`"
+    }
+    hooks: {
+      h: "Hooks"
+      n: "hooks"
+      r: false
+      sh: "Hooks configured for this simulation run item"
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 1
+      }
+    }
+    id: {
+      fo: "uuid"
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "This is the unique identifier for the simulation run item."
+      t: "`$STRING`"
+    }
+    improvementSuggestions: {
+      h: "Improvement Suggestions"
+      n: "improvementSuggestions"
+      r: false
+      sh: "This is the AI-generated improvement suggestions for failed runs."
+      t: "`$ANY`"
+    }
+    iterationNumber: {
+      h: "Iteration Number"
+      n: "iterationNumber"
+      r: false
+      sh: "This is the iteration number (1-indexed) when run with iterations > 1."
+      t: "`$NUMBER`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "This is the metadata containing snapshots and call data."
+      t: "`$ANY`"
+    }
+    orgId: {
+      fo: "uuid"
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      sh: "This is the unique identifier for the organization."
+      t: "`$STRING`"
+    }
+    personalityId: {
+      fo: "uuid"
+      h: "Personality Id"
+      n: "personalityId"
+      r: false
+      sh: "This is the personality ID at run creation time."
+      t: "`$STRING`"
+    }
+    queuedAt: {
+      fo: "date-time"
+      h: "Queued At"
+      n: "queuedAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the run was queued."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: false
+      sh: "This is the results of the simulation run."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 7
+      }
+    }
+    runId: {
+      fo: "uuid"
+      h: "Run Id"
+      n: "runId"
+      r: false
+      sh: "This is the ID of the parent run (batch/group)."
+      t: "`$STRING`"
+    }
+    scenarioId: {
+      fo: "uuid"
+      h: "Scenario Id"
+      n: "scenarioId"
+      r: false
+      sh: "This is the scenario ID at run creation time."
+      t: "`$STRING`"
+    }
+    sessionId: {
+      fo: "uuid"
+      h: "Session Id"
+      n: "sessionId"
+      r: false
+      sh: "This is the session ID for chat-based simulations (webchat transport)."
+      t: "`$STRING`"
+    }
+    simulationId: {
+      fo: "uuid"
+      h: "Simulation Id"
+      n: "simulationId"
+      r: true
+      sh: "This is the ID of the simulation this run belongs to."
+      t: "`$STRING`"
+    }
+    startedAt: {
+      fo: "date-time"
+      h: "Started At"
+      n: "startedAt"
+      r: false
+      sh: "This is the ISO 8601 date-time string of when the run started."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "This is the current status of the run."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the run item was last updated."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "simulation_run_item"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /eval/simulation/run/{id}/item/{itemId}/generate"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "item_id"
+                or: "item_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "run_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "force"
+                or: "force"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "persist"
+                or: "persist"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/eval/simulation/run/{id}/item/{itemId}/generate"
+          q: {
+            "$action": "generate"
+            exist: [
+              "force"
+              "item_id"
+              "persist"
+              "run_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "run_id"
+              itemId: "item_id"
+            }
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "simulation"
+            }
+            {
+              lit: "run"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "item"
+            }
+            {
+              var: "item_id"
+            }
+            {
+              lit: "generate"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /eval/simulation/run/{id}/item"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "run_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "run_id"
+                or: "run_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "simulation_id"
+                or: "simulation_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/eval/simulation/run/{id}/item"
+          q: {
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "limit"
+              "page"
+              "run_id"
+              "simulation_id"
+              "sort_by"
+              "sort_order"
+              "status"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          r: {
+            param: {
+              id: "run_id"
+            }
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "simulation"
+            }
+            {
+              lit: "run"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "item"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /eval/simulation/run/{id}/item/{itemId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "item_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "run_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/eval/simulation/run/{id}/item/{itemId}"
+          q: {
+            exist: [
+              "id"
+              "run_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "run_id"
+              itemId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "simulation"
+            }
+            {
+              lit: "run"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "item"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /eval/simulation/run/{id}/item/{itemId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "item_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "run_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/eval/simulation/run/{id}/item/{itemId}"
+          q: {
+            exist: [
+              "id"
+              "run_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "run_id"
+              itemId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "simulation"
+            }
+            {
+              lit: "run"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "item"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

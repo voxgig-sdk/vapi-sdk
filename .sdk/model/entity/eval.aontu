@@ -1,0 +1,716 @@
+# Entity: eval
+
+main: kit: entity: eval: {
+
+  alias: field: {}
+
+  fields: {
+    cost: {
+      h: "Cost"
+      n: "cost"
+      r: true
+      sh: "This is the cost of the eval or suite run in USD."
+      t: "`$NUMBER`"
+    }
+    costs: {
+      h: "Costs"
+      n: "costs"
+      r: true
+      sh: "This is the break up of costs of the eval or suite run."
+      t: "`$ARRAY`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "This is the description of the eval."
+      t: "`$STRING`"
+    }
+    endedAt: {
+      fo: "date-time"
+      h: "Ended At"
+      n: "endedAt"
+      r: true
+      t: "`$STRING`"
+    }
+    endedMessage: {
+      h: "Ended Message"
+      n: "endedMessage"
+      r: false
+      sh: "This is the ended message when the eval run ended for any reason apart from mockConversation.done"
+      t: "`$STRING`"
+    }
+    endedReason: {
+      h: "Ended Reason"
+      n: "endedReason"
+      r: true
+      sh: "This is the reason for the eval run to end."
+      t: "`$STRING`"
+    }
+    eval: {
+      h: "Eval"
+      n: "eval"
+      r: false
+      sh: "This is the transient eval that will be run"
+      t: "`$ANY`"
+      union: {
+        branches: 6
+        count: 6
+        depth: 13
+      }
+    }
+    evalId: {
+      h: "Eval Id"
+      n: "evalId"
+      r: false
+      sh: "This is the id of the eval that will be run."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "This is the mock conversation that will be used to evaluate the flow of the conversation."
+      t: "`$ARRAY`"
+      union: {
+        branches: 6
+        count: 5
+        depth: 9
+      }
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "This is the name of the eval."
+      t: "`$STRING`"
+    }
+    orgId: {
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      sh: "This is the results of the eval or suite run."
+      t: "`$ARRAY`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 4
+      }
+    }
+    startedAt: {
+      fo: "date-time"
+      h: "Started At"
+      n: "startedAt"
+      r: true
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "This is the status of the eval run."
+      t: "`$STRING`"
+    }
+    target: {
+      h: "Target"
+      n: "target"
+      r: true
+      sh: "This is the target that will be run against the eval"
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 28236
+        depth: 57
+      }
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "This is the type of the run."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "eval"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /eval"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/eval"
+          s: [
+            {
+              lit: "eval"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /eval/run"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/eval/run"
+          q: {
+            "$action": "run"
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: {
+              eval: "`reqdata`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /eval/run"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/eval/run"
+          q: {
+            "$action": "run"
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "limit"
+              "page"
+              "search"
+              "sort_by"
+              "sort_order"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /eval"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/eval"
+          q: {
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "limit"
+              "page"
+              "sort_by"
+              "sort_order"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /eval/run/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/eval/run/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "run"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.eval`"
+          }
+        }
+        {
+          co: {
+            id: "GET /eval/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/eval/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /eval/run/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/eval/run/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "run"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.eval`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /eval/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/eval/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /eval/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/eval/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

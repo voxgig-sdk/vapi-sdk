@@ -1,0 +1,389 @@
+# Entity: scorecard
+
+main: kit: entity: scorecard: {
+
+  alias: field: {}
+
+  fields: {
+    assistantIds: {
+      h: "Assistant Ids"
+      n: "assistantIds"
+      r: false
+      sh: "These are the assistant IDs that this scorecard is linked to."
+      t: "`$ARRAY`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the scorecard was created."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "This is the description of the scorecard."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "This is the unique identifier for the scorecard."
+      t: "`$STRING`"
+    }
+    metrics: {
+      h: "Metrics"
+      n: "metrics"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "These are the metrics that will be used to evaluate the scorecard."
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "This is the name of the scorecard."
+      t: "`$STRING`"
+    }
+    orgId: {
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      sh: "This is the unique identifier for the org that this scorecard belongs to."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the scorecard was last updated."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "scorecard"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /observability/scorecard"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/observability/scorecard"
+          s: [
+            {
+              lit: "observability"
+            }
+            {
+              lit: "scorecard"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /observability/scorecard"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/observability/scorecard"
+          q: {
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "limit"
+              "page"
+              "sort_by"
+              "sort_order"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          s: [
+            {
+              lit: "observability"
+            }
+            {
+              lit: "scorecard"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /observability/scorecard/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/observability/scorecard/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "observability"
+            }
+            {
+              lit: "scorecard"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /observability/scorecard/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/observability/scorecard/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "observability"
+            }
+            {
+              lit: "scorecard"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /observability/scorecard/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/observability/scorecard/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "observability"
+            }
+            {
+              lit: "scorecard"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

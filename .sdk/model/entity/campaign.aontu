@@ -1,0 +1,928 @@
+# Entity: campaign
+
+main: kit: entity: campaign: {
+
+  alias: field: {}
+
+  fields: {
+    assistantId: {
+      h: "Assistant Id"
+      n: "assistantId"
+      r: false
+      sh: "This is the assistant ID that will be used for the campaign calls."
+      t: "`$STRING`"
+    }
+    assistantOverrides: {
+      h: "Assistant Overrides"
+      n: "assistantOverrides"
+      r: false
+      sh: "These are the overrides for the assistant's settings and template variables for the campaign."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 5356
+        depth: 37
+      }
+    }
+    callMetrics: {
+      h: "Call Metrics"
+      n: "callMetrics"
+      r: false
+      sh: "These are the call-level outcomes for this campaign — how many contacts were actually dialed, and how many of those a human picked up."
+      t: "`$ANY`"
+    }
+    calls: {
+      h: "Calls"
+      n: "calls"
+      r: true
+      sh: "This is a map of call IDs to campaign call details."
+      t: "`$OBJECT`"
+    }
+    callsCounterEnded: {
+      h: "Calls Counter Ended"
+      n: "callsCounterEnded"
+      r: true
+      sh: "This is the number of calls that have ended."
+      t: "`$NUMBER`"
+    }
+    callsCounterEndedVoicemail: {
+      h: "Calls Counter Ended Voicemail"
+      n: "callsCounterEndedVoicemail"
+      r: true
+      sh: "This is the number of calls whose ended reason is 'voicemail'."
+      t: "`$NUMBER`"
+    }
+    callsCounterInProgress: {
+      h: "Calls Counter In Progress"
+      n: "callsCounterInProgress"
+      r: true
+      sh: "This is the number of calls that have been in progress."
+      t: "`$NUMBER`"
+    }
+    callsCounterQueued: {
+      h: "Calls Counter Queued"
+      n: "callsCounterQueued"
+      r: true
+      sh: "This is the number of calls that have been queued."
+      t: "`$NUMBER`"
+    }
+    callsCounterScheduled: {
+      h: "Calls Counter Scheduled"
+      n: "callsCounterScheduled"
+      r: true
+      sh: "This is the number of calls that have been scheduled."
+      t: "`$NUMBER`"
+    }
+    contactCounters: {
+      h: "Contact Counters"
+      n: "contactCounters"
+      r: false
+      sh: "These are the per-status contact counts for this campaign."
+      t: "`$ANY`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the campaign was created."
+      t: "`$STRING`"
+    }
+    customers: {
+      h: "Customers"
+      n: "customers"
+      r: false
+      sh: "These are the customers that will be called in the campaign."
+      t: "`$ARRAY`"
+      union: {
+        branches: 23
+        count: 8908
+        depth: 40
+      }
+    }
+    dialPlan: {
+      h: "Dial Plan"
+      n: "dialPlan"
+      r: false
+      sh: "This is a list of dial entries, each specifying a phone number and the customers to call using that number."
+      t: "`$ARRAY`"
+      union: {
+        branches: 23
+        count: 8908
+        depth: 43
+      }
+    }
+    duplicateFromCampaignId: {
+      h: "Duplicate From Campaign Id"
+      n: "duplicateFromCampaignId"
+      r: false
+      sh: "Optional campaign ID to duplicate config from."
+      t: "`$STRING`"
+    }
+    endedReason: {
+      h: "Ended Reason"
+      n: "endedReason"
+      r: false
+      sh: "This is the explanation for how the campaign ended."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "This is the unique identifier for the campaign."
+      t: "`$STRING`"
+    }
+    maxConcurrency: {
+      h: "Max Concurrency"
+      n: "maxConcurrency"
+      r: false
+      sh: "This is the maximum number of concurrent calls that will be made for the campaign."
+      t: "`$NUMBER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "This is the name of the campaign."
+      t: "`$STRING`"
+    }
+    orgId: {
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      sh: "This is the unique identifier for the org that this campaign belongs to."
+      t: "`$STRING`"
+    }
+    phoneNumberId: {
+      h: "Phone Number Id"
+      n: "phoneNumberId"
+      r: false
+      sh: "This is the phone number ID that will be used for the campaign calls."
+      t: "`$STRING`"
+    }
+    predialPlan: {
+      h: "Predial Plan"
+      n: "predialPlan"
+      r: false
+      sh: "This opts the campaign into the blocking `campaign.predial` eligibility webhook."
+      t: "`$ANY`"
+    }
+    schedulePlan: {
+      h: "Schedule Plan"
+      n: "schedulePlan"
+      r: false
+      sh: "This is the schedule plan for the campaign."
+      t: "`$ANY`"
+    }
+    server: {
+      h: "Server"
+      n: "server"
+      r: false
+      sh: "This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks."
+      t: "`$ANY`"
+    }
+    serverMessages: {
+      h: "Server Messages"
+      n: "serverMessages"
+      r: false
+      sh: "These are the messages that will be sent to your Server URL."
+      t: "`$ARRAY`"
+    }
+    squadId: {
+      h: "Squad Id"
+      n: "squadId"
+      r: false
+      sh: "This is the squad ID that will be used for the campaign calls."
+      t: "`$STRING`"
+    }
+    squadOverrides: {
+      h: "Squad Overrides"
+      n: "squadOverrides"
+      r: false
+      sh: "These are the overrides for the squad and template variables for the campaign."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 5356
+        depth: 37
+      }
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "This is the status of the campaign."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the campaign was last updated."
+      t: "`$STRING`"
+    }
+    workflowId: {
+      h: "Workflow Id"
+      n: "workflowId"
+      r: false
+      sh: "This is the workflow ID that will be used for the campaign calls."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "campaign"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /campaign"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/campaign"
+          s: [
+            {
+              lit: "campaign"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /v2/campaign"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v2/campaign"
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "campaign"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v2/campaign"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "include_counter"
+                or: "include_counter"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v2/campaign"
+          q: {
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "include_counter"
+              "limit"
+              "page"
+              "sort_by"
+              "sort_order"
+              "status"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "campaign"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /campaign"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/campaign"
+          q: {
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "limit"
+              "page"
+              "sort_by"
+              "sort_order"
+              "status"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          s: [
+            {
+              lit: "campaign"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v2/campaign/{id}/contacts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v2/campaign/{id}/contacts"
+          q: {
+            "$action": "contact"
+            exist: [
+              "id"
+              "limit"
+              "page"
+              "sort_by"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "campaign"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "contacts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v2/campaign/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "include_counter"
+                or: "include_counter"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v2/campaign/{id}"
+          q: {
+            exist: [
+              "id"
+              "include_counter"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "campaign"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /campaign/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/campaign/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "campaign"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /campaign/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/campaign/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "campaign"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /v2/campaign/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/v2/campaign/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "campaign"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /campaign/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/campaign/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "campaign"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /v2/campaign/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/v2/campaign/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "campaign"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

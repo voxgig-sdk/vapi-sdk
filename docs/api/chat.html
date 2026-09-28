@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Chat | Vapi API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Vapi API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/vapi-sdk">voxgig-sdk/vapi-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Vapi API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/analytics.html">Analytics</a>
+<a href="../api/assistant.html">Assistant</a>
+<a href="../api/board.html">Board</a>
+<a href="../api/call.html">Call</a>
+<a href="../api/campaign.html">Campaign</a>
+<a aria-current="page" href="../api/chat.html">Chat</a><div class="nav-sections"><a class="nav-section" href="#post-chat">POST /chat</a>
+<a class="nav-section" href="#post-chatresponses">POST /chat/responses</a>
+<a class="nav-section" href="#get-chat">GET /chat</a>
+<a class="nav-section" href="#get-chatid">GET /chat/{id}</a>
+<a class="nav-section" href="#delete-chatid">DELETE /chat/{id}</a></div>
+<a href="../api/create_simulation_run.html">CreateSimulationRun</a>
+<a href="../api/eval.html">Eval</a>
+<a href="../api/file.html">File</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/knowledge_base.html">KnowledgeBase</a>
+<a href="../api/knowledge_base_v2_file.html">KnowledgeBaseV2File</a>
+<a href="../api/personality.html">Personality</a>
+<a href="../api/phone_number.html">PhoneNumber</a>
+<a href="../api/provider.html">Provider</a>
+<a href="../api/scenario.html">Scenario</a>
+<a href="../api/scorecard.html">Scorecard</a>
+<a href="../api/session.html">Session</a>
+<a href="../api/simulation.html">Simulation</a>
+<a href="../api/simulation_run.html">SimulationRun</a>
+<a href="../api/simulation_run_item.html">SimulationRunItem</a>
+<a href="../api/simulation_suite.html">SimulationSuite</a>
+<a href="../api/squad.html">Squad</a>
+<a href="../api/structured_output.html">StructuredOutput</a>
+<a href="../api/tool.html">Tool</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="chat">Chat</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chat"><code>/chat</code></a></td>
+<td><code>create</code></td>
+<td>Chat response - either non-streaming chat or streaming</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatresponses"><code>/chat/responses</code></a></td>
+<td><code>create</code></td>
+<td>OpenAI Responses API format - either non-streaming or streaming</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-chat"><code>/chat</code></a></td>
+<td><code>list</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-chatid"><code>/chat/{id}</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-chatid"><code>/chat/{id}</code></a></td>
+<td><code>remove</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">chats, err := client.Chat(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(chats)
+chat, err := client.Chat(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(chat)
+created, err := client.Chat(nil).Create(map[string]any{&quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;orgId&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+removed, err := client.Chat(nil).Remove(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local chats, err = client:Chat():list()
+local chat, err = client:Chat():load({ id = &quot;example_id&quot; })
+local created, err = client:Chat():create({ createdAt = &quot;example&quot;, id = &quot;example&quot;, orgId = &quot;example&quot;, updatedAt = &quot;example&quot; })
+local removed, err = client:Chat():remove({ id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$chats = $client-&gt;Chat()-&gt;list();
+$chat = $client-&gt;Chat()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;Chat()-&gt;create([&quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;orgId&quot; =&gt; &quot;example&quot;, &quot;updatedAt&quot; =&gt; &quot;example&quot;]);
+$client-&gt;Chat()-&gt;remove([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">chats = client.Chat().list()
+chat = client.Chat().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.Chat().create({ &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;orgId&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot; })
+client.Chat().remove({&quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">chats = client.Chat.list()
+chat = client.Chat.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.Chat.create({ &quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;orgId&quot; =&gt; &quot;example&quot;, &quot;updatedAt&quot; =&gt; &quot;example&quot; })
+client.Chat.remove({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const chats = await client.Chat().list()
+const chat = await client.Chat().load({ id: &quot;example_id&quot; })
+const created = await client.Chat().create({ createdAt: &quot;example&quot;, id: &quot;example&quot;, orgId: &quot;example&quot;, updatedAt: &quot;example&quot; })
+await client.Chat().remove({ id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistant</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>These are the variable values that will be used to replace template variables in the assistant messages.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was created.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the chat.</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the input text for the chat.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>This is an array of messages used as context for the chat.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the chat.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this chat belongs to.</td>
+</tr>
+<tr>
+<td><code>output</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>This is the output messages generated by the system in response to the input.</td>
+</tr>
+<tr>
+<td><code>previousChatId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the chat that will be used as context for the new chat.</td>
+</tr>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the session that will be used for the chat.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat.</td>
+</tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is a flag that determines whether the response should be streamed.</td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is used to send the chat through a transport like SMS.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-chat" class="operation" data-method="post"><code>POST</code> /chat</h3>
+<p>Operation ID: <code>ChatController_createChat</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the variable values that will be used to replace template variables in the assistant messages. Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td><code>string or array of object or object or object or object or object</code></td>
+<td>Yes</td>
+<td>This is the input text for the chat. Can be a string or an array of chat messages. This field is REQUIRED for chat creation.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the chat. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>previousChatId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the chat that will be used as context for the new chat. The messages from the previous chat will be used as context. Mutually exclusive with sessionId.</td>
+</tr>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the session that will be used for the chat. Mutually exclusive with previousChatId.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use an existing squad, use <code>squadId</code> instead.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use a transient squad, use <code>squad</code> instead.</td>
+</tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is a flag that determines whether the response should be streamed. When true, the response will be sent as chunks of text.</td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is used to send the chat through a transport like SMS. If transport.phoneNumberId and transport.customer are provided, creates a new session. If sessionId is provided without transport fields, uses existing session data. Cannot specify both sessionId and transport fields (phoneNumberId/customer) together.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-chat-response---either-non-streaming-chat-or-streaming" class="status" data-status="2xx">200: Chat response - either non-streaming chat or streaming</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object or object</code>.</p>
+<h5 id="201" class="status" data-status="2xx">201</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object</code>.</p>
+<h3 id="post-chatresponses" class="operation" data-method="post"><code>POST</code> /chat/responses</h3>
+<p>Operation ID: <code>ChatController_createOpenAIChat</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the variable values that will be used to replace template variables in the assistant messages. Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td><code>string or array of object or object or object or object or object</code></td>
+<td>Yes</td>
+<td>This is the input text for the chat. Can be a string or an array of chat messages. This field is REQUIRED for chat creation.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the chat. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>previousChatId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the chat that will be used as context for the new chat. The messages from the previous chat will be used as context. Mutually exclusive with sessionId.</td>
+</tr>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the session that will be used for the chat. Mutually exclusive with previousChatId.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use an existing squad, use <code>squadId</code> instead.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use a transient squad, use <code>squad</code> instead.</td>
+</tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to stream the response or not.</td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is used to send the chat through a transport like SMS. If transport.phoneNumberId and transport.customer are provided, creates a new session. If sessionId is provided without transport fields, uses existing session data. Cannot specify both sessionId and transport fields (phoneNumberId/customer) together.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-openai-responses-api-format---either-non-streaming-or-streaming" class="status" data-status="2xx">200: OpenAI Responses API format - either non-streaming or streaming</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object or object or object or object or object</code>.</p>
+<h5 id="201-1" class="status" data-status="2xx">201</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object</code>.</p>
+<h2 id="list">list</h2>
+<h3 id="get-chat" class="operation" data-method="get"><code>GET</code> /chat</h3>
+<p>Operation ID: <code>ChatController_listChats</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>query</code> | <code>string</code> | No | This is the unique identifier for the chat to filter by. |
+| <code>assistantId</code> | <code>query</code> | <code>string</code> | No | This is the unique identifier for the assistant that will be used for the chat. |
+| <code>assistantIdAny</code> | <code>query</code> | <code>string</code> | No | Filter by multiple assistant IDs. Provide as comma-separated values. |
+| <code>squadId</code> | <code>query</code> | <code>string</code> | No | This is the unique identifier for the squad that will be used for the chat. |
+| <code>sessionId</code> | <code>query</code> | <code>string</code> | No | This is the unique identifier for the session that will be used for the chat. |
+| <code>previousChatId</code> | <code>query</code> | <code>string</code> | No | This is the unique identifier for the previous chat to filter by. |
+| <code>idAny</code> | <code>query</code> | <code>string</code> | No | Filter by multiple chat IDs. Provide as comma-separated values. |
+| <code>page</code> | <code>query</code> | <code>number</code> | No | This is the page number to return. Defaults to 1. |
+| <code>sortOrder</code> | <code>query</code> | <code>enum: ASC, DESC</code> | No | This is the sort order for pagination. Defaults to 'DESC'. |
+| <code>sortBy</code> | <code>query</code> | <code>enum: createdAt, duration, cost</code> | No | This is the column to sort by. Defaults to 'createdAt'. |
+| <code>limit</code> | <code>query</code> | <code>number</code> | No | This is the maximum number of items to return. Defaults to 100. |
+| <code>createdAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than the specified value. |
+| <code>createdAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than the specified value. |
+| <code>createdAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than or equal to the specified value. |
+| <code>createdAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than or equal to the specified value. |
+| <code>updatedAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than the specified value. |
+| <code>updatedAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than the specified value. |
+| <code>updatedAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than or equal to the specified value. |
+| <code>updatedAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than or equal to the specified value. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtGe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtLe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.currentPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.hasNextPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsBeyondRetention</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsPerPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.nextCursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Opaque cursor for the next page under keyset pagination (PRO-3163). Pass it back as the <code>cursor</code> query param to fetch the next page without an OFFSET scan. Present only when a further page likely exists.</td>
+</tr>
+<tr>
+<td><code>metadata.sortOrder</code></td>
+<td><code>enum: ASC, DESC</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalItems</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalPages</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>results[].assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>results[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the variable values that will be used to replace template variables in the assistant messages. Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.</td>
+</tr>
+<tr>
+<td><code>results[].cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>results[].costs</code></td>
+<td><code>array of object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was created.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the chat.</td>
+</tr>
+<tr>
+<td><code>results[].input</code></td>
+<td><code>string or array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is the input text for the chat. Can be a string or an array of chat messages.</td>
+</tr>
+<tr>
+<td><code>results[].messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of messages used as context for the chat. Used to provide message history for multi-turn conversations.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the chat. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>results[].orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this chat belongs to.</td>
+</tr>
+<tr>
+<td><code>results[].output</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is the output messages generated by the system in response to the input.</td>
+</tr>
+<tr>
+<td><code>results[].previousChatId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the chat that will be used as context for the new chat. The messages from the previous chat will be used as context. Mutually exclusive with sessionId.</td>
+</tr>
+<tr>
+<td><code>results[].sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the session that will be used for the chat. Mutually exclusive with previousChatId.</td>
+</tr>
+<tr>
+<td><code>results[].squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use an existing squad, use <code>squadId</code> instead.</td>
+</tr>
+<tr>
+<td><code>results[].squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use a transient squad, use <code>squad</code> instead.</td>
+</tr>
+<tr>
+<td><code>results[].stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is a flag that determines whether the response should be streamed. When true, the response will be sent as chunks of text.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-chatid" class="operation" data-method="get"><code>GET</code> /chat/{id}</h3>
+<p>Operation ID: <code>ChatController_getChat</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-1" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the variable values that will be used to replace template variables in the assistant messages. Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array of object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was created.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the chat.</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td><code>string or array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is the input text for the chat. Can be a string or an array of chat messages.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of messages used as context for the chat. Used to provide message history for multi-turn conversations.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the chat. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this chat belongs to.</td>
+</tr>
+<tr>
+<td><code>output</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is the output messages generated by the system in response to the input.</td>
+</tr>
+<tr>
+<td><code>previousChatId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the chat that will be used as context for the new chat. The messages from the previous chat will be used as context. Mutually exclusive with sessionId.</td>
+</tr>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the session that will be used for the chat. Mutually exclusive with previousChatId.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use an existing squad, use <code>squadId</code> instead.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use a transient squad, use <code>squad</code> instead.</td>
+</tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is a flag that determines whether the response should be streamed. When true, the response will be sent as chunks of text.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-chatid" class="operation" data-method="delete"><code>DELETE</code> /chat/{id}</h3>
+<p>Operation ID: <code>ChatController_deleteChat</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-2" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistant</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant that will be used for the chat. To use an existing assistant, use <code>assistantId</code> instead.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the variable values that will be used to replace template variables in the assistant messages. Only variable substitution is supported in chat contexts - other assistant properties cannot be overridden.</td>
+</tr>
+<tr>
+<td><code>cost</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the cost of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>costs</code></td>
+<td><code>array of object or object</code></td>
+<td>No</td>
+<td>These are the costs of individual components of the chat in USD.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was created.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the chat.</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td><code>string or array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is the input text for the chat. Can be a string or an array of chat messages.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is an array of messages used as context for the chat. Used to provide message history for multi-turn conversations.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the chat. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this chat belongs to.</td>
+</tr>
+<tr>
+<td><code>output</code></td>
+<td><code>array of object or object or object or object or object</code></td>
+<td>No</td>
+<td>This is the output messages generated by the system in response to the input.</td>
+</tr>
+<tr>
+<td><code>previousChatId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the chat that will be used as context for the new chat. The messages from the previous chat will be used as context. Mutually exclusive with sessionId.</td>
+</tr>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the ID of the session that will be used for the chat. Mutually exclusive with previousChatId.</td>
+</tr>
+<tr>
+<td><code>squad</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use an existing squad, use <code>squadId</code> instead.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad that will be used for the chat. To use a transient squad, use <code>squad</code> instead.</td>
+</tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is a flag that determines whether the response should be streamed. When true, the response will be sent as chunks of text.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the chat was last updated.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,124 @@
+{
+  "existing": {
+    "session": {
+      "SESSION00": {
+        "artifact": "sc8",
+        "assistant": "sc9",
+        "assistantId": "sca",
+        "assistantOverrides": "scb",
+        "cost": 204,
+        "costs": [],
+        "createdAt": "sce",
+        "customer": "scf",
+        "customerId": "sd0",
+        "expirationSeconds": 209,
+        "id": "SESSION00",
+        "messages": [],
+        "name": "sd4",
+        "orgId": "sd5",
+        "phoneNumber": "sd6",
+        "phoneNumberId": "sd7",
+        "squad": "sd8",
+        "squadId": "sd9",
+        "status": "sda",
+        "updatedAt": "sdb"
+      },
+      "SESSION01": {
+        "artifact": "s190",
+        "assistant": "s191",
+        "assistantId": "s192",
+        "assistantOverrides": "s193",
+        "cost": 404,
+        "costs": [],
+        "createdAt": "s196",
+        "customer": "s197",
+        "customerId": "s198",
+        "expirationSeconds": 409,
+        "id": "SESSION01",
+        "messages": [],
+        "name": "s19c",
+        "orgId": "s19d",
+        "phoneNumber": "s19e",
+        "phoneNumberId": "s19f",
+        "squad": "s1a0",
+        "squadId": "s1a1",
+        "status": "s1a2",
+        "updatedAt": "s1a3"
+      },
+      "SESSION02": {
+        "artifact": "s258",
+        "assistant": "s259",
+        "assistantId": "s25a",
+        "assistantOverrides": "s25b",
+        "cost": 604,
+        "costs": [],
+        "createdAt": "s25e",
+        "customer": "s25f",
+        "customerId": "s260",
+        "expirationSeconds": 609,
+        "id": "SESSION02",
+        "messages": [],
+        "name": "s264",
+        "orgId": "s265",
+        "phoneNumber": "s266",
+        "phoneNumberId": "s267",
+        "squad": "s268",
+        "squadId": "s269",
+        "status": "s26a",
+        "updatedAt": "s26b"
+      }
+    }
+  },
+  "new": {
+    "session": {
+      "session_ref01": {
+        "artifact": "s320",
+        "assistant": "s321",
+        "assistantId": "s322",
+        "assistantOverrides": "s323",
+        "cost": 804,
+        "costs": [],
+        "createdAt": "s326",
+        "customer": "s327",
+        "customerId": "s328",
+        "expirationSeconds": 809,
+        "messages": [],
+        "name": "s32c",
+        "orgId": "s32d",
+        "phoneNumber": "s32e",
+        "phoneNumberId": "s32f",
+        "squad": "s330",
+        "squadId": "s331",
+        "status": "s332",
+        "updatedAt": "s333"
+      }
+    }
+  },
+  "requests": {
+    "POST /session": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /session": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /session/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /session/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /session/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

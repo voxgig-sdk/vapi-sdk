@@ -1,0 +1,1705 @@
+-- Typed models for the Vapi SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class Analytics
+---@field queries table
+
+---@class AnalyticsCreateData
+---@field queries table
+
+---@class Assistant
+---@field analysisPlan? any
+---@field artifactPlan? any
+---@field backgroundSound? any
+---@field backgroundSpeechDenoisingPlan? any
+---@field clientMessages? table
+---@field compliancePlan? table
+---@field contentType? string
+---@field createdAt string
+---@field credentialIds? table
+---@field credentials? table
+---@field endCallMessage? string
+---@field endCallPhrases? table
+---@field firstMessage? string
+---@field firstMessageInterruptionsEnabled? boolean
+---@field firstMessageMode? string
+---@field hooks? table
+---@field id string
+---@field keypadInputPlan? table
+---@field latestVersion? string
+---@field maxDurationSeconds? number
+---@field metadata? table
+---@field model? any
+---@field modelDeprecations? table
+---@field modelOutputInMessagesEnabled? boolean
+---@field monitorPlan? any
+---@field name? string
+---@field observabilityPlan? any
+---@field orgId string
+---@field reason? string
+---@field server? any
+---@field serverMessages? table
+---@field startSpeakingPlan? any
+---@field status? number
+---@field stopSpeakingPlan? any
+---@field transcriber? any
+---@field transportConfigurations? table
+---@field updatedAt string
+---@field url string
+---@field valid boolean
+---@field voice? any
+---@field voicemailDetection? any
+---@field voicemailMessage? string
+
+---@class AssistantLoadMatch
+---@field id string
+
+---@class AssistantListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field limit? number
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class AssistantCreateData
+---@field analysisPlan? any
+---@field artifactPlan? any
+---@field backgroundSound? any
+---@field backgroundSpeechDenoisingPlan? any
+---@field clientMessages? table
+---@field compliancePlan? table
+---@field contentType? string
+---@field createdAt string
+---@field credentialIds? table
+---@field credentials? table
+---@field endCallMessage? string
+---@field endCallPhrases? table
+---@field firstMessage? string
+---@field firstMessageInterruptionsEnabled? boolean
+---@field firstMessageMode? string
+---@field hooks? table
+---@field id string
+---@field keypadInputPlan? table
+---@field latestVersion? string
+---@field maxDurationSeconds? number
+---@field metadata? table
+---@field model? any
+---@field modelDeprecations? table
+---@field modelOutputInMessagesEnabled? boolean
+---@field monitorPlan? any
+---@field name? string
+---@field observabilityPlan? any
+---@field orgId string
+---@field reason? string
+---@field server? any
+---@field serverMessages? table
+---@field startSpeakingPlan? any
+---@field status? number
+---@field stopSpeakingPlan? any
+---@field transcriber? any
+---@field transportConfigurations? table
+---@field updatedAt string
+---@field url string
+---@field valid boolean
+---@field voice? any
+---@field voicemailDetection? any
+---@field voicemailMessage? string
+
+---@class AssistantUpdateData
+---@field id string
+---@field analysisPlan? any
+---@field artifactPlan? any
+---@field backgroundSound? any
+---@field backgroundSpeechDenoisingPlan? any
+---@field clientMessages? table
+---@field compliancePlan? table
+---@field contentType? string
+---@field createdAt? string
+---@field credentialIds? table
+---@field credentials? table
+---@field endCallMessage? string
+---@field endCallPhrases? table
+---@field firstMessage? string
+---@field firstMessageInterruptionsEnabled? boolean
+---@field firstMessageMode? string
+---@field hooks? table
+---@field keypadInputPlan? table
+---@field latestVersion? string
+---@field maxDurationSeconds? number
+---@field metadata? table
+---@field model? any
+---@field modelDeprecations? table
+---@field modelOutputInMessagesEnabled? boolean
+---@field monitorPlan? any
+---@field name? string
+---@field observabilityPlan? any
+---@field orgId? string
+---@field reason? string
+---@field server? any
+---@field serverMessages? table
+---@field startSpeakingPlan? any
+---@field status? number
+---@field stopSpeakingPlan? any
+---@field transcriber? any
+---@field transportConfigurations? table
+---@field updatedAt? string
+---@field url? string
+---@field valid? boolean
+---@field voice? any
+---@field voicemailDetection? any
+---@field voicemailMessage? string
+
+---@class AssistantRemoveMatch
+---@field id string
+
+---@class Board
+---@field createdAt string
+---@field id string
+---@field items? table
+---@field layout any
+---@field name string
+---@field orgId string
+---@field systemKey? string
+---@field timeRangeOverride? any
+---@field updatedAt string
+
+---@class BoardLoadMatch
+---@field id string
+
+---@class BoardListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field limit? number
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class BoardCreateData
+---@field createdAt string
+---@field id string
+---@field items? table
+---@field layout any
+---@field name string
+---@field orgId string
+---@field systemKey? string
+---@field timeRangeOverride? any
+---@field updatedAt string
+
+---@class BoardUpdateData
+---@field id string
+---@field createdAt? string
+---@field items? table
+---@field layout? any
+---@field name? string
+---@field orgId? string
+---@field systemKey? string
+---@field timeRangeOverride? any
+---@field updatedAt? string
+
+---@class BoardRemoveMatch
+---@field id string
+
+---@class Call
+---@field analysis? any
+---@field artifact? any
+---@field artifactPlan? any
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field assistantVersion? string
+---@field campaignId? string
+---@field compliance? any
+---@field cost? number
+---@field costBreakdown? any
+---@field costs? table
+---@field createdAt string
+---@field customer? any
+---@field customerId? string
+---@field customers? table
+---@field destination? any
+---@field endedAt? string
+---@field endedMessage? string
+---@field endedReason? string
+---@field id string
+---@field messages? table
+---@field monitor? any
+---@field name? string
+---@field orgId string
+---@field phoneCallProvider? string
+---@field phoneCallProviderId? string
+---@field phoneCallTransport? string
+---@field phoneNumber? any
+---@field phoneNumberId? string
+---@field schedulePlan? any
+---@field squad? any
+---@field squadId? string
+---@field squadOverrides? any
+---@field squadVersion? string
+---@field startedAt? string
+---@field status? string
+---@field transport? any
+---@field type? string
+---@field updatedAt string
+---@field workflow? any
+---@field workflowId? string
+---@field workflowOverrides? any
+
+---@class CallLoadMatch
+---@field id string
+
+---@class CallListMatch
+---@field assistant_id? string
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field limit? number
+---@field phone_number_id? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class CallCreateData
+---@field analysis? any
+---@field artifact? any
+---@field artifactPlan? any
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field assistantVersion? string
+---@field campaignId? string
+---@field compliance? any
+---@field cost? number
+---@field costBreakdown? any
+---@field costs? table
+---@field createdAt string
+---@field customer? any
+---@field customerId? string
+---@field customers? table
+---@field destination? any
+---@field endedAt? string
+---@field endedMessage? string
+---@field endedReason? string
+---@field id string
+---@field messages? table
+---@field monitor? any
+---@field name? string
+---@field orgId string
+---@field phoneCallProvider? string
+---@field phoneCallProviderId? string
+---@field phoneCallTransport? string
+---@field phoneNumber? any
+---@field phoneNumberId? string
+---@field schedulePlan? any
+---@field squad? any
+---@field squadId? string
+---@field squadOverrides? any
+---@field squadVersion? string
+---@field startedAt? string
+---@field status? string
+---@field transport? any
+---@field type? string
+---@field updatedAt string
+---@field workflow? any
+---@field workflowId? string
+---@field workflowOverrides? any
+
+---@class CallUpdateData
+---@field id string
+---@field analysis? any
+---@field artifact? any
+---@field artifactPlan? any
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field assistantVersion? string
+---@field campaignId? string
+---@field compliance? any
+---@field cost? number
+---@field costBreakdown? any
+---@field costs? table
+---@field createdAt? string
+---@field customer? any
+---@field customerId? string
+---@field customers? table
+---@field destination? any
+---@field endedAt? string
+---@field endedMessage? string
+---@field endedReason? string
+---@field messages? table
+---@field monitor? any
+---@field name? string
+---@field orgId? string
+---@field phoneCallProvider? string
+---@field phoneCallProviderId? string
+---@field phoneCallTransport? string
+---@field phoneNumber? any
+---@field phoneNumberId? string
+---@field schedulePlan? any
+---@field squad? any
+---@field squadId? string
+---@field squadOverrides? any
+---@field squadVersion? string
+---@field startedAt? string
+---@field status? string
+---@field transport? any
+---@field type? string
+---@field updatedAt? string
+---@field workflow? any
+---@field workflowId? string
+---@field workflowOverrides? any
+
+---@class CallRemoveMatch
+---@field analysis? any
+---@field artifact? any
+---@field artifactPlan? any
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field assistantVersion? string
+---@field campaignId? string
+---@field compliance? any
+---@field cost? number
+---@field costBreakdown? any
+---@field costs? table
+---@field createdAt? string
+---@field customer? any
+---@field customerId? string
+---@field customers? table
+---@field destination? any
+---@field endedAt? string
+---@field endedMessage? string
+---@field endedReason? string
+---@field id string
+---@field messages? table
+---@field monitor? any
+---@field name? string
+---@field orgId? string
+---@field phoneCallProvider? string
+---@field phoneCallProviderId? string
+---@field phoneCallTransport? string
+---@field phoneNumber? any
+---@field phoneNumberId? string
+---@field schedulePlan? any
+---@field squad? any
+---@field squadId? string
+---@field squadOverrides? any
+---@field squadVersion? string
+---@field startedAt? string
+---@field status? string
+---@field transport? any
+---@field type? string
+---@field updatedAt? string
+---@field workflow? any
+---@field workflowId? string
+---@field workflowOverrides? any
+
+---@class Campaign
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field callMetrics? any
+---@field calls table
+---@field callsCounterEnded number
+---@field callsCounterEndedVoicemail number
+---@field callsCounterInProgress number
+---@field callsCounterQueued number
+---@field callsCounterScheduled number
+---@field contactCounters? any
+---@field createdAt string
+---@field customers? table
+---@field dialPlan? table
+---@field duplicateFromCampaignId? string
+---@field endedReason? string
+---@field id string
+---@field maxConcurrency? number
+---@field name string
+---@field orgId string
+---@field phoneNumberId? string
+---@field predialPlan? any
+---@field schedulePlan? any
+---@field server? any
+---@field serverMessages? table
+---@field squadId? string
+---@field squadOverrides? any
+---@field status string
+---@field updatedAt string
+---@field workflowId? string
+
+---@class CampaignLoadMatch
+---@field id string
+---@field include_counter? boolean
+
+---@class CampaignListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field limit? number
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field status? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class CampaignCreateData
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field callMetrics? any
+---@field calls table
+---@field callsCounterEnded number
+---@field callsCounterEndedVoicemail number
+---@field callsCounterInProgress number
+---@field callsCounterQueued number
+---@field callsCounterScheduled number
+---@field contactCounters? any
+---@field createdAt string
+---@field customers? table
+---@field dialPlan? table
+---@field duplicateFromCampaignId? string
+---@field endedReason? string
+---@field id string
+---@field maxConcurrency? number
+---@field name string
+---@field orgId string
+---@field phoneNumberId? string
+---@field predialPlan? any
+---@field schedulePlan? any
+---@field server? any
+---@field serverMessages? table
+---@field squadId? string
+---@field squadOverrides? any
+---@field status string
+---@field updatedAt string
+---@field workflowId? string
+
+---@class CampaignUpdateData
+---@field id string
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field callMetrics? any
+---@field calls? table
+---@field callsCounterEnded? number
+---@field callsCounterEndedVoicemail? number
+---@field callsCounterInProgress? number
+---@field callsCounterQueued? number
+---@field callsCounterScheduled? number
+---@field contactCounters? any
+---@field createdAt? string
+---@field customers? table
+---@field dialPlan? table
+---@field duplicateFromCampaignId? string
+---@field endedReason? string
+---@field maxConcurrency? number
+---@field name? string
+---@field orgId? string
+---@field phoneNumberId? string
+---@field predialPlan? any
+---@field schedulePlan? any
+---@field server? any
+---@field serverMessages? table
+---@field squadId? string
+---@field squadOverrides? any
+---@field status? string
+---@field updatedAt? string
+---@field workflowId? string
+
+---@class CampaignRemoveMatch
+---@field id string
+
+---@class Chat
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field cost? number
+---@field costs? table
+---@field createdAt string
+---@field id string
+---@field input? any
+---@field messages? table
+---@field name? string
+---@field orgId string
+---@field output? table
+---@field previousChatId? string
+---@field sessionId? string
+---@field squad? any
+---@field squadId? string
+---@field stream? boolean
+---@field transport? any
+---@field updatedAt string
+
+---@class ChatLoadMatch
+---@field id string
+
+---@class ChatListMatch
+---@field assistant_id? string
+---@field assistant_id_any? string
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field id_any? string
+---@field limit? number
+---@field page? number
+---@field previous_chat_id? string
+---@field session_id? string
+---@field sort_by? string
+---@field sort_order? string
+---@field squad_id? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class ChatCreateData
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field cost? number
+---@field costs? table
+---@field createdAt string
+---@field id string
+---@field input? any
+---@field messages? table
+---@field name? string
+---@field orgId string
+---@field output? table
+---@field previousChatId? string
+---@field sessionId? string
+---@field squad? any
+---@field squadId? string
+---@field stream? boolean
+---@field transport? any
+---@field updatedAt string
+
+---@class ChatRemoveMatch
+---@field id string
+
+---@class CreateSimulationRun
+---@field iterations? number
+---@field simulations table
+---@field target any
+---@field transport? any
+
+---@class CreateSimulationRunCreateData
+---@field iterations? number
+---@field simulations table
+---@field target any
+---@field transport? any
+
+---@class Eval
+---@field cost number
+---@field costs table
+---@field createdAt string
+---@field description? string
+---@field endedAt string
+---@field endedMessage? string
+---@field endedReason string
+---@field eval? any
+---@field evalId? string
+---@field id string
+---@field messages table
+---@field name? string
+---@field orgId string
+---@field results table
+---@field startedAt string
+---@field status string
+---@field target any
+---@field type string
+---@field updatedAt string
+
+---@class EvalLoadMatch
+---@field id string
+
+---@class EvalListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field limit? number
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class EvalCreateData
+---@field cost number
+---@field costs table
+---@field createdAt string
+---@field description? string
+---@field endedAt string
+---@field endedMessage? string
+---@field endedReason string
+---@field eval? any
+---@field evalId? string
+---@field id string
+---@field messages table
+---@field name? string
+---@field orgId string
+---@field results table
+---@field startedAt string
+---@field status string
+---@field target any
+---@field type string
+---@field updatedAt string
+
+---@class EvalUpdateData
+---@field id string
+---@field cost? number
+---@field costs? table
+---@field createdAt? string
+---@field description? string
+---@field endedAt? string
+---@field endedMessage? string
+---@field endedReason? string
+---@field eval? any
+---@field evalId? string
+---@field messages? table
+---@field name? string
+---@field orgId? string
+---@field results? table
+---@field startedAt? string
+---@field status? string
+---@field target? any
+---@field type? string
+---@field updatedAt? string
+
+---@class EvalRemoveMatch
+---@field id string
+
+---@class File
+---@field bucket? string
+---@field bytes? number
+---@field createdAt string
+---@field id string
+---@field key? string
+---@field metadata? table
+---@field mimetype? string
+---@field name? string
+---@field object? string
+---@field orgId string
+---@field originalName? string
+---@field parsedTextBytes? number
+---@field parsedTextUrl? string
+---@field path? string
+---@field purpose? string
+---@field status? string
+---@field updatedAt string
+---@field url? string
+
+---@class FileLoadMatch
+---@field id string
+
+---@class FileListMatch
+---@field purpose? string
+
+---@class FileCreateData
+---@field bucket? string
+---@field bytes? number
+---@field createdAt string
+---@field id string
+---@field key? string
+---@field metadata? table
+---@field mimetype? string
+---@field name? string
+---@field object? string
+---@field orgId string
+---@field originalName? string
+---@field parsedTextBytes? number
+---@field parsedTextUrl? string
+---@field path? string
+---@field purpose? string
+---@field status? string
+---@field updatedAt string
+---@field url? string
+
+---@class FileUpdateData
+---@field id string
+---@field bucket? string
+---@field bytes? number
+---@field createdAt? string
+---@field key? string
+---@field metadata? table
+---@field mimetype? string
+---@field name? string
+---@field object? string
+---@field orgId? string
+---@field originalName? string
+---@field parsedTextBytes? number
+---@field parsedTextUrl? string
+---@field path? string
+---@field purpose? string
+---@field status? string
+---@field updatedAt? string
+---@field url? string
+
+---@class FileRemoveMatch
+---@field id string
+
+---@class Insight
+---@field createdAt string
+---@field id string
+---@field name? string
+---@field orgId string
+---@field systemKey? string
+---@field type string
+---@field updatedAt string
+
+---@class InsightLoadMatch
+---@field id string
+
+---@class InsightListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field limit? number
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class InsightCreateData
+---@field createdAt string
+---@field id string
+---@field name? string
+---@field orgId string
+---@field systemKey? string
+---@field type string
+---@field updatedAt string
+
+---@class InsightUpdateData
+---@field id string
+---@field createdAt? string
+---@field name? string
+---@field orgId? string
+---@field systemKey? string
+---@field type? string
+---@field updatedAt? string
+
+---@class InsightRemoveMatch
+---@field id string
+
+---@class KnowledgeBase
+---@field createdAt string
+---@field description? string
+---@field files table
+---@field id string
+---@field name string
+---@field orgId string
+---@field toolId string
+---@field updatedAt string
+
+---@class KnowledgeBaseLoadMatch
+---@field id string
+
+---@class KnowledgeBaseListMatch
+---@field limit? number
+
+---@class KnowledgeBaseCreateData
+---@field createdAt string
+---@field description? string
+---@field files table
+---@field id string
+---@field name string
+---@field orgId string
+---@field toolId string
+---@field updatedAt string
+
+---@class KnowledgeBaseUpdateData
+---@field id string
+---@field createdAt? string
+---@field description? string
+---@field files? table
+---@field name? string
+---@field orgId? string
+---@field toolId? string
+---@field updatedAt? string
+
+---@class KnowledgeBaseRemoveMatch
+---@field id string
+
+---@class KnowledgeBaseV2File
+---@field bytes? number
+---@field createdAt string
+---@field fileId string
+---@field fileName? string
+---@field id string
+---@field knowledgeBaseV2Id string
+---@field mimetype? string
+---@field status string
+---@field updatedAt string
+
+---@class KnowledgeBaseV2FileListMatch
+---@field id string
+
+---@class KnowledgeBaseV2FileCreateData
+---@field id string
+---@field bytes? number
+---@field createdAt string
+---@field fileId string
+---@field fileName? string
+---@field knowledgeBaseV2Id string
+---@field mimetype? string
+---@field status string
+---@field updatedAt string
+
+---@class KnowledgeBaseV2FileRemoveMatch
+---@field id string
+---@field knowledge_base_id string
+
+---@class Personality
+---@field analysisPlan? any
+---@field artifactPlan? any
+---@field assistant any
+---@field backgroundSound? any
+---@field backgroundSpeechDenoisingPlan? any
+---@field clientMessages? table
+---@field compliancePlan? table
+---@field createdAt string
+---@field credentialIds? table
+---@field credentials? table
+---@field endCallMessage? string
+---@field endCallPhrases? table
+---@field firstMessage? string
+---@field firstMessageInterruptionsEnabled? boolean
+---@field firstMessageMode? string
+---@field hooks? table
+---@field id string
+---@field keypadInputPlan? table
+---@field maxDurationSeconds? number
+---@field metadata? table
+---@field model? any
+---@field modelOutputInMessagesEnabled? boolean
+---@field monitorPlan? any
+---@field name? string
+---@field observabilityPlan? any
+---@field orgId string
+---@field path? string
+---@field server? any
+---@field serverMessages? table
+---@field startSpeakingPlan? any
+---@field stopSpeakingPlan? any
+---@field transcriber? any
+---@field transportConfigurations? table
+---@field updatedAt string
+---@field voice? any
+---@field voicemailDetection? any
+---@field voicemailMessage? string
+
+---@class PersonalityLoadMatch
+---@field id string
+
+---@class PersonalityListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field limit? number
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class PersonalityCreateData
+---@field analysisPlan? any
+---@field artifactPlan? any
+---@field assistant any
+---@field backgroundSound? any
+---@field backgroundSpeechDenoisingPlan? any
+---@field clientMessages? table
+---@field compliancePlan? table
+---@field createdAt string
+---@field credentialIds? table
+---@field credentials? table
+---@field endCallMessage? string
+---@field endCallPhrases? table
+---@field firstMessage? string
+---@field firstMessageInterruptionsEnabled? boolean
+---@field firstMessageMode? string
+---@field hooks? table
+---@field id string
+---@field keypadInputPlan? table
+---@field maxDurationSeconds? number
+---@field metadata? table
+---@field model? any
+---@field modelOutputInMessagesEnabled? boolean
+---@field monitorPlan? any
+---@field name? string
+---@field observabilityPlan? any
+---@field orgId string
+---@field path? string
+---@field server? any
+---@field serverMessages? table
+---@field startSpeakingPlan? any
+---@field stopSpeakingPlan? any
+---@field transcriber? any
+---@field transportConfigurations? table
+---@field updatedAt string
+---@field voice? any
+---@field voicemailDetection? any
+---@field voicemailMessage? string
+
+---@class PersonalityUpdateData
+---@field id string
+---@field analysisPlan? any
+---@field artifactPlan? any
+---@field assistant? any
+---@field backgroundSound? any
+---@field backgroundSpeechDenoisingPlan? any
+---@field clientMessages? table
+---@field compliancePlan? table
+---@field createdAt? string
+---@field credentialIds? table
+---@field credentials? table
+---@field endCallMessage? string
+---@field endCallPhrases? table
+---@field firstMessage? string
+---@field firstMessageInterruptionsEnabled? boolean
+---@field firstMessageMode? string
+---@field hooks? table
+---@field keypadInputPlan? table
+---@field maxDurationSeconds? number
+---@field metadata? table
+---@field model? any
+---@field modelOutputInMessagesEnabled? boolean
+---@field monitorPlan? any
+---@field name? string
+---@field observabilityPlan? any
+---@field orgId? string
+---@field path? string
+---@field server? any
+---@field serverMessages? table
+---@field startSpeakingPlan? any
+---@field stopSpeakingPlan? any
+---@field transcriber? any
+---@field transportConfigurations? table
+---@field updatedAt? string
+---@field voice? any
+---@field voicemailDetection? any
+---@field voicemailMessage? string
+
+---@class PersonalityRemoveMatch
+---@field id string
+
+---@class PhoneNumber
+---@field id? string
+---@field metadata any
+---@field results table
+
+---@class PhoneNumberLoadMatch
+---@field id string
+
+---@class PhoneNumberListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field limit? number
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class PhoneNumberCreateData
+---@field id? string
+---@field metadata any
+---@field results table
+
+---@class PhoneNumberUpdateData
+---@field id string
+---@field metadata? any
+---@field results? table
+
+---@class PhoneNumberRemoveMatch
+---@field id string
+
+---@class Provider
+---@field id? string
+---@field metadata table
+---@field results table
+
+---@class ProviderLoadMatch
+---@field provider string
+---@field resource_name string
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field limit? number
+---@field page? number
+---@field resource_id? string
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class ProviderCreateData
+---@field provider string
+---@field resource_name string
+---@field id? string
+---@field metadata table
+---@field results table
+
+---@class ProviderUpdateData
+---@field id string
+---@field provider string
+---@field resource_name string
+---@field metadata? table
+---@field results? table
+
+---@class ProviderRemoveMatch
+---@field id string
+---@field provider string
+---@field resource_name string
+
+---@class Scenario
+---@field createdAt string
+---@field evaluations table
+---@field hooks? table
+---@field id string
+---@field instructions string
+---@field name string
+---@field orgId string
+---@field path? string
+---@field targetOverrides? any
+---@field toolMocks? table
+---@field updatedAt string
+
+---@class ScenarioLoadMatch
+---@field id string
+
+---@class ScenarioListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id_any? table
+---@field limit? number
+---@field name? string
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class ScenarioCreateData
+---@field createdAt string
+---@field evaluations table
+---@field hooks? table
+---@field id string
+---@field instructions string
+---@field name string
+---@field orgId string
+---@field path? string
+---@field targetOverrides? any
+---@field toolMocks? table
+---@field updatedAt string
+
+---@class ScenarioUpdateData
+---@field id string
+---@field createdAt? string
+---@field evaluations? table
+---@field hooks? table
+---@field instructions? string
+---@field name? string
+---@field orgId? string
+---@field path? string
+---@field targetOverrides? any
+---@field toolMocks? table
+---@field updatedAt? string
+
+---@class ScenarioRemoveMatch
+---@field id string
+
+---@class Scorecard
+---@field assistantIds? table
+---@field createdAt string
+---@field description? string
+---@field id string
+---@field metrics table
+---@field name? string
+---@field orgId string
+---@field updatedAt string
+
+---@class ScorecardLoadMatch
+---@field id string
+
+---@class ScorecardListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field limit? number
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class ScorecardCreateData
+---@field assistantIds? table
+---@field createdAt string
+---@field description? string
+---@field id string
+---@field metrics table
+---@field name? string
+---@field orgId string
+---@field updatedAt string
+
+---@class ScorecardUpdateData
+---@field id string
+---@field assistantIds? table
+---@field createdAt? string
+---@field description? string
+---@field metrics? table
+---@field name? string
+---@field orgId? string
+---@field updatedAt? string
+
+---@class ScorecardRemoveMatch
+---@field id string
+
+---@class Session
+---@field artifact? any
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field cost? number
+---@field costs? table
+---@field createdAt string
+---@field customer? any
+---@field customerId? string
+---@field expirationSeconds? number
+---@field id string
+---@field messages? table
+---@field name? string
+---@field orgId string
+---@field phoneNumber? any
+---@field phoneNumberId? string
+---@field squad? any
+---@field squadId? string
+---@field status? string
+---@field updatedAt string
+
+---@class SessionLoadMatch
+---@field id string
+
+---@class SessionListMatch
+---@field assistant_id? string
+---@field assistant_id_any? string
+---@field assistant_override? any
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field customer_number_any? string
+---@field email? string
+---@field extension? string
+---@field external_id? string
+---@field id? string
+---@field id_any? string
+---@field limit? number
+---@field name? string
+---@field number? string
+---@field number_e164_check_enabled? boolean
+---@field page? number
+---@field phone_number_id? string
+---@field phone_number_id_any? table
+---@field sip_uri? string
+---@field sort_by? string
+---@field sort_order? string
+---@field squad_id? string
+---@field squad_override? any
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+---@field workflow_id? string
+
+---@class SessionCreateData
+---@field artifact? any
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field cost? number
+---@field costs? table
+---@field createdAt string
+---@field customer? any
+---@field customerId? string
+---@field expirationSeconds? number
+---@field id string
+---@field messages? table
+---@field name? string
+---@field orgId string
+---@field phoneNumber? any
+---@field phoneNumberId? string
+---@field squad? any
+---@field squadId? string
+---@field status? string
+---@field updatedAt string
+
+---@class SessionUpdateData
+---@field id string
+---@field artifact? any
+---@field assistant? any
+---@field assistantId? string
+---@field assistantOverrides? any
+---@field cost? number
+---@field costs? table
+---@field createdAt? string
+---@field customer? any
+---@field customerId? string
+---@field expirationSeconds? number
+---@field messages? table
+---@field name? string
+---@field orgId? string
+---@field phoneNumber? any
+---@field phoneNumberId? string
+---@field squad? any
+---@field squadId? string
+---@field status? string
+---@field updatedAt? string
+
+---@class SessionRemoveMatch
+---@field id string
+
+---@class Simulation
+---@field assistantId? string
+---@field createdAt string
+---@field id string
+---@field name? string
+---@field orgId string
+---@field path? string
+---@field personalityId string
+---@field scenarioId string
+---@field squadId? string
+---@field updatedAt string
+
+---@class SimulationLoadMatch
+---@field id string
+
+---@class SimulationListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id_any? table
+---@field limit? number
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field standalone_only? boolean
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class SimulationCreateData
+---@field assistantId? string
+---@field createdAt string
+---@field id string
+---@field name? string
+---@field orgId string
+---@field path? string
+---@field personalityId string
+---@field scenarioId string
+---@field squadId? string
+---@field updatedAt string
+
+---@class SimulationUpdateData
+---@field id string
+---@field assistantId? string
+---@field createdAt? string
+---@field name? string
+---@field orgId? string
+---@field path? string
+---@field personalityId? string
+---@field scenarioId? string
+---@field squadId? string
+---@field updatedAt? string
+
+---@class SimulationRemoveMatch
+---@field id string
+
+---@class SimulationRun
+---@field createdAt string
+---@field endedAt? string
+---@field endedReason? string
+---@field id string
+---@field itemCounts? any
+---@field iterations? number
+---@field orgId string
+---@field queuedAt string
+---@field simulations table
+---@field startedAt? string
+---@field status string
+---@field target any
+---@field transport? any
+---@field updatedAt string
+
+---@class SimulationRunLoadMatch
+---@field id string
+
+---@class SimulationRunUpdateData
+---@field id string
+---@field createdAt? string
+---@field endedAt? string
+---@field endedReason? string
+---@field itemCounts? any
+---@field iterations? number
+---@field orgId? string
+---@field queuedAt? string
+---@field simulations? table
+---@field startedAt? string
+---@field status? string
+---@field target? any
+---@field transport? any
+---@field updatedAt? string
+
+---@class SimulationRunItem
+---@field callId? string
+---@field canceledAt? string
+---@field completedAt? string
+---@field configurations? any
+---@field createdAt string
+---@field failedAt? string
+---@field failureReason? string
+---@field hooks? table
+---@field id string
+---@field improvementSuggestions? any
+---@field iterationNumber? number
+---@field metadata? any
+---@field orgId string
+---@field personalityId? string
+---@field queuedAt string
+---@field results? any
+---@field runId? string
+---@field scenarioId? string
+---@field sessionId? string
+---@field simulationId string
+---@field startedAt? string
+---@field status string
+---@field updatedAt string
+
+---@class SimulationRunItemLoadMatch
+---@field id string
+---@field run_id string
+
+---@class SimulationRunItemListMatch
+---@field run_id? string
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field limit? number
+---@field page? number
+---@field simulation_id? string
+---@field sort_by? string
+---@field sort_order? string
+---@field status? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class SimulationRunItemCreateData
+---@field item_id string
+---@field run_id string
+---@field force string
+---@field persist? string
+---@field callId? string
+---@field canceledAt? string
+---@field completedAt? string
+---@field configurations? any
+---@field createdAt string
+---@field failedAt? string
+---@field failureReason? string
+---@field hooks? table
+---@field id string
+---@field improvementSuggestions? any
+---@field iterationNumber? number
+---@field metadata? any
+---@field orgId string
+---@field personalityId? string
+---@field queuedAt string
+---@field results? any
+---@field runId? string
+---@field scenarioId? string
+---@field sessionId? string
+---@field simulationId string
+---@field startedAt? string
+---@field status string
+---@field updatedAt string
+
+---@class SimulationRunItemUpdateData
+---@field id string
+---@field run_id string
+---@field callId? string
+---@field canceledAt? string
+---@field completedAt? string
+---@field configurations? any
+---@field createdAt? string
+---@field failedAt? string
+---@field failureReason? string
+---@field hooks? table
+---@field improvementSuggestions? any
+---@field iterationNumber? number
+---@field metadata? any
+---@field orgId? string
+---@field personalityId? string
+---@field queuedAt? string
+---@field results? any
+---@field runId? string
+---@field scenarioId? string
+---@field sessionId? string
+---@field simulationId? string
+---@field startedAt? string
+---@field status? string
+---@field updatedAt? string
+
+---@class SimulationSuite
+---@field createdAt string
+---@field id string
+---@field name string
+---@field orgId string
+---@field path? string
+---@field simulationIds table
+---@field slackWebhookUrl? string
+---@field targetAssignments table
+---@field updatedAt string
+
+---@class SimulationSuiteLoadMatch
+---@field id string
+
+---@class SimulationSuiteListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field limit? number
+---@field name? string
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class SimulationSuiteCreateData
+---@field createdAt string
+---@field id string
+---@field name string
+---@field orgId string
+---@field path? string
+---@field simulationIds table
+---@field slackWebhookUrl? string
+---@field targetAssignments table
+---@field updatedAt string
+
+---@class SimulationSuiteUpdateData
+---@field id string
+---@field createdAt? string
+---@field name? string
+---@field orgId? string
+---@field path? string
+---@field simulationIds? table
+---@field slackWebhookUrl? string
+---@field targetAssignments? table
+---@field updatedAt? string
+
+---@class SimulationSuiteRemoveMatch
+---@field id string
+
+---@class Squad
+---@field createdAt string
+---@field id string
+---@field latestVersion? string
+---@field members table
+---@field membersOverrides? any
+---@field modelDeprecations? table
+---@field name? string
+---@field orgId string
+---@field updatedAt string
+
+---@class SquadLoadMatch
+---@field id string
+
+---@class SquadListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id_any? table
+---@field limit? number
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class SquadCreateData
+---@field createdAt string
+---@field id string
+---@field latestVersion? string
+---@field members table
+---@field membersOverrides? any
+---@field modelDeprecations? table
+---@field name? string
+---@field orgId string
+---@field updatedAt string
+
+---@class SquadUpdateData
+---@field id string
+---@field createdAt? string
+---@field latestVersion? string
+---@field members? table
+---@field membersOverrides? any
+---@field modelDeprecations? table
+---@field name? string
+---@field orgId? string
+---@field updatedAt? string
+
+---@class SquadRemoveMatch
+---@field id string
+
+---@class StructuredOutput
+---@field assistantIds? table
+---@field compliancePlan? any
+---@field conditions? table
+---@field createdAt string
+---@field description? string
+---@field id string
+---@field model? any
+---@field name string
+---@field orgId string
+---@field regex? string
+---@field schema any
+---@field type? string
+---@field updatedAt string
+---@field workflowIds? table
+
+---@class StructuredOutputLoadMatch
+---@field id string
+
+---@class StructuredOutputListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field id? string
+---@field limit? number
+---@field name? string
+---@field page? number
+---@field sort_by? string
+---@field sort_order? string
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class StructuredOutputCreateData
+---@field assistantIds? table
+---@field compliancePlan? any
+---@field conditions? table
+---@field createdAt string
+---@field description? string
+---@field id string
+---@field model? any
+---@field name string
+---@field orgId string
+---@field regex? string
+---@field schema any
+---@field type? string
+---@field updatedAt string
+---@field workflowIds? table
+
+---@class StructuredOutputUpdateData
+---@field id string
+---@field schema_override string
+---@field assistantIds? table
+---@field compliancePlan? any
+---@field conditions? table
+---@field createdAt? string
+---@field description? string
+---@field model? any
+---@field name? string
+---@field orgId? string
+---@field regex? string
+---@field schema? any
+---@field type? string
+---@field updatedAt? string
+---@field workflowIds? table
+
+---@class StructuredOutputRemoveMatch
+---@field id string
+
+---@class Tool
+---@field id? string
+
+---@class ToolLoadMatch
+---@field id string
+
+---@class ToolListMatch
+---@field created_at_ge? string
+---@field created_at_gt? string
+---@field created_at_le? string
+---@field created_at_lt? string
+---@field limit? number
+---@field updated_at_ge? string
+---@field updated_at_gt? string
+---@field updated_at_le? string
+---@field updated_at_lt? string
+
+---@class ToolCreateData
+---@field id? string
+
+---@class ToolUpdateData
+---@field id string
+
+---@class ToolRemoveMatch
+---@field id string
+
+local M = {}
+
+return M

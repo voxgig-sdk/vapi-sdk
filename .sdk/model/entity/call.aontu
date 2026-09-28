@@ -1,0 +1,944 @@
+# Entity: call
+
+main: kit: entity: call: {
+
+  alias: field: {}
+
+  fields: {
+    analysis: {
+      h: "Analysis"
+      n: "analysis"
+      r: false
+      sh: "This is the analysis of the call."
+      t: "`$ANY`"
+    }
+    artifact: {
+      h: "Artifact"
+      n: "artifact"
+      r: false
+      sh: "These are the artifacts created from the call."
+      t: "`$ANY`"
+      union: {
+        branches: 5
+        count: 13
+        depth: 19
+      }
+    }
+    artifactPlan: {
+      h: "Artifact Plan"
+      n: "artifactPlan"
+      r: false
+      sh: "This is a copy of assistant artifact plan."
+      t: "`$ANY`"
+      union: {
+        branches: 5
+        count: 3
+        depth: 11
+      }
+    }
+    assistant: {
+      h: "Assistant"
+      n: "assistant"
+      r: false
+      sh: "This is the assistant that will be used for the call."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 19650
+        depth: 55
+      }
+    }
+    assistantId: {
+      h: "Assistant Id"
+      n: "assistantId"
+      r: false
+      sh: "This is the assistant ID that will be used for the call."
+      t: "`$STRING`"
+    }
+    assistantOverrides: {
+      h: "Assistant Overrides"
+      n: "assistantOverrides"
+      r: false
+      sh: "These are the overrides for the `assistant` or `assistantId`'s settings and template variables."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 5356
+        depth: 42
+      }
+    }
+    assistantVersion: {
+      h: "Assistant Version"
+      n: "assistantVersion"
+      r: false
+      sh: "This is the assistant version to use for this call."
+      t: "`$STRING`"
+    }
+    campaignId: {
+      h: "Campaign Id"
+      n: "campaignId"
+      r: false
+      sh: "This is the campaign ID that the call belongs to."
+      t: "`$STRING`"
+    }
+    compliance: {
+      h: "Compliance"
+      n: "compliance"
+      r: false
+      sh: "This is the compliance of the call."
+      t: "`$ANY`"
+    }
+    cost: {
+      h: "Cost"
+      n: "cost"
+      r: false
+      sh: "This is the cost of the call in USD."
+      t: "`$NUMBER`"
+    }
+    costBreakdown: {
+      h: "Cost Breakdown"
+      n: "costBreakdown"
+      r: false
+      sh: "This is the cost of the call in USD."
+      t: "`$ANY`"
+    }
+    costs: {
+      h: "Costs"
+      n: "costs"
+      r: false
+      sh: "These are the costs of individual components of the call in USD."
+      t: "`$ARRAY`"
+      union: {
+        branches: 8
+        count: 1
+        depth: 1
+      }
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the call was created."
+      t: "`$STRING`"
+    }
+    customer: {
+      h: "Customer"
+      n: "customer"
+      r: false
+      sh: "This is the customer that will be called."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 8908
+        depth: 41
+      }
+    }
+    customerId: {
+      h: "Customer Id"
+      n: "customerId"
+      r: false
+      sh: "This is the customer that will be called."
+      t: "`$STRING`"
+    }
+    customers: {
+      h: "Customers"
+      n: "customers"
+      r: false
+      sh: "This is used to issue batch calls to multiple customers."
+      t: "`$ARRAY`"
+      union: {
+        branches: 23
+        count: 8908
+        depth: 40
+      }
+    }
+    destination: {
+      h: "Destination"
+      n: "destination"
+      r: false
+      sh: "This is the destination where the call ended up being transferred to."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 9
+        depth: 12
+      }
+    }
+    endedAt: {
+      fo: "date-time"
+      h: "Ended At"
+      n: "endedAt"
+      r: false
+      sh: "This is the ISO 8601 date-time string of when the call was ended."
+      t: "`$STRING`"
+    }
+    endedMessage: {
+      h: "Ended Message"
+      n: "endedMessage"
+      r: false
+      sh: "This is the message that adds more context to the ended reason."
+      t: "`$STRING`"
+    }
+    endedReason: {
+      h: "Ended Reason"
+      n: "endedReason"
+      r: false
+      sh: "This is the explanation for how the call ended."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "This is the unique identifier for the call."
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: false
+      t: "`$ARRAY`"
+      union: {
+        branches: 5
+        count: 1
+        depth: 1
+      }
+    }
+    monitor: {
+      h: "Monitor"
+      n: "monitor"
+      r: false
+      sh: "This is to real-time monitor the call."
+      t: "`$ANY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "This is the name of the call."
+      t: "`$STRING`"
+    }
+    orgId: {
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      sh: "This is the unique identifier for the org that this call belongs to."
+      t: "`$STRING`"
+    }
+    phoneCallProvider: {
+      de: true
+      h: "Phone Call Provider"
+      n: "phoneCallProvider"
+      r: false
+      sh: "This is the provider of the call."
+      t: "`$STRING`"
+    }
+    phoneCallProviderId: {
+      de: true
+      h: "Phone Call Provider Id"
+      n: "phoneCallProviderId"
+      r: false
+      sh: "The ID of the call as provided by the phone number service."
+      t: "`$STRING`"
+    }
+    phoneCallTransport: {
+      h: "Phone Call Transport"
+      n: "phoneCallTransport"
+      r: false
+      sh: "This is the transport of the phone call."
+      t: "`$STRING`"
+    }
+    phoneNumber: {
+      h: "Phone Number"
+      n: "phoneNumber"
+      r: false
+      sh: "This is the phone number that will be used for the call."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 30
+        depth: 26
+      }
+    }
+    phoneNumberId: {
+      h: "Phone Number Id"
+      n: "phoneNumberId"
+      r: false
+      sh: "This is the phone number that will be used for the call."
+      t: "`$STRING`"
+    }
+    schedulePlan: {
+      h: "Schedule Plan"
+      n: "schedulePlan"
+      r: false
+      sh: "This is the schedule plan of the call."
+      t: "`$ANY`"
+    }
+    squad: {
+      h: "Squad"
+      n: "squad"
+      r: false
+      sh: "This is a squad that will be used for the call."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 12463
+        depth: 49
+      }
+    }
+    squadId: {
+      h: "Squad Id"
+      n: "squadId"
+      r: false
+      sh: "This is the squad that will be used for the call."
+      t: "`$STRING`"
+    }
+    squadOverrides: {
+      h: "Squad Overrides"
+      n: "squadOverrides"
+      r: false
+      sh: "These are the overrides for the `squad` or `squadId`'s member settings and template variables."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 5356
+        depth: 42
+      }
+    }
+    squadVersion: {
+      h: "Squad Version"
+      n: "squadVersion"
+      r: false
+      sh: "This is the squad version to use for this call."
+      t: "`$STRING`"
+    }
+    startedAt: {
+      fo: "date-time"
+      h: "Started At"
+      n: "startedAt"
+      r: false
+      sh: "This is the ISO 8601 date-time string of when the call was started."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "This is the status of the call."
+      t: "`$STRING`"
+    }
+    transport: {
+      h: "Transport"
+      n: "transport"
+      r: false
+      sh: "This is the transport of the call."
+      t: "`$ANY`"
+      union: {
+        branches: 6
+        count: 1
+        depth: 0
+      }
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "This is the type of call."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the call was last updated."
+      t: "`$STRING`"
+    }
+    workflow: {
+      h: "Workflow"
+      n: "workflow"
+      r: false
+      sh: "This is a workflow that will be used for the call."
+      t: "`$ANY`"
+      union: {
+        branches: 23
+        count: 2788
+        depth: 34
+      }
+    }
+    workflowId: {
+      h: "Workflow Id"
+      n: "workflowId"
+      r: false
+      sh: "This is the workflow that will be used for the call."
+      t: "`$STRING`"
+    }
+    workflowOverrides: {
+      h: "Workflow Overrides"
+      n: "workflowOverrides"
+      r: false
+      sh: "These are the overrides for the `workflow` or `workflowId`'s settings and template variables."
+      t: "`$ANY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "call"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /call"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/call"
+          s: [
+            {
+              lit: "call"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /call"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "assistant_id"
+                or: "assistant_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "phone_number_id"
+                or: "phone_number_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call"
+          q: {
+            exist: [
+              "assistant_id"
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "limit"
+              "phone_number_id"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /call/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /call/{id}/assistant-recording"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}/assistant-recording"
+          q: {
+            "$action": "assistant_recording"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "assistant-recording"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /call/{id}/call-logs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}/call-logs"
+          q: {
+            "$action": "call_log"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "call-logs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /call/{id}/customer-recording"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}/customer-recording"
+          q: {
+            "$action": "customer_recording"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "customer-recording"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /call/{id}/mono-recording"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}/mono-recording"
+          q: {
+            "$action": "mono_recording"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "mono-recording"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /call/{id}/pcap"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}/pcap"
+          q: {
+            "$action": "pcap"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "pcap"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /call/{id}/stereo-recording"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}/stereo-recording"
+          q: {
+            "$action": "stereo_recording"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "stereo-recording"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /call/{id}/video-recording"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/call/{id}/video-recording"
+          q: {
+            "$action": "video_recording"
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "video-recording"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /call/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          m: "DELETE"
+          o: "/call/{id}"
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /call/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/call/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "call"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

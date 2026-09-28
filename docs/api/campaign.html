@@ -1,0 +1,4071 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Campaign | Vapi API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Vapi API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/vapi-sdk">voxgig-sdk/vapi-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Vapi API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/analytics.html">Analytics</a>
+<a href="../api/assistant.html">Assistant</a>
+<a href="../api/board.html">Board</a>
+<a href="../api/call.html">Call</a>
+<a aria-current="page" href="../api/campaign.html">Campaign</a><div class="nav-sections"><a class="nav-section" href="#post-campaign">POST /campaign</a>
+<a class="nav-section" href="#post-v2campaign">POST /v2/campaign</a>
+<a class="nav-section" href="#get-v2campaign">GET /v2/campaign</a>
+<a class="nav-section" href="#get-campaign">GET /campaign</a>
+<a class="nav-section" href="#get-v2campaignidcontacts">GET /v2/campaign/{id}/contacts</a>
+<a class="nav-section" href="#get-v2campaignid">GET /v2/campaign/{id}</a>
+<a class="nav-section" href="#get-campaignid">GET /campaign/{id}</a>
+<a class="nav-section" href="#delete-campaignid">DELETE /campaign/{id}</a>
+<a class="nav-section" href="#delete-v2campaignid">DELETE /v2/campaign/{id}</a>
+<a class="nav-section" href="#patch-campaignid">PATCH /campaign/{id}</a>
+<a class="nav-section" href="#patch-v2campaignid">PATCH /v2/campaign/{id}</a></div>
+<a href="../api/chat.html">Chat</a>
+<a href="../api/create_simulation_run.html">CreateSimulationRun</a>
+<a href="../api/eval.html">Eval</a>
+<a href="../api/file.html">File</a>
+<a href="../api/insight.html">Insight</a>
+<a href="../api/knowledge_base.html">KnowledgeBase</a>
+<a href="../api/knowledge_base_v2_file.html">KnowledgeBaseV2File</a>
+<a href="../api/personality.html">Personality</a>
+<a href="../api/phone_number.html">PhoneNumber</a>
+<a href="../api/provider.html">Provider</a>
+<a href="../api/scenario.html">Scenario</a>
+<a href="../api/scorecard.html">Scorecard</a>
+<a href="../api/session.html">Session</a>
+<a href="../api/simulation.html">Simulation</a>
+<a href="../api/simulation_run.html">SimulationRun</a>
+<a href="../api/simulation_run_item.html">SimulationRunItem</a>
+<a href="../api/simulation_suite.html">SimulationSuite</a>
+<a href="../api/squad.html">Squad</a>
+<a href="../api/structured_output.html">StructuredOutput</a>
+<a href="../api/tool.html">Tool</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="campaign">Campaign</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-campaign"><code>/campaign</code></a></td>
+<td><code>create</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-v2campaign"><code>/v2/campaign</code></a></td>
+<td><code>create</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-v2campaign"><code>/v2/campaign</code></a></td>
+<td><code>list</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-campaign"><code>/campaign</code></a></td>
+<td><code>list</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-v2campaignidcontacts"><code>/v2/campaign/{id}/contacts</code></a></td>
+<td><code>list</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-v2campaignid"><code>/v2/campaign/{id}</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-campaignid"><code>/campaign/{id}</code></a></td>
+<td><code>load</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-campaignid"><code>/campaign/{id}</code></a></td>
+<td><code>remove</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-v2campaignid"><code>/v2/campaign/{id}</code></a></td>
+<td><code>remove</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-campaignid"><code>/campaign/{id}</code></a></td>
+<td><code>update</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-v2campaignid"><code>/v2/campaign/{id}</code></a></td>
+<td><code>update</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">campaigns, err := client.Campaign(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(campaigns)
+campaign, err := client.Campaign(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(campaign)
+created, err := client.Campaign(nil).Create(map[string]any{&quot;calls&quot;: map[string]any{}, &quot;callsCounterEnded&quot;: 1, &quot;callsCounterEndedVoicemail&quot;: 1, &quot;callsCounterInProgress&quot;: 1, &quot;callsCounterQueued&quot;: 1, &quot;callsCounterScheduled&quot;: 1, &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;orgId&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.Campaign(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;assistantId&quot;: &quot;example&quot;, &quot;assistantOverrides&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.Campaign(nil).Remove(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local campaigns, err = client:Campaign():list()
+local campaign, err = client:Campaign():load({ id = &quot;example_id&quot; })
+local created, err = client:Campaign():create({ calls = {}, callsCounterEnded = 1, callsCounterEndedVoicemail = 1, callsCounterInProgress = 1, callsCounterQueued = 1, callsCounterScheduled = 1, createdAt = &quot;example&quot;, id = &quot;example&quot;, name = &quot;example&quot;, orgId = &quot;example&quot;, status = &quot;example&quot;, updatedAt = &quot;example&quot; })
+local updated, err = client:Campaign():update({ id = &quot;example_id&quot;, assistantId = &quot;example&quot;, assistantOverrides = &quot;example&quot; })
+local removed, err = client:Campaign():remove({ id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$campaigns = $client-&gt;Campaign()-&gt;list();
+$campaign = $client-&gt;Campaign()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;Campaign()-&gt;create([&quot;calls&quot; =&gt; [], &quot;callsCounterEnded&quot; =&gt; 1, &quot;callsCounterEndedVoicemail&quot; =&gt; 1, &quot;callsCounterInProgress&quot; =&gt; 1, &quot;callsCounterQueued&quot; =&gt; 1, &quot;callsCounterScheduled&quot; =&gt; 1, &quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;orgId&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;updatedAt&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;Campaign()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;assistantId&quot; =&gt; &quot;example&quot;, &quot;assistantOverrides&quot; =&gt; &quot;example&quot;]);
+$client-&gt;Campaign()-&gt;remove([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">campaigns = client.Campaign().list()
+campaign = client.Campaign().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.Campaign().create({ &quot;calls&quot;: {}, &quot;callsCounterEnded&quot;: 1, &quot;callsCounterEndedVoicemail&quot;: 1, &quot;callsCounterInProgress&quot;: 1, &quot;callsCounterQueued&quot;: 1, &quot;callsCounterScheduled&quot;: 1, &quot;createdAt&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;orgId&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;updatedAt&quot;: &quot;example&quot; })
+updated = client.Campaign().update({&quot;id&quot;: &quot;example_id&quot;, &quot;assistantId&quot;: &quot;example&quot;, &quot;assistantOverrides&quot;: &quot;example&quot;})
+client.Campaign().remove({&quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">campaigns = client.Campaign.list()
+campaign = client.Campaign.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.Campaign.create({ &quot;calls&quot; =&gt; {}, &quot;callsCounterEnded&quot; =&gt; 1, &quot;callsCounterEndedVoicemail&quot; =&gt; 1, &quot;callsCounterInProgress&quot; =&gt; 1, &quot;callsCounterQueued&quot; =&gt; 1, &quot;callsCounterScheduled&quot; =&gt; 1, &quot;createdAt&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;orgId&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;updatedAt&quot; =&gt; &quot;example&quot; })
+updated = client.Campaign.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;assistantId&quot; =&gt; &quot;example&quot;, &quot;assistantOverrides&quot; =&gt; &quot;example&quot; })
+client.Campaign.remove({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const campaigns = await client.Campaign().list()
+const campaign = await client.Campaign().load({ id: &quot;example_id&quot; })
+const created = await client.Campaign().create({ calls: {}, callsCounterEnded: 1, callsCounterEndedVoicemail: 1, callsCounterInProgress: 1, callsCounterQueued: 1, callsCounterScheduled: 1, createdAt: &quot;example&quot;, id: &quot;example&quot;, name: &quot;example&quot;, orgId: &quot;example&quot;, status: &quot;example&quot;, updatedAt: &quot;example&quot; })
+const updated = await client.Campaign().update({ id: &quot;example_id&quot;, assistantId: &quot;example&quot;, assistantOverrides: &quot;example&quot; })
+await client.Campaign().remove({ id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign.</td>
+</tr>
+<tr>
+<td><code>callMetrics</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>These are the call-level outcomes for this campaign, how many contacts were actually dialed, and how many of those a human picked up.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>contactCounters</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>These are the per-status contact counts for this campaign.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number.</td>
+</tr>
+<tr>
+<td><code>duplicateFromCampaignId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional campaign ID to duplicate config from.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-campaign" class="operation" data-method="post"><code>POST</code> /campaign</h3>
+<p>Operation ID: <code>CampaignController_create</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>duplicateFromCampaignId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional campaign ID to duplicate config from. Provided fields in the request override the source. If <code>customers</code> is omitted, contacts are copied from the source.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="201" class="status" data-status="2xx">201</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-v2campaign" class="operation" data-method="post"><code>POST</code> /v2/campaign</h3>
+<p>Operation ID: <code>CampaignController_createV2</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>duplicateFromCampaignId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional campaign ID to duplicate config from. Provided fields in the request override the source. If <code>customers</code> is omitted, contacts are copied from the source.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="201-1" class="status" data-status="2xx">201</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-v2campaign" class="operation" data-method="get"><code>GET</code> /v2/campaign</h3>
+<p>Operation ID: <code>CampaignController_findAllV2</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>status</code> | <code>query</code> | <code>enum: scheduled, in-progress, ended, cancelled, archived</code> | No |  |
+| <code>includeCounters</code> | <code>query</code> | <code>boolean</code> | No | When true, every campaign in the response includes <code>contactCounters</code> and <code>callMetrics</code>. These are aggregate queries over contacts and events, batched across the page, so the cost is three queries per request rather than three per campaign, but still opt-in rather than paid for on every read. Defaults to false. |
+| <code>page</code> | <code>query</code> | <code>number</code> | No | This is the page number to return. Defaults to 1. |
+| <code>sortOrder</code> | <code>query</code> | <code>enum: ASC, DESC</code> | No | This is the sort order for pagination. Defaults to 'DESC'. |
+| <code>sortBy</code> | <code>query</code> | <code>enum: createdAt, duration, cost</code> | No | This is the column to sort by. Defaults to 'createdAt'. |
+| <code>limit</code> | <code>query</code> | <code>number</code> | No | This is the maximum number of items to return. Defaults to 100. |
+| <code>createdAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than the specified value. |
+| <code>createdAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than the specified value. |
+| <code>createdAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than or equal to the specified value. |
+| <code>createdAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than or equal to the specified value. |
+| <code>updatedAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than the specified value. |
+| <code>updatedAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than the specified value. |
+| <code>updatedAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than or equal to the specified value. |
+| <code>updatedAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than or equal to the specified value. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtGe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtLe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.currentPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.hasNextPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsBeyondRetention</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsPerPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.nextCursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Opaque cursor for the next page under keyset pagination (PRO-3163). Pass it back as the <code>cursor</code> query param to fetch the next page without an OFFSET scan. Present only when a further page likely exists.</td>
+</tr>
+<tr>
+<td><code>metadata.sortOrder</code></td>
+<td><code>enum: ASC, DESC</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalItems</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalPages</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>results[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>results[].callMetrics</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the call-level outcomes for this campaign, how many contacts were actually dialed, and how many of those a human picked up.</td>
+</tr>
+<tr>
+<td><code>results[].contactCounters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the per-status contact counts for this campaign. Sum them for the campaign's total audience; <code>pending</code> plus <code>dispatched</code> is what is left to complete.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>results[].endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>results[].maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>results[].orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>results[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>results[].predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>results[].schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>results[].server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>results[].serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>results[].squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>results[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>results[].status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-campaign" class="operation" data-method="get"><code>GET</code> /campaign</h3>
+<p>Operation ID: <code>CampaignController_findAll</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>status</code> | <code>query</code> | <code>enum: scheduled, in-progress, ended, cancelled, archived</code> | No |  |
+| <code>page</code> | <code>query</code> | <code>number</code> | No | This is the page number to return. Defaults to 1. |
+| <code>sortOrder</code> | <code>query</code> | <code>enum: ASC, DESC</code> | No | This is the sort order for pagination. Defaults to 'DESC'. |
+| <code>sortBy</code> | <code>query</code> | <code>enum: createdAt, duration, cost</code> | No | This is the column to sort by. Defaults to 'createdAt'. |
+| <code>limit</code> | <code>query</code> | <code>number</code> | No | This is the maximum number of items to return. Defaults to 100. |
+| <code>createdAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than the specified value. |
+| <code>createdAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than the specified value. |
+| <code>createdAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is greater than or equal to the specified value. |
+| <code>createdAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the createdAt is less than or equal to the specified value. |
+| <code>updatedAtGt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than the specified value. |
+| <code>updatedAtLt</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than the specified value. |
+| <code>updatedAtGe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is greater than or equal to the specified value. |
+| <code>updatedAtLe</code> | <code>query</code> | <code>string (date-time)</code> | No | This will return items where the updatedAt is less than or equal to the specified value. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-1" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtGe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtLe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.currentPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.hasNextPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsBeyondRetention</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsPerPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.nextCursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Opaque cursor for the next page under keyset pagination (PRO-3163). Pass it back as the <code>cursor</code> query param to fetch the next page without an OFFSET scan. Present only when a further page likely exists.</td>
+</tr>
+<tr>
+<td><code>metadata.sortOrder</code></td>
+<td><code>enum: ASC, DESC</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalItems</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalPages</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>results[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>results[].calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>results[].callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>results[].callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>results[].callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>results[].callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>results[].callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>results[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>results[].customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>results[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>results[].dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>results[].endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>results[].maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>results[].orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>results[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>results[].predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>results[].schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>results[].server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>results[].serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>results[].squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>results[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>results[].status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>results[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>results[].workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-v2campaignidcontacts" class="operation" data-method="get"><code>GET</code> /v2/campaign/{id}/contacts</h3>
+<p>Operation ID: <code>CampaignController_getCampaignV2Contacts</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |
+| <code>status</code> | <code>query</code> | <code>array of enum: contact.pending, contact.dispatched, contact.completed, contact.failed, contact.skipped, contact.predial-failed</code> | No | This is the status to filter contacts by. Pass once or multiple times to filter on any of the provided statuses. |
+| <code>limit</code> | <code>query</code> | <code>number</code> | No | This is the maximum number of contacts to return. Defaults to 50. |
+| <code>sortBy</code> | <code>query</code> | <code>enum: position, status</code> | No | This is the column to sort by. Defaults to <code>position</code>, the order contacts were uploaded, which is also dial order. <code>status</code> sorts by the enum's declaration order rather than alphabetically, which means it reads as a lifecycle: pending, dispatched, completed, failed, skipped, predial-failed. Only columns on <code>campaign_contact</code> are sortable. Call-level values such as cost or duration live on the call and are attached after this query, so sorting by them here would only reorder the current page. |
+| <code>page</code> | <code>query</code> | <code>number</code> | No | This is the page number to return. Defaults to 1. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-2" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtGe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.createdAtLe</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.currentPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.hasNextPage</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsBeyondRetention</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.itemsPerPage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.nextCursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Opaque cursor for the next page under keyset pagination (PRO-3163). Pass it back as the <code>cursor</code> query param to fetch the next page without an OFFSET scan. Present only when a further page likely exists.</td>
+</tr>
+<tr>
+<td><code>metadata.sortOrder</code></td>
+<td><code>enum: ASC, DESC</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalItems</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.totalPages</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].callId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].dispatchedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].endedReason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].number</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].status</code></td>
+<td><code>enum: contact.pending, contact.dispatched, contact.completed, contact.failed, contact.skipped, contact.predial-failed</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-v2campaignid" class="operation" data-method="get"><code>GET</code> /v2/campaign/{id}</h3>
+<p>Operation ID: <code>CampaignController_findOneV2</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |
+| <code>includeCounters</code> | <code>query</code> | <code>boolean</code> | No | When true, the response includes <code>contactCounters</code> and <code>callMetrics</code>. These are aggregate queries over the campaign's contacts and events, so they are opt-in rather than paid for on every read. Defaults to false. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-3" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>callMetrics</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the call-level outcomes for this campaign, how many contacts were actually dialed, and how many of those a human picked up.</td>
+</tr>
+<tr>
+<td><code>contactCounters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the per-status contact counts for this campaign. Sum them for the campaign's total audience; <code>pending</code> plus <code>dispatched</code> is what is left to complete.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-campaignid" class="operation" data-method="get"><code>GET</code> /campaign/{id}</h3>
+<p>Operation ID: <code>CampaignController_findOne</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-4" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-campaignid" class="operation" data-method="delete"><code>DELETE</code> /campaign/{id}</h3>
+<p>Operation ID: <code>CampaignController_remove</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-5" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-v2campaignid" class="operation" data-method="delete"><code>DELETE</code> /v2/campaign/{id}</h3>
+<p>Operation ID: <code>CampaignController_removeV2</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-6" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="patch-campaignid" class="operation" data-method="patch"><code>PATCH</code> /campaign/{id}</h3>
+<p>Operation ID: <code>CampaignController_update</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Can only be updated if campaign is not in progress or has ended. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended. Note: <code>phoneNumberId</code> and <code>dialPlan</code> are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: ended, cancelled</code></td>
+<td>No</td>
+<td>Set to 'cancelled' to stop the campaign ('ended' is a V1 alias). Scheduled calls are deleted; in-progress calls are allowed to finish.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-7" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-v2campaignid" class="operation" data-method="patch"><code>PATCH</code> /v2/campaign/{id}</h3>
+<p>Operation ID: <code>CampaignController_updateV2</code>.</p>
+<p>Authentication: bearer token (<code>bearer</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | The unique identifier for the resource. |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Can only be updated if campaign is not in progress or has ended. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended. Note: <code>phoneNumberId</code> and <code>dialPlan</code> are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: ended, cancelled</code></td>
+<td>No</td>
+<td>Set to 'cancelled' to stop the campaign ('ended' is a V1 alias). Scheduled calls are deleted; in-progress calls are allowed to finish.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Can only be updated if campaign is not in progress or has ended.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-8" class="status" data-status="2xx">200</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assistantId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the assistant ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables for the campaign. Use this when the campaign targets an <code>assistantId</code>.</td>
+</tr>
+<tr>
+<td><code>calls</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>This is a map of call IDs to campaign call details.</td>
+</tr>
+<tr>
+<td><code>callsCounterEnded</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have ended.</td>
+</tr>
+<tr>
+<td><code>callsCounterEndedVoicemail</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls whose ended reason is 'voicemail'.</td>
+</tr>
+<tr>
+<td><code>callsCounterInProgress</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been in progress.</td>
+</tr>
+<tr>
+<td><code>callsCounterQueued</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been queued.</td>
+</tr>
+<tr>
+<td><code>callsCounterScheduled</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>This is the number of calls that have been scheduled.</td>
+</tr>
+<tr>
+<td><code>createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was created.</td>
+</tr>
+<tr>
+<td><code>customers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>These are the customers that will be called in the campaign. Required if dialPlan is not provided. Maximum of 10000 customers per campaign.</td>
+</tr>
+<tr>
+<td><code>customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>This is a list of dial entries, each specifying a phone number and the customers to call using that number. Use this when you want different phone numbers to call different sets of customers. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>The list of customers to call using this phone number.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].assistantOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the assistant's settings and template variables specific to this customer. This allows customization of the assistant's behavior for individual customers in batch calls.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].email</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the email of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].extension</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the extension that will be dialed after the call is answered.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].externalId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the external ID of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the name of the customer. This is just for your own reference. For SIP inbound calls, this is extracted from the <code>From</code> SIP header with format <code>&amp;quot;Display Name&amp;quot; &amp;lt;sip:username@domain&amp;gt;</code>.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the number of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].numberE164CheckEnabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>This is the flag to toggle the E164 check for the <code>number</code> field. This is an advanced property which should be used if you know your use case requires it. Use cases: - <code>false</code>: To allow non-E164 numbers like <code>+001234567890</code>, <code>1234</code>, or <code>abc</code>. This is useful for dialing out to non-E164 numbers on your SIP trunks. - <code>true</code> (default): To allow only E164 numbers like <code>+14155551234</code>. This is standard for PSTN calls. If <code>false</code>, the <code>number</code> is still required to only contain alphanumeric characters (regex: <code>/^\+?[a-zA-Z0-9]+$/</code>). @default true (E164 check is enabled)</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].sipUri</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the SIP URI of the customer.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].customers[].squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides applied when the call targets a <code>squadId</code>. Mirrors the call-level <code>squadOverrides</code>, use this instead of <code>assistantOverrides</code> when the campaign or call is squad-based.</td>
+</tr>
+<tr>
+<td><code>dialPlan[].phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The phone number ID to use for calling the customers in this entry.</td>
+</tr>
+<tr>
+<td><code>endedReason</code></td>
+<td><code>enum: campaign.scheduled.ended-by-user, campaign.in-progress.ended-by-user, campaign.ended.success</code></td>
+<td>No</td>
+<td>This is the explanation for how the campaign ended.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the campaign.</td>
+</tr>
+<tr>
+<td><code>maxConcurrency</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>This is the maximum number of concurrent calls that will be made for the campaign. Defaults to 10. Maximum of 500, and may not exceed your organization's concurrency limit.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the name of the campaign. This is just for your own reference.</td>
+</tr>
+<tr>
+<td><code>orgId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This is the unique identifier for the org that this campaign belongs to.</td>
+</tr>
+<tr>
+<td><code>phoneNumberId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the phone number ID that will be used for the campaign calls. Required if dialPlan is not provided. Note: phoneNumberId and dialPlan are mutually exclusive.</td>
+</tr>
+<tr>
+<td><code>predialPlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This opts the campaign into the blocking <code>campaign.predial</code> eligibility webhook. When set, every contact triggers a <code>campaign.predial</code> POST to the Server URL before dialing, and the response <code>&amp;#123; eligible: boolean &amp;#125;</code> decides whether the call is placed. Requires <code>server</code>. When unset, no pre-dial webhook is sent.</td>
+</tr>
+<tr>
+<td><code>schedulePlan</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the schedule plan for the campaign. Calls will start at startedAt and continue until your organization’s concurrency limit is reached. Any remaining calls will be retried for up to one hour as capacity becomes available. After that hour or after latestAt, whichever comes first, any calls that couldn’t be placed won’t be retried.</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>This is the server (URL, auth headers, timeout, etc.) for the campaign webhooks.</td>
+</tr>
+<tr>
+<td><code>serverMessages</code></td>
+<td><code>enum: campaign.started, campaign.cancelled, campaign.ended, campaign.archived, campaign.unarchived, contact.dispatched, ...</code></td>
+<td>No</td>
+<td>These are the messages that will be sent to your Server URL.</td>
+</tr>
+<tr>
+<td><code>squadId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the squad ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+<tr>
+<td><code>squadOverrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>These are the overrides for the squad and template variables for the campaign. Use this when the campaign targets a <code>squadId</code>. Per-contact <code>squadOverrides</code> are deep-merged on top of this at dispatch time.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>enum: scheduled, in-progress, ended, cancelled, archived</code></td>
+<td>Yes</td>
+<td>This is the status of the campaign.</td>
+</tr>
+<tr>
+<td><code>updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>This is the ISO 8601 date-time string of when the campaign was last updated.</td>
+</tr>
+<tr>
+<td><code>workflowId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>This is the workflow ID that will be used for the campaign calls. Note: Only one of assistantId, workflowId, or squadId can be used.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,76 @@
+{
+  "existing": {
+    "knowledge_base": {
+      "KNOWLEDGE_BASE00": {
+        "createdAt": "s50",
+        "description": "s51",
+        "files": [],
+        "id": "KNOWLEDGE_BASE00",
+        "name": "s54",
+        "orgId": "s55",
+        "toolId": "s56",
+        "updatedAt": "s57"
+      },
+      "KNOWLEDGE_BASE01": {
+        "createdAt": "sa0",
+        "description": "sa1",
+        "files": [],
+        "id": "KNOWLEDGE_BASE01",
+        "name": "sa4",
+        "orgId": "sa5",
+        "toolId": "sa6",
+        "updatedAt": "sa7"
+      },
+      "KNOWLEDGE_BASE02": {
+        "createdAt": "sf0",
+        "description": "sf1",
+        "files": [],
+        "id": "KNOWLEDGE_BASE02",
+        "name": "sf4",
+        "orgId": "sf5",
+        "toolId": "sf6",
+        "updatedAt": "sf7"
+      }
+    }
+  },
+  "new": {
+    "knowledge_base": {
+      "knowledge_base_ref01": {
+        "createdAt": "s140",
+        "description": "s141",
+        "files": [],
+        "name": "s144",
+        "orgId": "s145",
+        "toolId": "s146",
+        "updatedAt": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /v2/knowledge-base": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v2/knowledge-base": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v2/knowledge-base/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /v2/knowledge-base/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /v2/knowledge-base/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

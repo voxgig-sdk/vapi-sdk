@@ -1,0 +1,120 @@
+{
+  "existing": {
+    "chat": {
+      "CHAT00": {
+        "assistant": "sbe",
+        "assistantId": "sbf",
+        "assistantOverrides": "sc0",
+        "cost": 193,
+        "costs": [],
+        "createdAt": "sc3",
+        "id": "CHAT00",
+        "input": "sc5",
+        "messages": [],
+        "name": "sc7",
+        "orgId": "sc8",
+        "output": [],
+        "previousChatId": "sca",
+        "sessionId": "scb",
+        "squad": "scc",
+        "squadId": "scd",
+        "stream": true,
+        "transport": "scf",
+        "updatedAt": "sd0"
+      },
+      "CHAT01": {
+        "assistant": "s17c",
+        "assistantId": "s17d",
+        "assistantOverrides": "s17e",
+        "cost": 383,
+        "costs": [],
+        "createdAt": "s181",
+        "id": "CHAT01",
+        "input": "s183",
+        "messages": [],
+        "name": "s185",
+        "orgId": "s186",
+        "output": [],
+        "previousChatId": "s188",
+        "sessionId": "s189",
+        "squad": "s18a",
+        "squadId": "s18b",
+        "stream": true,
+        "transport": "s18d",
+        "updatedAt": "s18e"
+      },
+      "CHAT02": {
+        "assistant": "s23a",
+        "assistantId": "s23b",
+        "assistantOverrides": "s23c",
+        "cost": 573,
+        "costs": [],
+        "createdAt": "s23f",
+        "id": "CHAT02",
+        "input": "s241",
+        "messages": [],
+        "name": "s243",
+        "orgId": "s244",
+        "output": [],
+        "previousChatId": "s246",
+        "sessionId": "s247",
+        "squad": "s248",
+        "squadId": "s249",
+        "stream": true,
+        "transport": "s24b",
+        "updatedAt": "s24c"
+      }
+    }
+  },
+  "new": {
+    "chat": {
+      "chat_ref01": {
+        "assistant": "s2f8",
+        "assistantId": "s2f9",
+        "assistantOverrides": "s2fa",
+        "cost": 763,
+        "costs": [],
+        "createdAt": "s2fd",
+        "input": "s2ff",
+        "messages": [],
+        "name": "s301",
+        "orgId": "s302",
+        "output": [],
+        "previousChatId": "s304",
+        "sessionId": "s305",
+        "squad": "s306",
+        "squadId": "s307",
+        "stream": true,
+        "transport": "s309",
+        "updatedAt": "s30a"
+      }
+    }
+  },
+  "requests": {
+    "POST /chat": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /chat/responses": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /chat": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /chat/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /chat/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "existing": {
+    "simulation_run_item": {
+      "SIMULATION_RUN_ITEM00": {
+        "callId": "se6",
+        "canceledAt": "se7",
+        "completedAt": "se8",
+        "configurations": "se9",
+        "createdAt": "sea",
+        "failedAt": "seb",
+        "failureReason": "sec",
+        "hooks": [],
+        "id": "SIMULATION_RUN_ITEM00",
+        "improvementSuggestions": "sef",
+        "iterationNumber": 240,
+        "metadata": "sf1",
+        "orgId": "sf2",
+        "personalityId": "sf3",
+        "queuedAt": "sf4",
+        "results": "sf5",
+        "runId": "sf6",
+        "scenarioId": "sf7",
+        "sessionId": "sf8",
+        "simulationId": "sf9",
+        "startedAt": "sfa",
+        "status": "sfb",
+        "updatedAt": "sfc",
+        "item_id": "ITEM01",
+        "run_id": "RUN01"
+      },
+      "SIMULATION_RUN_ITEM01": {
+        "callId": "s1cc",
+        "canceledAt": "s1cd",
+        "completedAt": "s1ce",
+        "configurations": "s1cf",
+        "createdAt": "s1d0",
+        "failedAt": "s1d1",
+        "failureReason": "s1d2",
+        "hooks": [],
+        "id": "SIMULATION_RUN_ITEM01",
+        "improvementSuggestions": "s1d5",
+        "iterationNumber": 470,
+        "metadata": "s1d7",
+        "orgId": "s1d8",
+        "personalityId": "s1d9",
+        "queuedAt": "s1da",
+        "results": "s1db",
+        "runId": "s1dc",
+        "scenarioId": "s1dd",
+        "sessionId": "s1de",
+        "simulationId": "s1df",
+        "startedAt": "s1e0",
+        "status": "s1e1",
+        "updatedAt": "s1e2",
+        "item_id": "ITEM01",
+        "run_id": "RUN01"
+      },
+      "SIMULATION_RUN_ITEM02": {
+        "callId": "s2b2",
+        "canceledAt": "s2b3",
+        "completedAt": "s2b4",
+        "configurations": "s2b5",
+        "createdAt": "s2b6",
+        "failedAt": "s2b7",
+        "failureReason": "s2b8",
+        "hooks": [],
+        "id": "SIMULATION_RUN_ITEM02",
+        "improvementSuggestions": "s2bb",
+        "iterationNumber": 700,
+        "metadata": "s2bd",
+        "orgId": "s2be",
+        "personalityId": "s2bf",
+        "queuedAt": "s2c0",
+        "results": "s2c1",
+        "runId": "s2c2",
+        "scenarioId": "s2c3",
+        "sessionId": "s2c4",
+        "simulationId": "s2c5",
+        "startedAt": "s2c6",
+        "status": "s2c7",
+        "updatedAt": "s2c8",
+        "item_id": "ITEM01",
+        "run_id": "RUN01"
+      }
+    }
+  },
+  "new": {
+    "simulation_run_item": {
+      "simulation_run_item_ref01": {
+        "callId": "s398",
+        "canceledAt": "s399",
+        "completedAt": "s39a",
+        "configurations": "s39b",
+        "createdAt": "s39c",
+        "failedAt": "s39d",
+        "failureReason": "s39e",
+        "hooks": [],
+        "improvementSuggestions": "s3a1",
+        "iterationNumber": 930,
+        "metadata": "s3a3",
+        "orgId": "s3a4",
+        "personalityId": "s3a5",
+        "queuedAt": "s3a6",
+        "results": "s3a7",
+        "runId": "s3a8",
+        "scenarioId": "s3a9",
+        "sessionId": "s3aa",
+        "simulationId": "s3ab",
+        "startedAt": "s3ac",
+        "status": "s3ad",
+        "updatedAt": "s3ae"
+      }
+    }
+  },
+  "requests": {
+    "POST /eval/simulation/run/{id}/item/{itemId}/generate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/simulation/run/{id}/item": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/simulation/run/{id}/item/{itemId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /eval/simulation/run/{id}/item/{itemId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

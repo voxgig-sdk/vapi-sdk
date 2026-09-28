@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "phone_number": {
+      "PHONE_NUMBER00": {
+        "id": "PHONE_NUMBER00",
+        "metadata": "s1f",
+        "results": []
+      },
+      "PHONE_NUMBER01": {
+        "id": "PHONE_NUMBER01",
+        "metadata": "s3d",
+        "results": []
+      },
+      "PHONE_NUMBER02": {
+        "id": "PHONE_NUMBER02",
+        "metadata": "s5b",
+        "results": []
+      }
+    }
+  },
+  "new": {
+    "phone_number": {
+      "phone_number_ref01": {
+        "metadata": "s79",
+        "results": []
+      }
+    }
+  },
+  "requests": {
+    "POST /phone-number": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v2/phone-number": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /phone-number": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /phone-number/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /phone-number/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /phone-number/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

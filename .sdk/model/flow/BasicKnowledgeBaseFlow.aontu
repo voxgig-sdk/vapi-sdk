@@ -1,0 +1,100 @@
+# BasicKnowledgeBaseFlow
+
+main: kit: flow: BasicKnowledgeBaseFlow:
+{
+  entity: "knowledge_base",
+  kind: "basic",
+  name: "BasicKnowledgeBaseFlow",
+  step: [
+    {
+      i: {
+        ref: "knowledge_base_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "knowledge_base_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "knowledge_base_ref01",
+        srcdatavar: "knowledge_base_ref01_data",
+        suffix: "_up0",
+        textfield: "createdAt"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-knowledge_base_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "knowledge_base_ref01",
+        srcdatavar: "knowledge_base_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "knowledge_base01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-knowledge_base_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "knowledge_base_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "knowledge_base01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "knowledge_base_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicKnowledgeBaseFlow"
+}

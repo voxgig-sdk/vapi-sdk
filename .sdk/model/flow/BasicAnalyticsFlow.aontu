@@ -1,0 +1,18 @@
+# BasicAnalyticsFlow
+
+main: kit: flow: BasicAnalyticsFlow:
+{
+  entity: "analytics",
+  kind: "basic",
+  name: "BasicAnalyticsFlow",
+  step: [
+    {
+      i: {
+        ref: "analytics_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAnalyticsFlow"
+}

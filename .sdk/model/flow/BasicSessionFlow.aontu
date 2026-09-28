@@ -1,0 +1,100 @@
+# BasicSessionFlow
+
+main: kit: flow: BasicSessionFlow:
+{
+  entity: "session",
+  kind: "basic",
+  name: "BasicSessionFlow",
+  step: [
+    {
+      i: {
+        ref: "session_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "session_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "session_ref01",
+        srcdatavar: "session_ref01_data",
+        suffix: "_up0",
+        textfield: "assistantId"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-session_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "session_ref01",
+        srcdatavar: "session_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "session01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-session_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "session_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "session01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "session_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSessionFlow"
+}

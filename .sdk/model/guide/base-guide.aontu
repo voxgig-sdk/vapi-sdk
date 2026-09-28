@@ -1,0 +1,411 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 25
+  metrics: count: path: 71
+  metrics: count: method: 139
+
+  entity: analytics: {
+    path: "/analytics": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: assistant: {
+    path: "/assistant": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/assistant/background-sound/validate": {
+      op: create: method: *POST
+    }
+    path: "/assistant/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: board: {
+    path: "/reporting/board": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/reporting/board/default/metrics-overview": {
+      op: list: method: *GET
+    }
+    path: "/reporting/board/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: call: {
+    path: "/call": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/call/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/call/{id}/assistant-recording": {
+      action: "assistant_recording": {}
+      op: load: method: *GET
+    }
+    path: "/call/{id}/call-logs": {
+      action: "call_log": {}
+      op: load: method: *GET
+    }
+    path: "/call/{id}/customer-recording": {
+      action: "customer_recording": {}
+      op: load: method: *GET
+    }
+    path: "/call/{id}/mono-recording": {
+      action: "mono_recording": {}
+      op: load: method: *GET
+    }
+    path: "/call/{id}/pcap": {
+      action: "pcap": {}
+      op: load: method: *GET
+    }
+    path: "/call/{id}/stereo-recording": {
+      action: "stereo_recording": {}
+      op: load: method: *GET
+    }
+    path: "/call/{id}/video-recording": {
+      action: "video_recording": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: campaign: {
+    path: "/campaign": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/campaign/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/v2/campaign": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/v2/campaign/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/v2/campaign/{id}/contacts": {
+      action: "contact": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: chat: {
+    path: "/chat": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/chat/responses": {
+      action: "response": {}
+      op: create: method: *POST
+    }
+    path: "/chat/{id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: create_simulation_run: {
+    path: "/eval/simulation/run": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: eval: {
+    path: "/eval": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/eval/run": {
+      action: "run": {}
+      op: create: method: *POST
+      op: create: transform: req: "eval": *("`reqdata`")|top
+      op: list: method: *GET
+    }
+    path: "/eval/run/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.eval`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.eval`")|top
+    }
+    path: "/eval/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: file: {
+    path: "/file": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.metadata`")|top
+      op: list: method: *GET
+    }
+    path: "/file/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.metadata`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.metadata`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.metadata`")|top
+    }
+  }
+
+  entity: insight: {
+    path: "/reporting/insight": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/reporting/insight/preview": {
+      action: "preview": {}
+      op: create: method: *POST
+    }
+    path: "/reporting/insight/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/reporting/insight/{id}/run": {
+      action: "run": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: knowledge_base: {
+    path: "/v2/knowledge-base": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/v2/knowledge-base/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: knowledge_base_v2_file: {
+    path: "/v2/knowledge-base/{id}/file": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/v2/knowledge-base/{id}/file/{fileId}": {
+      rename: param: "fileId": *"id"
+      rename: param: "id": *"knowledge_base_id"
+      op: remove: method: *DELETE
+    }
+    path: "/v2/knowledge-base/{id}/file/{fileId}/retry": {
+      rename: param: "fileId": *"file_id"
+      rename: param: "id": *"knowledge_base_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: personality: {
+    path: "/eval/simulation/personality": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.assistant`")|top
+      op: list: method: *GET
+    }
+    path: "/eval/simulation/personality/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.assistant`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.assistant`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.assistant`")|top
+    }
+  }
+
+  entity: phone_number: {
+    path: "/phone-number": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/phone-number/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/v2/phone-number": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: provider: {
+    path: "/provider/{provider}/{resourceName}": {
+      rename: param: "resourceName": *"resource_name"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.resource`")|top
+      op: load: method: *GET
+    }
+    path: "/provider/{provider}/{resourceName}/{id}": {
+      rename: param: "resourceName": *"resource_name"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.resource`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.resource`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.resource`")|top
+    }
+  }
+
+  entity: scenario: {
+    path: "/eval/simulation/scenario": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/eval/simulation/scenario/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: scorecard: {
+    path: "/observability/scorecard": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/observability/scorecard/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: session: {
+    path: "/session": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/session/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: simulation: {
+    path: "/eval/simulation": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/eval/simulation/concurrency": {
+      action: "concurrency": {}
+      op: load: method: *GET
+    }
+    path: "/eval/simulation/scenario/generate": {
+      op: create: method: *POST
+    }
+    path: "/eval/simulation/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: simulation_run: {
+    path: "/eval/simulation/run": {
+      op: load: method: *GET
+    }
+    path: "/eval/simulation/run/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: simulation_run_item: {
+    path: "/eval/simulation/run/{id}/item": {
+      rename: param: "id": *"run_id"
+      op: list: method: *GET
+    }
+    path: "/eval/simulation/run/{id}/item/{itemId}": {
+      rename: param: "id": *"run_id"
+      rename: param: "itemId": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/eval/simulation/run/{id}/item/{itemId}/generate": {
+      action: "generate": {}
+      rename: param: "id": *"run_id"
+      rename: param: "itemId": *"item_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: simulation_suite: {
+    path: "/eval/simulation/suite": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/eval/simulation/suite/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/eval/simulation/suite/{id}/duplicate": {
+      rename: param: "id": *"suite_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: squad: {
+    path: "/squad": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/squad/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: structured_output: {
+    path: "/structured-output": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/structured-output/run": {
+      action: "run": {}
+      op: create: method: *POST
+    }
+    path: "/structured-output/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: tool: {
+    path: "/tool": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/tool/{id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+}

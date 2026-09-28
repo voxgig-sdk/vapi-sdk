@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "board": {
+      "BOARD00": {
+        "createdAt": "s5a",
+        "id": "BOARD00",
+        "items": [],
+        "layout": "s5d",
+        "name": "s5e",
+        "orgId": "s5f",
+        "systemKey": "s60",
+        "timeRangeOverride": "s61",
+        "updatedAt": "s62"
+      },
+      "BOARD01": {
+        "createdAt": "sb4",
+        "id": "BOARD01",
+        "items": [],
+        "layout": "sb7",
+        "name": "sb8",
+        "orgId": "sb9",
+        "systemKey": "sba",
+        "timeRangeOverride": "sbb",
+        "updatedAt": "sbc"
+      },
+      "BOARD02": {
+        "createdAt": "s10e",
+        "id": "BOARD02",
+        "items": [],
+        "layout": "s111",
+        "name": "s112",
+        "orgId": "s113",
+        "systemKey": "s114",
+        "timeRangeOverride": "s115",
+        "updatedAt": "s116"
+      }
+    }
+  },
+  "new": {
+    "board": {
+      "board_ref01": {
+        "createdAt": "s168",
+        "items": [],
+        "layout": "s16b",
+        "name": "s16c",
+        "orgId": "s16d",
+        "systemKey": "s16e",
+        "timeRangeOverride": "s16f",
+        "updatedAt": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /reporting/board": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reporting/board": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reporting/board/default/metrics-overview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reporting/board/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /reporting/board/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /reporting/board/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

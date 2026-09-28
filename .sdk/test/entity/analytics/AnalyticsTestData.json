@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "analytics": {
+      "ANALYTICS00": {
+        "queries": [],
+        "id": "ANALYTICS00"
+      },
+      "ANALYTICS01": {
+        "queries": [],
+        "id": "ANALYTICS01"
+      },
+      "ANALYTICS02": {
+        "queries": [],
+        "id": "ANALYTICS02"
+      }
+    }
+  },
+  "new": {
+    "analytics": {
+      "analytics_ref01": {
+        "queries": []
+      }
+    }
+  },
+  "requests": {
+    "POST /analytics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

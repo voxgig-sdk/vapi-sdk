@@ -1,0 +1,100 @@
+# BasicSquadFlow
+
+main: kit: flow: BasicSquadFlow:
+{
+  entity: "squad",
+  kind: "basic",
+  name: "BasicSquadFlow",
+  step: [
+    {
+      i: {
+        ref: "squad_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "squad_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "squad_ref01",
+        srcdatavar: "squad_ref01_data",
+        suffix: "_up0",
+        textfield: "createdAt"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-squad_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "squad_ref01",
+        srcdatavar: "squad_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "squad01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-squad_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "squad_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "squad01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "squad_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSquadFlow"
+}

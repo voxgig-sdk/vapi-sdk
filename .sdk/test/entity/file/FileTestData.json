@@ -1,0 +1,116 @@
+{
+  "existing": {
+    "file": {
+      "FILE00": {
+        "bucket": "sb4",
+        "bytes": 181,
+        "createdAt": "sb6",
+        "id": "FILE00",
+        "key": "sb8",
+        "metadata": {},
+        "mimetype": "sba",
+        "name": "sbb",
+        "object": "sbc",
+        "orgId": "sbd",
+        "originalName": "sbe",
+        "parsedTextBytes": 191,
+        "parsedTextUrl": "sc0",
+        "path": "sc1",
+        "purpose": "sc2",
+        "status": "sc3",
+        "updatedAt": "sc4",
+        "url": "sc5"
+      },
+      "FILE01": {
+        "bucket": "s168",
+        "bytes": 361,
+        "createdAt": "s16a",
+        "id": "FILE01",
+        "key": "s16c",
+        "metadata": {},
+        "mimetype": "s16e",
+        "name": "s16f",
+        "object": "s170",
+        "orgId": "s171",
+        "originalName": "s172",
+        "parsedTextBytes": 371,
+        "parsedTextUrl": "s174",
+        "path": "s175",
+        "purpose": "s176",
+        "status": "s177",
+        "updatedAt": "s178",
+        "url": "s179"
+      },
+      "FILE02": {
+        "bucket": "s21c",
+        "bytes": 541,
+        "createdAt": "s21e",
+        "id": "FILE02",
+        "key": "s220",
+        "metadata": {},
+        "mimetype": "s222",
+        "name": "s223",
+        "object": "s224",
+        "orgId": "s225",
+        "originalName": "s226",
+        "parsedTextBytes": 551,
+        "parsedTextUrl": "s228",
+        "path": "s229",
+        "purpose": "s22a",
+        "status": "s22b",
+        "updatedAt": "s22c",
+        "url": "s22d"
+      }
+    }
+  },
+  "new": {
+    "file": {
+      "file_ref01": {
+        "bucket": "s2d0",
+        "bytes": 721,
+        "createdAt": "s2d2",
+        "key": "s2d4",
+        "metadata": {},
+        "mimetype": "s2d6",
+        "name": "s2d7",
+        "object": "s2d8",
+        "orgId": "s2d9",
+        "originalName": "s2da",
+        "parsedTextBytes": 731,
+        "parsedTextUrl": "s2dc",
+        "path": "s2dd",
+        "purpose": "s2de",
+        "status": "s2df",
+        "updatedAt": "s2e0",
+        "url": "s2e1"
+      }
+    }
+  },
+  "requests": {
+    "POST /file": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /file": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /file/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /file/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /file/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

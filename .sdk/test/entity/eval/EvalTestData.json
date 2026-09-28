@@ -1,0 +1,140 @@
+{
+  "existing": {
+    "eval": {
+      "EVAL00": {
+        "cost": 190,
+        "costs": [],
+        "createdAt": "sc0",
+        "description": "sc1",
+        "endedAt": "sc2",
+        "endedMessage": "sc3",
+        "endedReason": "sc4",
+        "eval": "sc5",
+        "evalId": "sc6",
+        "id": "EVAL00",
+        "messages": [],
+        "name": "sc9",
+        "orgId": "sca",
+        "results": [],
+        "startedAt": "scc",
+        "status": "scd",
+        "target": "sce",
+        "type": "scf",
+        "updatedAt": "sd0"
+      },
+      "EVAL01": {
+        "cost": 380,
+        "costs": [],
+        "createdAt": "s17e",
+        "description": "s17f",
+        "endedAt": "s180",
+        "endedMessage": "s181",
+        "endedReason": "s182",
+        "eval": "s183",
+        "evalId": "s184",
+        "id": "EVAL01",
+        "messages": [],
+        "name": "s187",
+        "orgId": "s188",
+        "results": [],
+        "startedAt": "s18a",
+        "status": "s18b",
+        "target": "s18c",
+        "type": "s18d",
+        "updatedAt": "s18e"
+      },
+      "EVAL02": {
+        "cost": 570,
+        "costs": [],
+        "createdAt": "s23c",
+        "description": "s23d",
+        "endedAt": "s23e",
+        "endedMessage": "s23f",
+        "endedReason": "s240",
+        "eval": "s241",
+        "evalId": "s242",
+        "id": "EVAL02",
+        "messages": [],
+        "name": "s245",
+        "orgId": "s246",
+        "results": [],
+        "startedAt": "s248",
+        "status": "s249",
+        "target": "s24a",
+        "type": "s24b",
+        "updatedAt": "s24c"
+      }
+    }
+  },
+  "new": {
+    "eval": {
+      "eval_ref01": {
+        "cost": 760,
+        "costs": [],
+        "createdAt": "s2fa",
+        "description": "s2fb",
+        "endedAt": "s2fc",
+        "endedMessage": "s2fd",
+        "endedReason": "s2fe",
+        "eval": "s2ff",
+        "evalId": "s300",
+        "messages": [],
+        "name": "s303",
+        "orgId": "s304",
+        "results": [],
+        "startedAt": "s306",
+        "status": "s307",
+        "target": "s308",
+        "type": "s309",
+        "updatedAt": "s30a"
+      }
+    }
+  },
+  "requests": {
+    "POST /eval": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /eval/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/run/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /eval/run/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /eval/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /eval/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "existing": {
+    "structured_output": {
+      "STRUCTURED_OUTPUT00": {
+        "assistantIds": [],
+        "compliancePlan": "s8d",
+        "conditions": [],
+        "createdAt": "s8f",
+        "description": "s90",
+        "id": "STRUCTURED_OUTPUT00",
+        "model": "s92",
+        "name": "s93",
+        "orgId": "s94",
+        "regex": "s95",
+        "schema": "s96",
+        "type": "s97",
+        "updatedAt": "s98",
+        "workflowIds": []
+      },
+      "STRUCTURED_OUTPUT01": {
+        "assistantIds": [],
+        "compliancePlan": "s119",
+        "conditions": [],
+        "createdAt": "s11b",
+        "description": "s11c",
+        "id": "STRUCTURED_OUTPUT01",
+        "model": "s11e",
+        "name": "s11f",
+        "orgId": "s120",
+        "regex": "s121",
+        "schema": "s122",
+        "type": "s123",
+        "updatedAt": "s124",
+        "workflowIds": []
+      },
+      "STRUCTURED_OUTPUT02": {
+        "assistantIds": [],
+        "compliancePlan": "s1a5",
+        "conditions": [],
+        "createdAt": "s1a7",
+        "description": "s1a8",
+        "id": "STRUCTURED_OUTPUT02",
+        "model": "s1aa",
+        "name": "s1ab",
+        "orgId": "s1ac",
+        "regex": "s1ad",
+        "schema": "s1ae",
+        "type": "s1af",
+        "updatedAt": "s1b0",
+        "workflowIds": []
+      }
+    }
+  },
+  "new": {
+    "structured_output": {
+      "structured_output_ref01": {
+        "assistantIds": [],
+        "compliancePlan": "s231",
+        "conditions": [],
+        "createdAt": "s233",
+        "description": "s234",
+        "model": "s236",
+        "name": "s237",
+        "orgId": "s238",
+        "regex": "s239",
+        "schema": "s23a",
+        "type": "s23b",
+        "updatedAt": "s23c",
+        "workflowIds": []
+      }
+    }
+  },
+  "requests": {
+    "POST /structured-output": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /structured-output/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /structured-output": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /structured-output/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /structured-output/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /structured-output/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,492 @@
+# Entity: provider
+
+main: kit: entity: provider: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: true
+      t: "`$OBJECT`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    from: {
+      id: "id"
+      provider: "provider"
+      resource_name: "resourceName"
+    }
+    name: "id"
+    parts: [
+      "provider"
+      "resource_name"
+      "id"
+    ]
+    sep: "/"
+  }
+
+  name: "provider"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /provider/{provider}/{resourceName}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "content_type"
+                or: "content_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "provider"
+                or: "provider"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "resource_name"
+                or: "resource_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/provider/{provider}/{resourceName}"
+          q: {
+            exist: [
+              "content_type"
+              "provider"
+              "resource_name"
+            ]
+          }
+          r: {
+            param: {
+              resourceName: "resource_name"
+            }
+          }
+          s: [
+            {
+              lit: "provider"
+            }
+            {
+              var: "provider"
+            }
+            {
+              var: "resource_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.resource`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /provider/{provider}/{resourceName}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "provider"
+                or: "provider"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "resource_name"
+                or: "resource_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "created_at_ge"
+                or: "created_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_gt"
+                or: "created_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_le"
+                or: "created_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "created_at_lt"
+                or: "created_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "resource_id"
+                or: "resource_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_by"
+                or: "sort_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sort_order"
+                or: "sort_order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_ge"
+                or: "updated_at_ge"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_gt"
+                or: "updated_at_gt"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_le"
+                or: "updated_at_le"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "updated_at_lt"
+                or: "updated_at_lt"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/provider/{provider}/{resourceName}"
+          q: {
+            exist: [
+              "created_at_ge"
+              "created_at_gt"
+              "created_at_le"
+              "created_at_lt"
+              "id"
+              "limit"
+              "page"
+              "provider"
+              "resource_id"
+              "resource_name"
+              "sort_by"
+              "sort_order"
+              "updated_at_ge"
+              "updated_at_gt"
+              "updated_at_le"
+              "updated_at_lt"
+            ]
+          }
+          r: {
+            param: {
+              resourceName: "resource_name"
+            }
+          }
+          s: [
+            {
+              lit: "provider"
+            }
+            {
+              var: "provider"
+            }
+            {
+              var: "resource_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /provider/{provider}/{resourceName}/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "provider"
+                or: "provider"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "resource_name"
+                or: "resource_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/provider/{provider}/{resourceName}/{id}"
+          q: {
+            exist: [
+              "id"
+              "provider"
+              "resource_name"
+            ]
+          }
+          r: {
+            param: {
+              resourceName: "resource_name"
+            }
+          }
+          s: [
+            {
+              lit: "provider"
+            }
+            {
+              var: "provider"
+            }
+            {
+              var: "resource_name"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.resource`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /provider/{provider}/{resourceName}/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "provider"
+                or: "provider"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "resource_name"
+                or: "resource_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/provider/{provider}/{resourceName}/{id}"
+          q: {
+            exist: [
+              "id"
+              "provider"
+              "resource_name"
+            ]
+          }
+          r: {
+            param: {
+              resourceName: "resource_name"
+            }
+          }
+          s: [
+            {
+              lit: "provider"
+            }
+            {
+              var: "provider"
+            }
+            {
+              var: "resource_name"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.resource`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /provider/{provider}/{resourceName}/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "provider"
+                or: "provider"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "resource_name"
+                or: "resource_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/provider/{provider}/{resourceName}/{id}"
+          q: {
+            exist: [
+              "id"
+              "provider"
+              "resource_name"
+            ]
+          }
+          r: {
+            param: {
+              resourceName: "resource_name"
+            }
+          }
+          s: [
+            {
+              lit: "provider"
+            }
+            {
+              var: "provider"
+            }
+            {
+              var: "resource_name"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.resource`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

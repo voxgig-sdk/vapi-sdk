@@ -1,0 +1,27 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: "Voice AI for developers."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "bearer"
+        type: "http"
+      }
+      servers: [
+        {
+          url: "https://api.vapi.ai"
+        }
+      ]
+      summary: "Voice AI for developers."
+      title: "Vapi API"
+      version: "1.0"
+      website: "https://vapi.ai"
+    }
+  }
+}
+

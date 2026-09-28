@@ -1,0 +1,80 @@
+{
+  "existing": {
+    "squad": {
+      "SQUAD00": {
+        "createdAt": "s5a",
+        "id": "SQUAD00",
+        "latestVersion": "s5c",
+        "members": [],
+        "membersOverrides": "s5e",
+        "modelDeprecations": [],
+        "name": "s60",
+        "orgId": "s61",
+        "updatedAt": "s62"
+      },
+      "SQUAD01": {
+        "createdAt": "sb4",
+        "id": "SQUAD01",
+        "latestVersion": "sb6",
+        "members": [],
+        "membersOverrides": "sb8",
+        "modelDeprecations": [],
+        "name": "sba",
+        "orgId": "sbb",
+        "updatedAt": "sbc"
+      },
+      "SQUAD02": {
+        "createdAt": "s10e",
+        "id": "SQUAD02",
+        "latestVersion": "s110",
+        "members": [],
+        "membersOverrides": "s112",
+        "modelDeprecations": [],
+        "name": "s114",
+        "orgId": "s115",
+        "updatedAt": "s116"
+      }
+    }
+  },
+  "new": {
+    "squad": {
+      "squad_ref01": {
+        "createdAt": "s168",
+        "latestVersion": "s16a",
+        "members": [],
+        "membersOverrides": "s16c",
+        "modelDeprecations": [],
+        "name": "s16e",
+        "orgId": "s16f",
+        "updatedAt": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /squad": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /squad": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /squad/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /squad/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /squad/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

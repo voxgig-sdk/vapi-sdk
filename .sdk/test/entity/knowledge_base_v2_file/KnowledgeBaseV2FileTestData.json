@@ -1,0 +1,81 @@
+{
+  "existing": {
+    "knowledge_base_v2_file": {
+      "KNOWLEDGE_BASE_V2_FILE00": {
+        "bytes": 90,
+        "createdAt": "s5b",
+        "fileId": "s5c",
+        "fileName": "s5d",
+        "id": "KNOWLEDGE_BASE_V2_FILE00",
+        "knowledgeBaseV2Id": "s5f",
+        "mimetype": "s60",
+        "status": "s61",
+        "updatedAt": "s62",
+        "file_id": "FILE01",
+        "knowledge_base_id": "KNOWLEDGE_BASE01"
+      },
+      "KNOWLEDGE_BASE_V2_FILE01": {
+        "bytes": 180,
+        "createdAt": "sb5",
+        "fileId": "sb6",
+        "fileName": "sb7",
+        "id": "KNOWLEDGE_BASE_V2_FILE01",
+        "knowledgeBaseV2Id": "sb9",
+        "mimetype": "sba",
+        "status": "sbb",
+        "updatedAt": "sbc",
+        "file_id": "FILE01",
+        "knowledge_base_id": "KNOWLEDGE_BASE01"
+      },
+      "KNOWLEDGE_BASE_V2_FILE02": {
+        "bytes": 270,
+        "createdAt": "s10f",
+        "fileId": "s110",
+        "fileName": "s111",
+        "id": "KNOWLEDGE_BASE_V2_FILE02",
+        "knowledgeBaseV2Id": "s113",
+        "mimetype": "s114",
+        "status": "s115",
+        "updatedAt": "s116",
+        "file_id": "FILE01",
+        "knowledge_base_id": "KNOWLEDGE_BASE01"
+      }
+    }
+  },
+  "new": {
+    "knowledge_base_v2_file": {
+      "knowledge_base_v2_file_ref01": {
+        "bytes": 360,
+        "createdAt": "s169",
+        "fileId": "s16a",
+        "fileName": "s16b",
+        "knowledgeBaseV2Id": "s16d",
+        "mimetype": "s16e",
+        "status": "s16f",
+        "updatedAt": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /v2/knowledge-base/{id}/file/{fileId}/retry": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v2/knowledge-base/{id}/file": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v2/knowledge-base/{id}/file": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /v2/knowledge-base/{id}/file/{fileId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

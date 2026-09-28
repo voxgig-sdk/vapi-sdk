@@ -1,0 +1,88 @@
+{
+  "existing": {
+    "simulation_suite": {
+      "SIMULATION_SUITE00": {
+        "createdAt": "s5a",
+        "id": "SIMULATION_SUITE00",
+        "name": "s5c",
+        "orgId": "s5d",
+        "path": "s5e",
+        "simulationIds": [],
+        "slackWebhookUrl": "s60",
+        "targetAssignments": [],
+        "updatedAt": "s62",
+        "suite_id": "SUITE01"
+      },
+      "SIMULATION_SUITE01": {
+        "createdAt": "sb4",
+        "id": "SIMULATION_SUITE01",
+        "name": "sb6",
+        "orgId": "sb7",
+        "path": "sb8",
+        "simulationIds": [],
+        "slackWebhookUrl": "sba",
+        "targetAssignments": [],
+        "updatedAt": "sbc",
+        "suite_id": "SUITE01"
+      },
+      "SIMULATION_SUITE02": {
+        "createdAt": "s10e",
+        "id": "SIMULATION_SUITE02",
+        "name": "s110",
+        "orgId": "s111",
+        "path": "s112",
+        "simulationIds": [],
+        "slackWebhookUrl": "s114",
+        "targetAssignments": [],
+        "updatedAt": "s116",
+        "suite_id": "SUITE01"
+      }
+    }
+  },
+  "new": {
+    "simulation_suite": {
+      "simulation_suite_ref01": {
+        "createdAt": "s168",
+        "name": "s16a",
+        "orgId": "s16b",
+        "path": "s16c",
+        "simulationIds": [],
+        "slackWebhookUrl": "s16e",
+        "targetAssignments": [],
+        "updatedAt": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /eval/simulation/suite/{id}/duplicate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /eval/simulation/suite": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/simulation/suite": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /eval/simulation/suite/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /eval/simulation/suite/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /eval/simulation/suite/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

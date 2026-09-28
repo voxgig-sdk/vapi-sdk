@@ -1,0 +1,190 @@
+{
+  "existing": {
+    "campaign": {
+      "CAMPAIGN00": {
+        "assistantId": "s122",
+        "assistantOverrides": "s123",
+        "callMetrics": "s124",
+        "calls": {},
+        "callsCounterEnded": 294,
+        "callsCounterEndedVoicemail": 295,
+        "callsCounterInProgress": 296,
+        "callsCounterQueued": 297,
+        "callsCounterScheduled": 298,
+        "contactCounters": "s12b",
+        "createdAt": "s12c",
+        "customers": [],
+        "dialPlan": [],
+        "duplicateFromCampaignId": "s12f",
+        "endedReason": "s130",
+        "id": "CAMPAIGN00",
+        "maxConcurrency": 306,
+        "name": "s133",
+        "orgId": "s134",
+        "phoneNumberId": "s135",
+        "predialPlan": "s136",
+        "schedulePlan": "s137",
+        "server": "s138",
+        "serverMessages": [],
+        "squadId": "s13a",
+        "squadOverrides": "s13b",
+        "status": "s13c",
+        "updatedAt": "s13d",
+        "workflowId": "s13e"
+      },
+      "CAMPAIGN01": {
+        "assistantId": "s244",
+        "assistantOverrides": "s245",
+        "callMetrics": "s246",
+        "calls": {},
+        "callsCounterEnded": 584,
+        "callsCounterEndedVoicemail": 585,
+        "callsCounterInProgress": 586,
+        "callsCounterQueued": 587,
+        "callsCounterScheduled": 588,
+        "contactCounters": "s24d",
+        "createdAt": "s24e",
+        "customers": [],
+        "dialPlan": [],
+        "duplicateFromCampaignId": "s251",
+        "endedReason": "s252",
+        "id": "CAMPAIGN01",
+        "maxConcurrency": 596,
+        "name": "s255",
+        "orgId": "s256",
+        "phoneNumberId": "s257",
+        "predialPlan": "s258",
+        "schedulePlan": "s259",
+        "server": "s25a",
+        "serverMessages": [],
+        "squadId": "s25c",
+        "squadOverrides": "s25d",
+        "status": "s25e",
+        "updatedAt": "s25f",
+        "workflowId": "s260"
+      },
+      "CAMPAIGN02": {
+        "assistantId": "s366",
+        "assistantOverrides": "s367",
+        "callMetrics": "s368",
+        "calls": {},
+        "callsCounterEnded": 874,
+        "callsCounterEndedVoicemail": 875,
+        "callsCounterInProgress": 876,
+        "callsCounterQueued": 877,
+        "callsCounterScheduled": 878,
+        "contactCounters": "s36f",
+        "createdAt": "s370",
+        "customers": [],
+        "dialPlan": [],
+        "duplicateFromCampaignId": "s373",
+        "endedReason": "s374",
+        "id": "CAMPAIGN02",
+        "maxConcurrency": 886,
+        "name": "s377",
+        "orgId": "s378",
+        "phoneNumberId": "s379",
+        "predialPlan": "s37a",
+        "schedulePlan": "s37b",
+        "server": "s37c",
+        "serverMessages": [],
+        "squadId": "s37e",
+        "squadOverrides": "s37f",
+        "status": "s380",
+        "updatedAt": "s381",
+        "workflowId": "s382"
+      }
+    }
+  },
+  "new": {
+    "campaign": {
+      "campaign_ref01": {
+        "assistantId": "s488",
+        "assistantOverrides": "s489",
+        "callMetrics": "s48a",
+        "calls": {},
+        "callsCounterEnded": 1164,
+        "callsCounterEndedVoicemail": 1165,
+        "callsCounterInProgress": 1166,
+        "callsCounterQueued": 1167,
+        "callsCounterScheduled": 1168,
+        "contactCounters": "s491",
+        "createdAt": "s492",
+        "customers": [],
+        "dialPlan": [],
+        "duplicateFromCampaignId": "s495",
+        "endedReason": "s496",
+        "maxConcurrency": 1176,
+        "name": "s499",
+        "orgId": "s49a",
+        "phoneNumberId": "s49b",
+        "predialPlan": "s49c",
+        "schedulePlan": "s49d",
+        "server": "s49e",
+        "serverMessages": [],
+        "squadId": "s4a0",
+        "squadOverrides": "s4a1",
+        "status": "s4a2",
+        "updatedAt": "s4a3",
+        "workflowId": "s4a4"
+      }
+    }
+  },
+  "requests": {
+    "POST /campaign": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v2/campaign": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v2/campaign": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /campaign": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v2/campaign/{id}/contacts": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v2/campaign/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /campaign/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /campaign/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /v2/campaign/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /campaign/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /v2/campaign/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

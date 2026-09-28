@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "insight": {
+      "INSIGHT00": {
+        "createdAt": "s46",
+        "id": "INSIGHT00",
+        "name": "s48",
+        "orgId": "s49",
+        "systemKey": "s4a",
+        "type": "s4b",
+        "updatedAt": "s4c"
+      },
+      "INSIGHT01": {
+        "createdAt": "s8c",
+        "id": "INSIGHT01",
+        "name": "s8e",
+        "orgId": "s8f",
+        "systemKey": "s90",
+        "type": "s91",
+        "updatedAt": "s92"
+      },
+      "INSIGHT02": {
+        "createdAt": "sd2",
+        "id": "INSIGHT02",
+        "name": "sd4",
+        "orgId": "sd5",
+        "systemKey": "sd6",
+        "type": "sd7",
+        "updatedAt": "sd8"
+      }
+    }
+  },
+  "new": {
+    "insight": {
+      "insight_ref01": {
+        "createdAt": "s118",
+        "name": "s11a",
+        "orgId": "s11b",
+        "systemKey": "s11c",
+        "type": "s11d",
+        "updatedAt": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "POST /reporting/insight/{id}/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /reporting/insight": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /reporting/insight/preview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reporting/insight": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /reporting/insight/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /reporting/insight/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /reporting/insight/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

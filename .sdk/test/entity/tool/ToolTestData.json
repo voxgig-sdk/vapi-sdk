@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "tool": {
+      "TOOL00": {
+        "id": "TOOL00"
+      },
+      "TOOL01": {
+        "id": "TOOL01"
+      },
+      "TOOL02": {
+        "id": "TOOL02"
+      }
+    }
+  },
+  "new": {
+    "tool": {
+      "tool_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /tool": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /tool": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /tool/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /tool/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /tool/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

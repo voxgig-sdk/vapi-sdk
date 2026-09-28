@@ -1,0 +1,81 @@
+# BasicChatFlow
+
+main: kit: flow: BasicChatFlow:
+{
+  entity: "chat",
+  kind: "basic",
+  name: "BasicChatFlow",
+  step: [
+    {
+      i: {
+        ref: "chat_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "chat_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "chat_ref01",
+        srcdatavar: "chat_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "chat01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-chat_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "chat_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "chat01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "chat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicChatFlow"
+}

@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "provider": {
+      "PROVIDER00": {
+        "id": "PROVIDER00",
+        "metadata": {},
+        "results": [],
+        "provider": "PROVIDER01",
+        "resource_name": "RESOURCE_NAME01"
+      },
+      "PROVIDER01": {
+        "id": "PROVIDER01",
+        "metadata": {},
+        "results": [],
+        "provider": "PROVIDER01",
+        "resource_name": "RESOURCE_NAME01"
+      },
+      "PROVIDER02": {
+        "id": "PROVIDER02",
+        "metadata": {},
+        "results": [],
+        "provider": "PROVIDER01",
+        "resource_name": "RESOURCE_NAME01"
+      }
+    }
+  },
+  "new": {
+    "provider": {
+      "provider_ref01": {
+        "metadata": {},
+        "results": []
+      }
+    }
+  },
+  "requests": {
+    "POST /provider/{provider}/{resourceName}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /provider/{provider}/{resourceName}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /provider/{provider}/{resourceName}/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /provider/{provider}/{resourceName}/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /provider/{provider}/{resourceName}/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

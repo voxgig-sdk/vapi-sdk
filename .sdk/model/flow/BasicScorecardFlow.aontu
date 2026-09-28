@@ -1,0 +1,100 @@
+# BasicScorecardFlow
+
+main: kit: flow: BasicScorecardFlow:
+{
+  entity: "scorecard",
+  kind: "basic",
+  name: "BasicScorecardFlow",
+  step: [
+    {
+      i: {
+        ref: "scorecard_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "scorecard_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "scorecard_ref01",
+        srcdatavar: "scorecard_ref01_data",
+        suffix: "_up0",
+        textfield: "createdAt"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-scorecard_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "scorecard_ref01",
+        srcdatavar: "scorecard_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "scorecard01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-scorecard_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "scorecard_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "scorecard01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "scorecard_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicScorecardFlow"
+}

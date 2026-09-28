@@ -1,0 +1,51 @@
+# BasicSimulationRunFlow
+
+main: kit: flow: BasicSimulationRunFlow:
+{
+  entity: "simulation_run",
+  kind: "basic",
+  name: "BasicSimulationRunFlow",
+  step: [
+    {
+      i: {
+        ref: "simulation_run_ref01",
+        srcdatavar: "simulation_run_ref01_data",
+        suffix: "_up0",
+        textfield: "createdAt"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-simulation_run_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "simulation_run_ref01",
+        srcdatavar: "simulation_run_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "simulation_run01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-simulation_run_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSimulationRunFlow"
+}

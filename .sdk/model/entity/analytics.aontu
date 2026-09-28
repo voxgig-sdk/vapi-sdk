@@ -1,0 +1,46 @@
+# Entity: analytics
+
+main: kit: entity: analytics: {
+
+  alias: field: {}
+
+  fields: {
+    queries: {
+      h: "Queries"
+      n: "queries"
+      r: true
+      sh: "This is the list of metric queries you want to perform."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "analytics"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /analytics"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/analytics"
+          s: [
+            {
+              lit: "analytics"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "create_simulation_run": {
+      "CREATE_SIMULATION_RUN00": {
+        "iterations": 40,
+        "simulations": [],
+        "target": "s2a",
+        "transport": "s2b",
+        "id": "CREATE_SIMULATION_RUN00"
+      },
+      "CREATE_SIMULATION_RUN01": {
+        "iterations": 80,
+        "simulations": [],
+        "target": "s52",
+        "transport": "s53",
+        "id": "CREATE_SIMULATION_RUN01"
+      },
+      "CREATE_SIMULATION_RUN02": {
+        "iterations": 120,
+        "simulations": [],
+        "target": "s7a",
+        "transport": "s7b",
+        "id": "CREATE_SIMULATION_RUN02"
+      }
+    }
+  },
+  "new": {
+    "create_simulation_run": {
+      "create_simulation_run_ref01": {
+        "iterations": 160,
+        "simulations": [],
+        "target": "sa2",
+        "transport": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /eval/simulation/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
