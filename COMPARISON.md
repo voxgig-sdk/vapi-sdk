@@ -1,6 +1,6 @@
 # Vapi: the Voxgig SDK and the Fern SDK compared
 
-Vergleich: Fern. Compared with VapiAI/server-sdk-typescript (@vapi-ai/server-sdk 2.0.1). Spec: VapiAI/docs fern/apis/api/openapi.json at 6ead80d, the Fern input, OAS 3.0.0, 71 paths / 139 ops, MIT, inherited from VapiAI/docs (the definition states none). Added 2026-09-28.
+Vergleich: Fern. Compared with VapiAI/server-sdk-typescript (@vapi-ai/server-sdk 2.0.1). Spec: VapiAI/docs fern/apis/api/openapi.json at 6ead80d, the Fern input, OAS 3.0.0, 71 paths / 139 ops, MIT (inherited from VapiAI/docs). Added 2026-09-28.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
