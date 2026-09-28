@@ -6,7 +6,7 @@
 - **Retrieved:** 2026-09-28T20:35:54Z
 - **SHA-256:** `9ea2ec43024706be7583ccc60a5782b64cb012b18bde0da8f27678f17448ea34`
 - **Definition:** OpenAPI 3.0.0, `info.version` 1.0, 71 paths, 139 operations, 3221 KB.
-- **Licence:** none stated.
+- **Licence:** MIT, inherited from the source repository: VapiAI/docs is MIT-licensed at the pinned commit 6ead80d (`LICENSE`, "Copyright (c) 2025 Vapi"). The definition itself has no `info.license`.
 - **Changes:** none. This is the vendor's definition, byte for byte.
 
 ## Why this SDK exists
