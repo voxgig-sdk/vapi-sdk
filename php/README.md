@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/vapi-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/vapi-sdk/releases](https://github.com/voxgig-sdk/vapi-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/vapi-sdk
+composer config repositories.vapi-sdk path ./vapi-sdk/php
+composer require voxgig-sdk/vapi-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
@@ -49,7 +54,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $scenarios = $client->Scenario()->list();
+    $provider = $client->Provider()->load(["provider" => "example", "resource_name" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -121,13 +126,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```php
 $client = VapiSDK::test([
-    "entity" => ["scenario" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["provider" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// list() returns entity instances (throws on error);
+// Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$scenario = $client->Scenario()->list();
-print_r(array_map(fn($item) => $item->data_get(), $scenario));
+$provider = $client->Provider()->load(["id" => "test01", "provider" => "example", "resource_name" => "example"]);
+print_r($provider->data_get());
 ```
 
 ### Use a custom fetch function
@@ -214,7 +219,6 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `Call` | `($data): CallEntity` | Create a Call entity instance. |
 | `Campaign` | `($data): CampaignEntity` | Create a Campaign entity instance. |
 | `Chat` | `($data): ChatEntity` | Create a Chat entity instance. |
-| `CreateSimulationRun` | `($data): CreateSimulationRunEntity` | Create a CreateSimulationRun entity instance. |
 | `Eval` | `($data): EvalEntity` | Create an Eval entity instance. |
 | `File` | `($data): FileEntity` | Create a File entity instance. |
 | `Insight` | `($data): InsightEntity` | Create an Insight entity instance. |
@@ -469,19 +473,6 @@ Operations: Create, List, Load, Remove.
 
 API path: `/chat`
 
-#### CreateSimulationRun
-
-| Field | Description |
-| --- | --- |
-| `iterations` | Number of times to run each simulation (default: 1) |
-| `simulations` | Array of simulations and/or suites to run |
-| `target` | Target to test against |
-| `transport` | Transport configuration for the simulation runs |
-
-Operations: Create.
-
-API path: `/eval/simulation/run`
-
 #### Eval
 
 | Field | Description |
@@ -592,43 +583,13 @@ API path: `/v2/knowledge-base/{id}/file/{fileId}/retry`
 
 | Field | Description |
 | --- | --- |
-| `analysisPlan` | This is the plan for analysis of assistant's calls. |
-| `artifactPlan` | This is the plan for artifacts generated during assistant's calls. |
 | `assistant` | This is the full assistant configuration for this personality. |
-| `backgroundSound` | This is the background sound in the call. |
-| `backgroundSpeechDenoisingPlan` | This enables filtering of noise and background speech while the user is talking. |
-| `clientMessages` | These are the messages that will be sent to your Client SDKs. |
-| `compliancePlan` |  |
 | `createdAt` | This is the ISO 8601 date-time string of when the personality was created. |
-| `credentialIds` | These are the credentials that will be used for the assistant calls. |
-| `credentials` | These are dynamic credentials that will be used for the assistant calls. |
-| `endCallMessage` | This is the message that the assistant will say if it ends the call. |
-| `endCallPhrases` | This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. |
-| `firstMessage` | This is the first message that the assistant will say. |
-| `firstMessageInterruptionsEnabled` |  |
-| `firstMessageMode` | This is the mode for the first message. |
-| `hooks` | This is a set of actions that will be performed on certain events. |
 | `id` | This is the unique identifier for the personality. |
-| `keypadInputPlan` |  |
-| `maxDurationSeconds` | This is the maximum number of seconds that the call will last. |
-| `metadata` | This is for metadata you want to store on the assistant. |
-| `model` | These are the options for the assistant's LLM. |
-| `modelOutputInMessagesEnabled` | This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech. |
-| `monitorPlan` | This is the plan for real-time monitoring of the assistant's calls. |
-| `name` | This is the name of the assistant. |
-| `observabilityPlan` | This is the plan for observability of assistant's calls. |
+| `name` | This is the name of the personality (e.g., "Confused Carl", "Rude Rob"). |
 | `orgId` | This is the unique identifier for the organization this personality belongs to. |
 | `path` | Optional folder path for organizing personalities. |
-| `server` | This is where Vapi will send webhooks. |
-| `serverMessages` | These are the messages that will be sent to your Server URL. |
-| `startSpeakingPlan` | This is the plan for when the assistant should start talking. |
-| `stopSpeakingPlan` | This is the plan for when assistant should stop talking on customer interruption. |
-| `transcriber` | These are the options for the assistant's transcriber. |
-| `transportConfigurations` | These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. |
 | `updatedAt` | This is the ISO 8601 date-time string of when the personality was last updated. |
-| `voice` | These are the options for the assistant's voice. |
-| `voicemailDetection` | These are the settings to configure or disable voicemail detection. |
-| `voicemailMessage` | This is the message that the assistant will say if the call is forwarded to voicemail. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -650,9 +611,16 @@ API path: `/phone-number`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
+| `createdAt` | This is the ISO 8601 date-time string of when the provider resource was created. |
+| `id` | This is the unique identifier for the provider resource. |
 | `metadata` |  |
+| `orgId` | This is the unique identifier for the org that this provider resource belongs to. |
+| `provider` | This is the provider that manages this resource. |
+| `resource` | This is the full resource data from the provider's API. |
+| `resourceId` | This is the provider-specific identifier for the resource. |
+| `resourceName` | This is the name/type of the resource. |
 | `results` |  |
+| `updatedAt` | This is the ISO 8601 date-time string of when the provider resource was last updated. |
 
 Operations: Create, Load, Remove, Update.
 
@@ -762,7 +730,7 @@ API path: `/eval/simulation`
 | `transport` | Transport configuration for the simulation runs |
 | `updatedAt` | ISO 8601 date-time when last updated |
 
-Operations: Load, Update.
+Operations: Create, Load, Update.
 
 API path: `/eval/simulation/run`
 
@@ -1275,35 +1243,6 @@ $chat = $client->Chat()->create([
 ```
 
 
-### CreateSimulationRun
-
-Create an instance: `$create_simulation_run = $client->CreateSimulationRun();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `iterations` | `float` | Number of times to run each simulation (default: 1) |
-| `simulations` | `array` | Array of simulations and/or suites to run |
-| `target` | `mixed` | Target to test against |
-| `transport` | `mixed` | Transport configuration for the simulation runs |
-
-#### Example: Create
-
-```php
-$create_simulation_run = $client->CreateSimulationRun()->create([
-    "simulations" => null, // array
-    "target" => null, // mixed
-]);
-```
-
-
 ### Eval
 
 Create an instance: `$eval = $client->Eval();`
@@ -1615,43 +1554,13 @@ Create an instance: `$personality = $client->Personality();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysisPlan` | `mixed` | This is the plan for analysis of assistant's calls. |
-| `artifactPlan` | `mixed` | This is the plan for artifacts generated during assistant's calls. |
 | `assistant` | `mixed` | This is the full assistant configuration for this personality. |
-| `backgroundSound` | `mixed` | This is the background sound in the call. |
-| `backgroundSpeechDenoisingPlan` | `mixed` | This enables filtering of noise and background speech while the user is talking. |
-| `clientMessages` | `array` | These are the messages that will be sent to your Client SDKs. |
-| `compliancePlan` | `array` |  |
 | `createdAt` | `string` | This is the ISO 8601 date-time string of when the personality was created. |
-| `credentialIds` | `array` | These are the credentials that will be used for the assistant calls. |
-| `credentials` | `array` | These are dynamic credentials that will be used for the assistant calls. |
-| `endCallMessage` | `string` | This is the message that the assistant will say if it ends the call. |
-| `endCallPhrases` | `array` | This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. |
-| `firstMessage` | `string` | This is the first message that the assistant will say. |
-| `firstMessageInterruptionsEnabled` | `bool` |  |
-| `firstMessageMode` | `string` | This is the mode for the first message. |
-| `hooks` | `array` | This is a set of actions that will be performed on certain events. |
 | `id` | `string` | This is the unique identifier for the personality. |
-| `keypadInputPlan` | `array` |  |
-| `maxDurationSeconds` | `float` | This is the maximum number of seconds that the call will last. |
-| `metadata` | `array` | This is for metadata you want to store on the assistant. |
-| `model` | `mixed` | These are the options for the assistant's LLM. |
-| `modelOutputInMessagesEnabled` | `bool` | This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech. |
-| `monitorPlan` | `mixed` | This is the plan for real-time monitoring of the assistant's calls. |
-| `name` | `string` | This is the name of the assistant. |
-| `observabilityPlan` | `mixed` | This is the plan for observability of assistant's calls. |
+| `name` | `string` | This is the name of the personality (e.g., "Confused Carl", "Rude Rob"). |
 | `orgId` | `string` | This is the unique identifier for the organization this personality belongs to. |
 | `path` | `string` | Optional folder path for organizing personalities. |
-| `server` | `mixed` | This is where Vapi will send webhooks. |
-| `serverMessages` | `array` | These are the messages that will be sent to your Server URL. |
-| `startSpeakingPlan` | `mixed` | This is the plan for when the assistant should start talking. |
-| `stopSpeakingPlan` | `mixed` | This is the plan for when assistant should stop talking on customer interruption. |
-| `transcriber` | `mixed` | These are the options for the assistant's transcriber. |
-| `transportConfigurations` | `array` | These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. |
 | `updatedAt` | `string` | This is the ISO 8601 date-time string of when the personality was last updated. |
-| `voice` | `mixed` | These are the options for the assistant's voice. |
-| `voicemailDetection` | `mixed` | These are the settings to configure or disable voicemail detection. |
-| `voicemailMessage` | `string` | This is the message that the assistant will say if the call is forwarded to voicemail. |
 
 #### Example: Load
 
@@ -1674,6 +1583,7 @@ $personality = $client->Personality()->create([
     "assistant" => null, // mixed
     "createdAt" => null, // string
     "id" => null, // string
+    "name" => null, // string
     "orgId" => null, // string
     "updatedAt" => null, // string
 ]);
@@ -1743,9 +1653,16 @@ Create an instance: `$provider = $client->Provider();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
+| `createdAt` | `string` | This is the ISO 8601 date-time string of when the provider resource was created. |
+| `id` | `string` | This is the unique identifier for the provider resource. |
 | `metadata` | `array` |  |
+| `orgId` | `string` | This is the unique identifier for the org that this provider resource belongs to. |
+| `provider` | `string` | This is the provider that manages this resource. |
+| `resource` | `array` | This is the full resource data from the provider's API. |
+| `resourceId` | `string` | This is the provider-specific identifier for the resource. |
+| `resourceName` | `string` | This is the name/type of the resource. |
 | `results` | `array` |  |
+| `updatedAt` | `string` | This is the ISO 8601 date-time string of when the provider resource was last updated. |
 
 #### Example: Load
 
@@ -1760,8 +1677,15 @@ $provider = $client->Provider()->load(["id" => "provider_id", "provider" => "pro
 $provider = $client->Provider()->create([
     "provider" => null, // string
     "resource_name" => null, // string
+    "createdAt" => null, // string
+    "id" => null, // string
     "metadata" => null, // array
+    "orgId" => null, // string
+    "resource" => null, // array
+    "resourceId" => null, // string
+    "resourceName" => null, // string
     "results" => null, // array
+    "updatedAt" => null, // string
 ]);
 ```
 
@@ -2009,6 +1933,7 @@ Create an instance: `$simulation_run = $client->SimulationRun();`
 
 | Method | Description |
 | --- | --- |
+| `create(data)` | Create a new entity with the given data. |
 | `load(match)` | Load a single entity by match criteria. |
 | `update(data)` | Update an existing entity. |
 
@@ -2036,6 +1961,21 @@ Create an instance: `$simulation_run = $client->SimulationRun();`
 ```php
 // load() returns the ENTITY — call data_get() for the SimulationRun record (throws on error).
 $simulation_run = $client->SimulationRun()->load(["id" => "simulation_run_id"]);
+```
+
+#### Example: Create
+
+```php
+$simulation_run = $client->SimulationRun()->create([
+    "createdAt" => null, // string
+    "id" => null, // string
+    "orgId" => null, // string
+    "queuedAt" => null, // string
+    "simulations" => null, // array
+    "status" => null, // string
+    "target" => null, // mixed
+    "updatedAt" => null, // string
+]);
 ```
 
 
@@ -2465,7 +2405,7 @@ activated earlier.
 
 ## Open types
 
-66 fields are carried as open values rather than typed structures.
+56 fields are carried as open values rather than typed structures.
 This follows from the API definition, not from a gap in this SDK: the
 definition describes them with untagged unions —
 `oneOf`/`anyOf` branches with no `discriminator` — so it never states which
@@ -2492,12 +2432,8 @@ guarantee.
 | `chat` | `assistantOverrides` | 23 | 37 levels |
 | `chat` | `squad` | 23 | 49 levels |
 | `chat` | `transport` | 23 | 45 levels |
-| `create_simulation_run` | `simulations` | 23 | 60 levels |
-| `create_simulation_run` | `target` | 23 | 59 levels |
 | `eval` | `target` | 23 | 57 levels |
 | `personality` | `assistant` | 23 | 55 levels |
-| `personality` | `hooks` | 23 | 27 levels |
-| `personality` | `model` | 23 | 51 levels |
 | `scenario` | `targetOverrides` | 23 | 42 levels |
 | `session` | `assistant` | 23 | 53 levels |
 | `session` | `assistantOverrides` | 23 | 37 levels |
@@ -2509,10 +2445,7 @@ guarantee.
 | `squad` | `membersOverrides` | 23 | 42 levels |
 | `assistant` | `compliancePlan` | 20 | 28 levels |
 | `assistant` | `voice` | 20 | 22 levels |
-| `personality` | `compliancePlan` | 20 | 28 levels |
-| `personality` | `voice` | 20 | 22 levels |
 | `assistant` | `transcriber` | 14 | 18 levels |
-| `personality` | `transcriber` | 14 | 18 levels |
 | `call` | `costs` | 8 | 1 level |
 | `call` | `transport` | 6 | 0 levels |
 | `eval` | `eval` | 6 | 13 levels |
@@ -2525,8 +2458,6 @@ guarantee.
 | `chat` | `input` | 5 | 3 levels |
 | `chat` | `messages` | 5 | 1 level |
 | `chat` | `output` | 5 | 1 level |
-| `personality` | `artifactPlan` | 5 | 11 levels |
-| `personality` | `voicemailDetection` | 5 | 0 levels |
 | `phone_number` | `results` | 5 | 27 levels |
 | `scenario` | `evaluations` | 5 | 8 levels |
 | `session` | `artifact` | 5 | 19 levels |
@@ -2536,7 +2467,6 @@ guarantee.
 | `assistant` | `startSpeakingPlan` | 3 | 5 levels |
 | `call` | `destination` | 3 | 12 levels |
 | `call` | `phoneNumber` | 3 | 26 levels |
-| `personality` | `startSpeakingPlan` | 3 | 5 levels |
 | `session` | `costs` | 3 | 1 level |
 | `session` | `phoneNumber` | 3 | 26 levels |
 | `simulation_run_item` | `results` | 3 | 7 levels |
@@ -2626,15 +2556,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$scenario = $client->Scenario();
-$scenario->list();
+$provider = $client->Provider();
+$provider->load(["provider" => "example", "resource_name" => "example"]);
 
-// $scenario->data_get() now returns the scenario data from the last list
-// $scenario->match_get() returns the last match criteria
+// $provider->data_get() now returns the provider data from the last load
+// $provider->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

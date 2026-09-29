@@ -33,7 +33,7 @@ func TestSimulationRunEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"update", "load"} {
+		for _, _op := range []string{"create", "update", "load"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "simulation_run." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -50,18 +50,24 @@ func TestSimulationRunEntity(t *testing.T) {
 		}
 		client := setup.client
 
-		// Bootstrap entity data from existing test data (no create step in flow).
-		simulationRunRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.simulation_run")))
-		var simulationRunRef01Data map[string]any
-		if len(simulationRunRef01DataRaw) > 0 {
-			simulationRunRef01Data = core.ToMapAny(simulationRunRef01DataRaw[0][1])
+		// CREATE
+		simulationRunRef01Ent := client.SimulationRun(nil)
+		simulationRunRef01Data := core.ToMapAny(vs.GetProp(
+			vs.GetPath(setup.data, []any{"new", "simulation_run"}), "simulation_run_ref01"))
+
+		simulationRunRef01DataResult, err := simulationRunRef01Ent.Create(simulationRunRef01Data, nil)
+		if err != nil {
+			t.Fatalf("create failed: %v", err)
 		}
-		// Discard guards against Go's unused-var check when the flow's steps
-		// happen not to consume the bootstrap data (e.g. list-only flows).
-		_ = simulationRunRef01Data
+		simulationRunRef01Data = core.ToMapAny(entityData(simulationRunRef01DataResult))
+		if simulationRunRef01Data == nil {
+			t.Fatal("expected create result to be a map")
+		}
+		if simulationRunRef01Data["id"] == nil {
+			t.Fatal("expected created entity to have an id")
+		}
 
 		// UPDATE
-		simulationRunRef01Ent := client.SimulationRun(nil)
 		simulationRunRef01DataUp0Up := map[string]any{
 			"id": simulationRunRef01Data["id"],
 		}

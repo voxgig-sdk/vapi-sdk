@@ -8,7 +8,6 @@ const BoardEntity_1 = require("./entity/BoardEntity");
 const CallEntity_1 = require("./entity/CallEntity");
 const CampaignEntity_1 = require("./entity/CampaignEntity");
 const ChatEntity_1 = require("./entity/ChatEntity");
-const CreateSimulationRunEntity_1 = require("./entity/CreateSimulationRunEntity");
 const EvalEntity_1 = require("./entity/EvalEntity");
 const FileEntity_1 = require("./entity/FileEntity");
 const InsightEntity_1 = require("./entity/InsightEntity");
@@ -275,13 +274,6 @@ class VapiSDK {
     Chat(entopts) {
         const self = this;
         return new ChatEntity_1.ChatEntity(self, entopts);
-    }
-    // Entity access: `client.CreateSimulationRun().list()` / `client.CreateSimulationRun().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    CreateSimulationRun(entopts) {
-        const self = this;
-        return new CreateSimulationRunEntity_1.CreateSimulationRunEntity(self, entopts);
     }
     // Entity access: `client.Eval().list()` / `client.Eval().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity

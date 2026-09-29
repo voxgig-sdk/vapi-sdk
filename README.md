@@ -12,13 +12,13 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-> **Features:** `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined` — opt-in,
+> **Features:** `debug`, `idempotency`, `metrics`, `paging`, `ratelimit`, `retry`, `test`, `timeout` — opt-in,
 > inactive until switched on, and configured per client. See the Features
 > section of any SDK README below for what each one does.
 
 ## Entities, not endpoints
 
-This SDK exposes the API as **25 semantic entities** that you
+This SDK exposes the API as **24 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`):
@@ -46,23 +46,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = VapiSDK.test({
   entity: {
-    scenario: {
-      test01: { id: 'test01', createdAt: 'example_createdAt', evaluations: [] },
+    provider: {
+      test01: { id: 'test01', provider: 'example_provider', resource_name: 'example_resource_name', createdAt: 'example_createdAt' },
     },
   },
 })
-const scenarios = await client.Scenario().list()
-// scenarios is an array of Scenario entities, populated with mock data
-// — call scenarios[0].data() for the record itself
-console.log(scenarios)
+const provider = await client.Provider().load({ id: 'test01', provider: 'example_provider', resource_name: 'example_resource_name' })
+// provider is the Provider entity, populated with mock data
+// — call provider.data() for the record itself
+console.log(provider)
 ```
 
 ### Python
 
 ```python
 client = VapiSDK.test()
-scenarios = client.Scenario().list()
-print(scenarios)
+provider = client.Provider().load({"id": "test01", "provider": "example", "resource_name": "example"})
+print(provider)
 ```
 
 ### PHP
@@ -70,17 +70,17 @@ print(scenarios)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = VapiSDK::test([
-    "entity" => ["scenario" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["provider" => ["test01" => ["id" => "test01"]]],
 ]);
-$scenarios = $client->Scenario()->list();
+$provider = $client->Provider()->load(["id" => "test01", "provider" => "example", "resource_name" => "example"]);
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Scenario(nil).List(
-    nil, nil,
+result, err := client.Provider(nil).Load(
+    map[string]any{"id": "test01"}, nil,
 )
 ```
 
@@ -89,28 +89,28 @@ result, err := client.Scenario(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = VapiSDK.test({
-  "entity" => { "scenario" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "provider" => { "test01" => { "id" => "test01" } } },
 })
-scenarios = client.Scenario.list()
+provider = client.Provider.load({ "id" => "test01", "provider" => "example", "resource_name" => "example" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Scenario():list()
+local result, err = client:Provider():load({ id = "test01", provider = "example", resource_name = "example" })
 ```
 
 ## Packages
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/vapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vapi-sdk/tags) |
-| Python | `voxgig-sdk-vapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vapi-sdk/tags) |
-| PHP | `voxgig-sdk/vapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vapi-sdk/tags) |
+| TypeScript | `@voxgig-sdk/vapi-sdk` | publish pending — [install from source](ts/README.md#install) |
+| Python | `voxgig-sdk-vapi-sdk` | publish pending — [install from source](py/README.md#install) |
+| PHP | `voxgig-sdk/vapi-sdk` | publish pending — [install from source](php/README.md#install) |
 | Golang | `github.com/voxgig-sdk/vapi-sdk/go` | `go get github.com/voxgig-sdk/vapi-sdk/go@latest` |
-| Ruby | `voxgig-sdk-vapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vapi-sdk/tags) |
-| Lua | `voxgig-sdk-vapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vapi-sdk/tags) |
+| Ruby | `voxgig-sdk-vapi-sdk` | publish pending — [install from source](rb/README.md#install) |
+| Lua | `voxgig-sdk-vapi-sdk` | publish pending — [install from source](lua/README.md#install) |
 | Go CLI | `github.com/voxgig-sdk/vapi-sdk/go-cli` | `go install github.com/voxgig-sdk/vapi-sdk/go-cli/cmd/vapi@latest` |
 | Go MCP server | `github.com/voxgig-sdk/vapi-sdk/go-mcp` | `go get github.com/voxgig-sdk/vapi-sdk/go-mcp@latest` |
 
@@ -161,7 +161,7 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 25 entities:
+The API exposes 24 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
@@ -171,7 +171,6 @@ The API exposes 25 entities:
 | **Call** | The Call entity (create, list, load, remove, update). | `/call` |
 | **Campaign** | The Campaign entity (create, list, load, remove, update). | `/v2/campaign` |
 | **Chat** | The Chat entity (create, list, load, remove). | `/chat` |
-| **CreateSimulationRun** | The CreateSimulationRun entity (create). | `/eval/simulation/run` |
 | **Eval** | The Eval entity (create, list, load, remove, update). | `/eval` |
 | **File** | The File entity (create, list, load, remove, update). | `/file` |
 | **Insight** | The Insight entity (create, list, load, remove, update). | `/reporting/insight` |
@@ -184,7 +183,7 @@ The API exposes 25 entities:
 | **Scorecard** | The Scorecard entity (create, list, load, remove, update). | `/observability/scorecard` |
 | **Session** | The Session entity (create, list, load, remove, update). | `/session` |
 | **Simulation** | The Simulation entity (create, list, load, remove, update). | `/eval/simulation` |
-| **SimulationRun** | The SimulationRun entity (load, update). | `/eval/simulation/run` |
+| **SimulationRun** | The SimulationRun entity (create, load, update). | `/eval/simulation/run` |
 | **SimulationRunItem** | The SimulationRunItem entity (create, list, load, update). | `/eval/simulation/run/{id}/item` |
 | **SimulationSuite** | The SimulationSuite entity (create, list, load, remove, update). | `/eval/simulation/suite` |
 | **Squad** | The Squad entity (create, list, load, remove, update). | `/squad` |

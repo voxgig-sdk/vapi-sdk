@@ -54,11 +54,16 @@ describe("ProviderEntity", function()
       ["resource_name"] = setup.idmap["resource_name"],
     }
 
+    local provider_ref01_markdef_up0_name = "createdAt"
+    local provider_ref01_markdef_up0_value = "Mark01-provider_ref01_" .. tostring(setup.now)
+    provider_ref01_data_up0_up[provider_ref01_markdef_up0_name] = provider_ref01_markdef_up0_value
+
     local provider_ref01_resdata_up0_result, err = provider_ref01_ent:update(provider_ref01_data_up0_up, nil)
     assert.is_nil(err)
     local provider_ref01_resdata_up0 = helpers.to_map(type(provider_ref01_resdata_up0_result) == 'table' and provider_ref01_resdata_up0_result.data_get and provider_ref01_resdata_up0_result:data_get() or provider_ref01_resdata_up0_result)
     assert.is_not_nil(provider_ref01_resdata_up0)
     assert.are.equal(provider_ref01_resdata_up0["id"], provider_ref01_data_up0_up["id"])
+    assert.are.equal(provider_ref01_resdata_up0[provider_ref01_markdef_up0_name], provider_ref01_markdef_up0_value)
 
     -- LOAD
     local provider_ref01_match_dt0 = {

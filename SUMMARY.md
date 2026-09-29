@@ -6,7 +6,7 @@ Voice AI for developers.
 
 This guide introduces the API, the client libraries, and the companion tools in this repository. Start with the API capabilities, choose a client for your application, and use the linked reference when you need exact request and response details.
 
-The selected API surface contains 25 entities and 139 HTTP routes. There are 6 SDK targets and 2 companion tools.
+The selected API surface contains 24 entities and 139 HTTP routes. There are 6 SDK targets and 2 companion tools.
 
 An entity groups related API operations. An operation can have several routes with different inputs or authentication requirements. The SDK exposes the entity and its operations using the conventions of the selected language.
 
@@ -82,17 +82,6 @@ Key fields to recognise:
 - `cost`: This is the cost of the chat in USD.
 - `costs`: These are the costs of individual components of the chat in USD.
 
-### CreateSimulationRun
-
-SDK operations: `create`.
-
-Key fields to recognise:
-
-- `iterations`: Number of times to run each simulation (default: 1)
-- `simulations`: Array of simulations and/or suites to run
-- `target`: Target to test against
-- `transport`: Transport configuration for the simulation runs
-
 ### Eval
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
@@ -149,11 +138,11 @@ SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
-- `analysisPlan`: This is the plan for analysis of assistant&#39;s calls. Stored in `call.analysis`.
-- `artifactPlan`: This is the plan for artifacts generated during assistant&#39;s calls. Stored in `call.artifact`.
 - `assistant`: This is the full assistant configuration for this personality. It defines the tester&#39;s voice, model, behavior via system prompt, and other settings.
-- `backgroundSound`: This is the background sound in the call. Default for phone calls is &#39;office&#39; and default for web calls is &#39;off&#39;. You can also provide a custom sound by providing a URL to an audio file.
-- `backgroundSpeechDenoisingPlan`: This enables filtering of noise and background speech while the user is talking. Features: - Smart denoising using Krisp - Fourier denoising Smart denoising can be combined with or used independently of Fourier denoising. Order of precedence: - Smart denoising - Fourier denoising
+- `createdAt`: This is the ISO 8601 date-time string of when the personality was created.
+- `id`: This is the unique identifier for the personality.
+- `name`: This is the name of the personality (for example, &quot;Confused Carl&quot;, &quot;Rude Rob&quot;).
+- `orgId`: This is the unique identifier for the organization this personality belongs to. If null, this is a Vapi-provided default personality available to all organizations.
 
 ### PhoneNumber
 
@@ -173,7 +162,11 @@ SDK operations: `create`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
+- `createdAt`: This is the ISO 8601 date-time string of when the provider resource was created.
 - `id`: This is the unique identifier for the provider resource.
+- `orgId`: This is the unique identifier for the org that this provider resource belongs to.
+- `provider`: This is the provider that manages this resource.
+- `resource`: This is the full resource data from the provider&#39;s API.
 
 ### Scenario
 
@@ -225,7 +218,7 @@ Key fields to recognise:
 
 ### SimulationRun
 
-SDK operations: `load`, `update`.
+SDK operations: `create`, `load`, `update`.
 
 Key fields to recognise:
 
@@ -338,7 +331,6 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | Chat | `list` | `GET /chat` | Required |
 | Chat | `load` | `GET /chat/{id}` | Required |
 | Chat | `remove` | `DELETE /chat/{id}` | Required |
-| CreateSimulationRun | `create` | `POST /eval/simulation/run` | Required |
 | Eval | `create` | `POST /eval` | Required |
 | Eval | `create` | `POST /eval/run` | Required |
 | Eval | `list` | `GET /eval/run` | Required |
@@ -407,6 +399,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | Simulation | `load` | `GET /eval/simulation/concurrency` | Required |
 | Simulation | `remove` | `DELETE /eval/simulation/{id}` | Required |
 | Simulation | `update` | `PATCH /eval/simulation/{id}` | Required |
+| SimulationRun | `create` | `POST /eval/simulation/run` | Required |
 | SimulationRun | `load` | `GET /eval/simulation/run` | Required |
 | SimulationRun | `load` | `GET /eval/simulation/run/{id}` | Required |
 | SimulationRun | `update` | `PATCH /eval/simulation/run/{id}` | Required |

@@ -317,49 +317,7 @@ type CallUpdateData struct {
 
 // CallRemoveMatch is the typed request payload for Call.RemoveTyped.
 type CallRemoveMatch struct {
-	Analysis *any `json:"analysis,omitempty"`
-	Artifact *any `json:"artifact,omitempty"`
-	ArtifactPlan *any `json:"artifactPlan,omitempty"`
-	Assistant *any `json:"assistant,omitempty"`
-	AssistantId *string `json:"assistantId,omitempty"`
-	AssistantOverrides *any `json:"assistantOverrides,omitempty"`
-	AssistantVersion *string `json:"assistantVersion,omitempty"`
-	CampaignId *string `json:"campaignId,omitempty"`
-	Compliance *any `json:"compliance,omitempty"`
-	Cost *float64 `json:"cost,omitempty"`
-	CostBreakdown *any `json:"costBreakdown,omitempty"`
-	Costs *[]any `json:"costs,omitempty"`
-	CreatedAt *string `json:"createdAt,omitempty"`
-	Customer *any `json:"customer,omitempty"`
-	CustomerId *string `json:"customerId,omitempty"`
-	Customers *[]any `json:"customers,omitempty"`
-	Destination *any `json:"destination,omitempty"`
-	EndedAt *string `json:"endedAt,omitempty"`
-	EndedMessage *string `json:"endedMessage,omitempty"`
-	EndedReason *string `json:"endedReason,omitempty"`
 	Id string `json:"id"`
-	Messages *[]any `json:"messages,omitempty"`
-	Monitor *any `json:"monitor,omitempty"`
-	Name *string `json:"name,omitempty"`
-	OrgId *string `json:"orgId,omitempty"`
-	PhoneCallProvider *string `json:"phoneCallProvider,omitempty"`
-	PhoneCallProviderId *string `json:"phoneCallProviderId,omitempty"`
-	PhoneCallTransport *string `json:"phoneCallTransport,omitempty"`
-	PhoneNumber *any `json:"phoneNumber,omitempty"`
-	PhoneNumberId *string `json:"phoneNumberId,omitempty"`
-	SchedulePlan *any `json:"schedulePlan,omitempty"`
-	Squad *any `json:"squad,omitempty"`
-	SquadId *string `json:"squadId,omitempty"`
-	SquadOverrides *any `json:"squadOverrides,omitempty"`
-	SquadVersion *string `json:"squadVersion,omitempty"`
-	StartedAt *string `json:"startedAt,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Transport *any `json:"transport,omitempty"`
-	Type *string `json:"type,omitempty"`
-	UpdatedAt *string `json:"updatedAt,omitempty"`
-	Workflow *any `json:"workflow,omitempty"`
-	WorkflowId *string `json:"workflowId,omitempty"`
-	WorkflowOverrides *any `json:"workflowOverrides,omitempty"`
 }
 
 // Campaign is the typed data model for the campaign entity.
@@ -519,18 +477,6 @@ type ChatCreateData struct {
 // ChatRemoveMatch is the typed request payload for Chat.RemoveTyped.
 type ChatRemoveMatch struct {
 	Id string `json:"id"`
-}
-
-// CreateSimulationRun is the typed data model for the create_simulation_run entity.
-type CreateSimulationRun struct {
-}
-
-// CreateSimulationRunCreateData is the typed request payload for CreateSimulationRun.CreateTyped.
-type CreateSimulationRunCreateData struct {
-	Iterations *float64 `json:"iterations,omitempty"`
-	Simulations []any `json:"simulations"`
-	Target any `json:"target"`
-	Transport *any `json:"transport,omitempty"`
 }
 
 // Eval is the typed data model for the eval entity.
@@ -824,84 +770,24 @@ type PersonalityListMatch struct {
 
 // PersonalityCreateData is the typed request payload for Personality.CreateTyped.
 type PersonalityCreateData struct {
-	AnalysisPlan *any `json:"analysisPlan,omitempty"`
-	ArtifactPlan *any `json:"artifactPlan,omitempty"`
 	Assistant any `json:"assistant"`
-	BackgroundSound *any `json:"backgroundSound,omitempty"`
-	BackgroundSpeechDenoisingPlan *any `json:"backgroundSpeechDenoisingPlan,omitempty"`
-	ClientMessages *[]any `json:"clientMessages,omitempty"`
-	CompliancePlan *map[string]any `json:"compliancePlan,omitempty"`
 	CreatedAt string `json:"createdAt"`
-	CredentialIds *[]any `json:"credentialIds,omitempty"`
-	Credentials *[]any `json:"credentials,omitempty"`
-	EndCallMessage *string `json:"endCallMessage,omitempty"`
-	EndCallPhrases *[]any `json:"endCallPhrases,omitempty"`
-	FirstMessage *string `json:"firstMessage,omitempty"`
-	FirstMessageInterruptionsEnabled *bool `json:"firstMessageInterruptionsEnabled,omitempty"`
-	FirstMessageMode *string `json:"firstMessageMode,omitempty"`
-	Hooks *[]any `json:"hooks,omitempty"`
 	Id string `json:"id"`
-	KeypadInputPlan *map[string]any `json:"keypadInputPlan,omitempty"`
-	MaxDurationSeconds *float64 `json:"maxDurationSeconds,omitempty"`
-	Metadata *map[string]any `json:"metadata,omitempty"`
-	Model *any `json:"model,omitempty"`
-	ModelOutputInMessagesEnabled *bool `json:"modelOutputInMessagesEnabled,omitempty"`
-	MonitorPlan *any `json:"monitorPlan,omitempty"`
-	Name *string `json:"name,omitempty"`
-	ObservabilityPlan *any `json:"observabilityPlan,omitempty"`
+	Name string `json:"name"`
 	OrgId string `json:"orgId"`
 	Path *string `json:"path,omitempty"`
-	Server *any `json:"server,omitempty"`
-	ServerMessages *[]any `json:"serverMessages,omitempty"`
-	StartSpeakingPlan *any `json:"startSpeakingPlan,omitempty"`
-	StopSpeakingPlan *any `json:"stopSpeakingPlan,omitempty"`
-	Transcriber *any `json:"transcriber,omitempty"`
-	TransportConfigurations *[]any `json:"transportConfigurations,omitempty"`
 	UpdatedAt string `json:"updatedAt"`
-	Voice *any `json:"voice,omitempty"`
-	VoicemailDetection *any `json:"voicemailDetection,omitempty"`
-	VoicemailMessage *string `json:"voicemailMessage,omitempty"`
 }
 
 // PersonalityUpdateData is the typed request payload for Personality.UpdateTyped.
 type PersonalityUpdateData struct {
 	Id string `json:"id"`
-	AnalysisPlan *any `json:"analysisPlan,omitempty"`
-	ArtifactPlan *any `json:"artifactPlan,omitempty"`
 	Assistant *any `json:"assistant,omitempty"`
-	BackgroundSound *any `json:"backgroundSound,omitempty"`
-	BackgroundSpeechDenoisingPlan *any `json:"backgroundSpeechDenoisingPlan,omitempty"`
-	ClientMessages *[]any `json:"clientMessages,omitempty"`
-	CompliancePlan *map[string]any `json:"compliancePlan,omitempty"`
 	CreatedAt *string `json:"createdAt,omitempty"`
-	CredentialIds *[]any `json:"credentialIds,omitempty"`
-	Credentials *[]any `json:"credentials,omitempty"`
-	EndCallMessage *string `json:"endCallMessage,omitempty"`
-	EndCallPhrases *[]any `json:"endCallPhrases,omitempty"`
-	FirstMessage *string `json:"firstMessage,omitempty"`
-	FirstMessageInterruptionsEnabled *bool `json:"firstMessageInterruptionsEnabled,omitempty"`
-	FirstMessageMode *string `json:"firstMessageMode,omitempty"`
-	Hooks *[]any `json:"hooks,omitempty"`
-	KeypadInputPlan *map[string]any `json:"keypadInputPlan,omitempty"`
-	MaxDurationSeconds *float64 `json:"maxDurationSeconds,omitempty"`
-	Metadata *map[string]any `json:"metadata,omitempty"`
-	Model *any `json:"model,omitempty"`
-	ModelOutputInMessagesEnabled *bool `json:"modelOutputInMessagesEnabled,omitempty"`
-	MonitorPlan *any `json:"monitorPlan,omitempty"`
 	Name *string `json:"name,omitempty"`
-	ObservabilityPlan *any `json:"observabilityPlan,omitempty"`
 	OrgId *string `json:"orgId,omitempty"`
 	Path *string `json:"path,omitempty"`
-	Server *any `json:"server,omitempty"`
-	ServerMessages *[]any `json:"serverMessages,omitempty"`
-	StartSpeakingPlan *any `json:"startSpeakingPlan,omitempty"`
-	StopSpeakingPlan *any `json:"stopSpeakingPlan,omitempty"`
-	Transcriber *any `json:"transcriber,omitempty"`
-	TransportConfigurations *[]any `json:"transportConfigurations,omitempty"`
 	UpdatedAt *string `json:"updatedAt,omitempty"`
-	Voice *any `json:"voice,omitempty"`
-	VoicemailDetection *any `json:"voicemailDetection,omitempty"`
-	VoicemailMessage *string `json:"voicemailMessage,omitempty"`
 }
 
 // PersonalityRemoveMatch is the typed request payload for Personality.RemoveTyped.
@@ -978,9 +864,15 @@ type ProviderLoadMatch struct {
 type ProviderCreateData struct {
 	Provider string `json:"provider"`
 	ResourceName string `json:"resource_name"`
-	Id *string `json:"id,omitempty"`
+	CreatedAt string `json:"createdAt"`
+	Id string `json:"id"`
 	Metadata map[string]any `json:"metadata"`
+	OrgId string `json:"orgId"`
+	Resource map[string]any `json:"resource"`
+	ResourceId string `json:"resourceId"`
+	ResourceName2 string `json:"resourceName"`
 	Results []any `json:"results"`
+	UpdatedAt string `json:"updatedAt"`
 }
 
 // ProviderUpdateData is the typed request payload for Provider.UpdateTyped.
@@ -988,8 +880,14 @@ type ProviderUpdateData struct {
 	Id string `json:"id"`
 	Provider string `json:"provider"`
 	ResourceName string `json:"resource_name"`
+	CreatedAt *string `json:"createdAt,omitempty"`
 	Metadata *map[string]any `json:"metadata,omitempty"`
+	OrgId *string `json:"orgId,omitempty"`
+	Resource *map[string]any `json:"resource,omitempty"`
+	ResourceId *string `json:"resourceId,omitempty"`
+	ResourceName2 *string `json:"resourceName,omitempty"`
 	Results *[]any `json:"results,omitempty"`
+	UpdatedAt *string `json:"updatedAt,omitempty"`
 }
 
 // ProviderRemoveMatch is the typed request payload for Provider.RemoveTyped.
@@ -1279,6 +1177,24 @@ type SimulationRun struct {
 // SimulationRunLoadMatch is the typed request payload for SimulationRun.LoadTyped.
 type SimulationRunLoadMatch struct {
 	Id string `json:"id"`
+}
+
+// SimulationRunCreateData is the typed request payload for SimulationRun.CreateTyped.
+type SimulationRunCreateData struct {
+	CreatedAt string `json:"createdAt"`
+	EndedAt *string `json:"endedAt,omitempty"`
+	EndedReason *string `json:"endedReason,omitempty"`
+	Id string `json:"id"`
+	ItemCounts *any `json:"itemCounts,omitempty"`
+	Iterations *float64 `json:"iterations,omitempty"`
+	OrgId string `json:"orgId"`
+	QueuedAt string `json:"queuedAt"`
+	Simulations []any `json:"simulations"`
+	StartedAt *string `json:"startedAt,omitempty"`
+	Status string `json:"status"`
+	Target any `json:"target"`
+	Transport *any `json:"transport,omitempty"`
+	UpdatedAt string `json:"updatedAt"`
 }
 
 // SimulationRunUpdateData is the typed request payload for SimulationRun.UpdateTyped.

@@ -71,6 +71,11 @@
     }
   },
   "requests": {
+    "POST /eval/simulation/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /eval/simulation/run": {
       "provenance": "operation-contract",
       "version": 2,

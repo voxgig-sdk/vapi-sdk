@@ -8,6 +8,14 @@ main: kit: flow: BasicSimulationRunFlow:
   step: [
     {
       i: {
+        ref: "simulation_run_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
         ref: "simulation_run_ref01",
         srcdatavar: "simulation_run_ref01_data",
         suffix: "_up0",

@@ -57,9 +57,14 @@ class TestProviderEntity:
             "resource_name": setup["idmap"]["resource_name"],
         }
 
+        provider_ref01_markdef_up0_name = "createdAt"
+        provider_ref01_markdef_up0_value = "Mark01-provider_ref01_" + str(setup["now"])
+        provider_ref01_data_up0_up[provider_ref01_markdef_up0_name] = provider_ref01_markdef_up0_value
+
         provider_ref01_resdata_up0 = helpers.to_map(runner.entity_data(provider_ref01_ent.update(provider_ref01_data_up0_up, None)))
         assert provider_ref01_resdata_up0 is not None
         assert provider_ref01_resdata_up0["id"] == provider_ref01_data_up0_up["id"]
+        assert provider_ref01_resdata_up0[provider_ref01_markdef_up0_name] == provider_ref01_markdef_up0_value
 
         # LOAD
         provider_ref01_match_dt0 = {

@@ -5,10 +5,19 @@ main: kit: entity: provider: {
   alias: field: {}
 
   fields: {
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the provider resource was created."
+      t: "`$STRING`"
+    }
     id: {
       h: "Id"
       n: "id"
-      r: false
+      r: true
+      sh: "This is the unique identifier for the provider resource."
       t: "`$STRING`"
     }
     metadata: {
@@ -17,11 +26,54 @@ main: kit: entity: provider: {
       r: true
       t: "`$OBJECT`"
     }
+    orgId: {
+      h: "Org Id"
+      n: "orgId"
+      r: true
+      sh: "This is the unique identifier for the org that this provider resource belongs to."
+      t: "`$STRING`"
+    }
+    provider: {
+      h: "Provider"
+      n: "provider"
+      r: true
+      sh: "This is the provider that manages this resource."
+      t: "`$STRING`"
+    }
+    resource: {
+      h: "Resource"
+      n: "resource"
+      r: true
+      sh: "This is the full resource data from the provider's API."
+      t: "`$OBJECT`"
+    }
+    resourceId: {
+      h: "Resource Id"
+      n: "resourceId"
+      r: true
+      sh: "This is the provider-specific identifier for the resource."
+      t: "`$STRING`"
+    }
+    resourceName: {
+      h: "Resource Name"
+      n: "resourceName"
+      r: true
+      sh: "This is the name/type of the resource."
+      t: "`$STRING`"
+    }
     results: {
       h: "Results"
       n: "results"
       r: true
       t: "`$ARRAY`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "This is the ISO 8601 date-time string of when the provider resource was last updated."
+      t: "`$STRING`"
     }
   }
 
@@ -57,7 +109,7 @@ main: kit: entity: provider: {
               {
                 k: "header"
                 n: "content_type"
-                or: "content_type"
+                or: "content-type"
                 r: true
                 t: "`$STRING`"
               }
@@ -73,7 +125,7 @@ main: kit: entity: provider: {
               {
                 k: "param"
                 n: "resource_name"
-                or: "resource_name"
+                or: "resourceName"
                 r: true
                 t: "`$STRING`"
               }
@@ -106,7 +158,7 @@ main: kit: entity: provider: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.resource`"
+            res: "`body`"
           }
         }
       ]
@@ -132,7 +184,7 @@ main: kit: entity: provider: {
               {
                 k: "param"
                 n: "resource_name"
-                or: "resource_name"
+                or: "resourceName"
                 r: true
                 t: "`$STRING`"
               }
@@ -141,28 +193,28 @@ main: kit: entity: provider: {
               {
                 k: "query"
                 n: "created_at_ge"
-                or: "created_at_ge"
+                or: "createdAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_gt"
-                or: "created_at_gt"
+                or: "createdAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_le"
-                or: "created_at_le"
+                or: "createdAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_lt"
-                or: "created_at_lt"
+                or: "createdAtLt"
                 r: false
                 t: "`$STRING`"
               }
@@ -190,49 +242,49 @@ main: kit: entity: provider: {
               {
                 k: "query"
                 n: "resource_id"
-                or: "resource_id"
+                or: "resourceId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "sort_by"
-                or: "sort_by"
+                or: "sortBy"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "sort_order"
-                or: "sort_order"
+                or: "sortOrder"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_ge"
-                or: "updated_at_ge"
+                or: "updatedAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_gt"
-                or: "updated_at_gt"
+                or: "updatedAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_le"
-                or: "updated_at_le"
+                or: "updatedAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_lt"
-                or: "updated_at_lt"
+                or: "updatedAtLt"
                 r: false
                 t: "`$STRING`"
               }
@@ -306,7 +358,7 @@ main: kit: entity: provider: {
               {
                 k: "param"
                 n: "resource_name"
-                or: "resource_name"
+                or: "resourceName"
                 r: true
                 t: "`$STRING`"
               }
@@ -342,7 +394,7 @@ main: kit: entity: provider: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.resource`"
+            res: "`body`"
           }
         }
       ]
@@ -375,7 +427,7 @@ main: kit: entity: provider: {
               {
                 k: "param"
                 n: "resource_name"
-                or: "resource_name"
+                or: "resourceName"
                 r: true
                 t: "`$STRING`"
               }
@@ -411,7 +463,7 @@ main: kit: entity: provider: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.resource`"
+            res: "`body`"
           }
         }
       ]
@@ -444,7 +496,7 @@ main: kit: entity: provider: {
               {
                 k: "param"
                 n: "resource_name"
-                or: "resource_name"
+                or: "resourceName"
                 r: true
                 t: "`$STRING`"
               }
@@ -480,7 +532,7 @@ main: kit: entity: provider: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.resource`"
+            res: "`body`"
           }
         }
       ]

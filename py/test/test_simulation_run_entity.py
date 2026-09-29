@@ -27,7 +27,7 @@ class TestSimulationRunEntity:
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["update", "load"]:
+        for _op in ["create", "update", "load"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "simulation_run." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -39,15 +39,16 @@ class TestSimulationRunEntity:
                         "set VAPI_TEST_SIMULATION_RUN_ENTID JSON to run live")
         client = setup["client"]
 
-        # Bootstrap entity data from existing test data.
-        simulation_run_ref01_data_raw = vs.items(helpers.to_map(
-            vs.getpath(setup["data"], "existing.simulation_run")))
-        simulation_run_ref01_data = None
-        if len(simulation_run_ref01_data_raw) > 0:
-            simulation_run_ref01_data = helpers.to_map(simulation_run_ref01_data_raw[0][1])
+        # CREATE
+        simulation_run_ref01_ent = client.SimulationRun(None)
+        simulation_run_ref01_data = helpers.to_map(vs.getprop(
+            vs.getpath(setup["data"], "new.simulation_run"), "simulation_run_ref01"))
+
+        simulation_run_ref01_data = helpers.to_map(runner.entity_data(simulation_run_ref01_ent.create(simulation_run_ref01_data, None)))
+        assert simulation_run_ref01_data is not None
+        assert simulation_run_ref01_data["id"] is not None
 
         # UPDATE
-        simulation_run_ref01_ent = client.SimulationRun(None)
         simulation_run_ref01_data_up0_up = {
             "id": simulation_run_ref01_data["id"],
         }

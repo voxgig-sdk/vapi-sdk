@@ -66,10 +66,6 @@ Create a new `CampaignEntity` instance. Pass `null` for no initial data.
 
 Create a new `ChatEntity` instance. Pass `null` for no initial data.
 
-#### `CreateSimulationRun($data = null)`
-
-Create a new `CreateSimulationRunEntity` instance. Pass `null` for no initial data.
-
 #### `Eval($data = null)`
 
 Create a new `EvalEntity` instance. Pass `null` for no initial data.
@@ -903,64 +899,6 @@ Return the entity name.
 
 ---
 
-## CreateSimulationRunEntity
-
-```php
-$create_simulation_run = $client->CreateSimulationRun();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `iterations` | `float` | No | Number of times to run each simulation (default: 1) |
-| `simulations` | `array` | Yes | Array of simulations and/or suites to run |
-| `target` | `mixed` | Yes | Target to test against |
-| `transport` | `mixed` | No | Transport configuration for the simulation runs |
-
-### Operations
-
-#### `create(array $reqdata, ?array $ctrl = null): mixed`
-
-Create a new entity with the given data. Throws on error.
-
-```php
-$result = $client->CreateSimulationRun()->create([
-  "simulations" => null, // array
-  "target" => null, // mixed
-]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): CreateSimulationRunEntity`
-
-Create a new `CreateSimulationRunEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## EvalEntity
 
 ```php
@@ -1521,85 +1459,25 @@ $personality = $client->Personality();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisPlan` | `mixed` | No | This is the plan for analysis of assistant's calls. |
-| `artifactPlan` | `mixed` | No | This is the plan for artifacts generated during assistant's calls. |
 | `assistant` | `mixed` | Yes | This is the full assistant configuration for this personality. |
-| `backgroundSound` | `mixed` | No | This is the background sound in the call. |
-| `backgroundSpeechDenoisingPlan` | `mixed` | No | This enables filtering of noise and background speech while the user is talking. |
-| `clientMessages` | `array` | No | These are the messages that will be sent to your Client SDKs. |
-| `compliancePlan` | `array` | No |  |
 | `createdAt` | `string` | Yes | This is the ISO 8601 date-time string of when the personality was created. |
-| `credentialIds` | `array` | No | These are the credentials that will be used for the assistant calls. |
-| `credentials` | `array` | No | These are dynamic credentials that will be used for the assistant calls. |
-| `endCallMessage` | `string` | No | This is the message that the assistant will say if it ends the call. |
-| `endCallPhrases` | `array` | No | This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. |
-| `firstMessage` | `string` | No | This is the first message that the assistant will say. |
-| `firstMessageInterruptionsEnabled` | `bool` | No |  |
-| `firstMessageMode` | `string` | No | This is the mode for the first message. |
-| `hooks` | `array` | No | This is a set of actions that will be performed on certain events. |
 | `id` | `string` | Yes | This is the unique identifier for the personality. |
-| `keypadInputPlan` | `array` | No |  |
-| `maxDurationSeconds` | `float` | No | This is the maximum number of seconds that the call will last. |
-| `metadata` | `array` | No | This is for metadata you want to store on the assistant. |
-| `model` | `mixed` | No | These are the options for the assistant's LLM. |
-| `modelOutputInMessagesEnabled` | `bool` | No | This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech. |
-| `monitorPlan` | `mixed` | No | This is the plan for real-time monitoring of the assistant's calls. |
-| `name` | `string` | No | This is the name of the assistant. |
-| `observabilityPlan` | `mixed` | No | This is the plan for observability of assistant's calls. |
+| `name` | `string` | Yes | This is the name of the personality (e.g., "Confused Carl", "Rude Rob"). |
 | `orgId` | `string` | Yes | This is the unique identifier for the organization this personality belongs to. |
 | `path` | `string` | No | Optional folder path for organizing personalities. |
-| `server` | `mixed` | No | This is where Vapi will send webhooks. |
-| `serverMessages` | `array` | No | These are the messages that will be sent to your Server URL. |
-| `startSpeakingPlan` | `mixed` | No | This is the plan for when the assistant should start talking. |
-| `stopSpeakingPlan` | `mixed` | No | This is the plan for when assistant should stop talking on customer interruption. |
-| `transcriber` | `mixed` | No | These are the options for the assistant's transcriber. |
-| `transportConfigurations` | `array` | No | These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. |
 | `updatedAt` | `string` | Yes | This is the ISO 8601 date-time string of when the personality was last updated. |
-| `voice` | `mixed` | No | These are the options for the assistant's voice. |
-| `voicemailDetection` | `mixed` | No | These are the settings to configure or disable voicemail detection. |
-| `voicemailMessage` | `string` | No | This is the message that the assistant will say if the call is forwarded to voicemail. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `analysisPlan` | - | - | - | - | - |
-| `artifactPlan` | - | - | - | - | - |
 | `assistant` | - | - | - | Yes | - |
-| `backgroundSound` | - | - | - | - | - |
-| `backgroundSpeechDenoisingPlan` | - | - | - | - | - |
-| `clientMessages` | - | - | - | - | - |
-| `compliancePlan` | - | - | - | - | - |
 | `createdAt` | - | - | - | - | - |
-| `credentialIds` | - | - | - | - | - |
-| `credentials` | - | - | - | - | - |
-| `endCallMessage` | - | - | - | - | - |
-| `endCallPhrases` | - | - | - | - | - |
-| `firstMessage` | - | - | - | - | - |
-| `firstMessageInterruptionsEnabled` | - | - | - | - | - |
-| `firstMessageMode` | - | - | - | - | - |
-| `hooks` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `keypadInputPlan` | - | - | - | - | - |
-| `maxDurationSeconds` | - | - | - | - | - |
-| `metadata` | - | - | - | - | - |
-| `model` | - | - | - | - | - |
-| `modelOutputInMessagesEnabled` | - | - | - | - | - |
-| `monitorPlan` | - | - | - | - | - |
-| `name` | - | Yes | Yes | - | - |
-| `observabilityPlan` | - | - | - | - | - |
+| `name` | - | - | - | Yes | - |
 | `orgId` | - | - | - | - | - |
 | `path` | - | - | - | - | - |
-| `server` | - | - | - | - | - |
-| `serverMessages` | - | - | - | - | - |
-| `startSpeakingPlan` | - | - | - | - | - |
-| `stopSpeakingPlan` | - | - | - | - | - |
-| `transcriber` | - | - | - | - | - |
-| `transportConfigurations` | - | - | - | - | - |
 | `updatedAt` | - | - | - | - | - |
-| `voice` | - | - | - | - | - |
-| `voicemailDetection` | - | - | - | - | - |
-| `voicemailMessage` | - | - | - | - | - |
 
 ### Operations
 
@@ -1612,6 +1490,7 @@ $result = $client->Personality()->create([
   "assistant" => null, // mixed
   "createdAt" => null, // string
   "id" => null, // string
+  "name" => null, // string
   "orgId" => null, // string
   "updatedAt" => null, // string
 ]);
@@ -1784,9 +1663,16 @@ $provider = $client->Provider();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
+| `createdAt` | `string` | Yes | This is the ISO 8601 date-time string of when the provider resource was created. |
+| `id` | `string` | Yes | This is the unique identifier for the provider resource. |
 | `metadata` | `array` | Yes |  |
+| `orgId` | `string` | Yes | This is the unique identifier for the org that this provider resource belongs to. |
+| `provider` | `string` | Yes | This is the provider that manages this resource. |
+| `resource` | `array` | Yes | This is the full resource data from the provider's API. |
+| `resourceId` | `string` | Yes | This is the provider-specific identifier for the resource. |
+| `resourceName` | `string` | Yes | This is the name/type of the resource. |
 | `results` | `array` | Yes |  |
+| `updatedAt` | `string` | Yes | This is the ISO 8601 date-time string of when the provider resource was last updated. |
 
 ### Operations
 
@@ -1798,8 +1684,15 @@ Create a new entity with the given data. Throws on error.
 $result = $client->Provider()->create([
   "provider" => null, // string
   "resource_name" => null, // string
+  "createdAt" => null, // string
+  "id" => null, // string
   "metadata" => null, // array
+  "orgId" => null, // string
+  "resource" => null, // array
+  "resourceId" => null, // string
+  "resourceName" => null, // string
   "results" => null, // array
+  "updatedAt" => null, // string
 ]);
 ```
 
@@ -2351,6 +2244,23 @@ $simulation_run = $client->SimulationRun();
 | `updatedAt` | `string` | Yes | ISO 8601 date-time when last updated |
 
 ### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->SimulationRun()->create([
+  "createdAt" => null, // string
+  "id" => null, // string
+  "orgId" => null, // string
+  "queuedAt" => null, // string
+  "simulations" => null, // array
+  "status" => null, // string
+  "target" => null, // mixed
+  "updatedAt" => null, // string
+]);
+```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 

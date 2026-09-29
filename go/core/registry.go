@@ -32,8 +32,6 @@ var NewCampaignEntityFunc func(client *VapiSDK, entopts map[string]any) VapiEnti
 
 var NewChatEntityFunc func(client *VapiSDK, entopts map[string]any) VapiEntity
 
-var NewCreateSimulationRunEntityFunc func(client *VapiSDK, entopts map[string]any) VapiEntity
-
 var NewEvalEntityFunc func(client *VapiSDK, entopts map[string]any) VapiEntity
 
 var NewFileEntityFunc func(client *VapiSDK, entopts map[string]any) VapiEntity

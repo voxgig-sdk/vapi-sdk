@@ -233,7 +233,7 @@ main: kit: entity: session: {
               {
                 k: "query"
                 n: "assistant_id"
-                or: "assistant_id"
+                or: "assistantId"
                 r: false
                 t: "`$STRING`"
               }
@@ -241,42 +241,42 @@ main: kit: entity: session: {
                 ex: "assistant-1,assistant-2,assistant-3"
                 k: "query"
                 n: "assistant_id_any"
-                or: "assistant_id_any"
+                or: "assistantIdAny"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "assistant_override"
-                or: "assistant_override"
+                or: "assistantOverrides"
                 r: false
                 t: "`$ANY`"
               }
               {
                 k: "query"
                 n: "created_at_ge"
-                or: "created_at_ge"
+                or: "createdAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_gt"
-                or: "created_at_gt"
+                or: "createdAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_le"
-                or: "created_at_le"
+                or: "createdAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_lt"
-                or: "created_at_lt"
+                or: "createdAtLt"
                 r: false
                 t: "`$STRING`"
               }
@@ -284,7 +284,7 @@ main: kit: entity: session: {
                 ex: "+1234567890,+0987654321"
                 k: "query"
                 n: "customer_number_any"
-                or: "customer_number_any"
+                or: "customerNumberAny"
                 r: false
                 t: "`$STRING`"
               }
@@ -306,7 +306,7 @@ main: kit: entity: session: {
               {
                 k: "query"
                 n: "external_id"
-                or: "external_id"
+                or: "externalId"
                 r: false
                 t: "`$STRING`"
               }
@@ -320,7 +320,7 @@ main: kit: entity: session: {
               {
                 k: "query"
                 n: "id_any"
-                or: "id_any"
+                or: "idAny"
                 r: false
                 t: "`$STRING`"
               }
@@ -356,7 +356,7 @@ main: kit: entity: session: {
                 ex: true
                 k: "query"
                 n: "number_e164_check_enabled"
-                or: "number_e164_check_enabled"
+                or: "numberE164CheckEnabled"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -370,84 +370,84 @@ main: kit: entity: session: {
               {
                 k: "query"
                 n: "phone_number_id"
-                or: "phone_number_id"
+                or: "phoneNumberId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "phone_number_id_any"
-                or: "phone_number_id_any"
+                or: "phoneNumberIdAny"
                 r: false
                 t: "`$ARRAY`"
               }
               {
                 k: "query"
                 n: "sip_uri"
-                or: "sip_uri"
+                or: "sipUri"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "sort_by"
-                or: "sort_by"
+                or: "sortBy"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "sort_order"
-                or: "sort_order"
+                or: "sortOrder"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "squad_id"
-                or: "squad_id"
+                or: "squadId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "squad_override"
-                or: "squad_override"
+                or: "squadOverrides"
                 r: false
                 t: "`$ANY`"
               }
               {
                 k: "query"
                 n: "updated_at_ge"
-                or: "updated_at_ge"
+                or: "updatedAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_gt"
-                or: "updated_at_gt"
+                or: "updatedAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_le"
-                or: "updated_at_le"
+                or: "updatedAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_lt"
-                or: "updated_at_lt"
+                or: "updatedAtLt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "workflow_id"
-                or: "workflow_id"
+                or: "workflowId"
                 r: false
                 t: "`$STRING`"
               }
@@ -496,7 +496,7 @@ main: kit: entity: session: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

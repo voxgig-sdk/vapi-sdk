@@ -1,0 +1,7 @@
+{
+  point: "warning"
+  note: "Path placeholder {id} on entity=call op=remove path=/call/{id} has no declared parameter, so it is taken as a required string."
+  entity: "call"
+  path: "/call/{id}"
+  op: "remove"
+}

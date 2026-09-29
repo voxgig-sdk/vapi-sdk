@@ -437,20 +437,6 @@ function VapiSDK:Chat(data)
 end
 
 
--- Idiomatic facade: client:CreateSimulationRun():list() / client:CreateSimulationRun():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function VapiSDK:CreateSimulationRun(data)
-  local EntityMod = require("entity.create_simulation_run_entity")
-  if data == nil then
-    if self._create_simulation_run == nil then
-      self._create_simulation_run = EntityMod.new(self, nil)
-    end
-    return self._create_simulation_run
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:Eval():list() / client:Eval():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function VapiSDK:Eval(data)

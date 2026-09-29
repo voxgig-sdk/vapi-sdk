@@ -15,7 +15,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"analytics | assistant | board | call | campaign | chat | create_simulation_run | eval | file | insight | knowledge_base | knowledge_base_v2_file | personality | phone_number | provider | scenario | scorecard | session | simulation | simulation_run | simulation_run_item | simulation_suite | squad | structured_output | tool"`
+	Entity string         `json:"entity" jsonschema:"analytics | assistant | board | call | campaign | chat | eval | file | insight | knowledge_base | knowledge_base_v2_file | personality | phone_number | provider | scenario | scorecard | session | simulation | simulation_run | simulation_run_item | simulation_suite | squad | structured_output | tool"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -88,8 +88,6 @@ func entityFor(client *sdk.VapiSDK, name string) (sdk.VapiEntity, error) {
 		return client.Campaign(nil), nil
 	case "chat":
 		return client.Chat(nil), nil
-	case "create_simulation_run":
-		return client.CreateSimulationRun(nil), nil
 	case "eval":
 		return client.Eval(nil), nil
 	case "file":

@@ -422,53 +422,8 @@ class CallUpdateData(CallUpdateDataRequired, total=False):
     workflowOverrides: Any
 
 
-class CallRemoveMatchRequired(TypedDict):
+class CallRemoveMatch(TypedDict):
     id: str
-
-
-class CallRemoveMatch(CallRemoveMatchRequired, total=False):
-    analysis: Any
-    artifact: Any
-    artifactPlan: Any
-    assistant: Any
-    assistantId: str
-    assistantOverrides: Any
-    assistantVersion: str
-    campaignId: str
-    compliance: Any
-    cost: float
-    costBreakdown: Any
-    costs: list
-    createdAt: str
-    customer: Any
-    customerId: str
-    customers: list
-    destination: Any
-    endedAt: str
-    endedMessage: str
-    endedReason: str
-    messages: list
-    monitor: Any
-    name: str
-    orgId: str
-    phoneCallProvider: str
-    phoneCallProviderId: str
-    phoneCallTransport: str
-    phoneNumber: Any
-    phoneNumberId: str
-    schedulePlan: Any
-    squad: Any
-    squadId: str
-    squadOverrides: Any
-    squadVersion: str
-    startedAt: str
-    status: str
-    transport: Any
-    type: str
-    updatedAt: str
-    workflow: Any
-    workflowId: str
-    workflowOverrides: Any
 
 
 class CampaignRequired(TypedDict):
@@ -683,26 +638,6 @@ class ChatCreateData(ChatCreateDataRequired, total=False):
 
 class ChatRemoveMatch(TypedDict):
     id: str
-
-
-class CreateSimulationRunRequired(TypedDict):
-    simulations: list
-    target: Any
-
-
-class CreateSimulationRun(CreateSimulationRunRequired, total=False):
-    iterations: float
-    transport: Any
-
-
-class CreateSimulationRunCreateDataRequired(TypedDict):
-    simulations: list
-    target: Any
-
-
-class CreateSimulationRunCreateData(CreateSimulationRunCreateDataRequired, total=False):
-    iterations: float
-    transport: Any
 
 
 class EvalRequired(TypedDict):
@@ -1048,43 +983,13 @@ class PersonalityRequired(TypedDict):
     assistant: Any
     createdAt: str
     id: str
+    name: str
     orgId: str
     updatedAt: str
 
 
 class Personality(PersonalityRequired, total=False):
-    analysisPlan: Any
-    artifactPlan: Any
-    backgroundSound: Any
-    backgroundSpeechDenoisingPlan: Any
-    clientMessages: list
-    compliancePlan: dict
-    credentialIds: list
-    credentials: list
-    endCallMessage: str
-    endCallPhrases: list
-    firstMessage: str
-    firstMessageInterruptionsEnabled: bool
-    firstMessageMode: str
-    hooks: list
-    keypadInputPlan: dict
-    maxDurationSeconds: float
-    metadata: dict
-    model: Any
-    modelOutputInMessagesEnabled: bool
-    monitorPlan: Any
-    name: str
-    observabilityPlan: Any
     path: str
-    server: Any
-    serverMessages: list
-    startSpeakingPlan: Any
-    stopSpeakingPlan: Any
-    transcriber: Any
-    transportConfigurations: list
-    voice: Any
-    voicemailDetection: Any
-    voicemailMessage: str
 
 
 class PersonalityLoadMatch(TypedDict):
@@ -1110,43 +1015,13 @@ class PersonalityCreateDataRequired(TypedDict):
     assistant: Any
     createdAt: str
     id: str
+    name: str
     orgId: str
     updatedAt: str
 
 
 class PersonalityCreateData(PersonalityCreateDataRequired, total=False):
-    analysisPlan: Any
-    artifactPlan: Any
-    backgroundSound: Any
-    backgroundSpeechDenoisingPlan: Any
-    clientMessages: list
-    compliancePlan: dict
-    credentialIds: list
-    credentials: list
-    endCallMessage: str
-    endCallPhrases: list
-    firstMessage: str
-    firstMessageInterruptionsEnabled: bool
-    firstMessageMode: str
-    hooks: list
-    keypadInputPlan: dict
-    maxDurationSeconds: float
-    metadata: dict
-    model: Any
-    modelOutputInMessagesEnabled: bool
-    monitorPlan: Any
-    name: str
-    observabilityPlan: Any
     path: str
-    server: Any
-    serverMessages: list
-    startSpeakingPlan: Any
-    stopSpeakingPlan: Any
-    transcriber: Any
-    transportConfigurations: list
-    voice: Any
-    voicemailDetection: Any
-    voicemailMessage: str
 
 
 class PersonalityUpdateDataRequired(TypedDict):
@@ -1154,42 +1029,12 @@ class PersonalityUpdateDataRequired(TypedDict):
 
 
 class PersonalityUpdateData(PersonalityUpdateDataRequired, total=False):
-    analysisPlan: Any
-    artifactPlan: Any
     assistant: Any
-    backgroundSound: Any
-    backgroundSpeechDenoisingPlan: Any
-    clientMessages: list
-    compliancePlan: dict
     createdAt: str
-    credentialIds: list
-    credentials: list
-    endCallMessage: str
-    endCallPhrases: list
-    firstMessage: str
-    firstMessageInterruptionsEnabled: bool
-    firstMessageMode: str
-    hooks: list
-    keypadInputPlan: dict
-    maxDurationSeconds: float
-    metadata: dict
-    model: Any
-    modelOutputInMessagesEnabled: bool
-    monitorPlan: Any
     name: str
-    observabilityPlan: Any
     orgId: str
     path: str
-    server: Any
-    serverMessages: list
-    startSpeakingPlan: Any
-    stopSpeakingPlan: Any
-    transcriber: Any
-    transportConfigurations: list
     updatedAt: str
-    voice: Any
-    voicemailDetection: Any
-    voicemailMessage: str
 
 
 class PersonalityRemoveMatch(TypedDict):
@@ -1243,13 +1088,17 @@ class PhoneNumberRemoveMatch(TypedDict):
     id: str
 
 
-class ProviderRequired(TypedDict):
-    metadata: dict
-    results: list
-
-
-class Provider(ProviderRequired, total=False):
+class Provider(TypedDict):
+    createdAt: str
     id: str
+    metadata: dict
+    orgId: str
+    provider: str
+    resource: dict
+    resourceId: str
+    resourceName: str
+    results: list
+    updatedAt: str
 
 
 class ProviderLoadMatchRequired(TypedDict):
@@ -1274,15 +1123,18 @@ class ProviderLoadMatch(ProviderLoadMatchRequired, total=False):
     updated_at_lt: str
 
 
-class ProviderCreateDataRequired(TypedDict):
+class ProviderCreateData(TypedDict):
     provider: str
     resource_name: str
-    metadata: dict
-    results: list
-
-
-class ProviderCreateData(ProviderCreateDataRequired, total=False):
+    createdAt: str
     id: str
+    metadata: dict
+    orgId: str
+    resource: dict
+    resourceId: str
+    resourceName: str
+    results: list
+    updatedAt: str
 
 
 class ProviderUpdateDataRequired(TypedDict):
@@ -1292,8 +1144,14 @@ class ProviderUpdateDataRequired(TypedDict):
 
 
 class ProviderUpdateData(ProviderUpdateDataRequired, total=False):
+    createdAt: str
     metadata: dict
+    orgId: str
+    resource: dict
+    resourceId: str
+    resourceName: str
     results: list
+    updatedAt: str
 
 
 class ProviderRemoveMatch(TypedDict):
@@ -1658,6 +1516,26 @@ class SimulationRun(SimulationRunRequired, total=False):
 
 class SimulationRunLoadMatch(TypedDict):
     id: str
+
+
+class SimulationRunCreateDataRequired(TypedDict):
+    createdAt: str
+    id: str
+    orgId: str
+    queuedAt: str
+    simulations: list
+    status: str
+    target: Any
+    updatedAt: str
+
+
+class SimulationRunCreateData(SimulationRunCreateDataRequired, total=False):
+    endedAt: str
+    endedReason: str
+    itemCounts: Any
+    iterations: float
+    startedAt: str
+    transport: Any
 
 
 class SimulationRunUpdateDataRequired(TypedDict):

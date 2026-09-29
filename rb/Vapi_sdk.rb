@@ -331,13 +331,6 @@ class VapiSDK
   end
 
 
-  # Canonical facade: client.CreateSimulationRun.list / client.CreateSimulationRun.load({ "id" => ... })
-  def CreateSimulationRun(data = nil)
-    require_relative 'entity/create_simulation_run_entity'
-    CreateSimulationRunEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.Eval.list / client.Eval.load({ "id" => ... })
   def Eval(data = nil)
     require_relative 'entity/eval_entity'

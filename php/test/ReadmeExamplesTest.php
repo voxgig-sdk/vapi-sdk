@@ -46,7 +46,6 @@ class ReadmeExamplesTest extends TestCase
         "Call" => "call",
         "Campaign" => "campaign",
         "Chat" => "chat",
-        "CreateSimulationRun" => "create_simulation_run",
         "Eval" => "eval",
         "File" => "file",
         "Insight" => "insight",

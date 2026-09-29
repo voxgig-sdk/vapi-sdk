@@ -432,49 +432,7 @@ class CallUpdateData
 /** Request payload for Call#remove. */
 class CallRemoveMatch
 {
-    public mixed $analysis = null;
-    public mixed $artifact = null;
-    public mixed $artifactPlan = null;
-    public mixed $assistant = null;
-    public ?string $assistantId = null;
-    public mixed $assistantOverrides = null;
-    public ?string $assistantVersion = null;
-    public ?string $campaignId = null;
-    public mixed $compliance = null;
-    public ?float $cost = null;
-    public mixed $costBreakdown = null;
-    public ?array $costs = null;
-    public ?string $createdAt = null;
-    public mixed $customer = null;
-    public ?string $customerId = null;
-    public ?array $customers = null;
-    public mixed $destination = null;
-    public ?string $endedAt = null;
-    public ?string $endedMessage = null;
-    public ?string $endedReason = null;
     public string $id;
-    public ?array $messages = null;
-    public mixed $monitor = null;
-    public ?string $name = null;
-    public ?string $orgId = null;
-    public ?string $phoneCallProvider = null;
-    public ?string $phoneCallProviderId = null;
-    public ?string $phoneCallTransport = null;
-    public mixed $phoneNumber = null;
-    public ?string $phoneNumberId = null;
-    public mixed $schedulePlan = null;
-    public mixed $squad = null;
-    public ?string $squadId = null;
-    public mixed $squadOverrides = null;
-    public ?string $squadVersion = null;
-    public ?string $startedAt = null;
-    public ?string $status = null;
-    public mixed $transport = null;
-    public ?string $type = null;
-    public ?string $updatedAt = null;
-    public mixed $workflow = null;
-    public ?string $workflowId = null;
-    public mixed $workflowOverrides = null;
 }
 
 /** Campaign entity data model. */
@@ -693,24 +651,6 @@ class ChatCreateData
 class ChatRemoveMatch
 {
     public string $id;
-}
-
-/** CreateSimulationRun entity data model. */
-class CreateSimulationRun
-{
-    public ?float $iterations = null;
-    public array $simulations;
-    public mixed $target;
-    public mixed $transport = null;
-}
-
-/** Request payload for CreateSimulationRun#create. */
-class CreateSimulationRunCreateData
-{
-    public ?float $iterations = null;
-    public array $simulations;
-    public mixed $target;
-    public mixed $transport = null;
 }
 
 /** Eval entity data model. */
@@ -1069,43 +1009,13 @@ class KnowledgeBaseV2FileRemoveMatch
 /** Personality entity data model. */
 class Personality
 {
-    public mixed $analysisPlan = null;
-    public mixed $artifactPlan = null;
     public mixed $assistant;
-    public mixed $backgroundSound = null;
-    public mixed $backgroundSpeechDenoisingPlan = null;
-    public ?array $clientMessages = null;
-    public ?array $compliancePlan = null;
     public string $createdAt;
-    public ?array $credentialIds = null;
-    public ?array $credentials = null;
-    public ?string $endCallMessage = null;
-    public ?array $endCallPhrases = null;
-    public ?string $firstMessage = null;
-    public ?bool $firstMessageInterruptionsEnabled = null;
-    public ?string $firstMessageMode = null;
-    public ?array $hooks = null;
     public string $id;
-    public ?array $keypadInputPlan = null;
-    public ?float $maxDurationSeconds = null;
-    public ?array $metadata = null;
-    public mixed $model = null;
-    public ?bool $modelOutputInMessagesEnabled = null;
-    public mixed $monitorPlan = null;
-    public ?string $name = null;
-    public mixed $observabilityPlan = null;
+    public string $name;
     public string $orgId;
     public ?string $path = null;
-    public mixed $server = null;
-    public ?array $serverMessages = null;
-    public mixed $startSpeakingPlan = null;
-    public mixed $stopSpeakingPlan = null;
-    public mixed $transcriber = null;
-    public ?array $transportConfigurations = null;
     public string $updatedAt;
-    public mixed $voice = null;
-    public mixed $voicemailDetection = null;
-    public ?string $voicemailMessage = null;
 }
 
 /** Request payload for Personality#load. */
@@ -1134,85 +1044,25 @@ class PersonalityListMatch
 /** Request payload for Personality#create. */
 class PersonalityCreateData
 {
-    public mixed $analysisPlan = null;
-    public mixed $artifactPlan = null;
     public mixed $assistant;
-    public mixed $backgroundSound = null;
-    public mixed $backgroundSpeechDenoisingPlan = null;
-    public ?array $clientMessages = null;
-    public ?array $compliancePlan = null;
     public string $createdAt;
-    public ?array $credentialIds = null;
-    public ?array $credentials = null;
-    public ?string $endCallMessage = null;
-    public ?array $endCallPhrases = null;
-    public ?string $firstMessage = null;
-    public ?bool $firstMessageInterruptionsEnabled = null;
-    public ?string $firstMessageMode = null;
-    public ?array $hooks = null;
     public string $id;
-    public ?array $keypadInputPlan = null;
-    public ?float $maxDurationSeconds = null;
-    public ?array $metadata = null;
-    public mixed $model = null;
-    public ?bool $modelOutputInMessagesEnabled = null;
-    public mixed $monitorPlan = null;
-    public ?string $name = null;
-    public mixed $observabilityPlan = null;
+    public string $name;
     public string $orgId;
     public ?string $path = null;
-    public mixed $server = null;
-    public ?array $serverMessages = null;
-    public mixed $startSpeakingPlan = null;
-    public mixed $stopSpeakingPlan = null;
-    public mixed $transcriber = null;
-    public ?array $transportConfigurations = null;
     public string $updatedAt;
-    public mixed $voice = null;
-    public mixed $voicemailDetection = null;
-    public ?string $voicemailMessage = null;
 }
 
 /** Request payload for Personality#update. */
 class PersonalityUpdateData
 {
     public string $id;
-    public mixed $analysisPlan = null;
-    public mixed $artifactPlan = null;
     public mixed $assistant = null;
-    public mixed $backgroundSound = null;
-    public mixed $backgroundSpeechDenoisingPlan = null;
-    public ?array $clientMessages = null;
-    public ?array $compliancePlan = null;
     public ?string $createdAt = null;
-    public ?array $credentialIds = null;
-    public ?array $credentials = null;
-    public ?string $endCallMessage = null;
-    public ?array $endCallPhrases = null;
-    public ?string $firstMessage = null;
-    public ?bool $firstMessageInterruptionsEnabled = null;
-    public ?string $firstMessageMode = null;
-    public ?array $hooks = null;
-    public ?array $keypadInputPlan = null;
-    public ?float $maxDurationSeconds = null;
-    public ?array $metadata = null;
-    public mixed $model = null;
-    public ?bool $modelOutputInMessagesEnabled = null;
-    public mixed $monitorPlan = null;
     public ?string $name = null;
-    public mixed $observabilityPlan = null;
     public ?string $orgId = null;
     public ?string $path = null;
-    public mixed $server = null;
-    public ?array $serverMessages = null;
-    public mixed $startSpeakingPlan = null;
-    public mixed $stopSpeakingPlan = null;
-    public mixed $transcriber = null;
-    public ?array $transportConfigurations = null;
     public ?string $updatedAt = null;
-    public mixed $voice = null;
-    public mixed $voicemailDetection = null;
-    public ?string $voicemailMessage = null;
 }
 
 /** Request payload for Personality#remove. */
@@ -1274,9 +1124,16 @@ class PhoneNumberRemoveMatch
 /** Provider entity data model. */
 class Provider
 {
-    public ?string $id = null;
+    public string $createdAt;
+    public string $id;
     public array $metadata;
+    public string $orgId;
+    public string $provider;
+    public array $resource;
+    public string $resourceId;
+    public string $resourceName;
     public array $results;
+    public string $updatedAt;
 }
 
 /** Request payload for Provider#load. */
@@ -1305,9 +1162,15 @@ class ProviderCreateData
 {
     public string $provider;
     public string $resource_name;
-    public ?string $id = null;
+    public string $createdAt;
+    public string $id;
     public array $metadata;
+    public string $orgId;
+    public array $resource;
+    public string $resourceId;
+    public string $resourceName;
     public array $results;
+    public string $updatedAt;
 }
 
 /** Request payload for Provider#update. */
@@ -1316,8 +1179,14 @@ class ProviderUpdateData
     public string $id;
     public string $provider;
     public string $resource_name;
+    public ?string $createdAt = null;
     public ?array $metadata = null;
+    public ?string $orgId = null;
+    public ?array $resource = null;
+    public ?string $resourceId = null;
+    public ?string $resourceName = null;
     public ?array $results = null;
+    public ?string $updatedAt = null;
 }
 
 /** Request payload for Provider#remove. */
@@ -1697,6 +1566,25 @@ class SimulationRun
 class SimulationRunLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for SimulationRun#create. */
+class SimulationRunCreateData
+{
+    public string $createdAt;
+    public ?string $endedAt = null;
+    public ?string $endedReason = null;
+    public string $id;
+    public mixed $itemCounts = null;
+    public ?float $iterations = null;
+    public string $orgId;
+    public string $queuedAt;
+    public array $simulations;
+    public ?string $startedAt = null;
+    public string $status;
+    public mixed $target;
+    public mixed $transport = null;
+    public string $updatedAt;
 }
 
 /** Request payload for SimulationRun#update. */

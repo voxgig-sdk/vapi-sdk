@@ -89,8 +89,6 @@ func entityFor(client *sdk.VapiSDK, name string) (sdk.VapiEntity, error) {
 		return client.Campaign(nil), nil
 	case "chat":
 		return client.Chat(nil), nil
-	case "create_simulation_run":
-		return client.CreateSimulationRun(nil), nil
 	case "eval":
 		return client.Eval(nil), nil
 	case "file":

@@ -6,7 +6,6 @@
 @"./call.aontu"
 @"./campaign.aontu"
 @"./chat.aontu"
-@"./create_simulation_run.aontu"
 @"./eval.aontu"
 @"./file.aontu"
 @"./insight.aontu"

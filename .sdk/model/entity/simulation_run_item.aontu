@@ -214,7 +214,7 @@ main: kit: entity: simulation_run_item: {
               {
                 k: "param"
                 n: "item_id"
-                or: "item_id"
+                or: "itemId"
                 r: true
                 t: "`$STRING`"
               }
@@ -313,28 +313,28 @@ main: kit: entity: simulation_run_item: {
               {
                 k: "query"
                 n: "created_at_ge"
-                or: "created_at_ge"
+                or: "createdAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_gt"
-                or: "created_at_gt"
+                or: "createdAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_le"
-                or: "created_at_le"
+                or: "createdAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_lt"
-                or: "created_at_lt"
+                or: "createdAtLt"
                 r: false
                 t: "`$STRING`"
               }
@@ -355,28 +355,28 @@ main: kit: entity: simulation_run_item: {
               {
                 k: "query"
                 n: "run_id"
-                or: "run_id"
+                or: "runId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "simulation_id"
-                or: "simulation_id"
+                or: "simulationId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "sort_by"
-                or: "sort_by"
+                or: "sortBy"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "sort_order"
-                or: "sort_order"
+                or: "sortOrder"
                 r: false
                 t: "`$STRING`"
               }
@@ -390,28 +390,28 @@ main: kit: entity: simulation_run_item: {
               {
                 k: "query"
                 n: "updated_at_ge"
-                or: "updated_at_ge"
+                or: "updatedAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_gt"
-                or: "updated_at_gt"
+                or: "updatedAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_le"
-                or: "updated_at_le"
+                or: "updatedAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_lt"
-                or: "updated_at_lt"
+                or: "updatedAtLt"
                 r: false
                 t: "`$STRING`"
               }
@@ -481,7 +481,7 @@ main: kit: entity: simulation_run_item: {
               {
                 k: "param"
                 n: "id"
-                or: "item_id"
+                or: "itemId"
                 r: true
                 t: "`$STRING`"
               }
@@ -549,7 +549,7 @@ main: kit: entity: simulation_run_item: {
               {
                 k: "param"
                 n: "id"
-                or: "item_id"
+                or: "itemId"
                 r: true
                 t: "`$STRING`"
               }

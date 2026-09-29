@@ -4,7 +4,7 @@
 #   guide.aontu
 
 guide: {
-  metrics: count: entity: 25
+  metrics: count: entity: 24
   metrics: count: path: 71
   metrics: count: method: 139
 
@@ -33,6 +33,7 @@ guide: {
     path: "/reporting/board": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/reporting/board/default/metrics-overview": {
       op: list: method: *GET
@@ -88,6 +89,7 @@ guide: {
     path: "/campaign": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/campaign/{id}": {
       op: load: method: *GET
@@ -97,6 +99,7 @@ guide: {
     path: "/v2/campaign": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/v2/campaign/{id}": {
       op: load: method: *GET
@@ -106,6 +109,7 @@ guide: {
     path: "/v2/campaign/{id}/contacts": {
       action: "contact": {}
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 
@@ -113,6 +117,7 @@ guide: {
     path: "/chat": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/chat/responses": {
       action: "response": {}
@@ -124,22 +129,17 @@ guide: {
     }
   }
 
-  entity: create_simulation_run: {
-    path: "/eval/simulation/run": {
-      op: create: method: *POST
-    }
-  }
-
   entity: eval: {
     path: "/eval": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/eval/run": {
       action: "run": {}
       op: create: method: *POST
-      op: create: transform: req: "eval": *("`reqdata`")|top
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/eval/run/{id}": {
       op: load: method: *GET
@@ -157,16 +157,12 @@ guide: {
   entity: file: {
     path: "/file": {
       op: create: method: *POST
-      op: create: transform: res: *("`body.metadata`")|top
       op: list: method: *GET
     }
     path: "/file/{id}": {
       op: load: method: *GET
-      op: load: transform: res: *("`body.metadata`")|top
       op: patch: method: *PATCH
-      op: patch: transform: res: *("`body.metadata`")|top
       op: remove: method: *DELETE
-      op: remove: transform: res: *("`body.metadata`")|top
     }
   }
 
@@ -174,6 +170,7 @@ guide: {
     path: "/reporting/insight": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/reporting/insight/preview": {
       action: "preview": {}
@@ -222,16 +219,12 @@ guide: {
   entity: personality: {
     path: "/eval/simulation/personality": {
       op: create: method: *POST
-      op: create: transform: res: *("`body.assistant`")|top
       op: list: method: *GET
     }
     path: "/eval/simulation/personality/{id}": {
       op: load: method: *GET
-      op: load: transform: res: *("`body.assistant`")|top
       op: patch: method: *PATCH
-      op: patch: transform: res: *("`body.assistant`")|top
       op: remove: method: *DELETE
-      op: remove: transform: res: *("`body.assistant`")|top
     }
   }
 
@@ -247,6 +240,7 @@ guide: {
     }
     path: "/v2/phone-number": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 
@@ -254,17 +248,13 @@ guide: {
     path: "/provider/{provider}/{resourceName}": {
       rename: param: "resourceName": *"resource_name"
       op: create: method: *POST
-      op: create: transform: res: *("`body.resource`")|top
       op: load: method: *GET
     }
     path: "/provider/{provider}/{resourceName}/{id}": {
       rename: param: "resourceName": *"resource_name"
       op: load: method: *GET
-      op: load: transform: res: *("`body.resource`")|top
       op: patch: method: *PATCH
-      op: patch: transform: res: *("`body.resource`")|top
       op: remove: method: *DELETE
-      op: remove: transform: res: *("`body.resource`")|top
     }
   }
 
@@ -284,6 +274,7 @@ guide: {
     path: "/observability/scorecard": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/observability/scorecard/{id}": {
       op: load: method: *GET
@@ -296,6 +287,7 @@ guide: {
     path: "/session": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/session/{id}": {
       op: load: method: *GET
@@ -325,6 +317,7 @@ guide: {
 
   entity: simulation_run: {
     path: "/eval/simulation/run": {
+      op: create: method: *POST
       op: load: method: *GET
     }
     path: "/eval/simulation/run/{id}": {
@@ -384,6 +377,7 @@ guide: {
     path: "/structured-output": {
       op: create: method: *POST
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/structured-output/run": {
       action: "run": {}

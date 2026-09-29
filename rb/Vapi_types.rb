@@ -1393,178 +1393,10 @@ CallUpdateData = Struct.new(
 
 # Request payload for Call#remove.
 #
-# @!attribute [rw] analysis
-#   @return [Object, nil]
-#
-# @!attribute [rw] artifact
-#   @return [Object, nil]
-#
-# @!attribute [rw] artifactPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] assistant
-#   @return [Object, nil]
-#
-# @!attribute [rw] assistantId
-#   @return [String, nil]
-#
-# @!attribute [rw] assistantOverrides
-#   @return [Object, nil]
-#
-# @!attribute [rw] assistantVersion
-#   @return [String, nil]
-#
-# @!attribute [rw] campaignId
-#   @return [String, nil]
-#
-# @!attribute [rw] compliance
-#   @return [Object, nil]
-#
-# @!attribute [rw] cost
-#   @return [Float, nil]
-#
-# @!attribute [rw] costBreakdown
-#   @return [Object, nil]
-#
-# @!attribute [rw] costs
-#   @return [Array, nil]
-#
-# @!attribute [rw] createdAt
-#   @return [String, nil]
-#
-# @!attribute [rw] customer
-#   @return [Object, nil]
-#
-# @!attribute [rw] customerId
-#   @return [String, nil]
-#
-# @!attribute [rw] customers
-#   @return [Array, nil]
-#
-# @!attribute [rw] destination
-#   @return [Object, nil]
-#
-# @!attribute [rw] endedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] endedMessage
-#   @return [String, nil]
-#
-# @!attribute [rw] endedReason
-#   @return [String, nil]
-#
 # @!attribute [rw] id
 #   @return [String]
-#
-# @!attribute [rw] messages
-#   @return [Array, nil]
-#
-# @!attribute [rw] monitor
-#   @return [Object, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] orgId
-#   @return [String, nil]
-#
-# @!attribute [rw] phoneCallProvider
-#   @return [String, nil]
-#
-# @!attribute [rw] phoneCallProviderId
-#   @return [String, nil]
-#
-# @!attribute [rw] phoneCallTransport
-#   @return [String, nil]
-#
-# @!attribute [rw] phoneNumber
-#   @return [Object, nil]
-#
-# @!attribute [rw] phoneNumberId
-#   @return [String, nil]
-#
-# @!attribute [rw] schedulePlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] squad
-#   @return [Object, nil]
-#
-# @!attribute [rw] squadId
-#   @return [String, nil]
-#
-# @!attribute [rw] squadOverrides
-#   @return [Object, nil]
-#
-# @!attribute [rw] squadVersion
-#   @return [String, nil]
-#
-# @!attribute [rw] startedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] transport
-#   @return [Object, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
-#
-# @!attribute [rw] updatedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] workflow
-#   @return [Object, nil]
-#
-# @!attribute [rw] workflowId
-#   @return [String, nil]
-#
-# @!attribute [rw] workflowOverrides
-#   @return [Object, nil]
 CallRemoveMatch = Struct.new(
-  :analysis,
-  :artifact,
-  :artifactPlan,
-  :assistant,
-  :assistantId,
-  :assistantOverrides,
-  :assistantVersion,
-  :campaignId,
-  :compliance,
-  :cost,
-  :costBreakdown,
-  :costs,
-  :createdAt,
-  :customer,
-  :customerId,
-  :customers,
-  :destination,
-  :endedAt,
-  :endedMessage,
-  :endedReason,
   :id,
-  :messages,
-  :monitor,
-  :name,
-  :orgId,
-  :phoneCallProvider,
-  :phoneCallProviderId,
-  :phoneCallTransport,
-  :phoneNumber,
-  :phoneNumberId,
-  :schedulePlan,
-  :squad,
-  :squadId,
-  :squadOverrides,
-  :squadVersion,
-  :startedAt,
-  :status,
-  :transport,
-  :type,
-  :updatedAt,
-  :workflow,
-  :workflowId,
-  :workflowOverrides,
   keyword_init: true
 )
 
@@ -2272,48 +2104,6 @@ ChatCreateData = Struct.new(
 #   @return [String]
 ChatRemoveMatch = Struct.new(
   :id,
-  keyword_init: true
-)
-
-# CreateSimulationRun entity data model.
-#
-# @!attribute [rw] iterations
-#   @return [Float, nil]
-#
-# @!attribute [rw] simulations
-#   @return [Array]
-#
-# @!attribute [rw] target
-#   @return [Object]
-#
-# @!attribute [rw] transport
-#   @return [Object, nil]
-CreateSimulationRun = Struct.new(
-  :iterations,
-  :simulations,
-  :target,
-  :transport,
-  keyword_init: true
-)
-
-# Request payload for CreateSimulationRun#create.
-#
-# @!attribute [rw] iterations
-#   @return [Float, nil]
-#
-# @!attribute [rw] simulations
-#   @return [Array]
-#
-# @!attribute [rw] target
-#   @return [Object]
-#
-# @!attribute [rw] transport
-#   @return [Object, nil]
-CreateSimulationRunCreateData = Struct.new(
-  :iterations,
-  :simulations,
-  :target,
-  :transport,
   keyword_init: true
 )
 
@@ -3311,80 +3101,17 @@ KnowledgeBaseV2FileRemoveMatch = Struct.new(
 
 # Personality entity data model.
 #
-# @!attribute [rw] analysisPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] artifactPlan
-#   @return [Object, nil]
-#
 # @!attribute [rw] assistant
 #   @return [Object]
-#
-# @!attribute [rw] backgroundSound
-#   @return [Object, nil]
-#
-# @!attribute [rw] backgroundSpeechDenoisingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] clientMessages
-#   @return [Array, nil]
-#
-# @!attribute [rw] compliancePlan
-#   @return [Hash, nil]
 #
 # @!attribute [rw] createdAt
 #   @return [String]
 #
-# @!attribute [rw] credentialIds
-#   @return [Array, nil]
-#
-# @!attribute [rw] credentials
-#   @return [Array, nil]
-#
-# @!attribute [rw] endCallMessage
-#   @return [String, nil]
-#
-# @!attribute [rw] endCallPhrases
-#   @return [Array, nil]
-#
-# @!attribute [rw] firstMessage
-#   @return [String, nil]
-#
-# @!attribute [rw] firstMessageInterruptionsEnabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] firstMessageMode
-#   @return [String, nil]
-#
-# @!attribute [rw] hooks
-#   @return [Array, nil]
-#
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] keypadInputPlan
-#   @return [Hash, nil]
-#
-# @!attribute [rw] maxDurationSeconds
-#   @return [Float, nil]
-#
-# @!attribute [rw] metadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] model
-#   @return [Object, nil]
-#
-# @!attribute [rw] modelOutputInMessagesEnabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] monitorPlan
-#   @return [Object, nil]
-#
 # @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] observabilityPlan
-#   @return [Object, nil]
+#   @return [String]
 #
 # @!attribute [rw] orgId
 #   @return [String]
@@ -3392,73 +3119,16 @@ KnowledgeBaseV2FileRemoveMatch = Struct.new(
 # @!attribute [rw] path
 #   @return [String, nil]
 #
-# @!attribute [rw] server
-#   @return [Object, nil]
-#
-# @!attribute [rw] serverMessages
-#   @return [Array, nil]
-#
-# @!attribute [rw] startSpeakingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] stopSpeakingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] transcriber
-#   @return [Object, nil]
-#
-# @!attribute [rw] transportConfigurations
-#   @return [Array, nil]
-#
 # @!attribute [rw] updatedAt
 #   @return [String]
-#
-# @!attribute [rw] voice
-#   @return [Object, nil]
-#
-# @!attribute [rw] voicemailDetection
-#   @return [Object, nil]
-#
-# @!attribute [rw] voicemailMessage
-#   @return [String, nil]
 Personality = Struct.new(
-  :analysisPlan,
-  :artifactPlan,
   :assistant,
-  :backgroundSound,
-  :backgroundSpeechDenoisingPlan,
-  :clientMessages,
-  :compliancePlan,
   :createdAt,
-  :credentialIds,
-  :credentials,
-  :endCallMessage,
-  :endCallPhrases,
-  :firstMessage,
-  :firstMessageInterruptionsEnabled,
-  :firstMessageMode,
-  :hooks,
   :id,
-  :keypadInputPlan,
-  :maxDurationSeconds,
-  :metadata,
-  :model,
-  :modelOutputInMessagesEnabled,
-  :monitorPlan,
   :name,
-  :observabilityPlan,
   :orgId,
   :path,
-  :server,
-  :serverMessages,
-  :startSpeakingPlan,
-  :stopSpeakingPlan,
-  :transcriber,
-  :transportConfigurations,
   :updatedAt,
-  :voice,
-  :voicemailDetection,
-  :voicemailMessage,
   keyword_init: true
 )
 
@@ -3526,80 +3196,17 @@ PersonalityListMatch = Struct.new(
 
 # Request payload for Personality#create.
 #
-# @!attribute [rw] analysisPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] artifactPlan
-#   @return [Object, nil]
-#
 # @!attribute [rw] assistant
 #   @return [Object]
-#
-# @!attribute [rw] backgroundSound
-#   @return [Object, nil]
-#
-# @!attribute [rw] backgroundSpeechDenoisingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] clientMessages
-#   @return [Array, nil]
-#
-# @!attribute [rw] compliancePlan
-#   @return [Hash, nil]
 #
 # @!attribute [rw] createdAt
 #   @return [String]
 #
-# @!attribute [rw] credentialIds
-#   @return [Array, nil]
-#
-# @!attribute [rw] credentials
-#   @return [Array, nil]
-#
-# @!attribute [rw] endCallMessage
-#   @return [String, nil]
-#
-# @!attribute [rw] endCallPhrases
-#   @return [Array, nil]
-#
-# @!attribute [rw] firstMessage
-#   @return [String, nil]
-#
-# @!attribute [rw] firstMessageInterruptionsEnabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] firstMessageMode
-#   @return [String, nil]
-#
-# @!attribute [rw] hooks
-#   @return [Array, nil]
-#
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] keypadInputPlan
-#   @return [Hash, nil]
-#
-# @!attribute [rw] maxDurationSeconds
-#   @return [Float, nil]
-#
-# @!attribute [rw] metadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] model
-#   @return [Object, nil]
-#
-# @!attribute [rw] modelOutputInMessagesEnabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] monitorPlan
-#   @return [Object, nil]
-#
 # @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] observabilityPlan
-#   @return [Object, nil]
+#   @return [String]
 #
 # @!attribute [rw] orgId
 #   @return [String]
@@ -3607,73 +3214,16 @@ PersonalityListMatch = Struct.new(
 # @!attribute [rw] path
 #   @return [String, nil]
 #
-# @!attribute [rw] server
-#   @return [Object, nil]
-#
-# @!attribute [rw] serverMessages
-#   @return [Array, nil]
-#
-# @!attribute [rw] startSpeakingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] stopSpeakingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] transcriber
-#   @return [Object, nil]
-#
-# @!attribute [rw] transportConfigurations
-#   @return [Array, nil]
-#
 # @!attribute [rw] updatedAt
 #   @return [String]
-#
-# @!attribute [rw] voice
-#   @return [Object, nil]
-#
-# @!attribute [rw] voicemailDetection
-#   @return [Object, nil]
-#
-# @!attribute [rw] voicemailMessage
-#   @return [String, nil]
 PersonalityCreateData = Struct.new(
-  :analysisPlan,
-  :artifactPlan,
   :assistant,
-  :backgroundSound,
-  :backgroundSpeechDenoisingPlan,
-  :clientMessages,
-  :compliancePlan,
   :createdAt,
-  :credentialIds,
-  :credentials,
-  :endCallMessage,
-  :endCallPhrases,
-  :firstMessage,
-  :firstMessageInterruptionsEnabled,
-  :firstMessageMode,
-  :hooks,
   :id,
-  :keypadInputPlan,
-  :maxDurationSeconds,
-  :metadata,
-  :model,
-  :modelOutputInMessagesEnabled,
-  :monitorPlan,
   :name,
-  :observabilityPlan,
   :orgId,
   :path,
-  :server,
-  :serverMessages,
-  :startSpeakingPlan,
-  :stopSpeakingPlan,
-  :transcriber,
-  :transportConfigurations,
   :updatedAt,
-  :voice,
-  :voicemailDetection,
-  :voicemailMessage,
   keyword_init: true
 )
 
@@ -3682,77 +3232,14 @@ PersonalityCreateData = Struct.new(
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] analysisPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] artifactPlan
-#   @return [Object, nil]
-#
 # @!attribute [rw] assistant
 #   @return [Object, nil]
-#
-# @!attribute [rw] backgroundSound
-#   @return [Object, nil]
-#
-# @!attribute [rw] backgroundSpeechDenoisingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] clientMessages
-#   @return [Array, nil]
-#
-# @!attribute [rw] compliancePlan
-#   @return [Hash, nil]
 #
 # @!attribute [rw] createdAt
 #   @return [String, nil]
 #
-# @!attribute [rw] credentialIds
-#   @return [Array, nil]
-#
-# @!attribute [rw] credentials
-#   @return [Array, nil]
-#
-# @!attribute [rw] endCallMessage
-#   @return [String, nil]
-#
-# @!attribute [rw] endCallPhrases
-#   @return [Array, nil]
-#
-# @!attribute [rw] firstMessage
-#   @return [String, nil]
-#
-# @!attribute [rw] firstMessageInterruptionsEnabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] firstMessageMode
-#   @return [String, nil]
-#
-# @!attribute [rw] hooks
-#   @return [Array, nil]
-#
-# @!attribute [rw] keypadInputPlan
-#   @return [Hash, nil]
-#
-# @!attribute [rw] maxDurationSeconds
-#   @return [Float, nil]
-#
-# @!attribute [rw] metadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] model
-#   @return [Object, nil]
-#
-# @!attribute [rw] modelOutputInMessagesEnabled
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] monitorPlan
-#   @return [Object, nil]
-#
 # @!attribute [rw] name
 #   @return [String, nil]
-#
-# @!attribute [rw] observabilityPlan
-#   @return [Object, nil]
 #
 # @!attribute [rw] orgId
 #   @return [String, nil]
@@ -3760,73 +3247,16 @@ PersonalityCreateData = Struct.new(
 # @!attribute [rw] path
 #   @return [String, nil]
 #
-# @!attribute [rw] server
-#   @return [Object, nil]
-#
-# @!attribute [rw] serverMessages
-#   @return [Array, nil]
-#
-# @!attribute [rw] startSpeakingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] stopSpeakingPlan
-#   @return [Object, nil]
-#
-# @!attribute [rw] transcriber
-#   @return [Object, nil]
-#
-# @!attribute [rw] transportConfigurations
-#   @return [Array, nil]
-#
 # @!attribute [rw] updatedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] voice
-#   @return [Object, nil]
-#
-# @!attribute [rw] voicemailDetection
-#   @return [Object, nil]
-#
-# @!attribute [rw] voicemailMessage
 #   @return [String, nil]
 PersonalityUpdateData = Struct.new(
   :id,
-  :analysisPlan,
-  :artifactPlan,
   :assistant,
-  :backgroundSound,
-  :backgroundSpeechDenoisingPlan,
-  :clientMessages,
-  :compliancePlan,
   :createdAt,
-  :credentialIds,
-  :credentials,
-  :endCallMessage,
-  :endCallPhrases,
-  :firstMessage,
-  :firstMessageInterruptionsEnabled,
-  :firstMessageMode,
-  :hooks,
-  :keypadInputPlan,
-  :maxDurationSeconds,
-  :metadata,
-  :model,
-  :modelOutputInMessagesEnabled,
-  :monitorPlan,
   :name,
-  :observabilityPlan,
   :orgId,
   :path,
-  :server,
-  :serverMessages,
-  :startSpeakingPlan,
-  :stopSpeakingPlan,
-  :transcriber,
-  :transportConfigurations,
   :updatedAt,
-  :voice,
-  :voicemailDetection,
-  :voicemailMessage,
   keyword_init: true
 )
 
@@ -3951,18 +3381,46 @@ PhoneNumberRemoveMatch = Struct.new(
 
 # Provider entity data model.
 #
+# @!attribute [rw] createdAt
+#   @return [String]
+#
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] metadata
 #   @return [Hash]
 #
+# @!attribute [rw] orgId
+#   @return [String]
+#
+# @!attribute [rw] provider
+#   @return [String]
+#
+# @!attribute [rw] resource
+#   @return [Hash]
+#
+# @!attribute [rw] resourceId
+#   @return [String]
+#
+# @!attribute [rw] resourceName
+#   @return [String]
+#
 # @!attribute [rw] results
 #   @return [Array]
+#
+# @!attribute [rw] updatedAt
+#   @return [String]
 Provider = Struct.new(
+  :createdAt,
   :id,
   :metadata,
+  :orgId,
+  :provider,
+  :resource,
+  :resourceId,
+  :resourceName,
   :results,
+  :updatedAt,
   keyword_init: true
 )
 
@@ -4043,20 +3501,44 @@ ProviderLoadMatch = Struct.new(
 # @!attribute [rw] resource_name
 #   @return [String]
 #
+# @!attribute [rw] createdAt
+#   @return [String]
+#
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] metadata
 #   @return [Hash]
 #
+# @!attribute [rw] orgId
+#   @return [String]
+#
+# @!attribute [rw] resource
+#   @return [Hash]
+#
+# @!attribute [rw] resourceId
+#   @return [String]
+#
+# @!attribute [rw] resourceName
+#   @return [String]
+#
 # @!attribute [rw] results
 #   @return [Array]
+#
+# @!attribute [rw] updatedAt
+#   @return [String]
 ProviderCreateData = Struct.new(
   :provider,
   :resource_name,
+  :createdAt,
   :id,
   :metadata,
+  :orgId,
+  :resource,
+  :resourceId,
+  :resourceName,
   :results,
+  :updatedAt,
   keyword_init: true
 )
 
@@ -4071,17 +3553,41 @@ ProviderCreateData = Struct.new(
 # @!attribute [rw] resource_name
 #   @return [String]
 #
+# @!attribute [rw] createdAt
+#   @return [String, nil]
+#
 # @!attribute [rw] metadata
 #   @return [Hash, nil]
 #
+# @!attribute [rw] orgId
+#   @return [String, nil]
+#
+# @!attribute [rw] resource
+#   @return [Hash, nil]
+#
+# @!attribute [rw] resourceId
+#   @return [String, nil]
+#
+# @!attribute [rw] resourceName
+#   @return [String, nil]
+#
 # @!attribute [rw] results
 #   @return [Array, nil]
+#
+# @!attribute [rw] updatedAt
+#   @return [String, nil]
 ProviderUpdateData = Struct.new(
   :id,
   :provider,
   :resource_name,
+  :createdAt,
   :metadata,
+  :orgId,
+  :resource,
+  :resourceId,
+  :resourceName,
   :results,
+  :updatedAt,
   keyword_init: true
 )
 
@@ -5193,6 +4699,67 @@ SimulationRun = Struct.new(
 #   @return [String]
 SimulationRunLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for SimulationRun#create.
+#
+# @!attribute [rw] createdAt
+#   @return [String]
+#
+# @!attribute [rw] endedAt
+#   @return [String, nil]
+#
+# @!attribute [rw] endedReason
+#   @return [String, nil]
+#
+# @!attribute [rw] id
+#   @return [String]
+#
+# @!attribute [rw] itemCounts
+#   @return [Object, nil]
+#
+# @!attribute [rw] iterations
+#   @return [Float, nil]
+#
+# @!attribute [rw] orgId
+#   @return [String]
+#
+# @!attribute [rw] queuedAt
+#   @return [String]
+#
+# @!attribute [rw] simulations
+#   @return [Array]
+#
+# @!attribute [rw] startedAt
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String]
+#
+# @!attribute [rw] target
+#   @return [Object]
+#
+# @!attribute [rw] transport
+#   @return [Object, nil]
+#
+# @!attribute [rw] updatedAt
+#   @return [String]
+SimulationRunCreateData = Struct.new(
+  :createdAt,
+  :endedAt,
+  :endedReason,
+  :id,
+  :itemCounts,
+  :iterations,
+  :orgId,
+  :queuedAt,
+  :simulations,
+  :startedAt,
+  :status,
+  :target,
+  :transport,
+  :updatedAt,
   keyword_init: true
 )
 

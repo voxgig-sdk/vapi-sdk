@@ -51,7 +51,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local scenarios, err = client:Scenario():list()
+local provider, err = client:Provider():load({ provider = "example", resource_name = "example" })
 if err then error(err) end
 ```
 
@@ -109,7 +109,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Scenario():list()
+local result, err = client:Provider():load({ id = "test01", provider = "example", resource_name = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -196,7 +196,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Call` | `(data) -> CallEntity` | Create a Call entity instance. |
 | `Campaign` | `(data) -> CampaignEntity` | Create a Campaign entity instance. |
 | `Chat` | `(data) -> ChatEntity` | Create a Chat entity instance. |
-| `CreateSimulationRun` | `(data) -> CreateSimulationRunEntity` | Create a CreateSimulationRun entity instance. |
 | `Eval` | `(data) -> EvalEntity` | Create an Eval entity instance. |
 | `File` | `(data) -> FileEntity` | Create a File entity instance. |
 | `Insight` | `(data) -> InsightEntity` | Create an Insight entity instance. |
@@ -452,19 +451,6 @@ Operations: Create, List, Load, Remove.
 
 API path: `/chat`
 
-#### CreateSimulationRun
-
-| Field | Description |
-| --- | --- |
-| `iterations` | Number of times to run each simulation (default: 1) |
-| `simulations` | Array of simulations and/or suites to run |
-| `target` | Target to test against |
-| `transport` | Transport configuration for the simulation runs |
-
-Operations: Create.
-
-API path: `/eval/simulation/run`
-
 #### Eval
 
 | Field | Description |
@@ -575,43 +561,13 @@ API path: `/v2/knowledge-base/{id}/file/{fileId}/retry`
 
 | Field | Description |
 | --- | --- |
-| `analysisPlan` | This is the plan for analysis of assistant's calls. |
-| `artifactPlan` | This is the plan for artifacts generated during assistant's calls. |
 | `assistant` | This is the full assistant configuration for this personality. |
-| `backgroundSound` | This is the background sound in the call. |
-| `backgroundSpeechDenoisingPlan` | This enables filtering of noise and background speech while the user is talking. |
-| `clientMessages` | These are the messages that will be sent to your Client SDKs. |
-| `compliancePlan` |  |
 | `createdAt` | This is the ISO 8601 date-time string of when the personality was created. |
-| `credentialIds` | These are the credentials that will be used for the assistant calls. |
-| `credentials` | These are dynamic credentials that will be used for the assistant calls. |
-| `endCallMessage` | This is the message that the assistant will say if it ends the call. |
-| `endCallPhrases` | This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. |
-| `firstMessage` | This is the first message that the assistant will say. |
-| `firstMessageInterruptionsEnabled` |  |
-| `firstMessageMode` | This is the mode for the first message. |
-| `hooks` | This is a set of actions that will be performed on certain events. |
 | `id` | This is the unique identifier for the personality. |
-| `keypadInputPlan` |  |
-| `maxDurationSeconds` | This is the maximum number of seconds that the call will last. |
-| `metadata` | This is for metadata you want to store on the assistant. |
-| `model` | These are the options for the assistant's LLM. |
-| `modelOutputInMessagesEnabled` | This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech. |
-| `monitorPlan` | This is the plan for real-time monitoring of the assistant's calls. |
-| `name` | This is the name of the assistant. |
-| `observabilityPlan` | This is the plan for observability of assistant's calls. |
+| `name` | This is the name of the personality (e.g., "Confused Carl", "Rude Rob"). |
 | `orgId` | This is the unique identifier for the organization this personality belongs to. |
 | `path` | Optional folder path for organizing personalities. |
-| `server` | This is where Vapi will send webhooks. |
-| `serverMessages` | These are the messages that will be sent to your Server URL. |
-| `startSpeakingPlan` | This is the plan for when the assistant should start talking. |
-| `stopSpeakingPlan` | This is the plan for when assistant should stop talking on customer interruption. |
-| `transcriber` | These are the options for the assistant's transcriber. |
-| `transportConfigurations` | These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. |
 | `updatedAt` | This is the ISO 8601 date-time string of when the personality was last updated. |
-| `voice` | These are the options for the assistant's voice. |
-| `voicemailDetection` | These are the settings to configure or disable voicemail detection. |
-| `voicemailMessage` | This is the message that the assistant will say if the call is forwarded to voicemail. |
 
 Operations: Create, List, Load, Remove, Update.
 
@@ -633,9 +589,16 @@ API path: `/phone-number`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
+| `createdAt` | This is the ISO 8601 date-time string of when the provider resource was created. |
+| `id` | This is the unique identifier for the provider resource. |
 | `metadata` |  |
+| `orgId` | This is the unique identifier for the org that this provider resource belongs to. |
+| `provider` | This is the provider that manages this resource. |
+| `resource` | This is the full resource data from the provider's API. |
+| `resourceId` | This is the provider-specific identifier for the resource. |
+| `resourceName` | This is the name/type of the resource. |
 | `results` |  |
+| `updatedAt` | This is the ISO 8601 date-time string of when the provider resource was last updated. |
 
 Operations: Create, Load, Remove, Update.
 
@@ -745,7 +708,7 @@ API path: `/eval/simulation`
 | `transport` | Transport configuration for the simulation runs |
 | `updatedAt` | ISO 8601 date-time when last updated |
 
-Operations: Load, Update.
+Operations: Create, Load, Update.
 
 API path: `/eval/simulation/run`
 
@@ -1248,35 +1211,6 @@ local chat, err = client:Chat():create({
 ```
 
 
-### CreateSimulationRun
-
-Create an instance: `local create_simulation_run = client:CreateSimulationRun(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `create(data)` | Create a new entity with the given data. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `iterations` | `number` | Number of times to run each simulation (default: 1) |
-| `simulations` | `table` | Array of simulations and/or suites to run |
-| `target` | `any` | Target to test against |
-| `transport` | `any` | Transport configuration for the simulation runs |
-
-#### Example: Create
-
-```lua
-local create_simulation_run, err = client:CreateSimulationRun():create({
-  simulations = {}, -- table
-  target = "example_target", -- any
-})
-```
-
-
 ### Eval
 
 Create an instance: `local eval = client:Eval(nil)`
@@ -1579,43 +1513,13 @@ Create an instance: `local personality = client:Personality(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `analysisPlan` | `any` | This is the plan for analysis of assistant's calls. |
-| `artifactPlan` | `any` | This is the plan for artifacts generated during assistant's calls. |
 | `assistant` | `any` | This is the full assistant configuration for this personality. |
-| `backgroundSound` | `any` | This is the background sound in the call. |
-| `backgroundSpeechDenoisingPlan` | `any` | This enables filtering of noise and background speech while the user is talking. |
-| `clientMessages` | `table` | These are the messages that will be sent to your Client SDKs. |
-| `compliancePlan` | `table` |  |
 | `createdAt` | `string` | This is the ISO 8601 date-time string of when the personality was created. |
-| `credentialIds` | `table` | These are the credentials that will be used for the assistant calls. |
-| `credentials` | `table` | These are dynamic credentials that will be used for the assistant calls. |
-| `endCallMessage` | `string` | This is the message that the assistant will say if it ends the call. |
-| `endCallPhrases` | `table` | This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. |
-| `firstMessage` | `string` | This is the first message that the assistant will say. |
-| `firstMessageInterruptionsEnabled` | `boolean` |  |
-| `firstMessageMode` | `string` | This is the mode for the first message. |
-| `hooks` | `table` | This is a set of actions that will be performed on certain events. |
 | `id` | `string` | This is the unique identifier for the personality. |
-| `keypadInputPlan` | `table` |  |
-| `maxDurationSeconds` | `number` | This is the maximum number of seconds that the call will last. |
-| `metadata` | `table` | This is for metadata you want to store on the assistant. |
-| `model` | `any` | These are the options for the assistant's LLM. |
-| `modelOutputInMessagesEnabled` | `boolean` | This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech. |
-| `monitorPlan` | `any` | This is the plan for real-time monitoring of the assistant's calls. |
-| `name` | `string` | This is the name of the assistant. |
-| `observabilityPlan` | `any` | This is the plan for observability of assistant's calls. |
+| `name` | `string` | This is the name of the personality (e.g., "Confused Carl", "Rude Rob"). |
 | `orgId` | `string` | This is the unique identifier for the organization this personality belongs to. |
 | `path` | `string` | Optional folder path for organizing personalities. |
-| `server` | `any` | This is where Vapi will send webhooks. |
-| `serverMessages` | `table` | These are the messages that will be sent to your Server URL. |
-| `startSpeakingPlan` | `any` | This is the plan for when the assistant should start talking. |
-| `stopSpeakingPlan` | `any` | This is the plan for when assistant should stop talking on customer interruption. |
-| `transcriber` | `any` | These are the options for the assistant's transcriber. |
-| `transportConfigurations` | `table` | These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. |
 | `updatedAt` | `string` | This is the ISO 8601 date-time string of when the personality was last updated. |
-| `voice` | `any` | These are the options for the assistant's voice. |
-| `voicemailDetection` | `any` | These are the settings to configure or disable voicemail detection. |
-| `voicemailMessage` | `string` | This is the message that the assistant will say if the call is forwarded to voicemail. |
 
 #### Example: Load
 
@@ -1636,6 +1540,7 @@ local personality, err = client:Personality():create({
   assistant = "example_assistant", -- any
   createdAt = "example_createdAt", -- string
   id = "example_id", -- string
+  name = "example_name", -- string
   orgId = "example_orgId", -- string
   updatedAt = "example_updatedAt", -- string
 })
@@ -1703,9 +1608,16 @@ Create an instance: `local provider = client:Provider(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
+| `createdAt` | `string` | This is the ISO 8601 date-time string of when the provider resource was created. |
+| `id` | `string` | This is the unique identifier for the provider resource. |
 | `metadata` | `table` |  |
+| `orgId` | `string` | This is the unique identifier for the org that this provider resource belongs to. |
+| `provider` | `string` | This is the provider that manages this resource. |
+| `resource` | `table` | This is the full resource data from the provider's API. |
+| `resourceId` | `string` | This is the provider-specific identifier for the resource. |
+| `resourceName` | `string` | This is the name/type of the resource. |
 | `results` | `table` |  |
+| `updatedAt` | `string` | This is the ISO 8601 date-time string of when the provider resource was last updated. |
 
 #### Example: Load
 
@@ -1719,8 +1631,15 @@ local provider, err = client:Provider():load({ id = "provider_id", provider = "p
 local provider, err = client:Provider():create({
   provider = "example_provider", -- string
   resource_name = "example_resource_name", -- string
+  createdAt = "example_createdAt", -- string
+  id = "example_id", -- string
   metadata = {}, -- table
+  orgId = "example_orgId", -- string
+  resource = {}, -- table
+  resourceId = "example_resourceId", -- string
+  resourceName = "example_resourceName", -- string
   results = {}, -- table
+  updatedAt = "example_updatedAt", -- string
 })
 ```
 
@@ -1960,6 +1879,7 @@ Create an instance: `local simulation_run = client:SimulationRun(nil)`
 
 | Method | Description |
 | --- | --- |
+| `create(data)` | Create a new entity with the given data. |
 | `load(match)` | Load a single entity by match criteria. |
 | `update(data)` | Update an existing entity. |
 
@@ -1986,6 +1906,21 @@ Create an instance: `local simulation_run = client:SimulationRun(nil)`
 
 ```lua
 local simulation_run, err = client:SimulationRun():load({ id = "simulation_run_id" })
+```
+
+#### Example: Create
+
+```lua
+local simulation_run, err = client:SimulationRun():create({
+  createdAt = "example_createdAt", -- string
+  id = "example_id", -- string
+  orgId = "example_orgId", -- string
+  queuedAt = "example_queuedAt", -- string
+  simulations = {}, -- table
+  status = "example_status", -- string
+  target = "example_target", -- any
+  updatedAt = "example_updatedAt", -- string
+})
 ```
 
 
@@ -2405,7 +2340,7 @@ activated earlier.
 
 ## Open types
 
-66 fields are carried as open values rather than typed structures.
+56 fields are carried as open values rather than typed structures.
 This follows from the API definition, not from a gap in this SDK: the
 definition describes them with untagged unions —
 `oneOf`/`anyOf` branches with no `discriminator` — so it never states which
@@ -2432,12 +2367,8 @@ guarantee.
 | `chat` | `assistantOverrides` | 23 | 37 levels |
 | `chat` | `squad` | 23 | 49 levels |
 | `chat` | `transport` | 23 | 45 levels |
-| `create_simulation_run` | `simulations` | 23 | 60 levels |
-| `create_simulation_run` | `target` | 23 | 59 levels |
 | `eval` | `target` | 23 | 57 levels |
 | `personality` | `assistant` | 23 | 55 levels |
-| `personality` | `hooks` | 23 | 27 levels |
-| `personality` | `model` | 23 | 51 levels |
 | `scenario` | `targetOverrides` | 23 | 42 levels |
 | `session` | `assistant` | 23 | 53 levels |
 | `session` | `assistantOverrides` | 23 | 37 levels |
@@ -2449,10 +2380,7 @@ guarantee.
 | `squad` | `membersOverrides` | 23 | 42 levels |
 | `assistant` | `compliancePlan` | 20 | 28 levels |
 | `assistant` | `voice` | 20 | 22 levels |
-| `personality` | `compliancePlan` | 20 | 28 levels |
-| `personality` | `voice` | 20 | 22 levels |
 | `assistant` | `transcriber` | 14 | 18 levels |
-| `personality` | `transcriber` | 14 | 18 levels |
 | `call` | `costs` | 8 | 1 level |
 | `call` | `transport` | 6 | 0 levels |
 | `eval` | `eval` | 6 | 13 levels |
@@ -2465,8 +2393,6 @@ guarantee.
 | `chat` | `input` | 5 | 3 levels |
 | `chat` | `messages` | 5 | 1 level |
 | `chat` | `output` | 5 | 1 level |
-| `personality` | `artifactPlan` | 5 | 11 levels |
-| `personality` | `voicemailDetection` | 5 | 0 levels |
 | `phone_number` | `results` | 5 | 27 levels |
 | `scenario` | `evaluations` | 5 | 8 levels |
 | `session` | `artifact` | 5 | 19 levels |
@@ -2476,7 +2402,6 @@ guarantee.
 | `assistant` | `startSpeakingPlan` | 3 | 5 levels |
 | `call` | `destination` | 3 | 12 levels |
 | `call` | `phoneNumber` | 3 | 26 levels |
-| `personality` | `startSpeakingPlan` | 3 | 5 levels |
 | `session` | `costs` | 3 | 1 level |
 | `session` | `phoneNumber` | 3 | 26 levels |
 | `simulation_run_item` | `results` | 3 | 7 levels |
@@ -2566,15 +2491,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local scenario = client:Scenario()
-scenario:list()
+local provider = client:Provider()
+provider:load({ provider = "example", resource_name = "example" })
 
--- scenario:data_get() now returns the scenario data from the last list
--- scenario:match_get() returns the last match criteria
+-- provider:data_get() now returns the provider data from the last load
+-- provider:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -170,7 +170,6 @@ module VapiConfig
           "call" => {},
           "campaign" => {},
           "chat" => {},
-          "create_simulation_run" => {},
           "eval" => {},
           "file" => {},
           "insight" => {},
@@ -581,25 +580,25 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -611,25 +610,25 @@ module VapiConfig
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -922,31 +921,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -964,37 +963,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -1527,31 +1526,31 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "assistant_id",
-                        "orig" => "assistant_id",
+                        "orig" => "assistantId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -1569,31 +1568,31 @@ module VapiConfig
                       },
                       {
                         "name" => "phone_number_id",
-                        "orig" => "phone_number_id",
+                        "orig" => "phoneNumberId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -1988,8 +1987,22 @@ module VapiConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "args" => {},
-                  "select" => {},
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "id",
+                        "orig" => "id",
+                        "type" => "`$STRING`",
+                        "kind" => "param",
+                        "reqd" => true,
+                      },
+                    ],
+                  },
+                  "select" => {
+                    "exist" => [
+                      "id",
+                    ],
+                  },
                 },
               ],
             },
@@ -2322,31 +2335,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -2358,7 +2371,7 @@ module VapiConfig
                       },
                       {
                         "name" => "include_counter",
-                        "orig" => "include_counter",
+                        "orig" => "includeCounters",
                         "type" => "`$BOOLEAN`",
                         "kind" => "query",
                       },
@@ -2376,13 +2389,13 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -2394,25 +2407,25 @@ module VapiConfig
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -2453,31 +2466,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -2501,13 +2514,13 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -2519,25 +2532,25 @@ module VapiConfig
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -2589,7 +2602,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "params" => [
@@ -2616,7 +2629,7 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -2683,7 +2696,7 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "include_counter",
-                        "orig" => "include_counter",
+                        "orig" => "includeCounters",
                         "type" => "`$BOOLEAN`",
                         "kind" => "query",
                       },
@@ -3119,44 +3132,44 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "assistant_id",
-                        "orig" => "assistant_id",
+                        "orig" => "assistantId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "assistant_id_any",
-                        "orig" => "assistant_id_any",
+                        "orig" => "assistantIdAny",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "assistant-1,assistant-2,assistant-3",
                       },
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -3168,7 +3181,7 @@ module VapiConfig
                       },
                       {
                         "name" => "id_any",
-                        "orig" => "id_any",
+                        "orig" => "idAny",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -3186,55 +3199,55 @@ module VapiConfig
                       },
                       {
                         "name" => "previous_chat_id",
-                        "orig" => "previous_chat_id",
+                        "orig" => "previousChatId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "session_id",
-                        "orig" => "session_id",
+                        "orig" => "sessionId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "squad_id",
-                        "orig" => "squad_id",
+                        "orig" => "squadId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -3349,89 +3362,6 @@ module VapiConfig
                   "select" => {
                     "exist" => [
                       "id",
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          "relations" => {
-            "ancestors" => [],
-          },
-        },
-        "create_simulation_run" => {
-          "fields" => [
-            {
-              "name" => "iterations",
-              "title" => "Iterations",
-              "type" => "`$NUMBER`",
-              "short" => "Number of times to run each simulation (default: 1)",
-            },
-            {
-              "name" => "simulations",
-              "title" => "Simulations",
-              "type" => "`$ARRAY`",
-              "req" => true,
-              "short" => "Array of simulations and/or suites to run",
-            },
-            {
-              "name" => "target",
-              "title" => "Target",
-              "type" => "`$ANY`",
-              "req" => true,
-              "short" => "Target to test against",
-            },
-            {
-              "name" => "transport",
-              "title" => "Transport",
-              "type" => "`$ANY`",
-              "short" => "Transport configuration for the simulation runs",
-            },
-          ],
-          "name" => "create_simulation_run",
-          "op" => {
-            "create" => {
-              "input" => "data",
-              "name" => "create",
-              "points" => [
-                {
-                  "kind" => "http",
-                  "method" => "POST",
-                  "orig" => "/eval/simulation/run",
-                  "segments" => [
-                    {
-                      "lit" => "eval",
-                    },
-                    {
-                      "lit" => "simulation",
-                    },
-                    {
-                      "lit" => "run",
-                    },
-                  ],
-                  "parts" => [
-                    "eval",
-                    "simulation",
-                    "run",
-                  ],
-                  "rename" => {},
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "args" => {
-                    "header" => [
-                      {
-                        "name" => "user_agent",
-                        "orig" => "user_agent",
-                        "type" => "`$STRING`",
-                        "kind" => "header",
-                      },
-                    ],
-                  },
-                  "select" => {
-                    "exist" => [
-                      "user_agent",
                     ],
                   },
                 },
@@ -3629,9 +3559,7 @@ module VapiConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "eval" => "`reqdata`",
-                    },
+                    "req" => "`reqdata`",
                     "res" => "`body`",
                   },
                   "args" => {},
@@ -3664,31 +3592,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -3718,37 +3646,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -3789,31 +3717,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -3837,37 +3765,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -4243,7 +4171,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.metadata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {},
@@ -4312,7 +4240,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.metadata`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -4356,7 +4284,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.metadata`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -4400,7 +4328,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.metadata`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -4614,31 +4542,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -4662,37 +4590,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -5265,7 +5193,7 @@ module VapiConfig
                     "params" => [
                       {
                         "name" => "file_id",
-                        "orig" => "file_id",
+                        "orig" => "fileId",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -5432,7 +5360,7 @@ module VapiConfig
                     "params" => [
                       {
                         "name" => "id",
-                        "orig" => "file_id",
+                        "orig" => "fileId",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -5471,19 +5399,6 @@ module VapiConfig
         "personality" => {
           "fields" => [
             {
-              "name" => "analysisPlan",
-              "title" => "Analysis Plan",
-              "type" => "`$ANY`",
-              "short" => "This is the plan for analysis of assistant's calls.",
-              "deprecated" => true,
-            },
-            {
-              "name" => "artifactPlan",
-              "title" => "Artifact Plan",
-              "type" => "`$ANY`",
-              "short" => "This is the plan for artifacts generated during assistant's calls.",
-            },
-            {
               "name" => "assistant",
               "title" => "Assistant",
               "type" => "`$ANY`",
@@ -5496,82 +5411,12 @@ module VapiConfig
               "short" => "This is the full assistant configuration for this personality.",
             },
             {
-              "name" => "backgroundSound",
-              "title" => "Background Sound",
-              "type" => "`$ANY`",
-              "short" => "This is the background sound in the call.",
-            },
-            {
-              "name" => "backgroundSpeechDenoisingPlan",
-              "title" => "Background Speech Denoising Plan",
-              "type" => "`$ANY`",
-              "short" => "This enables filtering of noise and background speech while the user is talking.",
-            },
-            {
-              "name" => "clientMessages",
-              "title" => "Client Messages",
-              "type" => "`$ARRAY`",
-              "short" => "These are the messages that will be sent to your Client SDKs.",
-            },
-            {
-              "name" => "compliancePlan",
-              "title" => "Compliance Plan",
-              "type" => "`$OBJECT`",
-            },
-            {
               "name" => "createdAt",
               "title" => "Created At",
               "type" => "`$STRING`",
               "req" => true,
               "short" => "This is the ISO 8601 date-time string of when the personality was created.",
               "format" => "date-time",
-            },
-            {
-              "name" => "credentialIds",
-              "title" => "Credential Ids",
-              "type" => "`$ARRAY`",
-              "short" => "These are the credentials that will be used for the assistant calls.",
-            },
-            {
-              "name" => "credentials",
-              "title" => "Credentials",
-              "type" => "`$ARRAY`",
-              "short" => "These are dynamic credentials that will be used for the assistant calls.",
-            },
-            {
-              "name" => "endCallMessage",
-              "title" => "End Call Message",
-              "type" => "`$STRING`",
-              "short" => "This is the message that the assistant will say if it ends the call.",
-            },
-            {
-              "name" => "endCallPhrases",
-              "title" => "End Call Phrases",
-              "type" => "`$ARRAY`",
-              "short" => "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up.",
-            },
-            {
-              "name" => "firstMessage",
-              "title" => "First Message",
-              "type" => "`$STRING`",
-              "short" => "This is the first message that the assistant will say.",
-            },
-            {
-              "name" => "firstMessageInterruptionsEnabled",
-              "title" => "First Message Interruptions Enabled",
-              "type" => "`$BOOLEAN`",
-            },
-            {
-              "name" => "firstMessageMode",
-              "title" => "First Message Mode",
-              "type" => "`$STRING`",
-              "short" => "This is the mode for the first message.",
-            },
-            {
-              "name" => "hooks",
-              "title" => "Hooks",
-              "type" => "`$ARRAY`",
-              "short" => "This is a set of actions that will be performed on certain events.",
             },
             {
               "name" => "id",
@@ -5582,61 +5427,16 @@ module VapiConfig
               "format" => "uuid",
             },
             {
-              "name" => "keypadInputPlan",
-              "title" => "Keypad Input Plan",
-              "type" => "`$OBJECT`",
-            },
-            {
-              "name" => "maxDurationSeconds",
-              "title" => "Max Duration Seconds",
-              "type" => "`$NUMBER`",
-              "short" => "This is the maximum number of seconds that the call will last.",
-            },
-            {
-              "name" => "metadata",
-              "title" => "Metadata",
-              "type" => "`$OBJECT`",
-              "short" => "This is for metadata you want to store on the assistant.",
-            },
-            {
-              "name" => "model",
-              "title" => "Model",
-              "type" => "`$ANY`",
-              "short" => "These are the options for the assistant's LLM.",
-            },
-            {
-              "name" => "modelOutputInMessagesEnabled",
-              "title" => "Model Output In Messages Enabled",
-              "type" => "`$BOOLEAN`",
-              "short" => "This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech.",
-            },
-            {
-              "name" => "monitorPlan",
-              "title" => "Monitor Plan",
-              "type" => "`$ANY`",
-              "short" => "This is the plan for real-time monitoring of the assistant's calls.",
-            },
-            {
               "name" => "name",
               "title" => "Name",
               "type" => "`$STRING`",
+              "req" => true,
               "op" => {
-                "create" => {
-                  "req" => true,
-                  "type" => "`$STRING`",
-                },
-                "list" => {
-                  "req" => true,
+                "update" => {
                   "type" => "`$STRING`",
                 },
               },
-              "short" => "This is the name of the assistant.",
-            },
-            {
-              "name" => "observabilityPlan",
-              "title" => "Observability Plan",
-              "type" => "`$ANY`",
-              "short" => "This is the plan for observability of assistant's calls.",
+              "short" => "This is the name of the personality (e.g., \"Confused Carl\", \"Rude Rob\").",
             },
             {
               "name" => "orgId",
@@ -5653,66 +5453,12 @@ module VapiConfig
               "short" => "Optional folder path for organizing personalities.",
             },
             {
-              "name" => "server",
-              "title" => "Server",
-              "type" => "`$ANY`",
-              "short" => "This is where Vapi will send webhooks.",
-            },
-            {
-              "name" => "serverMessages",
-              "title" => "Server Messages",
-              "type" => "`$ARRAY`",
-              "short" => "These are the messages that will be sent to your Server URL.",
-            },
-            {
-              "name" => "startSpeakingPlan",
-              "title" => "Start Speaking Plan",
-              "type" => "`$ANY`",
-              "short" => "This is the plan for when the assistant should start talking.",
-            },
-            {
-              "name" => "stopSpeakingPlan",
-              "title" => "Stop Speaking Plan",
-              "type" => "`$ANY`",
-              "short" => "This is the plan for when assistant should stop talking on customer interruption.",
-            },
-            {
-              "name" => "transcriber",
-              "title" => "Transcriber",
-              "type" => "`$ANY`",
-              "short" => "These are the options for the assistant's transcriber.",
-            },
-            {
-              "name" => "transportConfigurations",
-              "title" => "Transport Configurations",
-              "type" => "`$ARRAY`",
-              "short" => "These are the configurations to be passed to the transport providers of assistant's calls, like Twilio.",
-            },
-            {
               "name" => "updatedAt",
               "title" => "Updated At",
               "type" => "`$STRING`",
               "req" => true,
               "short" => "This is the ISO 8601 date-time string of when the personality was last updated.",
               "format" => "date-time",
-            },
-            {
-              "name" => "voice",
-              "title" => "Voice",
-              "type" => "`$ANY`",
-              "short" => "These are the options for the assistant's voice.",
-            },
-            {
-              "name" => "voicemailDetection",
-              "title" => "Voicemail Detection",
-              "type" => "`$ANY`",
-              "short" => "These are the settings to configure or disable voicemail detection.",
-            },
-            {
-              "name" => "voicemailMessage",
-              "title" => "Voicemail Message",
-              "type" => "`$STRING`",
-              "short" => "This is the message that the assistant will say if the call is forwarded to voicemail.",
             },
           ],
           "id" => {
@@ -5748,7 +5494,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.assistant`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {},
@@ -5788,25 +5534,25 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -5824,37 +5570,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -5910,7 +5656,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.assistant`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -5962,7 +5708,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.assistant`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -6014,7 +5760,7 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.assistant`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -6117,31 +5863,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -6165,37 +5911,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -6240,25 +5986,25 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -6270,25 +6016,25 @@ module VapiConfig
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -6450,9 +6196,19 @@ module VapiConfig
         "provider" => {
           "fields" => [
             {
+              "name" => "createdAt",
+              "title" => "Created At",
+              "type" => "`$STRING`",
+              "req" => true,
+              "short" => "This is the ISO 8601 date-time string of when the provider resource was created.",
+              "format" => "date-time",
+            },
+            {
               "name" => "id",
               "title" => "Id",
               "type" => "`$STRING`",
+              "req" => true,
+              "short" => "This is the unique identifier for the provider resource.",
             },
             {
               "name" => "metadata",
@@ -6461,10 +6217,53 @@ module VapiConfig
               "req" => true,
             },
             {
+              "name" => "orgId",
+              "title" => "Org Id",
+              "type" => "`$STRING`",
+              "req" => true,
+              "short" => "This is the unique identifier for the org that this provider resource belongs to.",
+            },
+            {
+              "name" => "provider",
+              "title" => "Provider",
+              "type" => "`$STRING`",
+              "req" => true,
+              "short" => "This is the provider that manages this resource.",
+            },
+            {
+              "name" => "resource",
+              "title" => "Resource",
+              "type" => "`$OBJECT`",
+              "req" => true,
+              "short" => "This is the full resource data from the provider's API.",
+            },
+            {
+              "name" => "resourceId",
+              "title" => "Resource Id",
+              "type" => "`$STRING`",
+              "req" => true,
+              "short" => "This is the provider-specific identifier for the resource.",
+            },
+            {
+              "name" => "resourceName",
+              "title" => "Resource Name",
+              "type" => "`$STRING`",
+              "req" => true,
+              "short" => "This is the name/type of the resource.",
+            },
+            {
               "name" => "results",
               "title" => "Results",
               "type" => "`$ARRAY`",
               "req" => true,
+            },
+            {
+              "name" => "updatedAt",
+              "title" => "Updated At",
+              "type" => "`$STRING`",
+              "req" => true,
+              "short" => "This is the ISO 8601 date-time string of when the provider resource was last updated.",
+              "format" => "date-time",
             },
           ],
           "id" => {
@@ -6515,13 +6314,13 @@ module VapiConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.resource`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "header" => [
                       {
                         "name" => "content_type",
-                        "orig" => "content_type",
+                        "orig" => "content-type",
                         "type" => "`$STRING`",
                         "kind" => "header",
                         "reqd" => true,
@@ -6537,7 +6336,7 @@ module VapiConfig
                       },
                       {
                         "name" => "resource_name",
-                        "orig" => "resource_name",
+                        "orig" => "resourceName",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -6598,7 +6397,7 @@ module VapiConfig
                       },
                       {
                         "name" => "resource_name",
-                        "orig" => "resource_name",
+                        "orig" => "resourceName",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -6607,25 +6406,25 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -6649,43 +6448,43 @@ module VapiConfig
                       },
                       {
                         "name" => "resource_id",
-                        "orig" => "resource_id",
+                        "orig" => "resourceId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -6743,7 +6542,7 @@ module VapiConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.resource`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -6763,7 +6562,7 @@ module VapiConfig
                       },
                       {
                         "name" => "resource_name",
-                        "orig" => "resource_name",
+                        "orig" => "resourceName",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -6815,7 +6614,7 @@ module VapiConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.resource`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -6835,7 +6634,7 @@ module VapiConfig
                       },
                       {
                         "name" => "resource_name",
-                        "orig" => "resource_name",
+                        "orig" => "resourceName",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -6887,7 +6686,7 @@ module VapiConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body.resource`",
+                    "res" => "`body`",
                   },
                   "args" => {
                     "params" => [
@@ -6907,7 +6706,7 @@ module VapiConfig
                       },
                       {
                         "name" => "resource_name",
-                        "orig" => "resource_name",
+                        "orig" => "resourceName",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -7097,31 +6896,31 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "id_any",
-                        "orig" => "id_any",
+                        "orig" => "idAny",
                         "type" => "`$ARRAY`",
                         "kind" => "query",
                       },
@@ -7145,37 +6944,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -7485,31 +7284,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -7533,37 +7332,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -7918,56 +7717,56 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "assistant_id",
-                        "orig" => "assistant_id",
+                        "orig" => "assistantId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "assistant_id_any",
-                        "orig" => "assistant_id_any",
+                        "orig" => "assistantIdAny",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "assistant-1,assistant-2,assistant-3",
                       },
                       {
                         "name" => "assistant_override",
-                        "orig" => "assistant_override",
+                        "orig" => "assistantOverrides",
                         "type" => "`$ANY`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "customer_number_any",
-                        "orig" => "customer_number_any",
+                        "orig" => "customerNumberAny",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "+1234567890,+0987654321",
@@ -7987,7 +7786,7 @@ module VapiConfig
                       },
                       {
                         "name" => "external_id",
-                        "orig" => "external_id",
+                        "orig" => "externalId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -7999,7 +7798,7 @@ module VapiConfig
                       },
                       {
                         "name" => "id_any",
-                        "orig" => "id_any",
+                        "orig" => "idAny",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -8029,7 +7828,7 @@ module VapiConfig
                       },
                       {
                         "name" => "number_e164_check_enabled",
-                        "orig" => "number_e164_check_enabled",
+                        "orig" => "numberE164CheckEnabled",
                         "type" => "`$BOOLEAN`",
                         "kind" => "query",
                         "example" => true,
@@ -8042,73 +7841,73 @@ module VapiConfig
                       },
                       {
                         "name" => "phone_number_id",
-                        "orig" => "phone_number_id",
+                        "orig" => "phoneNumberId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "phone_number_id_any",
-                        "orig" => "phone_number_id_any",
+                        "orig" => "phoneNumberIdAny",
                         "type" => "`$ARRAY`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sip_uri",
-                        "orig" => "sip_uri",
+                        "orig" => "sipUri",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "squad_id",
-                        "orig" => "squad_id",
+                        "orig" => "squadId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "squad_override",
-                        "orig" => "squad_override",
+                        "orig" => "squadOverrides",
                         "type" => "`$ANY`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "workflow_id",
-                        "orig" => "workflow_id",
+                        "orig" => "workflowId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -8470,31 +8269,31 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "id_any",
-                        "orig" => "id_any",
+                        "orig" => "idAny",
                         "type" => "`$ARRAY`",
                         "kind" => "query",
                       },
@@ -8512,43 +8311,43 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "standalone_only",
-                        "orig" => "standalone_only",
+                        "orig" => "standaloneOnly",
                         "type" => "`$BOOLEAN`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -8862,6 +8661,53 @@ module VapiConfig
           },
           "name" => "simulation_run",
           "op" => {
+            "create" => {
+              "input" => "data",
+              "name" => "create",
+              "points" => [
+                {
+                  "kind" => "http",
+                  "method" => "POST",
+                  "orig" => "/eval/simulation/run",
+                  "segments" => [
+                    {
+                      "lit" => "eval",
+                    },
+                    {
+                      "lit" => "simulation",
+                    },
+                    {
+                      "lit" => "run",
+                    },
+                  ],
+                  "parts" => [
+                    "eval",
+                    "simulation",
+                    "run",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "header" => [
+                      {
+                        "name" => "user_agent",
+                        "orig" => "user-agent",
+                        "type" => "`$STRING`",
+                        "kind" => "header",
+                      },
+                    ],
+                  },
+                  "select" => {
+                    "exist" => [
+                      "user_agent",
+                    ],
+                  },
+                },
+              ],
+            },
             "load" => {
               "input" => "data",
               "name" => "load",
@@ -8895,31 +8741,31 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "filter_status",
-                        "orig" => "filter_status",
+                        "orig" => "filterStatus",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -8937,13 +8783,13 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -8955,37 +8801,37 @@ module VapiConfig
                       },
                       {
                         "name" => "target_id",
-                        "orig" => "target_id",
+                        "orig" => "targetId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "target_type",
-                        "orig" => "target_type",
+                        "orig" => "targetType",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -9340,7 +9186,7 @@ module VapiConfig
                     "params" => [
                       {
                         "name" => "item_id",
-                        "orig" => "item_id",
+                        "orig" => "itemId",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -9435,25 +9281,25 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -9471,25 +9317,25 @@ module VapiConfig
                       },
                       {
                         "name" => "run_id",
-                        "orig" => "run_id",
+                        "orig" => "runId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "simulation_id",
-                        "orig" => "simulation_id",
+                        "orig" => "simulationId",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -9501,25 +9347,25 @@ module VapiConfig
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -9597,7 +9443,7 @@ module VapiConfig
                     "params" => [
                       {
                         "name" => "id",
-                        "orig" => "item_id",
+                        "orig" => "itemId",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -9670,7 +9516,7 @@ module VapiConfig
                     "params" => [
                       {
                         "name" => "id",
-                        "orig" => "item_id",
+                        "orig" => "itemId",
                         "type" => "`$STRING`",
                         "kind" => "param",
                         "reqd" => true,
@@ -9911,25 +9757,25 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -9953,37 +9799,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -10291,31 +10137,31 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "id_any",
-                        "orig" => "id_any",
+                        "orig" => "idAny",
                         "type" => "`$ARRAY`",
                         "kind" => "query",
                       },
@@ -10327,25 +10173,25 @@ module VapiConfig
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -10687,31 +10533,31 @@ module VapiConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "args" => {
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -10741,37 +10587,37 @@ module VapiConfig
                       },
                       {
                         "name" => "sort_by",
-                        "orig" => "sort_by",
+                        "orig" => "sortBy",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "sort_order",
-                        "orig" => "sort_order",
+                        "orig" => "sortOrder",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -10924,7 +10770,7 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "schema_override",
-                        "orig" => "schema_override",
+                        "orig" => "schemaOverride",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "reqd" => true,
@@ -11010,25 +10856,25 @@ module VapiConfig
                     "query" => [
                       {
                         "name" => "created_at_ge",
-                        "orig" => "created_at_ge",
+                        "orig" => "createdAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_gt",
-                        "orig" => "created_at_gt",
+                        "orig" => "createdAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_le",
-                        "orig" => "created_at_le",
+                        "orig" => "createdAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "created_at_lt",
-                        "orig" => "created_at_lt",
+                        "orig" => "createdAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -11040,25 +10886,25 @@ module VapiConfig
                       },
                       {
                         "name" => "updated_at_ge",
-                        "orig" => "updated_at_ge",
+                        "orig" => "updatedAtGe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_gt",
-                        "orig" => "updated_at_gt",
+                        "orig" => "updatedAtGt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_le",
-                        "orig" => "updated_at_le",
+                        "orig" => "updatedAtLe",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "updated_at_lt",
-                        "orig" => "updated_at_lt",
+                        "orig" => "updatedAtLt",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },

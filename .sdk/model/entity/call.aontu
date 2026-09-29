@@ -427,35 +427,35 @@ main: kit: entity: call: {
               {
                 k: "query"
                 n: "assistant_id"
-                or: "assistant_id"
+                or: "assistantId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_ge"
-                or: "created_at_ge"
+                or: "createdAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_gt"
-                or: "created_at_gt"
+                or: "createdAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_le"
-                or: "created_at_le"
+                or: "createdAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_lt"
-                or: "created_at_lt"
+                or: "createdAtLt"
                 r: false
                 t: "`$STRING`"
               }
@@ -476,35 +476,35 @@ main: kit: entity: call: {
               {
                 k: "query"
                 n: "phone_number_id"
-                or: "phone_number_id"
+                or: "phoneNumberId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_ge"
-                or: "updated_at_ge"
+                or: "updatedAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_gt"
-                or: "updated_at_gt"
+                or: "updatedAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_le"
-                or: "updated_at_le"
+                or: "updatedAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_lt"
-                or: "updated_at_lt"
+                or: "updatedAtLt"
                 r: false
                 t: "`$STRING`"
               }
@@ -878,8 +878,24 @@ main: kit: entity: call: {
             source: "openapi3"
             version: 2
           }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
           m: "DELETE"
           o: "/call/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
           s: [
             {
               lit: "call"

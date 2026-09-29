@@ -82,7 +82,6 @@ _ENTITIES = {
     "Call": "call",
     "Campaign": "campaign",
     "Chat": "chat",
-    "CreateSimulationRun": "create_simulation_run",
     "Eval": "eval",
     "File": "file",
     "Insight": "insight",

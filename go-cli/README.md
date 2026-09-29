@@ -94,7 +94,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 25 entities.
+below — this SDK exposes 24 entities.
 
 ## Reference
 
@@ -149,9 +149,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 25 entities this SDK exposes (any is valid as `<entity>`):
+The 24 entities this SDK exposes (any is valid as `<entity>`):
 
-analytics assistant board call campaign chat create_simulation_run eval file insight knowledge_base knowledge_base_v2_file personality phone_number provider scenario scorecard session simulation simulation_run simulation_run_item simulation_suite squad structured_output tool
+analytics assistant board call campaign chat eval file insight knowledge_base knowledge_base_v2_file personality phone_number provider scenario scorecard session simulation simulation_run simulation_run_item simulation_suite squad structured_output tool
 
 ## Explanation
 

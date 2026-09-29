@@ -129,7 +129,7 @@ Both tools take the same argument object:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `entity` | string | One of the 25 supported entities (see below). |
+| `entity` | string | One of the 24 supported entities (see below). |
 | `query` | object | Optional match map. `{"id":N}` for load; omit or `{}` for list. |
 
 JSON schemas are emitted by the SDK from the `Args` struct's `json` /
@@ -151,9 +151,9 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 25 entities valid as the `entity` argument:
+The 24 entities valid as the `entity` argument:
 
-analytics | assistant | board | call | campaign | chat | create_simulation_run | eval | file | insight | knowledge_base | knowledge_base_v2_file | personality | phone_number | provider | scenario | scorecard | session | simulation | simulation_run | simulation_run_item | simulation_suite | squad | structured_output | tool
+analytics | assistant | board | call | campaign | chat | eval | file | insight | knowledge_base | knowledge_base_v2_file | personality | phone_number | provider | scenario | scorecard | session | simulation | simulation_run | simulation_run_item | simulation_suite | squad | structured_output | tool
 
 ### Smoke test via HTTP (raw JSON-RPC)
 

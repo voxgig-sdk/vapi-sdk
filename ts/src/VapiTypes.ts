@@ -391,49 +391,7 @@ export interface CallUpdateData {
 }
 
 export interface CallRemoveMatch {
-  analysis?: any
-  artifact?: any
-  artifactPlan?: any
-  assistant?: any
-  assistantId?: string
-  assistantOverrides?: any
-  assistantVersion?: string
-  campaignId?: string
-  compliance?: any
-  cost?: number
-  costBreakdown?: any
-  costs?: any[]
-  createdAt?: string
-  customer?: any
-  customerId?: string
-  customers?: any[]
-  destination?: any
-  endedAt?: string
-  endedMessage?: string
-  endedReason?: string
   id: string
-  messages?: any[]
-  monitor?: any
-  name?: string
-  orgId?: string
-  phoneCallProvider?: string
-  phoneCallProviderId?: string
-  phoneCallTransport?: string
-  phoneNumber?: any
-  phoneNumberId?: string
-  schedulePlan?: any
-  squad?: any
-  squadId?: string
-  squadOverrides?: any
-  squadVersion?: string
-  startedAt?: string
-  status?: string
-  transport?: any
-  type?: string
-  updatedAt?: string
-  workflow?: any
-  workflowId?: string
-  workflowOverrides?: any
 }
 
 export interface Campaign {
@@ -642,20 +600,6 @@ export interface ChatCreateData {
 
 export interface ChatRemoveMatch {
   id: string
-}
-
-export interface CreateSimulationRun {
-  iterations?: number
-  simulations: any[]
-  target: any
-  transport?: any
-}
-
-export interface CreateSimulationRunCreateData {
-  iterations?: number
-  simulations: any[]
-  target: any
-  transport?: any
 }
 
 export interface Eval {
@@ -974,43 +918,13 @@ export interface KnowledgeBaseV2FileRemoveMatch {
 }
 
 export interface Personality {
-  analysisPlan?: any
-  artifactPlan?: any
   assistant: any
-  backgroundSound?: any
-  backgroundSpeechDenoisingPlan?: any
-  clientMessages?: any[]
-  compliancePlan?: Record<string, any>
   createdAt: string
-  credentialIds?: any[]
-  credentials?: any[]
-  endCallMessage?: string
-  endCallPhrases?: any[]
-  firstMessage?: string
-  firstMessageInterruptionsEnabled?: boolean
-  firstMessageMode?: string
-  hooks?: any[]
   id: string
-  keypadInputPlan?: Record<string, any>
-  maxDurationSeconds?: number
-  metadata?: Record<string, any>
-  model?: any
-  modelOutputInMessagesEnabled?: boolean
-  monitorPlan?: any
-  name?: string
-  observabilityPlan?: any
+  name: string
   orgId: string
   path?: string
-  server?: any
-  serverMessages?: any[]
-  startSpeakingPlan?: any
-  stopSpeakingPlan?: any
-  transcriber?: any
-  transportConfigurations?: any[]
   updatedAt: string
-  voice?: any
-  voicemailDetection?: any
-  voicemailMessage?: string
 }
 
 export interface PersonalityLoadMatch {
@@ -1033,83 +947,23 @@ export interface PersonalityListMatch {
 }
 
 export interface PersonalityCreateData {
-  analysisPlan?: any
-  artifactPlan?: any
   assistant: any
-  backgroundSound?: any
-  backgroundSpeechDenoisingPlan?: any
-  clientMessages?: any[]
-  compliancePlan?: Record<string, any>
   createdAt: string
-  credentialIds?: any[]
-  credentials?: any[]
-  endCallMessage?: string
-  endCallPhrases?: any[]
-  firstMessage?: string
-  firstMessageInterruptionsEnabled?: boolean
-  firstMessageMode?: string
-  hooks?: any[]
   id: string
-  keypadInputPlan?: Record<string, any>
-  maxDurationSeconds?: number
-  metadata?: Record<string, any>
-  model?: any
-  modelOutputInMessagesEnabled?: boolean
-  monitorPlan?: any
-  name?: string
-  observabilityPlan?: any
+  name: string
   orgId: string
   path?: string
-  server?: any
-  serverMessages?: any[]
-  startSpeakingPlan?: any
-  stopSpeakingPlan?: any
-  transcriber?: any
-  transportConfigurations?: any[]
   updatedAt: string
-  voice?: any
-  voicemailDetection?: any
-  voicemailMessage?: string
 }
 
 export interface PersonalityUpdateData {
   id: string
-  analysisPlan?: any
-  artifactPlan?: any
   assistant?: any
-  backgroundSound?: any
-  backgroundSpeechDenoisingPlan?: any
-  clientMessages?: any[]
-  compliancePlan?: Record<string, any>
   createdAt?: string
-  credentialIds?: any[]
-  credentials?: any[]
-  endCallMessage?: string
-  endCallPhrases?: any[]
-  firstMessage?: string
-  firstMessageInterruptionsEnabled?: boolean
-  firstMessageMode?: string
-  hooks?: any[]
-  keypadInputPlan?: Record<string, any>
-  maxDurationSeconds?: number
-  metadata?: Record<string, any>
-  model?: any
-  modelOutputInMessagesEnabled?: boolean
-  monitorPlan?: any
   name?: string
-  observabilityPlan?: any
   orgId?: string
   path?: string
-  server?: any
-  serverMessages?: any[]
-  startSpeakingPlan?: any
-  stopSpeakingPlan?: any
-  transcriber?: any
-  transportConfigurations?: any[]
   updatedAt?: string
-  voice?: any
-  voicemailDetection?: any
-  voicemailMessage?: string
 }
 
 export interface PersonalityRemoveMatch {
@@ -1155,9 +1009,16 @@ export interface PhoneNumberRemoveMatch {
 }
 
 export interface Provider {
-  id?: string
+  createdAt: string
+  id: string
   metadata: Record<string, any>
+  orgId: string
+  provider: string
+  resource: Record<string, any>
+  resourceId: string
+  resourceName: string
   results: any[]
+  updatedAt: string
 }
 
 export interface ProviderLoadMatch {
@@ -1182,17 +1043,29 @@ export interface ProviderLoadMatch {
 export interface ProviderCreateData {
   provider: string
   resource_name: string
-  id?: string
+  createdAt: string
+  id: string
   metadata: Record<string, any>
+  orgId: string
+  resource: Record<string, any>
+  resourceId: string
+  resourceName: string
   results: any[]
+  updatedAt: string
 }
 
 export interface ProviderUpdateData {
   id: string
   provider: string
   resource_name: string
+  createdAt?: string
   metadata?: Record<string, any>
+  orgId?: string
+  resource?: Record<string, any>
+  resourceId?: string
+  resourceName?: string
   results?: any[]
+  updatedAt?: string
 }
 
 export interface ProviderRemoveMatch {
@@ -1524,6 +1397,23 @@ export interface SimulationRun {
 
 export interface SimulationRunLoadMatch {
   id: string
+}
+
+export interface SimulationRunCreateData {
+  createdAt: string
+  endedAt?: string
+  endedReason?: string
+  id: string
+  itemCounts?: any
+  iterations?: number
+  orgId: string
+  queuedAt: string
+  simulations: any[]
+  startedAt?: string
+  status: string
+  target: any
+  transport?: any
+  updatedAt: string
 }
 
 export interface SimulationRunUpdateData {

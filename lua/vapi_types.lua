@@ -367,49 +367,7 @@
 ---@field workflowOverrides? any
 
 ---@class CallRemoveMatch
----@field analysis? any
----@field artifact? any
----@field artifactPlan? any
----@field assistant? any
----@field assistantId? string
----@field assistantOverrides? any
----@field assistantVersion? string
----@field campaignId? string
----@field compliance? any
----@field cost? number
----@field costBreakdown? any
----@field costs? table
----@field createdAt? string
----@field customer? any
----@field customerId? string
----@field customers? table
----@field destination? any
----@field endedAt? string
----@field endedMessage? string
----@field endedReason? string
 ---@field id string
----@field messages? table
----@field monitor? any
----@field name? string
----@field orgId? string
----@field phoneCallProvider? string
----@field phoneCallProviderId? string
----@field phoneCallTransport? string
----@field phoneNumber? any
----@field phoneNumberId? string
----@field schedulePlan? any
----@field squad? any
----@field squadId? string
----@field squadOverrides? any
----@field squadVersion? string
----@field startedAt? string
----@field status? string
----@field transport? any
----@field type? string
----@field updatedAt? string
----@field workflow? any
----@field workflowId? string
----@field workflowOverrides? any
 
 ---@class Campaign
 ---@field assistantId? string
@@ -595,18 +553,6 @@
 
 ---@class ChatRemoveMatch
 ---@field id string
-
----@class CreateSimulationRun
----@field iterations? number
----@field simulations table
----@field target any
----@field transport? any
-
----@class CreateSimulationRunCreateData
----@field iterations? number
----@field simulations table
----@field target any
----@field transport? any
 
 ---@class Eval
 ---@field cost number
@@ -878,43 +824,13 @@
 ---@field knowledge_base_id string
 
 ---@class Personality
----@field analysisPlan? any
----@field artifactPlan? any
 ---@field assistant any
----@field backgroundSound? any
----@field backgroundSpeechDenoisingPlan? any
----@field clientMessages? table
----@field compliancePlan? table
 ---@field createdAt string
----@field credentialIds? table
----@field credentials? table
----@field endCallMessage? string
----@field endCallPhrases? table
----@field firstMessage? string
----@field firstMessageInterruptionsEnabled? boolean
----@field firstMessageMode? string
----@field hooks? table
 ---@field id string
----@field keypadInputPlan? table
----@field maxDurationSeconds? number
----@field metadata? table
----@field model? any
----@field modelOutputInMessagesEnabled? boolean
----@field monitorPlan? any
----@field name? string
----@field observabilityPlan? any
+---@field name string
 ---@field orgId string
 ---@field path? string
----@field server? any
----@field serverMessages? table
----@field startSpeakingPlan? any
----@field stopSpeakingPlan? any
----@field transcriber? any
----@field transportConfigurations? table
 ---@field updatedAt string
----@field voice? any
----@field voicemailDetection? any
----@field voicemailMessage? string
 
 ---@class PersonalityLoadMatch
 ---@field id string
@@ -934,82 +850,22 @@
 ---@field updated_at_lt? string
 
 ---@class PersonalityCreateData
----@field analysisPlan? any
----@field artifactPlan? any
 ---@field assistant any
----@field backgroundSound? any
----@field backgroundSpeechDenoisingPlan? any
----@field clientMessages? table
----@field compliancePlan? table
 ---@field createdAt string
----@field credentialIds? table
----@field credentials? table
----@field endCallMessage? string
----@field endCallPhrases? table
----@field firstMessage? string
----@field firstMessageInterruptionsEnabled? boolean
----@field firstMessageMode? string
----@field hooks? table
 ---@field id string
----@field keypadInputPlan? table
----@field maxDurationSeconds? number
----@field metadata? table
----@field model? any
----@field modelOutputInMessagesEnabled? boolean
----@field monitorPlan? any
----@field name? string
----@field observabilityPlan? any
+---@field name string
 ---@field orgId string
 ---@field path? string
----@field server? any
----@field serverMessages? table
----@field startSpeakingPlan? any
----@field stopSpeakingPlan? any
----@field transcriber? any
----@field transportConfigurations? table
 ---@field updatedAt string
----@field voice? any
----@field voicemailDetection? any
----@field voicemailMessage? string
 
 ---@class PersonalityUpdateData
 ---@field id string
----@field analysisPlan? any
----@field artifactPlan? any
 ---@field assistant? any
----@field backgroundSound? any
----@field backgroundSpeechDenoisingPlan? any
----@field clientMessages? table
----@field compliancePlan? table
 ---@field createdAt? string
----@field credentialIds? table
----@field credentials? table
----@field endCallMessage? string
----@field endCallPhrases? table
----@field firstMessage? string
----@field firstMessageInterruptionsEnabled? boolean
----@field firstMessageMode? string
----@field hooks? table
----@field keypadInputPlan? table
----@field maxDurationSeconds? number
----@field metadata? table
----@field model? any
----@field modelOutputInMessagesEnabled? boolean
----@field monitorPlan? any
 ---@field name? string
----@field observabilityPlan? any
 ---@field orgId? string
 ---@field path? string
----@field server? any
----@field serverMessages? table
----@field startSpeakingPlan? any
----@field stopSpeakingPlan? any
----@field transcriber? any
----@field transportConfigurations? table
 ---@field updatedAt? string
----@field voice? any
----@field voicemailDetection? any
----@field voicemailMessage? string
 
 ---@class PersonalityRemoveMatch
 ---@field id string
@@ -1047,9 +903,16 @@
 ---@field id string
 
 ---@class Provider
----@field id? string
+---@field createdAt string
+---@field id string
 ---@field metadata table
+---@field orgId string
+---@field provider string
+---@field resource table
+---@field resourceId string
+---@field resourceName string
 ---@field results table
+---@field updatedAt string
 
 ---@class ProviderLoadMatch
 ---@field provider string
@@ -1072,16 +935,28 @@
 ---@class ProviderCreateData
 ---@field provider string
 ---@field resource_name string
----@field id? string
+---@field createdAt string
+---@field id string
 ---@field metadata table
+---@field orgId string
+---@field resource table
+---@field resourceId string
+---@field resourceName string
 ---@field results table
+---@field updatedAt string
 
 ---@class ProviderUpdateData
 ---@field id string
 ---@field provider string
 ---@field resource_name string
+---@field createdAt? string
 ---@field metadata? table
+---@field orgId? string
+---@field resource? table
+---@field resourceId? string
+---@field resourceName? string
 ---@field results? table
+---@field updatedAt? string
 
 ---@class ProviderRemoveMatch
 ---@field id string
@@ -1380,6 +1255,22 @@
 
 ---@class SimulationRunLoadMatch
 ---@field id string
+
+---@class SimulationRunCreateData
+---@field createdAt string
+---@field endedAt? string
+---@field endedReason? string
+---@field id string
+---@field itemCounts? any
+---@field iterations? number
+---@field orgId string
+---@field queuedAt string
+---@field simulations table
+---@field startedAt? string
+---@field status string
+---@field target any
+---@field transport? any
+---@field updatedAt string
 
 ---@class SimulationRunUpdateData
 ---@field id string

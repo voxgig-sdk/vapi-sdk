@@ -6,7 +6,6 @@
 @"./BasicCallFlow.aontu"
 @"./BasicCampaignFlow.aontu"
 @"./BasicChatFlow.aontu"
-@"./BasicCreateSimulationRunFlow.aontu"
 @"./BasicEvalFlow.aontu"
 @"./BasicFileFlow.aontu"
 @"./BasicInsightFlow.aontu"

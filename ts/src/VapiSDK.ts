@@ -6,7 +6,6 @@ import { BoardEntity } from './entity/BoardEntity'
 import { CallEntity } from './entity/CallEntity'
 import { CampaignEntity } from './entity/CampaignEntity'
 import { ChatEntity } from './entity/ChatEntity'
-import { CreateSimulationRunEntity } from './entity/CreateSimulationRunEntity'
 import { EvalEntity } from './entity/EvalEntity'
 import { FileEntity } from './entity/FileEntity'
 import { InsightEntity } from './entity/InsightEntity'
@@ -357,15 +356,6 @@ class VapiSDK {
   Chat(entopts?: Record<string, any>) {
     const self = this
     return new ChatEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.CreateSimulationRun().list()` / `client.CreateSimulationRun().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  CreateSimulationRun(entopts?: Record<string, any>) {
-    const self = this
-    return new CreateSimulationRunEntity(self, entopts)
   }
 
 

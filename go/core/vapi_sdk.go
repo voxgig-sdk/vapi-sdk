@@ -374,14 +374,6 @@ func (sdk *VapiSDK) Chat(data map[string]any) VapiEntity {
 }
 
 
-// CreateSimulationRun returns a CreateSimulationRun entity bound to this client.
-// Idiomatic usage: client.CreateSimulationRun(nil).List(nil, nil) or
-// client.CreateSimulationRun(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *VapiSDK) CreateSimulationRun(data map[string]any) VapiEntity {
-	return NewCreateSimulationRunEntityFunc(sdk, data)
-}
-
-
 // Eval returns a Eval entity bound to this client.
 // Idiomatic usage: client.Eval(nil).List(nil, nil) or
 // client.Eval(nil).Load(map[string]any{"id": ...}, nil).

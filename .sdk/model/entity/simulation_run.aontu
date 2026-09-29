@@ -129,6 +129,51 @@ main: kit: entity: simulation_run: {
 
   name: "simulation_run"
   op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /eval/simulation/run"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "user_agent"
+                or: "user-agent"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/eval/simulation/run"
+          q: {
+            exist: [
+              "user_agent"
+            ]
+          }
+          s: [
+            {
+              lit: "eval"
+            }
+            {
+              lit: "simulation"
+            }
+            {
+              lit: "run"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -143,35 +188,35 @@ main: kit: entity: simulation_run: {
               {
                 k: "query"
                 n: "created_at_ge"
-                or: "created_at_ge"
+                or: "createdAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_gt"
-                or: "created_at_gt"
+                or: "createdAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_le"
-                or: "created_at_le"
+                or: "createdAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "created_at_lt"
-                or: "created_at_lt"
+                or: "createdAtLt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "filter_status"
-                or: "filter_status"
+                or: "filterStatus"
                 r: false
                 t: "`$STRING`"
               }
@@ -192,14 +237,14 @@ main: kit: entity: simulation_run: {
               {
                 k: "query"
                 n: "sort_by"
-                or: "sort_by"
+                or: "sortBy"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "sort_order"
-                or: "sort_order"
+                or: "sortOrder"
                 r: false
                 t: "`$STRING`"
               }
@@ -213,42 +258,42 @@ main: kit: entity: simulation_run: {
               {
                 k: "query"
                 n: "target_id"
-                or: "target_id"
+                or: "targetId"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "target_type"
-                or: "target_type"
+                or: "targetType"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_ge"
-                or: "updated_at_ge"
+                or: "updatedAtGe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_gt"
-                or: "updated_at_gt"
+                or: "updatedAtGt"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_le"
-                or: "updated_at_le"
+                or: "updatedAtLe"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "updated_at_lt"
-                or: "updated_at_lt"
+                or: "updatedAtLt"
                 r: false
                 t: "`$STRING`"
               }

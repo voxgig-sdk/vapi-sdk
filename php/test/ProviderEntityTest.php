@@ -57,10 +57,15 @@ class ProviderEntityTest extends TestCase
             "resource_name" => $setup["idmap"]["resource_name"],
         ];
 
+        $provider_ref01_markdef_up0_name = "createdAt";
+        $provider_ref01_markdef_up0_value = "Mark01-provider_ref01_" . $setup["now"];
+        $provider_ref01_data_up0_up[$provider_ref01_markdef_up0_name] = $provider_ref01_markdef_up0_value;
+
         $provider_ref01_resdata_up0_result = $provider_ref01_ent->update($provider_ref01_data_up0_up, null);
         $provider_ref01_resdata_up0 = Helpers::to_map(is_object($provider_ref01_resdata_up0_result) && method_exists($provider_ref01_resdata_up0_result, 'data_get') ? $provider_ref01_resdata_up0_result->data_get() : $provider_ref01_resdata_up0_result);
         $this->assertNotNull($provider_ref01_resdata_up0);
         $this->assertEquals($provider_ref01_resdata_up0["id"], $provider_ref01_data_up0_up["id"]);
+        $this->assertEquals($provider_ref01_resdata_up0[$provider_ref01_markdef_up0_name], $provider_ref01_markdef_up0_value);
 
         // LOAD
         $provider_ref01_match_dt0 = [

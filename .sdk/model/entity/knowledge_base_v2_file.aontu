@@ -84,7 +84,7 @@ main: kit: entity: knowledge_base_v2_file: {
               {
                 k: "param"
                 n: "file_id"
-                or: "file_id"
+                or: "fileId"
                 r: true
                 t: "`$STRING`"
               }
@@ -243,7 +243,7 @@ main: kit: entity: knowledge_base_v2_file: {
               {
                 k: "param"
                 n: "id"
-                or: "file_id"
+                or: "fileId"
                 r: true
                 t: "`$STRING`"
               }

@@ -4,7 +4,6 @@ import { BoardEntity } from './entity/BoardEntity';
 import { CallEntity } from './entity/CallEntity';
 import { CampaignEntity } from './entity/CampaignEntity';
 import { ChatEntity } from './entity/ChatEntity';
-import { CreateSimulationRunEntity } from './entity/CreateSimulationRunEntity';
 import { EvalEntity } from './entity/EvalEntity';
 import { FileEntity } from './entity/FileEntity';
 import { InsightEntity } from './entity/InsightEntity';
@@ -74,7 +73,6 @@ declare class VapiSDK {
     Call(entopts?: Record<string, any>): CallEntity;
     Campaign(entopts?: Record<string, any>): CampaignEntity;
     Chat(entopts?: Record<string, any>): ChatEntity;
-    CreateSimulationRun(entopts?: Record<string, any>): CreateSimulationRunEntity;
     Eval(entopts?: Record<string, any>): EvalEntity;
     File(entopts?: Record<string, any>): FileEntity;
     Insight(entopts?: Record<string, any>): InsightEntity;

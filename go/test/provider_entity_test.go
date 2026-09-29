@@ -2,6 +2,7 @@ package sdktest
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -75,6 +76,10 @@ func TestProviderEntity(t *testing.T) {
 			"resource_name": setup.idmap["resource_name"],
 		}
 
+		providerRef01MarkdefUp0Name := "createdAt"
+		providerRef01MarkdefUp0Value := fmt.Sprintf("Mark01-provider_ref01_%d", setup.now)
+		providerRef01DataUp0Up[providerRef01MarkdefUp0Name] = providerRef01MarkdefUp0Value
+
 		providerRef01ResdataUp0Result, err := providerRef01Ent.Update(providerRef01DataUp0Up, nil)
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
@@ -85,6 +90,9 @@ func TestProviderEntity(t *testing.T) {
 		}
 		if providerRef01ResdataUp0["id"] != providerRef01DataUp0Up["id"] {
 			t.Fatal("expected update result id to match")
+		}
+		if providerRef01ResdataUp0[providerRef01MarkdefUp0Name] != providerRef01MarkdefUp0Value {
+			t.Fatalf("expected %s to be updated, got %v", providerRef01MarkdefUp0Name, providerRef01ResdataUp0[providerRef01MarkdefUp0Name])
 		}
 
 		// LOAD

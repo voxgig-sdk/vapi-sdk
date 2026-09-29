@@ -343,12 +343,6 @@ class VapiSDK:
         return ChatEntity(self, data)
 
 
-    def CreateSimulationRun(self, data=None) -> "CreateSimulationRunEntity":
-        """Entity factory: client.CreateSimulationRun().list() / client.CreateSimulationRun().load({"id": ...})."""
-        from vapi_sdk.entity.create_simulation_run_entity import CreateSimulationRunEntity
-        return CreateSimulationRunEntity(self, data)
-
-
     def Eval(self, data=None) -> "EvalEntity":
         """Entity factory: client.Eval().list() / client.Eval().load({"id": ...})."""
         from vapi_sdk.entity.eval_entity import EvalEntity
@@ -490,7 +484,6 @@ if TYPE_CHECKING:
     from vapi_sdk.entity.call_entity import CallEntity
     from vapi_sdk.entity.campaign_entity import CampaignEntity
     from vapi_sdk.entity.chat_entity import ChatEntity
-    from vapi_sdk.entity.create_simulation_run_entity import CreateSimulationRunEntity
     from vapi_sdk.entity.eval_entity import EvalEntity
     from vapi_sdk.entity.file_entity import FileEntity
     from vapi_sdk.entity.insight_entity import InsightEntity

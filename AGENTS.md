@@ -31,7 +31,7 @@ Each feature is generated into every SDK target — as a directory
 `<lang>/src/feature/<name>/` (ts/js) or a flat file in the `<lang>/feature/`
 package (other languages). Each target's guide documents its features.
 
-**Entities** (25): `Analytics`, `Assistant`, `Board`, `Call`, `Campaign`, `Chat`, `CreateSimulationRun`, `Eval`, `File`, `Insight`, `KnowledgeBase`, `KnowledgeBaseV2File`, `Personality`, `PhoneNumber`, `Provider`, `Scenario`, `Scorecard`, `Session`, `Simulation`, `SimulationRun`, `SimulationRunItem`, `SimulationSuite`, `Squad`, `StructuredOutput`, `Tool`.
+**Entities** (24): `Analytics`, `Assistant`, `Board`, `Call`, `Campaign`, `Chat`, `Eval`, `File`, `Insight`, `KnowledgeBase`, `KnowledgeBaseV2File`, `Personality`, `PhoneNumber`, `Provider`, `Scenario`, `Scorecard`, `Session`, `Simulation`, `SimulationRun`, `SimulationRunItem`, `SimulationSuite`, `Squad`, `StructuredOutput`, `Tool`.
 
 ## Generating and updating the SDK
 

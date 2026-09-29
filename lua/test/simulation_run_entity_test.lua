@@ -19,7 +19,7 @@ describe("SimulationRunEntity", function()
     local setup = simulation_run_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"update", "load"}) do
+    for _, _op in ipairs({"create", "update", "load"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "simulation_run." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -34,16 +34,18 @@ describe("SimulationRunEntity", function()
     end
     local client = setup.client
 
-    -- Bootstrap entity data from existing test data.
-    local simulation_run_ref01_data_raw = vs.items(helpers.to_map(
-      vs.getpath(setup.data, "existing.simulation_run")))
-    local simulation_run_ref01_data = nil
-    if #simulation_run_ref01_data_raw > 0 then
-      simulation_run_ref01_data = helpers.to_map(simulation_run_ref01_data_raw[1][2])
-    end
+    -- CREATE
+    local simulation_run_ref01_ent = client:SimulationRun(nil)
+    local simulation_run_ref01_data = helpers.to_map(vs.getprop(
+      vs.getpath(setup.data, "new.simulation_run"), "simulation_run_ref01"))
+
+    local simulation_run_ref01_data_result, err = simulation_run_ref01_ent:create(simulation_run_ref01_data, nil)
+    assert.is_nil(err)
+    simulation_run_ref01_data = helpers.to_map(type(simulation_run_ref01_data_result) == 'table' and simulation_run_ref01_data_result.data_get and simulation_run_ref01_data_result:data_get() or simulation_run_ref01_data_result)
+    assert.is_not_nil(simulation_run_ref01_data)
+    assert.is_not_nil(simulation_run_ref01_data["id"])
 
     -- UPDATE
-    local simulation_run_ref01_ent = client:SimulationRun(nil)
     local simulation_run_ref01_data_up0_up = {
       id = simulation_run_ref01_data["id"],
     }

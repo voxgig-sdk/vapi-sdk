@@ -2,24 +2,42 @@
   "existing": {
     "provider": {
       "PROVIDER00": {
+        "createdAt": "s64",
         "id": "PROVIDER00",
         "metadata": {},
+        "orgId": "s67",
+        "provider": "s68",
+        "resource": {},
+        "resourceId": "s6a",
+        "resourceName": "s6b",
         "results": [],
-        "provider": "PROVIDER01",
+        "updatedAt": "s6d",
         "resource_name": "RESOURCE_NAME01"
       },
       "PROVIDER01": {
+        "createdAt": "sc8",
         "id": "PROVIDER01",
         "metadata": {},
+        "orgId": "scb",
+        "provider": "scc",
+        "resource": {},
+        "resourceId": "sce",
+        "resourceName": "scf",
         "results": [],
-        "provider": "PROVIDER01",
+        "updatedAt": "sd1",
         "resource_name": "RESOURCE_NAME01"
       },
       "PROVIDER02": {
+        "createdAt": "s12c",
         "id": "PROVIDER02",
         "metadata": {},
+        "orgId": "s12f",
+        "provider": "s130",
+        "resource": {},
+        "resourceId": "s132",
+        "resourceName": "s133",
         "results": [],
-        "provider": "PROVIDER01",
+        "updatedAt": "s135",
         "resource_name": "RESOURCE_NAME01"
       }
     }
@@ -27,8 +45,15 @@
   "new": {
     "provider": {
       "provider_ref01": {
+        "createdAt": "s190",
         "metadata": {},
-        "results": []
+        "orgId": "s193",
+        "provider": "s194",
+        "resource": {},
+        "resourceId": "s196",
+        "resourceName": "s197",
+        "results": [],
+        "updatedAt": "s199"
       }
     }
   },

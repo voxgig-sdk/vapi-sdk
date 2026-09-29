@@ -71,9 +71,6 @@ func init() {
 	core.NewChatEntityFunc = func(client *core.VapiSDK, entopts map[string]any) core.VapiEntity {
 		return entity.NewChatEntity(client, entopts)
 	}
-	core.NewCreateSimulationRunEntityFunc = func(client *core.VapiSDK, entopts map[string]any) core.VapiEntity {
-		return entity.NewCreateSimulationRunEntity(client, entopts)
-	}
 	core.NewEvalEntityFunc = func(client *core.VapiSDK, entopts map[string]any) core.VapiEntity {
 		return entity.NewEvalEntity(client, entopts)
 	}

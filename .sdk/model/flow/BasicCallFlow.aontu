@@ -73,6 +73,10 @@ main: kit: flow: BasicCallFlow:
         suffix: "_rm0"
       }
 
+      m: {
+        id: "call01"
+      }
+
       o: "remove"
     }
 

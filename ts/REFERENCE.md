@@ -121,18 +121,6 @@ Create a new `Chat` entity instance.
 
 **Returns:** `ChatEntity` instance.
 
-#### `CreateSimulationRun(data?: object)`
-
-Create a new `CreateSimulationRun` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `CreateSimulationRunEntity` instance.
-
 #### `Eval(data?: object)`
 
 Create a new `Eval` entity instance.
@@ -1173,62 +1161,6 @@ Return a copy of the entity options.
 
 ---
 
-## CreateSimulationRunEntity
-
-```ts
-const create_simulation_run = client.CreateSimulationRun()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `iterations` | `number` | No | Number of times to run each simulation (default: 1) |
-| `simulations` | `any[]` | Yes | Array of simulations and/or suites to run |
-| `target` | `any` | Yes | Target to test against |
-| `transport` | `any` | No | Transport configuration for the simulation runs |
-
-### Operations
-
-#### `create(data: object, ctrl?: object)`
-
-Create a new entity with the given data.
-
-```ts
-const result = await client.CreateSimulationRun().create({
-  simulations: [],
-  target: 'example_target',
-})
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `CreateSimulationRunEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `VapiSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## EvalEntity
 
 ```ts
@@ -1821,85 +1753,25 @@ const personality = client.Personality()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisPlan` | `any` | No | This is the plan for analysis of assistant's calls. |
-| `artifactPlan` | `any` | No | This is the plan for artifacts generated during assistant's calls. |
 | `assistant` | `any` | Yes | This is the full assistant configuration for this personality. |
-| `backgroundSound` | `any` | No | This is the background sound in the call. |
-| `backgroundSpeechDenoisingPlan` | `any` | No | This enables filtering of noise and background speech while the user is talking. |
-| `clientMessages` | `any[]` | No | These are the messages that will be sent to your Client SDKs. |
-| `compliancePlan` | `Record<string, any>` | No |  |
 | `createdAt` | `string` | Yes | This is the ISO 8601 date-time string of when the personality was created. |
-| `credentialIds` | `any[]` | No | These are the credentials that will be used for the assistant calls. |
-| `credentials` | `any[]` | No | These are dynamic credentials that will be used for the assistant calls. |
-| `endCallMessage` | `string` | No | This is the message that the assistant will say if it ends the call. |
-| `endCallPhrases` | `any[]` | No | This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. |
-| `firstMessage` | `string` | No | This is the first message that the assistant will say. |
-| `firstMessageInterruptionsEnabled` | `boolean` | No |  |
-| `firstMessageMode` | `string` | No | This is the mode for the first message. |
-| `hooks` | `any[]` | No | This is a set of actions that will be performed on certain events. |
 | `id` | `string` | Yes | This is the unique identifier for the personality. |
-| `keypadInputPlan` | `Record<string, any>` | No |  |
-| `maxDurationSeconds` | `number` | No | This is the maximum number of seconds that the call will last. |
-| `metadata` | `Record<string, any>` | No | This is for metadata you want to store on the assistant. |
-| `model` | `any` | No | These are the options for the assistant's LLM. |
-| `modelOutputInMessagesEnabled` | `boolean` | No | This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech. |
-| `monitorPlan` | `any` | No | This is the plan for real-time monitoring of the assistant's calls. |
-| `name` | `string` | No | This is the name of the assistant. |
-| `observabilityPlan` | `any` | No | This is the plan for observability of assistant's calls. |
+| `name` | `string` | Yes | This is the name of the personality (e.g., "Confused Carl", "Rude Rob"). |
 | `orgId` | `string` | Yes | This is the unique identifier for the organization this personality belongs to. |
 | `path` | `string` | No | Optional folder path for organizing personalities. |
-| `server` | `any` | No | This is where Vapi will send webhooks. |
-| `serverMessages` | `any[]` | No | These are the messages that will be sent to your Server URL. |
-| `startSpeakingPlan` | `any` | No | This is the plan for when the assistant should start talking. |
-| `stopSpeakingPlan` | `any` | No | This is the plan for when assistant should stop talking on customer interruption. |
-| `transcriber` | `any` | No | These are the options for the assistant's transcriber. |
-| `transportConfigurations` | `any[]` | No | These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. |
 | `updatedAt` | `string` | Yes | This is the ISO 8601 date-time string of when the personality was last updated. |
-| `voice` | `any` | No | These are the options for the assistant's voice. |
-| `voicemailDetection` | `any` | No | These are the settings to configure or disable voicemail detection. |
-| `voicemailMessage` | `string` | No | This is the message that the assistant will say if the call is forwarded to voicemail. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `analysisPlan` | - | - | - | - | - |
-| `artifactPlan` | - | - | - | - | - |
 | `assistant` | - | - | - | Yes | - |
-| `backgroundSound` | - | - | - | - | - |
-| `backgroundSpeechDenoisingPlan` | - | - | - | - | - |
-| `clientMessages` | - | - | - | - | - |
-| `compliancePlan` | - | - | - | - | - |
 | `createdAt` | - | - | - | - | - |
-| `credentialIds` | - | - | - | - | - |
-| `credentials` | - | - | - | - | - |
-| `endCallMessage` | - | - | - | - | - |
-| `endCallPhrases` | - | - | - | - | - |
-| `firstMessage` | - | - | - | - | - |
-| `firstMessageInterruptionsEnabled` | - | - | - | - | - |
-| `firstMessageMode` | - | - | - | - | - |
-| `hooks` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `keypadInputPlan` | - | - | - | - | - |
-| `maxDurationSeconds` | - | - | - | - | - |
-| `metadata` | - | - | - | - | - |
-| `model` | - | - | - | - | - |
-| `modelOutputInMessagesEnabled` | - | - | - | - | - |
-| `monitorPlan` | - | - | - | - | - |
-| `name` | - | Yes | Yes | - | - |
-| `observabilityPlan` | - | - | - | - | - |
+| `name` | - | - | - | Yes | - |
 | `orgId` | - | - | - | - | - |
 | `path` | - | - | - | - | - |
-| `server` | - | - | - | - | - |
-| `serverMessages` | - | - | - | - | - |
-| `startSpeakingPlan` | - | - | - | - | - |
-| `stopSpeakingPlan` | - | - | - | - | - |
-| `transcriber` | - | - | - | - | - |
-| `transportConfigurations` | - | - | - | - | - |
 | `updatedAt` | - | - | - | - | - |
-| `voice` | - | - | - | - | - |
-| `voicemailDetection` | - | - | - | - | - |
-| `voicemailMessage` | - | - | - | - | - |
 
 ### Operations
 
@@ -1912,6 +1784,7 @@ const result = await client.Personality().create({
   assistant: 'example_assistant',
   createdAt: 'example_createdAt',
   id: 'example_id',
+  name: 'example_name',
   orgId: 'example_orgId',
   updatedAt: 'example_updatedAt',
 })
@@ -2080,9 +1953,16 @@ const provider = client.Provider()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
+| `createdAt` | `string` | Yes | This is the ISO 8601 date-time string of when the provider resource was created. |
+| `id` | `string` | Yes | This is the unique identifier for the provider resource. |
 | `metadata` | `Record<string, any>` | Yes |  |
+| `orgId` | `string` | Yes | This is the unique identifier for the org that this provider resource belongs to. |
+| `provider` | `string` | Yes | This is the provider that manages this resource. |
+| `resource` | `Record<string, any>` | Yes | This is the full resource data from the provider's API. |
+| `resourceId` | `string` | Yes | This is the provider-specific identifier for the resource. |
+| `resourceName` | `string` | Yes | This is the name/type of the resource. |
 | `results` | `any[]` | Yes |  |
+| `updatedAt` | `string` | Yes | This is the ISO 8601 date-time string of when the provider resource was last updated. |
 
 ### Operations
 
@@ -2094,8 +1974,15 @@ Create a new entity with the given data.
 const result = await client.Provider().create({
   provider: 'example_provider',
   resource_name: 'example_resource_name',
+  createdAt: 'example_createdAt',
+  id: 'example_id',
   metadata: {},
+  orgId: 'example_orgId',
+  resource: {},
+  resourceId: 'example_resourceId',
+  resourceName: 'example_resourceName',
   results: [],
+  updatedAt: 'example_updatedAt',
 })
 ```
 
@@ -2657,6 +2544,23 @@ const simulation_run = client.SimulationRun()
 | `updatedAt` | `string` | Yes | ISO 8601 date-time when last updated |
 
 ### Operations
+
+#### `create(data: object, ctrl?: object)`
+
+Create a new entity with the given data.
+
+```ts
+const result = await client.SimulationRun().create({
+  createdAt: 'example_createdAt',
+  id: 'example_id',
+  orgId: 'example_orgId',
+  queuedAt: 'example_queuedAt',
+  simulations: [],
+  status: 'example_status',
+  target: 'example_target',
+  updatedAt: 'example_updatedAt',
+})
+```
 
 #### `load(match: object, ctrl?: object)`
 

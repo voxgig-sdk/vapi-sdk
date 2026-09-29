@@ -449,24 +449,6 @@ class VapiSDK
     }
 
 
-    private $_create_simulation_run = null;
-
-    // Canonical facade: $client->CreateSimulationRun()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->create_simulation_run()
-    // resolves here too.
-    public function CreateSimulationRun($data = null)
-    {
-        require_once __DIR__ . '/entity/create_simulation_run_entity.php';
-        if ($data === null) {
-            if ($this->_create_simulation_run === null) {
-                $this->_create_simulation_run = new CreateSimulationRunEntity($this, null);
-            }
-            return $this->_create_simulation_run;
-        }
-        return new CreateSimulationRunEntity($this, $data);
-    }
-
-
     private $_eval = null;
 
     // Canonical facade: $client->Eval()->list() / ->load(["id" => ...]).

@@ -23,7 +23,7 @@ class SimulationRunEntityTest extends TestCase
         $setup = simulation_run_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["update", "load"] as $_op) {
+        foreach (["create", "update", "load"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "simulation_run." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -38,16 +38,17 @@ class SimulationRunEntityTest extends TestCase
         }
         $client = $setup["client"];
 
-        // Bootstrap entity data from existing test data.
-        $simulation_run_ref01_data_raw = Vs::items(Helpers::to_map(
-            Vs::getpath($setup["data"], "existing.simulation_run")));
-        $simulation_run_ref01_data = null;
-        if (count($simulation_run_ref01_data_raw) > 0) {
-            $simulation_run_ref01_data = Helpers::to_map($simulation_run_ref01_data_raw[0][1]);
-        }
+        // CREATE
+        $simulation_run_ref01_ent = $client->SimulationRun(null);
+        $simulation_run_ref01_data = Helpers::to_map(Vs::getprop(
+            Vs::getpath($setup["data"], "new.simulation_run"), "simulation_run_ref01"));
+
+        $simulation_run_ref01_data_result = $simulation_run_ref01_ent->create($simulation_run_ref01_data, null);
+        $simulation_run_ref01_data = Helpers::to_map(is_object($simulation_run_ref01_data_result) && method_exists($simulation_run_ref01_data_result, 'data_get') ? $simulation_run_ref01_data_result->data_get() : $simulation_run_ref01_data_result);
+        $this->assertNotNull($simulation_run_ref01_data);
+        $this->assertNotNull($simulation_run_ref01_data["id"]);
 
         // UPDATE
-        $simulation_run_ref01_ent = $client->SimulationRun(null);
         $simulation_run_ref01_data_up0_up = [
             "id" => $simulation_run_ref01_data["id"],
         ];

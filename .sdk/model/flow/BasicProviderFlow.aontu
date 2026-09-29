@@ -28,7 +28,8 @@ main: kit: flow: BasicProviderFlow:
       i: {
         ref: "provider_ref01",
         srcdatavar: "provider_ref01_data",
-        suffix: "_up0"
+        suffix: "_up0",
+        textfield: "createdAt"
       }
 
       o: "update",

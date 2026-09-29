@@ -20,7 +20,7 @@ import (
 const prompt = "vapi"
 
 // entitiesHelp is the space-separated entity list shown by /help.
-const entitiesHelp = "analytics assistant board call campaign chat create_simulation_run eval file insight knowledge_base knowledge_base_v2_file personality phone_number provider scenario scorecard session simulation simulation_run simulation_run_item simulation_suite squad structured_output tool"
+const entitiesHelp = "analytics assistant board call campaign chat eval file insight knowledge_base knowledge_base_v2_file personality phone_number provider scenario scorecard session simulation simulation_run simulation_run_item simulation_suite squad structured_output tool"
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdin, os.Stdout, os.Stderr))

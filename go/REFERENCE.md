@@ -72,10 +72,6 @@ Create a new `Campaign` entity instance. Pass `nil` for no initial data.
 
 Create a new `Chat` entity instance. Pass `nil` for no initial data.
 
-#### `CreateSimulationRun(data map[string]any) VapiEntity`
-
-Create a new `CreateSimulationRun` entity instance. Pass `nil` for no initial data.
-
 #### `Eval(data map[string]any) VapiEntity`
 
 Create a new `Eval` entity instance. Pass `nil` for no initial data.
@@ -978,63 +974,6 @@ Return the entity name.
 
 ---
 
-## CreateSimulationRunEntity
-
-```go
-createSimulationRun := client.CreateSimulationRun(nil)
-fmt.Println(createSimulationRun.GetName()) // "create_simulation_run"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `iterations` | `float64` | No | Number of times to run each simulation (default: 1) |
-| `simulations` | `[]any` | Yes | Array of simulations and/or suites to run |
-| `target` | `any` | Yes | Target to test against |
-| `transport` | `any` | No | Transport configuration for the simulation runs |
-
-### Operations
-
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.CreateSimulationRun(nil).Create(map[string]any{
-    "simulations": []any{},
-    "target": "example_target",
-}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `CreateSimulationRunEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
 ## EvalEntity
 
 ```go
@@ -1663,85 +1602,25 @@ fmt.Println(personality.GetName()) // "personality"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `analysisPlan` | `any` | No | This is the plan for analysis of assistant's calls. |
-| `artifactPlan` | `any` | No | This is the plan for artifacts generated during assistant's calls. |
 | `assistant` | `any` | Yes | This is the full assistant configuration for this personality. |
-| `backgroundSound` | `any` | No | This is the background sound in the call. |
-| `backgroundSpeechDenoisingPlan` | `any` | No | This enables filtering of noise and background speech while the user is talking. |
-| `clientMessages` | `[]any` | No | These are the messages that will be sent to your Client SDKs. |
-| `compliancePlan` | `map[string]any` | No |  |
 | `createdAt` | `string` | Yes | This is the ISO 8601 date-time string of when the personality was created. |
-| `credentialIds` | `[]any` | No | These are the credentials that will be used for the assistant calls. |
-| `credentials` | `[]any` | No | These are dynamic credentials that will be used for the assistant calls. |
-| `endCallMessage` | `string` | No | This is the message that the assistant will say if it ends the call. |
-| `endCallPhrases` | `[]any` | No | This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. |
-| `firstMessage` | `string` | No | This is the first message that the assistant will say. |
-| `firstMessageInterruptionsEnabled` | `bool` | No |  |
-| `firstMessageMode` | `string` | No | This is the mode for the first message. |
-| `hooks` | `[]any` | No | This is a set of actions that will be performed on certain events. |
 | `id` | `string` | Yes | This is the unique identifier for the personality. |
-| `keypadInputPlan` | `map[string]any` | No |  |
-| `maxDurationSeconds` | `float64` | No | This is the maximum number of seconds that the call will last. |
-| `metadata` | `map[string]any` | No | This is for metadata you want to store on the assistant. |
-| `model` | `any` | No | These are the options for the assistant's LLM. |
-| `modelOutputInMessagesEnabled` | `bool` | No | This determines whether the model's output is used in conversation history rather than the transcription of assistant's speech. |
-| `monitorPlan` | `any` | No | This is the plan for real-time monitoring of the assistant's calls. |
-| `name` | `string` | No | This is the name of the assistant. |
-| `observabilityPlan` | `any` | No | This is the plan for observability of assistant's calls. |
+| `name` | `string` | Yes | This is the name of the personality (e.g., "Confused Carl", "Rude Rob"). |
 | `orgId` | `string` | Yes | This is the unique identifier for the organization this personality belongs to. |
 | `path` | `string` | No | Optional folder path for organizing personalities. |
-| `server` | `any` | No | This is where Vapi will send webhooks. |
-| `serverMessages` | `[]any` | No | These are the messages that will be sent to your Server URL. |
-| `startSpeakingPlan` | `any` | No | This is the plan for when the assistant should start talking. |
-| `stopSpeakingPlan` | `any` | No | This is the plan for when assistant should stop talking on customer interruption. |
-| `transcriber` | `any` | No | These are the options for the assistant's transcriber. |
-| `transportConfigurations` | `[]any` | No | These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. |
 | `updatedAt` | `string` | Yes | This is the ISO 8601 date-time string of when the personality was last updated. |
-| `voice` | `any` | No | These are the options for the assistant's voice. |
-| `voicemailDetection` | `any` | No | These are the settings to configure or disable voicemail detection. |
-| `voicemailMessage` | `string` | No | This is the message that the assistant will say if the call is forwarded to voicemail. |
 
 ### Field Usage by Operation
 
 | Field | load | list | create | update | remove |
 | --- | --- | --- | --- | --- | --- |
-| `analysisPlan` | - | - | - | - | - |
-| `artifactPlan` | - | - | - | - | - |
 | `assistant` | - | - | - | Yes | - |
-| `backgroundSound` | - | - | - | - | - |
-| `backgroundSpeechDenoisingPlan` | - | - | - | - | - |
-| `clientMessages` | - | - | - | - | - |
-| `compliancePlan` | - | - | - | - | - |
 | `createdAt` | - | - | - | - | - |
-| `credentialIds` | - | - | - | - | - |
-| `credentials` | - | - | - | - | - |
-| `endCallMessage` | - | - | - | - | - |
-| `endCallPhrases` | - | - | - | - | - |
-| `firstMessage` | - | - | - | - | - |
-| `firstMessageInterruptionsEnabled` | - | - | - | - | - |
-| `firstMessageMode` | - | - | - | - | - |
-| `hooks` | - | - | - | - | - |
 | `id` | - | - | - | - | - |
-| `keypadInputPlan` | - | - | - | - | - |
-| `maxDurationSeconds` | - | - | - | - | - |
-| `metadata` | - | - | - | - | - |
-| `model` | - | - | - | - | - |
-| `modelOutputInMessagesEnabled` | - | - | - | - | - |
-| `monitorPlan` | - | - | - | - | - |
-| `name` | - | Yes | Yes | - | - |
-| `observabilityPlan` | - | - | - | - | - |
+| `name` | - | - | - | Yes | - |
 | `orgId` | - | - | - | - | - |
 | `path` | - | - | - | - | - |
-| `server` | - | - | - | - | - |
-| `serverMessages` | - | - | - | - | - |
-| `startSpeakingPlan` | - | - | - | - | - |
-| `stopSpeakingPlan` | - | - | - | - | - |
-| `transcriber` | - | - | - | - | - |
-| `transportConfigurations` | - | - | - | - | - |
 | `updatedAt` | - | - | - | - | - |
-| `voice` | - | - | - | - | - |
-| `voicemailDetection` | - | - | - | - | - |
-| `voicemailMessage` | - | - | - | - | - |
 
 ### Operations
 
@@ -1778,6 +1657,7 @@ result, err := client.Personality(nil).Create(map[string]any{
     "assistant": "example_assistant",
     "createdAt": "example_createdAt",
     "id": "example_id",
+    "name": "example_name",
     "orgId": "example_orgId",
     "updatedAt": "example_updatedAt",
 }, nil)
@@ -1956,9 +1836,16 @@ fmt.Println(provider.GetName()) // "provider"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
+| `createdAt` | `string` | Yes | This is the ISO 8601 date-time string of when the provider resource was created. |
+| `id` | `string` | Yes | This is the unique identifier for the provider resource. |
 | `metadata` | `map[string]any` | Yes |  |
+| `orgId` | `string` | Yes | This is the unique identifier for the org that this provider resource belongs to. |
+| `provider` | `string` | Yes | This is the provider that manages this resource. |
+| `resource` | `map[string]any` | Yes | This is the full resource data from the provider's API. |
+| `resourceId` | `string` | Yes | This is the provider-specific identifier for the resource. |
+| `resourceName` | `string` | Yes | This is the name/type of the resource. |
 | `results` | `[]any` | Yes |  |
+| `updatedAt` | `string` | Yes | This is the ISO 8601 date-time string of when the provider resource was last updated. |
 
 ### Operations
 
@@ -1982,8 +1869,15 @@ Create a new entity with the given data.
 result, err := client.Provider(nil).Create(map[string]any{
     "provider": "example_provider",
     "resource_name": "example_resource_name",
+    "createdAt": "example_createdAt",
+    "id": "example_id",
     "metadata": map[string]any{},
+    "orgId": "example_orgId",
+    "resource": map[string]any{},
+    "resourceId": "example_resourceId",
+    "resourceName": "example_resourceName",
     "results": []any{},
+    "updatedAt": "example_updatedAt",
 }, nil)
 if err != nil {
     panic(err)
@@ -2601,6 +2495,27 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.SimulationRun(nil).Load(map[string]any{"id": "simulation_run_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.SimulationRun(nil).Create(map[string]any{
+    "createdAt": "example_createdAt",
+    "id": "example_id",
+    "orgId": "example_orgId",
+    "queuedAt": "example_queuedAt",
+    "simulations": []any{},
+    "status": "example_status",
+    "target": "example_target",
+    "updatedAt": "example_updatedAt",
+}, nil)
 if err != nil {
     panic(err)
 }

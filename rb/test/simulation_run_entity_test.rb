@@ -16,7 +16,7 @@ class SimulationRunEntityTest < Minitest::Test
     setup = simulation_run_basic_setup(nil)
     # Per-op sdk-test-control.json skip.
     _live = setup[:live] || false
-    ["update", "load"].each do |_op|
+    ["create", "update", "load"].each do |_op|
       _should_skip, _reason = Runner.is_control_skipped("entityOp", "simulation_run." + _op, _live ? "live" : "unit")
       if _should_skip
         skip(_reason || "skipped via sdk-test-control.json")
@@ -31,16 +31,17 @@ class SimulationRunEntityTest < Minitest::Test
     end
     client = setup[:client]
 
-    # Bootstrap entity data from existing test data.
-    simulation_run_ref01_data_raw = Vs.items(Helpers.to_map(
-      Vs.getpath(setup[:data], "existing.simulation_run")))
-    simulation_run_ref01_data = nil
-    if simulation_run_ref01_data_raw.length > 0
-      simulation_run_ref01_data = Helpers.to_map(simulation_run_ref01_data_raw[0][1])
-    end
+    # CREATE
+    simulation_run_ref01_ent = client.SimulationRun(nil)
+    simulation_run_ref01_data = Helpers.to_map(Vs.getprop(
+      Vs.getpath(setup[:data], "new.simulation_run"), "simulation_run_ref01"))
+
+    simulation_run_ref01_data_result = simulation_run_ref01_ent.create(simulation_run_ref01_data, nil)
+    simulation_run_ref01_data = Helpers.to_map(simulation_run_ref01_data_result.respond_to?(:data_get) ? simulation_run_ref01_data_result.data_get : simulation_run_ref01_data_result)
+    assert !simulation_run_ref01_data.nil?
+    assert !simulation_run_ref01_data["id"].nil?
 
     # UPDATE
-    simulation_run_ref01_ent = client.SimulationRun(nil)
     simulation_run_ref01_data_up0_up = {
       "id" => simulation_run_ref01_data["id"],
     }
