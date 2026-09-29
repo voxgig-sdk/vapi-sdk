@@ -1,6 +1,6 @@
 # Vapi: the Voxgig SDK and the Fern SDK compared
 
-Vergleich: Fern. Compared with VapiAI/server-sdk-typescript (@vapi-ai/server-sdk 2.0.1). Spec: VapiAI/docs fern/apis/api/openapi.json at 6ead80d, the Fern input, OAS 3.0.0, 71 paths / 139 ops, MIT (inherited from VapiAI/docs). Added 2026-09-28.
+Vergleich: Fern. Compared with VapiAI/server-sdk-typescript (@vapi-ai/server-sdk 2.0.1). Spec: VapiAI/docs fern/apis/api/openapi.json at 6ead80d, the Fern input, OAS 3.0.0, 71 paths / 139 ops, MIT (inherited from VapiAI/docs). Added 2026-09-28. Rebuilt 2026-09-29 on sdkgen 4.32.1 and apidef 8.22.0.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
@@ -8,15 +8,15 @@ This repository is on the admin **vergleich** list. It is built only to be compa
 
 | | Voxgig | Fern |
 |---|---|---|
-| SDK | this repository, commit `b235642`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@vapi-ai/server-sdk@2.0.1` (TypeScript) |
+| SDK | this repository, commit `aa37b96`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@vapi-ai/server-sdk@2.0.1` (TypeScript) |
 | Input | `vapi-openapi.json`: OAS 3.0.0, `info.version` 1.0, 71 paths, 139 operations | the vendor's own generation; the note above names the definition version it came from |
 | Operations callable | 139 of 139 | 139 operation methods |
-| Entities | 25 | not applicable |
-| ts package | 2.99 MB, 344 files | 9.68 MB, 10563 files |
+| Entities | 24 | not applicable |
+| ts package | 2.97 MB, 340 files | 9.68 MB, 10563 files |
 | Runtime dependencies | 0 | 0 |
-| Generated tests | ts 331 pass / 0 fail; py 333 pass; rb 357 runs / 0 fail; lua 331 pass / 0 fail; php 357 tests, 0 fail; go, go-cli, go-mcp build, vet and test | not run: a published package |
+| Generated tests | ts 459 pass / 0 fail / 8 skipped; py 331 pass / 57 skipped; rb 355 runs / 0 fail; lua 329 pass / 0 fail; php 355 tests / 0 fail; go, go-cli, go-mcp build, vet and test | not run: a published package |
 | Determinism | a second generation on the same toolchain is byte-identical | not measured |
-| Scenario against a mock | 4 of 4 steps right, 0 request violations (minimock) | 4 of 4 steps right, 0 request violations (minimock) |
+| Scenario against a mock | 4 of 4 steps right, 0 returned wrong data, 0 request violations (minimock) | 4 of 4 steps right, 0 request violations (minimock) |
 
 ## Features
 
@@ -82,9 +82,9 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 
 ## Voxgig toolchain findings
 
-- **TS-NAMES** (@voxgig/sdkgen 4.30.2). An entity named operation, context or control collided with the SDK types the ts entity file imports (TS2300: Neon, Novu). An entity named eval produced `const eval` in the README examples (TS1215: Vapi). Fixed in voxgig/sdkgen#210, released in 4.30.3. All eight SDKs are built on 4.30.3.
-- **QUERY-ECHO** (@voxgig/sdkgen 4.30.3 (PrepareQuery: ts, js and rb read the field; other targets not checked)). Every match field, path parameters included, is also sent as a query parameter: GET /video/v1/assets/a1?id=a1 (Mux), GET /assistant/asst_1?id=asst_1 (Vapi), DELETE .../containers/web?id=web&organization_name=acme&project_id=demo (SaladCloud). prepareQuery excludes names in point.params, but the generated config carries path parameters in point.args.params (which prepareParams reads), so nothing is excluded. Harmless to a lenient server, rejected by a strict one. Prism logs paths without query strings, so its runs did not show it. Reported, not changed: the same exclusion exists per target.
-- **DOCS-QA** (@voxgig/docgen 0.29.2 (the generated Documentation workflow)). The generated API pages quote each vendor's own descriptions, and the Documentation workflow runs its prose checks over them. Vale reads identifiers such as `asset_id` as misspellings (272 errors on Mux, 44 on Neon), and docgen's own rules reject the vendor's repeated words and first-person prose (Apicurio). Vapi and Maxio fail the same step. Every SDK's tests pass on every target; only the documentation check fails. Reported, not changed: whether a vendor's text is prose-checked is docgen's design. Lob and Novu fail earlier, at generation, on the unpatched YAML parser (Y1-Y3). SaladCloud's pages pass the check; only the deploy fails, because GitHub Pages is not enabled for the repository.
+- **TS-NAMES** (@voxgig/sdkgen). An entity named operation, context or control collided with the SDK types the ts entity file imports (TS2300: Neon, Novu), and an entity named eval produced `const eval` in the README examples (TS1215: Vapi). Fixed in voxgig/sdkgen#210, released in 4.30.3; this SDK is built on 4.32.1.
+- **QUERY-ECHO** (@voxgig/sdkgen, PrepareQuery). Every match field, path parameters included, was also sent as a query parameter, such as `?id=` on a load. Fixed in voxgig/sdkgen#222, released in 4.31.0: query parameters go out under the definition's names, and the rebuild's scenario requests carry no echoed parameter.
+- **DOCS-QA** (@voxgig/docgen, the generated Documentation workflow). The generated API pages quote the vendor's own descriptions, and the workflow runs its prose checks over them, so the step fails on the vendor's identifiers and repeated words rather than on anything the generator wrote. Open: voxgig/docgen#33.
 
 ## How this was measured
 
@@ -92,4 +92,6 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 - Package size and file count: `npm pack --dry-run` for the Voxgig ts target, and the registry's `dist.unpackedSize` and `dist.fileCount` for the compared package.
 - Tests: `admin/scripts/cedar-test-all.sh` runs each target's generated suite.
 - Features: read from the code of the published package, crediting a feature only for a mechanism, not a word in the API's own models.
-
+- Rebuild: 2026-09-29, on create-sdkgen 0.30.4, sdkgen 4.32.1, apidef 8.22.0, model 12.0.0 and @tabnas/yaml 0.5.14, all as published, with no overlay.
+- Tests on the rebuild: all eight targets, the lua suite under Lua 5.4 with busted 2.2.0.
+- Scenario on the rebuild: the Voxgig side was re-run on 2026-09-29; the compared SDK's run is from 2026-09-28, and its package is unchanged. The generated create input honours the definition's minimums, which the first run did not.
