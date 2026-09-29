@@ -12,7 +12,7 @@ An entity groups related API operations. An operation can have several routes wi
 
 ## What the API provides
 
-### [Analytics](docs/api/analytics.html)
+### Analytics
 
 SDK operations: `create`.
 
@@ -20,7 +20,7 @@ Key fields to recognise:
 
 - `queries`: This is the list of metric queries you want to perform.
 
-### [Assistant](docs/api/assistant.html)
+### Assistant
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -32,7 +32,7 @@ Key fields to recognise:
 - `backgroundSpeechDenoisingPlan`: This enables filtering of noise and background speech while the user is talking. Features: - Smart denoising using Krisp - Fourier denoising Smart denoising can be combined with or used independently of Fourier denoising. Order of precedence: - Smart denoising - Fourier denoising
 - `clientMessages`: These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started,assistant.started. You can check the shape of the messages in ClientMessage schema.
 
-### [Board](docs/api/board.html)
+### Board
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -44,7 +44,7 @@ Key fields to recognise:
 - `layout`: This is the layout of the Board.
 - `name`: This is the name of the Board.
 
-### [Call](docs/api/call.html)
+### Call
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -56,7 +56,7 @@ Key fields to recognise:
 - `assistant`: This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead. To start a call with: - Assistant, use `assistant` - Squad, use `squad` - Workflow, use `workflow`
 - `assistantId`: This is the assistant ID that will be used for the call. To use a transient assistant, use `assistant` instead. To start a call with: - Assistant, use `assistantId` or `assistant` - Squad, use `squadId` or `squad` - Workflow, use `workflowId` or `workflow`
 
-### [Campaign](docs/api/campaign.html)
+### Campaign
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -68,7 +68,7 @@ Key fields to recognise:
 - `calls`: This is a map of call IDs to campaign call details.
 - `callsCounterEnded`: This is the number of calls that have ended.
 
-### [Chat](docs/api/chat.html)
+### Chat
 
 Results: Chat response - either non-streaming chat or streaming; OpenAI Responses API format - either non-streaming or streaming.
 
@@ -82,7 +82,7 @@ Key fields to recognise:
 - `cost`: This is the cost of the chat in USD.
 - `costs`: These are the costs of individual components of the chat in USD.
 
-### [CreateSimulationRun](docs/api/create_simulation_run.html)
+### CreateSimulationRun
 
 SDK operations: `create`.
 
@@ -93,7 +93,7 @@ Key fields to recognise:
 - `target`: Target to test against
 - `transport`: Transport configuration for the simulation runs
 
-### [Eval](docs/api/eval.html)
+### Eval
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -105,7 +105,7 @@ Key fields to recognise:
 - `endedAt`: This is the end time of the eval run result.
 - `endedMessage`: This is the ended message when the eval run ended for any reason apart from mockConversation.done
 
-### [File](docs/api/file.html)
+### File
 
 Results: File uploaded successfully.
 
@@ -119,7 +119,7 @@ Key fields to recognise:
 - `orgId`: This is the unique identifier for the org that this file belongs to.
 - `updatedAt`: This is the ISO 8601 date-time string of when the file was last updated.
 
-### [Insight](docs/api/insight.html)
+### Insight
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -131,7 +131,7 @@ Key fields to recognise:
 - `orgId`: This is the unique identifier for the org that this Insight belongs to.
 - `systemKey`: Stable server-owned identifier for system-created insights.
 
-### [KnowledgeBase](docs/api/knowledge_base.html)
+### KnowledgeBase
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -139,11 +139,11 @@ Key fields to recognise:
 
 - `toolId`: Id of the tool that searches this knowledge base (at most one per base; provisioned on creation). Attach it to an assistant via model.toolIds. Null when the base has no search tool yet.
 
-### [KnowledgeBaseV2File](docs/api/knowledge_base_v2_file.html)
+### KnowledgeBaseV2File
 
 SDK operations: `create`, `list`, `remove`.
 
-### [Personality](docs/api/personality.html)
+### Personality
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -155,7 +155,7 @@ Key fields to recognise:
 - `backgroundSound`: This is the background sound in the call. Default for phone calls is &#39;office&#39; and default for web calls is &#39;off&#39;. You can also provide a custom sound by providing a URL to an audio file.
 - `backgroundSpeechDenoisingPlan`: This enables filtering of noise and background speech while the user is talking. Features: - Smart denoising using Krisp - Fourier denoising Smart denoising can be combined with or used independently of Fourier denoising. Order of precedence: - Smart denoising - Fourier denoising
 
-### [PhoneNumber](docs/api/phone_number.html)
+### PhoneNumber
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -165,7 +165,7 @@ Key fields to recognise:
 - `metadata`: Metadata about the pagination.
 - `results`: A list of phone numbers, which can be of any provider type.
 
-### [Provider](docs/api/provider.html)
+### Provider
 
 Results: Successfully created provider resource; List of provider resources; Successfully retrieved provider resource.
 
@@ -175,7 +175,7 @@ Key fields to recognise:
 
 - `id`: This is the unique identifier for the provider resource.
 
-### [Scenario](docs/api/scenario.html)
+### Scenario
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -187,7 +187,7 @@ Key fields to recognise:
 - `id`: This is the unique identifier for the scenario.
 - `instructions`: This is the script/instructions for the tester to follow during the simulation.
 
-### [Scorecard](docs/api/scorecard.html)
+### Scorecard
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -199,7 +199,7 @@ Key fields to recognise:
 - `id`: This is the unique identifier for the scorecard.
 - `metrics`: These are the metrics that will be used to evaluate the scorecard. Each metric will have a set of conditions and points that will be used to generate the score.
 
-### [Session](docs/api/session.html)
+### Session
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -211,7 +211,7 @@ Key fields to recognise:
 - `assistantOverrides`: These are the overrides for the assistant configuration. Use this to provide variable values and other overrides when using assistantId. Variable substitution will be applied to the assistant&#39;s messages and other text-based fields.
 - `cost`: This is the cost of the session in USD.
 
-### [Simulation](docs/api/simulation.html)
+### Simulation
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -223,7 +223,7 @@ Key fields to recognise:
 - `name`: This is an optional friendly name for the simulation.
 - `orgId`: This is the unique identifier for the organization this simulation belongs to.
 
-### [SimulationRun](docs/api/simulation_run.html)
+### SimulationRun
 
 SDK operations: `load`, `update`.
 
@@ -235,7 +235,7 @@ Key fields to recognise:
 - `id`: Unique identifier for the run
 - `itemCounts`: Aggregate counts of run items by status
 
-### [SimulationRunItem](docs/api/simulation_run_item.html)
+### SimulationRunItem
 
 SDK operations: `create`, `list`, `load`, `update`.
 
@@ -247,7 +247,7 @@ Key fields to recognise:
 - `configurations`: This is the configuration for how this simulation run executes.
 - `createdAt`: This is the ISO 8601 date-time string of when the run item was created.
 
-### [SimulationSuite](docs/api/simulation_suite.html)
+### SimulationSuite
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -259,7 +259,7 @@ Key fields to recognise:
 - `orgId`: This is the unique identifier for the organization this suite belongs to.
 - `path`: Optional folder path for organizing simulation suites. Supports up to 3 levels (for example, &quot;dept/feature/variant&quot;). Maps to GitOps resource folder structure.
 
-### [Squad](docs/api/squad.html)
+### Squad
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -271,7 +271,7 @@ Key fields to recognise:
 - `members`: This is the list of assistants that make up the squad. The call will start with the first assistant in the list.
 - `membersOverrides`: This can be used to override all the assistants&#39; settings and provide values for their template variables. Both `membersOverrides` and `members[n].assistantOverrides` can be used together. First, `members[n].assistantOverrides` is applied. Then, `membersOverrides` is applied as a global override.
 
-### [StructuredOutput](docs/api/structured_output.html)
+### StructuredOutput
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -283,7 +283,7 @@ Key fields to recognise:
 - `createdAt`: This is the ISO 8601 date-time string of when the structured output was created.
 - `description`: This is the description of what the structured output extracts. Use this to provide context about what data will be extracted and how it will be used.
 
-### [Tool](docs/api/tool.html)
+### Tool
 
 SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
@@ -297,145 +297,145 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
-| [Analytics](docs/api/analytics.html) | `create` | `POST /analytics` | Required |
-| [Assistant](docs/api/assistant.html) | `create` | `POST /assistant` | Required |
-| [Assistant](docs/api/assistant.html) | `create` | `POST /assistant/background-sound/validate` | Required |
-| [Assistant](docs/api/assistant.html) | `list` | `GET /assistant` | Required |
-| [Assistant](docs/api/assistant.html) | `load` | `GET /assistant/{id}` | Required |
-| [Assistant](docs/api/assistant.html) | `remove` | `DELETE /assistant/{id}` | Required |
-| [Assistant](docs/api/assistant.html) | `update` | `PATCH /assistant/{id}` | Required |
-| [Board](docs/api/board.html) | `create` | `POST /reporting/board` | Required |
-| [Board](docs/api/board.html) | `list` | `GET /reporting/board` | Required |
-| [Board](docs/api/board.html) | `list` | `GET /reporting/board/default/metrics-overview` | Required |
-| [Board](docs/api/board.html) | `load` | `GET /reporting/board/{id}` | Required |
-| [Board](docs/api/board.html) | `remove` | `DELETE /reporting/board/{id}` | Required |
-| [Board](docs/api/board.html) | `update` | `PATCH /reporting/board/{id}` | Required |
-| [Call](docs/api/call.html) | `create` | `POST /call` | Required |
-| [Call](docs/api/call.html) | `list` | `GET /call` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}/assistant-recording` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}/call-logs` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}/customer-recording` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}/mono-recording` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}/pcap` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}/stereo-recording` | Required |
-| [Call](docs/api/call.html) | `load` | `GET /call/{id}/video-recording` | Required |
-| [Call](docs/api/call.html) | `remove` | `DELETE /call/{id}` | Required |
-| [Call](docs/api/call.html) | `update` | `PATCH /call/{id}` | Required |
-| [Campaign](docs/api/campaign.html) | `create` | `POST /campaign` | Required |
-| [Campaign](docs/api/campaign.html) | `create` | `POST /v2/campaign` | Required |
-| [Campaign](docs/api/campaign.html) | `list` | `GET /v2/campaign` | Required |
-| [Campaign](docs/api/campaign.html) | `list` | `GET /campaign` | Required |
-| [Campaign](docs/api/campaign.html) | `list` | `GET /v2/campaign/{id}/contacts` | Required |
-| [Campaign](docs/api/campaign.html) | `load` | `GET /v2/campaign/{id}` | Required |
-| [Campaign](docs/api/campaign.html) | `load` | `GET /campaign/{id}` | Required |
-| [Campaign](docs/api/campaign.html) | `remove` | `DELETE /campaign/{id}` | Required |
-| [Campaign](docs/api/campaign.html) | `remove` | `DELETE /v2/campaign/{id}` | Required |
-| [Campaign](docs/api/campaign.html) | `update` | `PATCH /campaign/{id}` | Required |
-| [Campaign](docs/api/campaign.html) | `update` | `PATCH /v2/campaign/{id}` | Required |
-| [Chat](docs/api/chat.html) | `create` | `POST /chat` | Required |
-| [Chat](docs/api/chat.html) | `create` | `POST /chat/responses` | Required |
-| [Chat](docs/api/chat.html) | `list` | `GET /chat` | Required |
-| [Chat](docs/api/chat.html) | `load` | `GET /chat/{id}` | Required |
-| [Chat](docs/api/chat.html) | `remove` | `DELETE /chat/{id}` | Required |
-| [CreateSimulationRun](docs/api/create_simulation_run.html) | `create` | `POST /eval/simulation/run` | Required |
-| [Eval](docs/api/eval.html) | `create` | `POST /eval` | Required |
-| [Eval](docs/api/eval.html) | `create` | `POST /eval/run` | Required |
-| [Eval](docs/api/eval.html) | `list` | `GET /eval/run` | Required |
-| [Eval](docs/api/eval.html) | `list` | `GET /eval` | Required |
-| [Eval](docs/api/eval.html) | `load` | `GET /eval/run/{id}` | Required |
-| [Eval](docs/api/eval.html) | `load` | `GET /eval/{id}` | Required |
-| [Eval](docs/api/eval.html) | `remove` | `DELETE /eval/run/{id}` | Required |
-| [Eval](docs/api/eval.html) | `remove` | `DELETE /eval/{id}` | Required |
-| [Eval](docs/api/eval.html) | `update` | `PATCH /eval/{id}` | Required |
-| [File](docs/api/file.html) | `create` | `POST /file` | Required |
-| [File](docs/api/file.html) | `list` | `GET /file` | Required |
-| [File](docs/api/file.html) | `load` | `GET /file/{id}` | Required |
-| [File](docs/api/file.html) | `remove` | `DELETE /file/{id}` | Required |
-| [File](docs/api/file.html) | `update` | `PATCH /file/{id}` | Required |
-| [Insight](docs/api/insight.html) | `create` | `POST /reporting/insight/{id}/run` | Required |
-| [Insight](docs/api/insight.html) | `create` | `POST /reporting/insight` | Required |
-| [Insight](docs/api/insight.html) | `create` | `POST /reporting/insight/preview` | Required |
-| [Insight](docs/api/insight.html) | `list` | `GET /reporting/insight` | Required |
-| [Insight](docs/api/insight.html) | `load` | `GET /reporting/insight/{id}` | Required |
-| [Insight](docs/api/insight.html) | `remove` | `DELETE /reporting/insight/{id}` | Required |
-| [Insight](docs/api/insight.html) | `update` | `PATCH /reporting/insight/{id}` | Required |
-| [KnowledgeBase](docs/api/knowledge_base.html) | `create` | `POST /v2/knowledge-base` | Required |
-| [KnowledgeBase](docs/api/knowledge_base.html) | `list` | `GET /v2/knowledge-base` | Required |
-| [KnowledgeBase](docs/api/knowledge_base.html) | `load` | `GET /v2/knowledge-base/{id}` | Required |
-| [KnowledgeBase](docs/api/knowledge_base.html) | `remove` | `DELETE /v2/knowledge-base/{id}` | Required |
-| [KnowledgeBase](docs/api/knowledge_base.html) | `update` | `PATCH /v2/knowledge-base/{id}` | Required |
-| [KnowledgeBaseV2File](docs/api/knowledge_base_v2_file.html) | `create` | `POST /v2/knowledge-base/{id}/file/{fileId}/retry` | Required |
-| [KnowledgeBaseV2File](docs/api/knowledge_base_v2_file.html) | `create` | `POST /v2/knowledge-base/{id}/file` | Required |
-| [KnowledgeBaseV2File](docs/api/knowledge_base_v2_file.html) | `list` | `GET /v2/knowledge-base/{id}/file` | Required |
-| [KnowledgeBaseV2File](docs/api/knowledge_base_v2_file.html) | `remove` | `DELETE /v2/knowledge-base/{id}/file/{fileId}` | Required |
-| [Personality](docs/api/personality.html) | `create` | `POST /eval/simulation/personality` | Required |
-| [Personality](docs/api/personality.html) | `list` | `GET /eval/simulation/personality` | Required |
-| [Personality](docs/api/personality.html) | `load` | `GET /eval/simulation/personality/{id}` | Required |
-| [Personality](docs/api/personality.html) | `remove` | `DELETE /eval/simulation/personality/{id}` | Required |
-| [Personality](docs/api/personality.html) | `update` | `PATCH /eval/simulation/personality/{id}` | Required |
-| [PhoneNumber](docs/api/phone_number.html) | `create` | `POST /phone-number` | Required |
-| [PhoneNumber](docs/api/phone_number.html) | `list` | `GET /v2/phone-number` | Required |
-| [PhoneNumber](docs/api/phone_number.html) | `list` | `GET /phone-number` | Required |
-| [PhoneNumber](docs/api/phone_number.html) | `load` | `GET /phone-number/{id}` | Required |
-| [PhoneNumber](docs/api/phone_number.html) | `remove` | `DELETE /phone-number/{id}` | Required |
-| [PhoneNumber](docs/api/phone_number.html) | `update` | `PATCH /phone-number/{id}` | Required |
-| [Provider](docs/api/provider.html) | `create` | `POST /provider/{provider}/{resourceName}` | Required |
-| [Provider](docs/api/provider.html) | `load` | `GET /provider/{provider}/{resourceName}` | Required |
-| [Provider](docs/api/provider.html) | `load` | `GET /provider/{provider}/{resourceName}/{id}` | Required |
-| [Provider](docs/api/provider.html) | `remove` | `DELETE /provider/{provider}/{resourceName}/{id}` | Required |
-| [Provider](docs/api/provider.html) | `update` | `PATCH /provider/{provider}/{resourceName}/{id}` | Required |
-| [Scenario](docs/api/scenario.html) | `create` | `POST /eval/simulation/scenario` | Required |
-| [Scenario](docs/api/scenario.html) | `list` | `GET /eval/simulation/scenario` | Required |
-| [Scenario](docs/api/scenario.html) | `load` | `GET /eval/simulation/scenario/{id}` | Required |
-| [Scenario](docs/api/scenario.html) | `remove` | `DELETE /eval/simulation/scenario/{id}` | Required |
-| [Scenario](docs/api/scenario.html) | `update` | `PATCH /eval/simulation/scenario/{id}` | Required |
-| [Scorecard](docs/api/scorecard.html) | `create` | `POST /observability/scorecard` | Required |
-| [Scorecard](docs/api/scorecard.html) | `list` | `GET /observability/scorecard` | Required |
-| [Scorecard](docs/api/scorecard.html) | `load` | `GET /observability/scorecard/{id}` | Required |
-| [Scorecard](docs/api/scorecard.html) | `remove` | `DELETE /observability/scorecard/{id}` | Required |
-| [Scorecard](docs/api/scorecard.html) | `update` | `PATCH /observability/scorecard/{id}` | Required |
-| [Session](docs/api/session.html) | `create` | `POST /session` | Required |
-| [Session](docs/api/session.html) | `list` | `GET /session` | Required |
-| [Session](docs/api/session.html) | `load` | `GET /session/{id}` | Required |
-| [Session](docs/api/session.html) | `remove` | `DELETE /session/{id}` | Required |
-| [Session](docs/api/session.html) | `update` | `PATCH /session/{id}` | Required |
-| [Simulation](docs/api/simulation.html) | `create` | `POST /eval/simulation` | Required |
-| [Simulation](docs/api/simulation.html) | `create` | `POST /eval/simulation/scenario/generate` | Required |
-| [Simulation](docs/api/simulation.html) | `list` | `GET /eval/simulation` | Required |
-| [Simulation](docs/api/simulation.html) | `load` | `GET /eval/simulation/{id}` | Required |
-| [Simulation](docs/api/simulation.html) | `load` | `GET /eval/simulation/concurrency` | Required |
-| [Simulation](docs/api/simulation.html) | `remove` | `DELETE /eval/simulation/{id}` | Required |
-| [Simulation](docs/api/simulation.html) | `update` | `PATCH /eval/simulation/{id}` | Required |
-| [SimulationRun](docs/api/simulation_run.html) | `load` | `GET /eval/simulation/run` | Required |
-| [SimulationRun](docs/api/simulation_run.html) | `load` | `GET /eval/simulation/run/{id}` | Required |
-| [SimulationRun](docs/api/simulation_run.html) | `update` | `PATCH /eval/simulation/run/{id}` | Required |
-| [SimulationRunItem](docs/api/simulation_run_item.html) | `create` | `POST /eval/simulation/run/{id}/item/{itemId}/generate` | Required |
-| [SimulationRunItem](docs/api/simulation_run_item.html) | `list` | `GET /eval/simulation/run/{id}/item` | Required |
-| [SimulationRunItem](docs/api/simulation_run_item.html) | `load` | `GET /eval/simulation/run/{id}/item/{itemId}` | Required |
-| [SimulationRunItem](docs/api/simulation_run_item.html) | `update` | `PATCH /eval/simulation/run/{id}/item/{itemId}` | Required |
-| [SimulationSuite](docs/api/simulation_suite.html) | `create` | `POST /eval/simulation/suite/{id}/duplicate` | Required |
-| [SimulationSuite](docs/api/simulation_suite.html) | `create` | `POST /eval/simulation/suite` | Required |
-| [SimulationSuite](docs/api/simulation_suite.html) | `list` | `GET /eval/simulation/suite` | Required |
-| [SimulationSuite](docs/api/simulation_suite.html) | `load` | `GET /eval/simulation/suite/{id}` | Required |
-| [SimulationSuite](docs/api/simulation_suite.html) | `remove` | `DELETE /eval/simulation/suite/{id}` | Required |
-| [SimulationSuite](docs/api/simulation_suite.html) | `update` | `PATCH /eval/simulation/suite/{id}` | Required |
-| [Squad](docs/api/squad.html) | `create` | `POST /squad` | Required |
-| [Squad](docs/api/squad.html) | `list` | `GET /squad` | Required |
-| [Squad](docs/api/squad.html) | `load` | `GET /squad/{id}` | Required |
-| [Squad](docs/api/squad.html) | `remove` | `DELETE /squad/{id}` | Required |
-| [Squad](docs/api/squad.html) | `update` | `PATCH /squad/{id}` | Required |
-| [StructuredOutput](docs/api/structured_output.html) | `create` | `POST /structured-output` | Required |
-| [StructuredOutput](docs/api/structured_output.html) | `create` | `POST /structured-output/run` | Required |
-| [StructuredOutput](docs/api/structured_output.html) | `list` | `GET /structured-output` | Required |
-| [StructuredOutput](docs/api/structured_output.html) | `load` | `GET /structured-output/{id}` | Required |
-| [StructuredOutput](docs/api/structured_output.html) | `remove` | `DELETE /structured-output/{id}` | Required |
-| [StructuredOutput](docs/api/structured_output.html) | `update` | `PATCH /structured-output/{id}` | Required |
-| [Tool](docs/api/tool.html) | `create` | `POST /tool` | Required |
-| [Tool](docs/api/tool.html) | `list` | `GET /tool` | Required |
-| [Tool](docs/api/tool.html) | `load` | `GET /tool/{id}` | Required |
-| [Tool](docs/api/tool.html) | `remove` | `DELETE /tool/{id}` | Required |
-| [Tool](docs/api/tool.html) | `update` | `PATCH /tool/{id}` | Required |
+| Analytics | `create` | `POST /analytics` | Required |
+| Assistant | `create` | `POST /assistant` | Required |
+| Assistant | `create` | `POST /assistant/background-sound/validate` | Required |
+| Assistant | `list` | `GET /assistant` | Required |
+| Assistant | `load` | `GET /assistant/{id}` | Required |
+| Assistant | `remove` | `DELETE /assistant/{id}` | Required |
+| Assistant | `update` | `PATCH /assistant/{id}` | Required |
+| Board | `create` | `POST /reporting/board` | Required |
+| Board | `list` | `GET /reporting/board` | Required |
+| Board | `list` | `GET /reporting/board/default/metrics-overview` | Required |
+| Board | `load` | `GET /reporting/board/{id}` | Required |
+| Board | `remove` | `DELETE /reporting/board/{id}` | Required |
+| Board | `update` | `PATCH /reporting/board/{id}` | Required |
+| Call | `create` | `POST /call` | Required |
+| Call | `list` | `GET /call` | Required |
+| Call | `load` | `GET /call/{id}` | Required |
+| Call | `load` | `GET /call/{id}/assistant-recording` | Required |
+| Call | `load` | `GET /call/{id}/call-logs` | Required |
+| Call | `load` | `GET /call/{id}/customer-recording` | Required |
+| Call | `load` | `GET /call/{id}/mono-recording` | Required |
+| Call | `load` | `GET /call/{id}/pcap` | Required |
+| Call | `load` | `GET /call/{id}/stereo-recording` | Required |
+| Call | `load` | `GET /call/{id}/video-recording` | Required |
+| Call | `remove` | `DELETE /call/{id}` | Required |
+| Call | `update` | `PATCH /call/{id}` | Required |
+| Campaign | `create` | `POST /campaign` | Required |
+| Campaign | `create` | `POST /v2/campaign` | Required |
+| Campaign | `list` | `GET /v2/campaign` | Required |
+| Campaign | `list` | `GET /campaign` | Required |
+| Campaign | `list` | `GET /v2/campaign/{id}/contacts` | Required |
+| Campaign | `load` | `GET /v2/campaign/{id}` | Required |
+| Campaign | `load` | `GET /campaign/{id}` | Required |
+| Campaign | `remove` | `DELETE /campaign/{id}` | Required |
+| Campaign | `remove` | `DELETE /v2/campaign/{id}` | Required |
+| Campaign | `update` | `PATCH /campaign/{id}` | Required |
+| Campaign | `update` | `PATCH /v2/campaign/{id}` | Required |
+| Chat | `create` | `POST /chat` | Required |
+| Chat | `create` | `POST /chat/responses` | Required |
+| Chat | `list` | `GET /chat` | Required |
+| Chat | `load` | `GET /chat/{id}` | Required |
+| Chat | `remove` | `DELETE /chat/{id}` | Required |
+| CreateSimulationRun | `create` | `POST /eval/simulation/run` | Required |
+| Eval | `create` | `POST /eval` | Required |
+| Eval | `create` | `POST /eval/run` | Required |
+| Eval | `list` | `GET /eval/run` | Required |
+| Eval | `list` | `GET /eval` | Required |
+| Eval | `load` | `GET /eval/run/{id}` | Required |
+| Eval | `load` | `GET /eval/{id}` | Required |
+| Eval | `remove` | `DELETE /eval/run/{id}` | Required |
+| Eval | `remove` | `DELETE /eval/{id}` | Required |
+| Eval | `update` | `PATCH /eval/{id}` | Required |
+| File | `create` | `POST /file` | Required |
+| File | `list` | `GET /file` | Required |
+| File | `load` | `GET /file/{id}` | Required |
+| File | `remove` | `DELETE /file/{id}` | Required |
+| File | `update` | `PATCH /file/{id}` | Required |
+| Insight | `create` | `POST /reporting/insight/{id}/run` | Required |
+| Insight | `create` | `POST /reporting/insight` | Required |
+| Insight | `create` | `POST /reporting/insight/preview` | Required |
+| Insight | `list` | `GET /reporting/insight` | Required |
+| Insight | `load` | `GET /reporting/insight/{id}` | Required |
+| Insight | `remove` | `DELETE /reporting/insight/{id}` | Required |
+| Insight | `update` | `PATCH /reporting/insight/{id}` | Required |
+| KnowledgeBase | `create` | `POST /v2/knowledge-base` | Required |
+| KnowledgeBase | `list` | `GET /v2/knowledge-base` | Required |
+| KnowledgeBase | `load` | `GET /v2/knowledge-base/{id}` | Required |
+| KnowledgeBase | `remove` | `DELETE /v2/knowledge-base/{id}` | Required |
+| KnowledgeBase | `update` | `PATCH /v2/knowledge-base/{id}` | Required |
+| KnowledgeBaseV2File | `create` | `POST /v2/knowledge-base/{id}/file/{fileId}/retry` | Required |
+| KnowledgeBaseV2File | `create` | `POST /v2/knowledge-base/{id}/file` | Required |
+| KnowledgeBaseV2File | `list` | `GET /v2/knowledge-base/{id}/file` | Required |
+| KnowledgeBaseV2File | `remove` | `DELETE /v2/knowledge-base/{id}/file/{fileId}` | Required |
+| Personality | `create` | `POST /eval/simulation/personality` | Required |
+| Personality | `list` | `GET /eval/simulation/personality` | Required |
+| Personality | `load` | `GET /eval/simulation/personality/{id}` | Required |
+| Personality | `remove` | `DELETE /eval/simulation/personality/{id}` | Required |
+| Personality | `update` | `PATCH /eval/simulation/personality/{id}` | Required |
+| PhoneNumber | `create` | `POST /phone-number` | Required |
+| PhoneNumber | `list` | `GET /v2/phone-number` | Required |
+| PhoneNumber | `list` | `GET /phone-number` | Required |
+| PhoneNumber | `load` | `GET /phone-number/{id}` | Required |
+| PhoneNumber | `remove` | `DELETE /phone-number/{id}` | Required |
+| PhoneNumber | `update` | `PATCH /phone-number/{id}` | Required |
+| Provider | `create` | `POST /provider/{provider}/{resourceName}` | Required |
+| Provider | `load` | `GET /provider/{provider}/{resourceName}` | Required |
+| Provider | `load` | `GET /provider/{provider}/{resourceName}/{id}` | Required |
+| Provider | `remove` | `DELETE /provider/{provider}/{resourceName}/{id}` | Required |
+| Provider | `update` | `PATCH /provider/{provider}/{resourceName}/{id}` | Required |
+| Scenario | `create` | `POST /eval/simulation/scenario` | Required |
+| Scenario | `list` | `GET /eval/simulation/scenario` | Required |
+| Scenario | `load` | `GET /eval/simulation/scenario/{id}` | Required |
+| Scenario | `remove` | `DELETE /eval/simulation/scenario/{id}` | Required |
+| Scenario | `update` | `PATCH /eval/simulation/scenario/{id}` | Required |
+| Scorecard | `create` | `POST /observability/scorecard` | Required |
+| Scorecard | `list` | `GET /observability/scorecard` | Required |
+| Scorecard | `load` | `GET /observability/scorecard/{id}` | Required |
+| Scorecard | `remove` | `DELETE /observability/scorecard/{id}` | Required |
+| Scorecard | `update` | `PATCH /observability/scorecard/{id}` | Required |
+| Session | `create` | `POST /session` | Required |
+| Session | `list` | `GET /session` | Required |
+| Session | `load` | `GET /session/{id}` | Required |
+| Session | `remove` | `DELETE /session/{id}` | Required |
+| Session | `update` | `PATCH /session/{id}` | Required |
+| Simulation | `create` | `POST /eval/simulation` | Required |
+| Simulation | `create` | `POST /eval/simulation/scenario/generate` | Required |
+| Simulation | `list` | `GET /eval/simulation` | Required |
+| Simulation | `load` | `GET /eval/simulation/{id}` | Required |
+| Simulation | `load` | `GET /eval/simulation/concurrency` | Required |
+| Simulation | `remove` | `DELETE /eval/simulation/{id}` | Required |
+| Simulation | `update` | `PATCH /eval/simulation/{id}` | Required |
+| SimulationRun | `load` | `GET /eval/simulation/run` | Required |
+| SimulationRun | `load` | `GET /eval/simulation/run/{id}` | Required |
+| SimulationRun | `update` | `PATCH /eval/simulation/run/{id}` | Required |
+| SimulationRunItem | `create` | `POST /eval/simulation/run/{id}/item/{itemId}/generate` | Required |
+| SimulationRunItem | `list` | `GET /eval/simulation/run/{id}/item` | Required |
+| SimulationRunItem | `load` | `GET /eval/simulation/run/{id}/item/{itemId}` | Required |
+| SimulationRunItem | `update` | `PATCH /eval/simulation/run/{id}/item/{itemId}` | Required |
+| SimulationSuite | `create` | `POST /eval/simulation/suite/{id}/duplicate` | Required |
+| SimulationSuite | `create` | `POST /eval/simulation/suite` | Required |
+| SimulationSuite | `list` | `GET /eval/simulation/suite` | Required |
+| SimulationSuite | `load` | `GET /eval/simulation/suite/{id}` | Required |
+| SimulationSuite | `remove` | `DELETE /eval/simulation/suite/{id}` | Required |
+| SimulationSuite | `update` | `PATCH /eval/simulation/suite/{id}` | Required |
+| Squad | `create` | `POST /squad` | Required |
+| Squad | `list` | `GET /squad` | Required |
+| Squad | `load` | `GET /squad/{id}` | Required |
+| Squad | `remove` | `DELETE /squad/{id}` | Required |
+| Squad | `update` | `PATCH /squad/{id}` | Required |
+| StructuredOutput | `create` | `POST /structured-output` | Required |
+| StructuredOutput | `create` | `POST /structured-output/run` | Required |
+| StructuredOutput | `list` | `GET /structured-output` | Required |
+| StructuredOutput | `load` | `GET /structured-output/{id}` | Required |
+| StructuredOutput | `remove` | `DELETE /structured-output/{id}` | Required |
+| StructuredOutput | `update` | `PATCH /structured-output/{id}` | Required |
+| Tool | `create` | `POST /tool` | Required |
+| Tool | `list` | `GET /tool` | Required |
+| Tool | `load` | `GET /tool/{id}` | Required |
+| Tool | `remove` | `DELETE /tool/{id}` | Required |
+| Tool | `update` | `PATCH /tool/{id}` | Required |
 
 ## Connect to the API
 
@@ -461,12 +461,12 @@ Choose the language already used by your application or service. The clients rep
 
 | Client | Repository directory | Distribution |
 | --- | --- | --- |
-| [Golang](docs/sdks/go.html) | `go/` | Build from source |
-| [Lua](docs/sdks/lua.html) | `lua/` | Build from source |
-| [PHP](docs/sdks/php.html) | `php/` | Build from source |
-| [Python](docs/sdks/py.html) | `py/` | Build from source |
-| [Ruby](docs/sdks/rb.html) | `rb/` | Build from source |
-| [TypeScript](docs/sdks/ts.html) | `ts/` | Build from source |
+| Golang | `go/` | Build from source |
+| Lua | `lua/` | Build from source |
+| PHP | `php/` | Build from source |
+| Python | `py/` | Build from source |
+| Ruby | `rb/` | Build from source |
+| TypeScript | `ts/` | Build from source |
 
 Build-from-source entries are not marked as published in the project model. Follow the build instructions in that target’s README, then consume the resulting package using your language’s local dependency mechanism. Published entries give the installation command recorded for that client.
 
@@ -474,14 +474,14 @@ Build-from-source entries are not marked as published in the project model. Foll
 
 These targets provide another way to use the API. Their available commands or tools can cover a smaller set of operations than the client libraries.
 
-### [Go CLI](docs/tools/go-cli.html)
+### Go CLI
 
 Use the command-line interface for shell-based tasks and scripts.
 
 Repository directory: `go-cli/`. Not published. Build from the go-cli directory.
 
 
-### [Go MCP server](docs/tools/go-mcp.html)
+### Go MCP server
 
 Use the MCP server to expose supported API operations to an MCP client.
 
@@ -494,21 +494,21 @@ Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
 Features supply behaviour around API calls, such as request handling, diagnostics, or local testing. Inclusion in this project does not mean a feature is enabled at runtime. Check the selected SDK’s supported features and configuration defaults, then enable the behaviour your application needs.
 
-- [`debug`](docs/features/debug.html): Request/response capture ring buffer for debugging
-- [`idempotency`](docs/features/idempotency.html): Idempotency keys for safe retries of mutating operations
-- [`metrics`](docs/features/metrics.html): Statistics capture: per-operation counters and latency
-- [`paging`](docs/features/paging.html): Pagination signals for list operations
-- [`ratelimit`](docs/features/ratelimit.html): Client-side rate limiting via a token bucket
-- [`retry`](docs/features/retry.html): Automatic retry of transient failures with exponential backoff
-- [`test`](docs/features/test.html): In-memory mock transport for testing without a live server
-- [`timeout`](docs/features/timeout.html): Per-request timeout with transport abort
+- `debug`: Request/response capture ring buffer for debugging
+- `idempotency`: Idempotency keys for safe retries of mutating operations
+- `metrics`: Statistics capture: per-operation counters and latency
+- `paging`: Pagination signals for list operations
+- `ratelimit`: Client-side rate limiting via a token bucket
+- `retry`: Automatic retry of transient failures with exponential backoff
+- `test`: In-memory mock transport for testing without a live server
+- `timeout`: Per-request timeout with transport abort
 
 Start with the default client configuration. Add request limits and diagnostics as needed, test error paths, and review retry behaviour before using operations that change data. A retry can repeat an operation unless the API provides a suitable guarantee.
 
 ## Continue with the documentation
 
-- Follow the [first-call guide](docs/guides/first-call.html) for the setup sequence.
-- Read the [authentication guide](docs/guides/authentication.html) before using protected routes.
-- Use the [API reference](docs/api/index.html) for request schemas, response formats, and status codes.
+- Follow the first-call guide for the setup sequence.
+- Read the authentication guide before using protected routes.
+- Use the API reference for request schemas, response formats, and status codes.
 - Check the chosen SDK or companion tool reference for its configuration and supported operations.
 
